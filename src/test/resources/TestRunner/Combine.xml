@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Static_Data suite" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Static_Data test" verbose="2">
+    <classes>
+      <class name="Static_Data_V3.StaticData_Account"/>
+      <class name="Static_Data_V3.StaticData_Blotter_Permissions"/>
+      <class name="Static_Data_V3.StaticData_LocateTIF"/>
+      <class name="Static_Data_V3.StaticData_ETBHTB"/>
+      <class name="Static_Data_V3.StaticData_MktTopPerfCateg"/>
+      <class name="Static_Data_V3.StaticData_Destination_TraderOnly"/>
+      <class name="Static_Data_V3.StaticData_MktTopPerfExchange"/>
+      <class name="Static_Data_V3.StaticData_Account"/>
+      <class name="Static_Data_V3.StaticData_TIF"/>
+      <class name="Static_Data_V3.StaticData_OrdType"/>
+      <class name="Static_Data_V3.StaticData_Option_Destination"/>
+      <class name="Static_Data_V3.StaticData_Destination"/>
+      <class name="Static_Data_V3.StaticData_Side"/>
+      <class name="Static_Data_V3.StaticData_CommType"/>
+      <class name="Static_Data_V3.StaticData_BlotterPackage_Permissions"/>
+       <!-- Static_Data_V3.StaticData_Account -->
+      
+      <class name="IdentityServer_API_User.Login">
+        <methods>
+          <include name="UserLogin"/>
+        </methods>
+      </class> <!-- IdentityServer_API_User.Login -->
+      
+       <class name="IdentityServer_API_User.Login">
+        <methods>
+          <include name="UserLogin"/>
+        </methods>
+      </class> <!-- IdentityServer_API_User.Login -->
+      
+       <class name="LocatesV1.Locates">
+        <methods>
+          <include name="Verify_Post_Locates"/>
+        </methods>
+      </class> <!-- LocatesV1.Locates -->
+      
+      <class name="LocatesV1.Subscribe_Locates">
+        <methods>
+          <include name="Verify_Subscribe_Locates"/>
+        </methods>
+      </class> <!-- LocatesV1.Subscribe_Locates -->
+      
+      <class name="LocatesV1.Locates_Acquire">
+        <methods>
+          <include name="Verify_Locates_Acquire"/>
+        </methods>
+      </class> <!-- LocatesV1.Locates_Acquire -->
+      
+      <class name="LocatesV1.Summary_Available_Subscribe">
+        <methods>
+          <include name="Verify_Summary_Locate_Subscribe"/>
+        </methods>
+      </class> <!-- LocatesV1.Summary_Available_Subscribe -->
+      
+      
+      <class name="LocatesV1.Summary_Available_UnSubscribe">
+        <methods>
+          <include name="Verify_Summary_Available_UnSubscribe"/>
+        </methods>
+      </class> <!-- LocatesV1.Summary_Available_UnSubscribe -->
+      
+      
+      <class name="LocatesV1.Summary_Locate_Subscribe">
+        <methods>
+          <include name="Verify_Summary_Locate_Subscribe"/>
+        </methods>
+      </class> <!-- LocatesV1.Summary_Locate_Subscribe -->
+      
+      
+      <class name="LocatesV1.Summary_Locate_UnSubscribe">
+        <methods>
+          <include name="Verify_Summary_Locate_UnSubscribe"/>
+        </methods>
+      </class> <!-- LocatesV1.Summary_Locate_UnSubscribe -->
+      
+	  
+	  <class name="LocatesV1.UnSubscribe_Locates">
+        <methods>
+          <include name="Verify_UnSubscribe_Locates"/>
+        </methods>
+      </class> <!-- LocatesV1.UnSubscribe_Locates -->
+      
+    </classes>
+  </test> <!-- Static_Data test -->
+</suite> <!-- Static_Data suite -->
+            

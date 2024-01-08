@@ -1,0 +1,958 @@
+2023-12-19T17:57:14,410 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,420 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2023-12-19T17:57:14,421 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,422 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,422 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,422 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,423 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,423 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,423 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,423 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,424 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,424 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,424 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,424 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,424 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,424 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,429 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,429 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,429 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,429 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,433 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,433 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,433 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,434 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,434 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,434 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,435 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,435 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,436 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,436 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,436 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,436 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,437 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,437 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,438 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,438 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,441 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2023-12-19T17:57:14,450 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 8 ms.
+2023-12-19T17:57:14,451 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,452 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,453 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,453 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,454 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,454 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,456 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2023-12-19T17:57:14,458 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2023-12-19T17:57:14,459 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,459 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,459 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T17:57:14,460 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T17:57:14,468 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  C:\Users\ajmal.syed.LOGICIELSERVICE\AppData\Local\Temp\testng-eclipse--474586122\testng-customsuite.xml
+
+2023-12-19T17:57:14,492 [main] INFO  (Logger.java:112) - [Utils] DynamicGraphHelper.createDynamicGraph() took 8 ms.
+2023-12-19T17:57:15,429 [main] INFO  (Login.java:26) - ====================================================================
+2023-12-19T17:57:15,430 [main] INFO  (Login.java:27) - TestCase : Verify_UserLogin_TC0001
+2023-12-19T17:57:15,430 [main] INFO  (Login.java:28) - ====================================================================
+2023-12-19T17:57:17,683 [main] INFO  (APIHelperClass.java:144) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2023-12-19T17:57:17,683 [main] INFO  (APIHelperClass.java:145) - API-Content_Type : [application/json]
+2023-12-19T17:57:17,683 [main] INFO  (APIHelperClass.java:146) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2023-12-19T17:57:17,683 [main] INFO  (APIHelperClass.java:147) - API-Status_Code_Step1_StatusCode : [202]
+2023-12-19T17:57:17,695 [main] INFO  (APIHelperClass.java:148) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"532ea0b8-370f-408d-bd88-e88d165a4b8d","status":true,"message":"Proceed with TFA to complete the login"}]
+2023-12-19T17:57:18,145 [main] INFO  (APIHelperClass.java:152) - API-getCodeID : [532ea0b8-370f-408d-bd88-e88d165a4b8d]
+2023-12-19T17:57:18,145 [main] INFO  (APIHelperClass.java:153) - API-TFACode : [123456]
+2023-12-19T17:57:18,955 [main] INFO  (APIHelperClass.java:171) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/532ea0b8-370f-408d-bd88-e88d165a4b8d/123456]
+2023-12-19T17:57:18,955 [main] INFO  (APIHelperClass.java:172) - API-response_Login_Step2_StatusCode : [200]
+2023-12-19T17:57:18,956 [main] INFO  (APIHelperClass.java:173) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDI5OTA2MzgsImV4cCI6MTcwMjk5MTIzOCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzAyOTkwNjM4LCJpZHAiOiJsb2NhbCIsImp0aSI6IkQ5QzMzNjM5OTczMDdEQjkwQ0E3OThBQzFEN0QyNjA0IiwiaWF0IjoxNzAyOTkwNjM4LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.ZkBG9r_cHwHrnxCQIoj2sJi5tpXIIdTTyRklLDyYvbyswZ9VEJP9GzpMSP1hcKuZIgJnb4ynJpai4YDy7Oo47HPiBP7IZ2_Ah2Jo9lz8UbQoF7J1i24TsoSaeBTNFd71kTFyTmeD18GJfBPlSuvwO9TylY8X2HmlghLwjwY1iAHUmecrYY77zW7UWx11YvePPaBrs1g7NZ3desVGfJvRwploUp0yMm8ORMlM-sAQdzB8UzLZTpeNF_aAZMObyVktwSW8IQGigPQsaRzReYNwihR4zsj0YMrhkuAagIXjgkF-ymPEP73Y8CpoWxXQyCc1xAAPdCq51yQOjVXxyLoabA","expires_in":600,"token_type":"Bearer","refresh_token":"DC3355231BDCD702F1A2F87C711415217C65329CFDE865699C0E68E5BFC3B13C","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2023-12-19T17:57:18,968 [main] INFO  (Login.java:41) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDI5OTA2MzgsImV4cCI6MTcwMjk5MTIzOCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzAyOTkwNjM4LCJpZHAiOiJsb2NhbCIsImp0aSI6IkQ5QzMzNjM5OTczMDdEQjkwQ0E3OThBQzFEN0QyNjA0IiwiaWF0IjoxNzAyOTkwNjM4LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.ZkBG9r_cHwHrnxCQIoj2sJi5tpXIIdTTyRklLDyYvbyswZ9VEJP9GzpMSP1hcKuZIgJnb4ynJpai4YDy7Oo47HPiBP7IZ2_Ah2Jo9lz8UbQoF7J1i24TsoSaeBTNFd71kTFyTmeD18GJfBPlSuvwO9TylY8X2HmlghLwjwY1iAHUmecrYY77zW7UWx11YvePPaBrs1g7NZ3desVGfJvRwploUp0yMm8ORMlM-sAQdzB8UzLZTpeNF_aAZMObyVktwSW8IQGigPQsaRzReYNwihR4zsj0YMrhkuAagIXjgkF-ymPEP73Y8CpoWxXQyCc1xAAPdCq51yQOjVXxyLoabA]
+2023-12-19T17:57:19,593 [main] INFO  (Flat_Positions.java:143) - ======================================================================================
+2023-12-19T17:57:19,593 [main] INFO  (Flat_Positions.java:144) - TestCase : Flat_Option_Position [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T17:57:19,593 [main] INFO  (Flat_Positions.java:145) - ======================================================================================
+2023-12-19T17:57:20,426 [main] INFO  (Flat_Positions.java:158) - API-Subscribe_Order_Positions_BasePath : [/int/ord/api/v3/subscription/optionpositions/subscribe]
+2023-12-19T17:57:20,426 [main] INFO  (Flat_Positions.java:159) - API-Subscribe_Order_Positions_StatusCode : [200]
+2023-12-19T17:57:20,660 [main] INFO  (APIHelperClass.java:1810) - API-Position Data Not Exist Against : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T17:57:20,661 [main] INFO  (Flat_Positions.java:192) - API-Get Option LONGrealizedPnL After Flat : [0.0]
+2023-12-19T17:57:20,661 [main] INFO  (Flat_Positions.java:193) - API-Get Option SHORTrealizedPnL After Flat : [0.0]
+2023-12-19T17:57:20,664 [main] INFO  (Flat_Positions.java:143) - ======================================================================================
+2023-12-19T17:57:20,664 [main] INFO  (Flat_Positions.java:144) - TestCase : Flat_Option_Position [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T17:57:20,665 [main] INFO  (Flat_Positions.java:145) - ======================================================================================
+2023-12-19T17:57:21,266 [main] INFO  (Flat_Positions.java:158) - API-Subscribe_Order_Positions_BasePath : [/int/ord/api/v3/subscription/optionpositions/subscribe]
+2023-12-19T17:57:21,266 [main] INFO  (Flat_Positions.java:159) - API-Subscribe_Order_Positions_StatusCode : [200]
+2023-12-19T17:57:21,437 [main] INFO  (APIHelperClass.java:1810) - API-Position Data Not Exist Against : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T17:57:21,438 [main] INFO  (Flat_Positions.java:192) - API-Get Option LONGrealizedPnL After Flat : [0.0]
+2023-12-19T17:57:21,438 [main] INFO  (Flat_Positions.java:193) - API-Get Option SHORTrealizedPnL After Flat : [0.0]
+2023-12-19T17:57:21,465 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.internal.ExitCodeListener@4544ab46: 0 ms
+2023-12-19T17:57:21,488 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@4aba7617: 23 ms
+2023-12-19T17:57:21,532 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.jq.Main@c6244e7: 43 ms
+2023-12-19T17:57:21,532 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.FailedReporter@25dad235: 0 ms
+2023-12-19T17:57:21,539 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.XMLReporter@7e0883f3: 6 ms
+2023-12-19T17:57:21,544 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@4e030feb: 4 ms
+2023-12-19T17:57:21,550 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@37c37d67: 6 ms
+2023-12-19T18:01:50,322 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,328 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2023-12-19T18:01:50,330 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,330 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,330 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,330 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,331 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,331 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,331 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,332 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,332 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,332 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,333 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,333 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,333 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,333 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,340 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2023-12-19T18:01:50,348 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 6 ms.
+2023-12-19T18:01:50,349 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,349 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,351 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,351 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,351 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,352 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,352 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,352 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,352 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,353 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,353 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,353 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,353 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,353 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,354 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,354 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,354 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,354 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,354 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,354 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,355 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,355 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,357 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,357 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,357 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,358 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,358 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,358 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,358 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,358 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,359 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,359 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,359 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,359 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,360 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,360 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,360 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,360 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,361 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,361 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,362 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,363 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,364 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,365 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,365 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,365 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,369 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 2 ms.
+2023-12-19T18:01:50,372 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2023-12-19T18:01:50,373 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,373 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,373 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:01:50,373 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:01:50,380 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  C:\Users\ajmal.syed.LOGICIELSERVICE\AppData\Local\Temp\testng-eclipse--1939895469\testng-customsuite.xml
+
+2023-12-19T18:01:50,397 [main] INFO  (Logger.java:112) - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
+2023-12-19T18:01:51,264 [main] INFO  (Login.java:26) - ====================================================================
+2023-12-19T18:01:51,264 [main] INFO  (Login.java:27) - TestCase : Verify_UserLogin_TC0001
+2023-12-19T18:01:51,264 [main] INFO  (Login.java:28) - ====================================================================
+2023-12-19T18:01:53,082 [main] INFO  (APIHelperClass.java:144) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2023-12-19T18:01:53,082 [main] INFO  (APIHelperClass.java:145) - API-Content_Type : [application/json]
+2023-12-19T18:01:53,082 [main] INFO  (APIHelperClass.java:146) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2023-12-19T18:01:53,082 [main] INFO  (APIHelperClass.java:147) - API-Status_Code_Step1_StatusCode : [202]
+2023-12-19T18:01:53,092 [main] INFO  (APIHelperClass.java:148) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"080a4a76-6930-4f61-8c5f-b30736aacf9d","status":true,"message":"Proceed with TFA to complete the login"}]
+2023-12-19T18:01:53,521 [main] INFO  (APIHelperClass.java:152) - API-getCodeID : [080a4a76-6930-4f61-8c5f-b30736aacf9d]
+2023-12-19T18:01:53,522 [main] INFO  (APIHelperClass.java:153) - API-TFACode : [123456]
+2023-12-19T18:01:54,418 [main] INFO  (APIHelperClass.java:171) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/080a4a76-6930-4f61-8c5f-b30736aacf9d/123456]
+2023-12-19T18:01:54,418 [main] INFO  (APIHelperClass.java:172) - API-response_Login_Step2_StatusCode : [200]
+2023-12-19T18:01:54,418 [main] INFO  (APIHelperClass.java:173) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDI5OTA5MTQsImV4cCI6MTcwMjk5MTUxNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzAyOTkwOTE0LCJpZHAiOiJsb2NhbCIsImp0aSI6IjQxQjQxOTlDNzBCRkFBNzlCRDYzMzRBMkQ4MDE2MjlFIiwiaWF0IjoxNzAyOTkwOTE0LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.i5dd26I58wRJ9PwJ7ONqfTWxp6UjknWE5CRdhZ_e0Pc7-UEDMyVxqtTSTkuQcWd3TjSFwNU0E2U-RzQgksAxjUC2mlg2L1AcoCigmUfyCQF0EeupPyFU3xqtngjOj5dwhAWCwmkgywbDvyXBRG0MyVU8NWkjjqtraQ0jqWUmHySxjmTiYmn4lBrlinmCU6V1Xx7yUwVsRtj7LX408ZIC4DC2yQDUbhIGZ_yfs2-K_szFUgAAG1lHHpIGXHP6OuKYPglzLTsWRDIm-1xUF0xgAUskRhh6ZVLm962xGhCqyVkArypXSDLmsyDmB_1zRJUPJRjK3U5833K--XMqVVuxMw","expires_in":600,"token_type":"Bearer","refresh_token":"522BA9A1753B814968C88EE217F28A2AF135A37F4131B80E95F7401BC5A83B0D","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2023-12-19T18:01:54,432 [main] INFO  (Login.java:41) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDI5OTA5MTQsImV4cCI6MTcwMjk5MTUxNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzAyOTkwOTE0LCJpZHAiOiJsb2NhbCIsImp0aSI6IjQxQjQxOTlDNzBCRkFBNzlCRDYzMzRBMkQ4MDE2MjlFIiwiaWF0IjoxNzAyOTkwOTE0LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.i5dd26I58wRJ9PwJ7ONqfTWxp6UjknWE5CRdhZ_e0Pc7-UEDMyVxqtTSTkuQcWd3TjSFwNU0E2U-RzQgksAxjUC2mlg2L1AcoCigmUfyCQF0EeupPyFU3xqtngjOj5dwhAWCwmkgywbDvyXBRG0MyVU8NWkjjqtraQ0jqWUmHySxjmTiYmn4lBrlinmCU6V1Xx7yUwVsRtj7LX408ZIC4DC2yQDUbhIGZ_yfs2-K_szFUgAAG1lHHpIGXHP6OuKYPglzLTsWRDIm-1xUF0xgAUskRhh6ZVLm962xGhCqyVkArypXSDLmsyDmB_1zRJUPJRjK3U5833K--XMqVVuxMw]
+2023-12-19T18:01:55,088 [main] INFO  (Flat_Positions.java:143) - ======================================================================================
+2023-12-19T18:01:55,088 [main] INFO  (Flat_Positions.java:144) - TestCase : Flat_Option_Position [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:01:55,088 [main] INFO  (Flat_Positions.java:145) - ======================================================================================
+2023-12-19T18:01:55,755 [main] INFO  (Flat_Positions.java:158) - API-Subscribe_Order_Positions_BasePath : [/int/ord/api/v3/subscription/optionpositions/subscribe]
+2023-12-19T18:01:55,755 [main] INFO  (Flat_Positions.java:159) - API-Subscribe_Order_Positions_StatusCode : [200]
+2023-12-19T18:01:55,989 [main] INFO  (APIHelperClass.java:1810) - API-Position Data Not Exist Against : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:01:55,989 [main] INFO  (Flat_Positions.java:192) - API-Get Option LONGrealizedPnL After Flat : [0.0]
+2023-12-19T18:01:55,989 [main] INFO  (Flat_Positions.java:193) - API-Get Option SHORTrealizedPnL After Flat : [0.0]
+2023-12-19T18:01:55,992 [main] INFO  (Flat_Positions.java:143) - ======================================================================================
+2023-12-19T18:01:55,993 [main] INFO  (Flat_Positions.java:144) - TestCase : Flat_Option_Position [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:01:55,993 [main] INFO  (Flat_Positions.java:145) - ======================================================================================
+2023-12-19T18:01:56,591 [main] INFO  (Flat_Positions.java:158) - API-Subscribe_Order_Positions_BasePath : [/int/ord/api/v3/subscription/optionpositions/subscribe]
+2023-12-19T18:01:56,592 [main] INFO  (Flat_Positions.java:159) - API-Subscribe_Order_Positions_StatusCode : [200]
+2023-12-19T18:01:56,762 [main] INFO  (APIHelperClass.java:1810) - API-Position Data Not Exist Against : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:01:56,762 [main] INFO  (Flat_Positions.java:192) - API-Get Option LONGrealizedPnL After Flat : [0.0]
+2023-12-19T18:01:56,762 [main] INFO  (Flat_Positions.java:193) - API-Get Option SHORTrealizedPnL After Flat : [0.0]
+2023-12-19T18:01:59,273 [main] INFO  (Option_Positions_Subscribe.java:148) - ====================================================================
+2023-12-19T18:01:59,273 [main] INFO  (Option_Positions_Subscribe.java:149) - TestCase : Option_BUY_LONG_Position_TC0001
+2023-12-19T18:01:59,274 [main] INFO  (Option_Positions_Subscribe.java:150) - ====================================================================
+2023-12-19T18:01:59,944 [main] INFO  (Option_Positions_Subscribe.java:173) - API-OptionOrder_Filled_BUY_BasePath : [/int/ord/api/optionorders]
+2023-12-19T18:01:59,944 [main] INFO  (Option_Positions_Subscribe.java:174) - API-Content_Type : [application/json]
+2023-12-19T18:01:59,944 [main] INFO  (Option_Positions_Subscribe.java:175) - API-OptionOrder_Filled_BUY_Body : [{
+        "OrdType": "2",
+        "Side": "1",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 10,
+        "Price": 40,
+        "StopPx":0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 88,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }]
+2023-12-19T18:01:59,944 [main] INFO  (Option_Positions_Subscribe.java:176) - API-OptionOrder_Filled_BUY_StatusCode : [200]
+2023-12-19T18:01:59,944 [main] INFO  (Option_Positions_Subscribe.java:177) - API-OptionOrder_Filled_BUY_Response_Body : [Order successfully created.]
+2023-12-19T18:02:00,563 [main] INFO  (APIHelperClass.java:250) - API-Get_orders_basePath : [/int/ord/api/v3/subscription/optionorders/subscribe]
+2023-12-19T18:02:00,563 [main] INFO  (APIHelperClass.java:251) - API-Get_orders_statusCode : [200]
+2023-12-19T18:02:00,563 [main] INFO  (APIHelperClass.java:252) - API-Get_orders_API Version : [V3]
+2023-12-19T18:02:00,906 [main] INFO  (Option_Positions_Subscribe.java:200) - API- BUY OrderID Before Execution : [924CB46B3A51DB1F309B2CB9E97AE80E7AFA88978426AF4E6D48FE25FD96FACB]
+2023-12-19T18:02:00,906 [main] INFO  (Option_Positions_Subscribe.java:201) - API- BUY qOrderID Before Execution : [2180]
+2023-12-19T18:02:05,256 [main] INFO  (Option_Positions_Subscribe.java:220) - API-Subscribe_Executions_BasePath : [/int/ord/api/v3/subscription/executions/subscribe]
+2023-12-19T18:02:05,257 [main] INFO  (Option_Positions_Subscribe.java:221) - API-Content_Type : [application/json]
+2023-12-19T18:02:05,257 [main] INFO  (Option_Positions_Subscribe.java:222) - API-Subscribe_Executions_StatusCode : [200]
+2023-12-19T18:02:06,304 [main] INFO  (APIHelperClass.java:2242) - API-Executions_Case : [BUY]
+2023-12-19T18:02:06,305 [main] INFO  (APIHelperClass.java:2243) - ----------------------[BUY Execution DATA]---------------------
+2023-12-19T18:02:06,305 [main] INFO  (APIHelperClass.java:2244) - API-BUY Executions_OrderId : [924CB46B3A51DB1F309B2CB9E97AE80E7AFA88978426AF4E6D48FE25FD96FACB]
+2023-12-19T18:02:06,305 [main] INFO  (APIHelperClass.java:2245) - API-BUY Executions_SideDesc : [Bought]
+2023-12-19T18:02:06,305 [main] INFO  (APIHelperClass.java:2246) - API-BUY Executions_Side : [1]
+2023-12-19T18:02:06,305 [main] INFO  (APIHelperClass.java:2247) - API-BUY Fetch_Executions_Symbol : [BRK.B]
+2023-12-19T18:02:06,305 [main] INFO  (APIHelperClass.java:2248) - API-BUY Fetch_Executions_Account : [1LOC-LOCA-123456-M]
+2023-12-19T18:02:06,305 [main] INFO  (APIHelperClass.java:2249) - API-BUY Fetch_Executions_OrderQty : [10]
+2023-12-19T18:02:06,305 [main] INFO  (APIHelperClass.java:2250) - API-BUY Fetch_Executions_Price : [40]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2251) - API-BUY Fetch_Executions_OrderType : [2]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2252) - API-BUY Fetch_Executions_Destination : [-OPTFIX]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2253) - API-BUY Fetch_Executions_SymbolSfx : [B]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2254) - API-BUY Fetch_Executions_Status : [null]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2255) - API-BUY Fetch_Executions_OrdStatus : [1]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2256) - API-BUY Fetch_Executions_Text : [null]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2257) - API-BUY Fetch_Last_Executions_OrdStatus : [2]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2258) - API-BUY Fetch_Executions_OriginatingUserDesc : [OPTFIX]
+2023-12-19T18:02:06,306 [main] INFO  (APIHelperClass.java:2259) - API-BUY Fetch_Executions_ExecBroker : [null]
+2023-12-19T18:02:06,307 [main] INFO  (APIHelperClass.java:2260) - API-BUY Fetch_Executions_TimeInForce : [0]
+2023-12-19T18:02:06,307 [main] INFO  (APIHelperClass.java:2261) - API-BUY Fetch_Executions_ExecRefID : [0]
+2023-12-19T18:02:06,307 [main] INFO  (APIHelperClass.java:2262) - API-BUY Fetch_Executions_ExecTransType : [0]
+2023-12-19T18:02:06,307 [main] INFO  (APIHelperClass.java:2263) - API-BUY Fetch_Executions_ExecTransTypeDesc : [New]
+2023-12-19T18:23:35,151 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,156 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,158 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,158 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,158 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,159 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,159 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,159 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,160 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,160 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,160 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,161 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,161 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,161 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,162 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,162 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,169 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2023-12-19T18:23:35,176 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 6 ms.
+2023-12-19T18:23:35,177 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,177 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,179 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,179 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,179 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,179 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,180 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,180 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,180 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,180 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,180 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,181 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,181 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,181 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,181 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,181 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,182 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,182 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,182 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,182 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,182 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,183 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,185 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,185 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,185 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,185 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,186 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,186 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,186 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,186 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,186 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,187 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,187 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,187 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,187 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,187 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,188 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,188 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,188 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,189 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,189 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,190 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,192 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,192 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,192 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,192 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,195 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2023-12-19T18:23:35,198 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,199 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,199 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,199 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T18:23:35,199 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T18:23:35,208 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  C:\Users\ajmal.syed.LOGICIELSERVICE\AppData\Local\Temp\testng-eclipse-506588159\testng-customsuite.xml
+
+2023-12-19T18:23:35,228 [main] INFO  (Logger.java:112) - [Utils] DynamicGraphHelper.createDynamicGraph() took 5 ms.
+2023-12-19T18:23:36,099 [main] INFO  (Login.java:26) - ====================================================================
+2023-12-19T18:23:36,099 [main] INFO  (Login.java:27) - TestCase : Verify_UserLogin_TC0001
+2023-12-19T18:23:36,099 [main] INFO  (Login.java:28) - ====================================================================
+2023-12-19T18:23:37,917 [main] INFO  (APIHelperClass.java:144) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2023-12-19T18:23:37,917 [main] INFO  (APIHelperClass.java:145) - API-Content_Type : [application/json]
+2023-12-19T18:23:37,917 [main] INFO  (APIHelperClass.java:146) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2023-12-19T18:23:37,918 [main] INFO  (APIHelperClass.java:147) - API-Status_Code_Step1_StatusCode : [202]
+2023-12-19T18:23:37,927 [main] INFO  (APIHelperClass.java:148) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"610144d3-54ec-4fbb-a724-165dbd645113","status":true,"message":"Proceed with TFA to complete the login"}]
+2023-12-19T18:23:38,353 [main] INFO  (APIHelperClass.java:152) - API-getCodeID : [610144d3-54ec-4fbb-a724-165dbd645113]
+2023-12-19T18:23:38,353 [main] INFO  (APIHelperClass.java:153) - API-TFACode : [123456]
+2023-12-19T18:23:39,223 [main] INFO  (APIHelperClass.java:171) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/610144d3-54ec-4fbb-a724-165dbd645113/123456]
+2023-12-19T18:23:39,223 [main] INFO  (APIHelperClass.java:172) - API-response_Login_Step2_StatusCode : [200]
+2023-12-19T18:23:39,224 [main] INFO  (APIHelperClass.java:173) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDI5OTIyMTksImV4cCI6MTcwMjk5MjgxOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzAyOTkyMjE5LCJpZHAiOiJsb2NhbCIsImp0aSI6IkM3REUxNDRERDYyMDlBNkRBMDU3NzU2RTkzRkY1MDZDIiwiaWF0IjoxNzAyOTkyMjE5LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.VKbhC04bqMKDyC6Py46JkVGgJn2g2pWdWA3630SDE4k1txogmB4HXQRsvYZdznoJ9z8OkPr5LqMAORWwgBWiBAXR1m9A9FmtLXFYZ-zIP_3MKWhNFoYUeOMdbFJgUsqBsqyzm4xlTk5ygdqbkGDgakoZ4exXex_1WAtdE9A_JZBStH5br5MoBoYxOus4Xa5as_DPrUa5O3LJJ_Zi86urLJWuFWwjHj6lGhsAe0Tge7nPLzEhETgTnu5FgPF5XfHd7aQw6Jm1rsFMvCFikE_6C1GQBlzp5l5aRazVcXgQ_-6vlPYm0BFLeWwiiSVxuXVIiBielaY1EGDp19sCtbN0xA","expires_in":600,"token_type":"Bearer","refresh_token":"897BD14D41794FB74646965370A143A6F10C628638378FDDD24D8D01E9ECE3BB","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2023-12-19T18:23:39,237 [main] INFO  (Login.java:41) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDI5OTIyMTksImV4cCI6MTcwMjk5MjgxOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzAyOTkyMjE5LCJpZHAiOiJsb2NhbCIsImp0aSI6IkM3REUxNDRERDYyMDlBNkRBMDU3NzU2RTkzRkY1MDZDIiwiaWF0IjoxNzAyOTkyMjE5LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.VKbhC04bqMKDyC6Py46JkVGgJn2g2pWdWA3630SDE4k1txogmB4HXQRsvYZdznoJ9z8OkPr5LqMAORWwgBWiBAXR1m9A9FmtLXFYZ-zIP_3MKWhNFoYUeOMdbFJgUsqBsqyzm4xlTk5ygdqbkGDgakoZ4exXex_1WAtdE9A_JZBStH5br5MoBoYxOus4Xa5as_DPrUa5O3LJJ_Zi86urLJWuFWwjHj6lGhsAe0Tge7nPLzEhETgTnu5FgPF5XfHd7aQw6Jm1rsFMvCFikE_6C1GQBlzp5l5aRazVcXgQ_-6vlPYm0BFLeWwiiSVxuXVIiBielaY1EGDp19sCtbN0xA]
+2023-12-19T18:23:39,889 [main] INFO  (Flat_Positions.java:143) - ======================================================================================
+2023-12-19T18:23:39,890 [main] INFO  (Flat_Positions.java:144) - TestCase : Flat_Option_Position [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:39,890 [main] INFO  (Flat_Positions.java:145) - ======================================================================================
+2023-12-19T18:23:40,559 [main] INFO  (Flat_Positions.java:158) - API-Subscribe_Order_Positions_BasePath : [/int/ord/api/v3/subscription/optionpositions/subscribe]
+2023-12-19T18:23:40,560 [main] INFO  (Flat_Positions.java:159) - API-Subscribe_Order_Positions_StatusCode : [200]
+2023-12-19T18:23:40,804 [main] INFO  (APIHelperClass.java:1640) - API-Before Flat Option Position response_ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:40,804 [main] INFO  (APIHelperClass.java:1641) - API-Before Flat Option Position response_positionString : [LONG]
+2023-12-19T18:23:40,804 [main] INFO  (APIHelperClass.java:1642) - API-Before Flat Option Position response_realizedPnL : [0]
+2023-12-19T18:23:40,804 [main] INFO  (APIHelperClass.java:1643) - API-Before Flat Option Position response_account : [1LOC-LOCA-123456-M]
+2023-12-19T18:23:40,804 [main] INFO  (APIHelperClass.java:1644) - API-Before Flat Option Position response_execQty : [10]
+2023-12-19T18:23:40,804 [main] INFO  (APIHelperClass.java:1645) - API-Before Flat Option Position response_symbol : [BRK.B]
+2023-12-19T18:23:41,473 [main] INFO  (APIHelperClass.java:1681) - API-Response : [Order successfully created.]
+2023-12-19T18:23:42,103 [main] INFO  (APIHelperClass.java:1705) - API-After Flat Position ID : [LSL-TSLA Dec 22, 2023 240.00 CALL-10001]
+2023-12-19T18:23:42,103 [main] INFO  (APIHelperClass.java:1706) - API-After Flat Position ID : [LSL-TSLA Dec 22, 2023 240.00 CALL-10001]
+2023-12-19T18:23:42,103 [main] INFO  (APIHelperClass.java:1707) - API-After Flat Position ID : [LSL-TSLA Dec 22, 2023 240.00 CALL-10001]
+2023-12-19T18:23:42,103 [main] INFO  (APIHelperClass.java:1708) - API-After Flat Position ID : [LSL-TSLA Dec 22, 2023 240.00 CALL-10001]
+2023-12-19T18:23:42,103 [main] INFO  (APIHelperClass.java:1709) - API-After Flat Position ID : [LSL-TSLA Dec 22, 2023 240.00 CALL-10001]
+2023-12-19T18:23:42,118 [main] INFO  (APIHelperClass.java:1705) - API-After Flat Position ID : [LSL-PEP Dec 22, 2023 157.50 CALL-10001]
+2023-12-19T18:23:42,119 [main] INFO  (APIHelperClass.java:1706) - API-After Flat Position ID : [LSL-PEP Dec 22, 2023 157.50 CALL-10001]
+2023-12-19T18:23:42,119 [main] INFO  (APIHelperClass.java:1707) - API-After Flat Position ID : [LSL-PEP Dec 22, 2023 157.50 CALL-10001]
+2023-12-19T18:23:42,119 [main] INFO  (APIHelperClass.java:1708) - API-After Flat Position ID : [LSL-PEP Dec 22, 2023 157.50 CALL-10001]
+2023-12-19T18:23:42,119 [main] INFO  (APIHelperClass.java:1709) - API-After Flat Position ID : [LSL-PEP Dec 22, 2023 157.50 CALL-10001]
+2023-12-19T18:23:42,134 [main] INFO  (APIHelperClass.java:1705) - API-After Flat Position ID : [LSL-IBM Dec 22, 2023 165.00 PUT-10001]
+2023-12-19T18:23:42,134 [main] INFO  (APIHelperClass.java:1706) - API-After Flat Position ID : [LSL-IBM Dec 22, 2023 165.00 PUT-10001]
+2023-12-19T18:23:42,134 [main] INFO  (APIHelperClass.java:1707) - API-After Flat Position ID : [LSL-IBM Dec 22, 2023 165.00 PUT-10001]
+2023-12-19T18:23:42,134 [main] INFO  (APIHelperClass.java:1708) - API-After Flat Position ID : [LSL-IBM Dec 22, 2023 165.00 PUT-10001]
+2023-12-19T18:23:42,134 [main] INFO  (APIHelperClass.java:1709) - API-After Flat Position ID : [LSL-IBM Dec 22, 2023 165.00 PUT-10001]
+2023-12-19T18:23:42,148 [main] INFO  (APIHelperClass.java:1705) - API-After Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:42,148 [main] INFO  (APIHelperClass.java:1706) - API-After Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:42,148 [main] INFO  (APIHelperClass.java:1707) - API-After Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:42,148 [main] INFO  (APIHelperClass.java:1708) - API-After Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:42,148 [main] INFO  (APIHelperClass.java:1709) - API-After Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:42,224 [main] INFO  (APIHelperClass.java:1732) - API-After Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:42,224 [main] INFO  (APIHelperClass.java:1733) - API-After Flat Position positionString : [FLAT]
+2023-12-19T18:23:42,224 [main] INFO  (APIHelperClass.java:1734) - API-After Flat Position realizedPnL : [-670.618]
+2023-12-19T18:23:42,224 [main] INFO  (APIHelperClass.java:1735) - API-After Flat Position account : [1LOC-LOCA-123456-M]
+2023-12-19T18:23:42,224 [main] INFO  (APIHelperClass.java:1736) - API-After Flat Position execQty : [0.0]
+2023-12-19T18:23:42,225 [main] INFO  (APIHelperClass.java:1737) - API-After Flat Position symbol : [BRK.B]
+2023-12-19T18:23:42,225 [main] INFO  (APIHelperClass.java:1738) - API-After Flat Position completeDayBuyOrderQty : [10.0]
+2023-12-19T18:23:42,225 [main] INFO  (APIHelperClass.java:1739) - API-After Flat Position completeDaySellLongOrderQty : [10.0]
+2023-12-19T18:23:42,225 [main] INFO  (APIHelperClass.java:1740) - API-After Flat Position completeDaySellShortOrderQty : [0.0]
+2023-12-19T18:23:42,225 [main] INFO  (APIHelperClass.java:1741) - API-After Flat Position totDollarOfTrade : [0.0]
+2023-12-19T18:23:42,225 [main] INFO  (APIHelperClass.java:1742) - API-After Flat Position avgPrice : [0.0]
+2023-12-19T18:23:42,225 [main] INFO  (APIHelperClass.java:1743) - API-After Flat Position symbolSfx : [B]
+2023-12-19T18:23:42,225 [main] INFO  (APIHelperClass.java:1744) - API-After Flat Position originatingUserDesc : [null]
+2023-12-19T18:23:42,226 [main] INFO  (Flat_Positions.java:192) - API-Get Option LONGrealizedPnL After Flat : [-670.618]
+2023-12-19T18:23:42,226 [main] INFO  (Flat_Positions.java:193) - API-Get Option SHORTrealizedPnL After Flat : [-670.618]
+2023-12-19T18:23:42,229 [main] INFO  (Flat_Positions.java:143) - ======================================================================================
+2023-12-19T18:23:42,229 [main] INFO  (Flat_Positions.java:144) - TestCase : Flat_Option_Position [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:42,229 [main] INFO  (Flat_Positions.java:145) - ======================================================================================
+2023-12-19T18:23:42,853 [main] INFO  (Flat_Positions.java:158) - API-Subscribe_Order_Positions_BasePath : [/int/ord/api/v3/subscription/optionpositions/subscribe]
+2023-12-19T18:23:42,853 [main] INFO  (Flat_Positions.java:159) - API-Subscribe_Order_Positions_StatusCode : [200]
+2023-12-19T18:23:43,098 [main] INFO  (APIHelperClass.java:1788) - API-Already Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:23:43,098 [main] INFO  (APIHelperClass.java:1789) - API-Already Flat Position positionString : [FLAT]
+2023-12-19T18:23:43,098 [main] INFO  (APIHelperClass.java:1790) - API-Already Flat Position realizedPnL : [-670.618]
+2023-12-19T18:23:43,098 [main] INFO  (APIHelperClass.java:1791) - API-Already Flat Position account : [1LOC-LOCA-123456-M]
+2023-12-19T18:23:43,099 [main] INFO  (APIHelperClass.java:1792) - API-Already Flat Position execQty : [0.0]
+2023-12-19T18:23:43,099 [main] INFO  (APIHelperClass.java:1793) - API-Already Flat Position symbol : [BRK.B]
+2023-12-19T18:23:43,099 [main] INFO  (APIHelperClass.java:1794) - API-Already Flat Position completeDayBuyOrderQty : [10.0]
+2023-12-19T18:23:43,099 [main] INFO  (APIHelperClass.java:1795) - API-Already Flat Position completeDaySellLongOrderQty : [10.0]
+2023-12-19T18:23:43,099 [main] INFO  (APIHelperClass.java:1796) - API-Already Flat Position completeDaySellShortOrderQty : [0.0]
+2023-12-19T18:23:43,099 [main] INFO  (APIHelperClass.java:1797) - API-Already Flat Position totDollarOfTrade : [0.0]
+2023-12-19T18:23:43,099 [main] INFO  (APIHelperClass.java:1798) - API-Already Flat Position avgPrice : [0.0]
+2023-12-19T18:23:43,099 [main] INFO  (APIHelperClass.java:1799) - API-Already Flat Position symbolSfx : [B]
+2023-12-19T18:23:43,100 [main] INFO  (APIHelperClass.java:1800) - API-Already Flat Position originatingUserDesc : [null]
+2023-12-19T18:23:43,100 [main] INFO  (Flat_Positions.java:192) - API-Get Option LONGrealizedPnL After Flat : [-670.618]
+2023-12-19T18:23:43,100 [main] INFO  (Flat_Positions.java:193) - API-Get Option SHORTrealizedPnL After Flat : [-670.618]
+2023-12-19T18:23:46,172 [main] INFO  (Option_Positions_Subscribe.java:448) - ====================================================================
+2023-12-19T18:23:46,174 [main] INFO  (Option_Positions_Subscribe.java:449) - TestCase : Option_SELL_LONG_Position_TC0001
+2023-12-19T18:23:46,174 [main] INFO  (Option_Positions_Subscribe.java:450) - ====================================================================
+2023-12-19T18:23:46,764 [main] INFO  (Option_Positions_Subscribe.java:474) - API-OptionOrder_Filled_BUY_BasePath : [/int/ord/api/optionorders]
+2023-12-19T18:23:46,765 [main] INFO  (Option_Positions_Subscribe.java:475) - API-Content_Type : [application/json]
+2023-12-19T18:23:46,766 [main] INFO  (Option_Positions_Subscribe.java:476) - API-OptionOrder_Filled_BUY_Body : [{
+        "OrdType": "2",
+        "Side": "1",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 10,
+        "Price": 45,
+        "StopPx":0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 88,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }]
+2023-12-19T18:23:46,766 [main] INFO  (Option_Positions_Subscribe.java:477) - API-OptionOrder_Filled_BUY_StatusCode : [200]
+2023-12-19T18:23:46,767 [main] INFO  (Option_Positions_Subscribe.java:478) - API-OptionOrder_Filled_BUY_Response_Body : [Order successfully created.]
+2023-12-19T18:23:47,359 [main] INFO  (Option_Positions_Subscribe.java:499) - API-OptionOrder_Filled_SELL_BasePath : [/int/ord/api/optionorders]
+2023-12-19T18:23:47,360 [main] INFO  (Option_Positions_Subscribe.java:500) - API-Content_Type : [application/json]
+2023-12-19T18:23:47,360 [main] INFO  (Option_Positions_Subscribe.java:501) - API-OptionOrder_Filled_SELL_Body : [{
+        "OrdType": "2",
+        "Side": "2",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 5,
+        "Price": 40,
+        "StopPx":0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 88,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }]
+2023-12-19T18:23:47,360 [main] INFO  (Option_Positions_Subscribe.java:502) - API-OptionOrder_Filled_SELL_StatusCode : [200]
+2023-12-19T18:23:47,360 [main] INFO  (Option_Positions_Subscribe.java:503) - API-OptionOrder_Filled_SELL_Response_Body : [Order successfully created.]
+2023-12-19T18:23:47,955 [main] INFO  (APIHelperClass.java:250) - API-Get_orders_basePath : [/int/ord/api/v3/subscription/optionorders/subscribe]
+2023-12-19T18:23:47,955 [main] INFO  (APIHelperClass.java:251) - API-Get_orders_statusCode : [200]
+2023-12-19T18:23:47,955 [main] INFO  (APIHelperClass.java:252) - API-Get_orders_API Version : [V3]
+2023-12-19T18:23:48,453 [main] INFO  (Option_Positions_Subscribe.java:528) - API- BUY OrderID Before Execution : [3B070CD6F3350979FF2FA1581C6DDD144C89C5108285FE2798B0A17816B59488]
+2023-12-19T18:23:48,453 [main] INFO  (Option_Positions_Subscribe.java:529) - API- BUY qOrderID Before Execution : [2216]
+2023-12-19T18:23:49,053 [main] INFO  (APIHelperClass.java:250) - API-Get_orders_basePath : [/int/ord/api/v3/subscription/optionorders/subscribe]
+2023-12-19T18:23:49,053 [main] INFO  (APIHelperClass.java:251) - API-Get_orders_statusCode : [200]
+2023-12-19T18:23:49,053 [main] INFO  (APIHelperClass.java:252) - API-Get_orders_API Version : [V3]
+2023-12-19T18:23:49,353 [main] INFO  (Option_Positions_Subscribe.java:553) - API- SELL OrderID Before Execution : [99D79AEBF1B6B9F2CECDA0E1CC3E1787EE8EA622BE0ADD8AE47763B36C991A4B]
+2023-12-19T18:23:49,353 [main] INFO  (Option_Positions_Subscribe.java:554) - API- SELL qOrderID Before Execution : [2218]
+2023-12-19T18:23:54,189 [main] INFO  (Option_Positions_Subscribe.java:570) - Verify_SubscribeSELLExecutions Buy Order ID : 3B070CD6F3350979FF2FA1581C6DDD144C89C5108285FE2798B0A17816B59488
+2023-12-19T18:23:54,189 [main] INFO  (Option_Positions_Subscribe.java:571) - Verify_SubscribeSELLExecutions Sell Order ID  : 99D79AEBF1B6B9F2CECDA0E1CC3E1787EE8EA622BE0ADD8AE47763B36C991A4B
+2023-12-19T18:23:55,356 [main] INFO  (APIHelperClass.java:2417) - API-Executions_Case : [SELL]
+2023-12-19T18:23:55,356 [main] INFO  (APIHelperClass.java:2418) - ----------------------[BUY Execution DATA]---------------------
+2023-12-19T18:23:55,356 [main] INFO  (APIHelperClass.java:2419) - API-BUY Executions_OrderId : [3B070CD6F3350979FF2FA1581C6DDD144C89C5108285FE2798B0A17816B59488]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2420) - API-BUY Executions_SideDesc : [Bought]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2421) - API-BUY Executions_Side : [1]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2422) - API-BUY Fetch_Executions_Symbol : [BRK.B]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2423) - API-BUY Fetch_Executions_Account : [1LOC-LOCA-123456-M]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2424) - API-BUY Fetch_Executions_OrderQty : [10.0]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2425) - API-BUY Fetch_Executions_Price : [45.0]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2426) - API-BUY Fetch_Executions_OrderType : [2]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2427) - API-BUY Fetch_Executions_Destination : [-OPTFIX]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2428) - API-BUY Fetch_Executions_SymbolSfx : [B]
+2023-12-19T18:23:55,357 [main] INFO  (APIHelperClass.java:2429) - API-BUY Fetch_Executions_Status : [null]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2430) - API-BUY Fetch_Executions_OrdStatus : [1]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2431) - API-BUY Fetch_Executions_Text : [null]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2432) - API-BUY Fetch_Last_Executions_OrdStatus : [2]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2433) - API-BUY Fetch_Executions_OriginatingUserDesc : [OPTFIX]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2434) - API-BUY Fetch_Executions_ExecBroker : [null]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2435) - API-BUY Fetch_Executions_TimeInForce : [0]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2436) - API-BUY Fetch_Executions_ExecRefID : [0]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2437) - API-BUY Fetch_Executions_ExecTransType : [0]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2438) - API-BUY Fetch_Executions_ExecTransTypeDesc : [New]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2440) - ----------------------[SELL Execution DATA]---------------------
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2441) - API-SELL Executions_OrderId : [99D79AEBF1B6B9F2CECDA0E1CC3E1787EE8EA622BE0ADD8AE47763B36C991A4B]
+2023-12-19T18:23:55,358 [main] INFO  (APIHelperClass.java:2442) - API-SELL Executions_SideDesc : [Sold]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2443) - API-SELL Executions_Side : [2]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2444) - API-SELL Fetch_Executions_Symbol : [BRK.B]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2445) - API-SELL Fetch_Executions_Account : [1LOC-LOCA-123456-M]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2446) - API-SELL Fetch_Executions_OrderQty : [5.0]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2447) - API-SELL Fetch_Executions_Price : [40.0]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2448) - API-SELL Fetch_Executions_OrderType : [2]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2449) - API-SELL Fetch_Executions_Destination : [-OPTFIX]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2450) - API-SELL Fetch_Executions_SymbolSfx : [B]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2451) - API-SELL Fetch_Executions_Status : [null]
+2023-12-19T18:23:55,359 [main] INFO  (APIHelperClass.java:2452) - API-SELL Fetch_Executions_OrdStatus : [1]
+2023-12-19T18:23:55,360 [main] INFO  (APIHelperClass.java:2453) - API-SELL Fetch_Executions_Text : [null]
+2023-12-19T18:23:55,360 [main] INFO  (APIHelperClass.java:2454) - API-SELL Fetch_Last_Executions_OrdStatus : [2]
+2023-12-19T18:23:55,360 [main] INFO  (APIHelperClass.java:2455) - API-SELL Fetch_Executions_OriginatingUserDesc : [OPTFIX]
+2023-12-19T18:23:55,360 [main] INFO  (APIHelperClass.java:2456) - API-SELL Fetch_Executions_ExecBroker : [null]
+2023-12-19T18:23:55,360 [main] INFO  (APIHelperClass.java:2457) - API-SELL Fetch_Executions_TimeInForce : [0]
+2023-12-19T18:23:55,360 [main] INFO  (APIHelperClass.java:2458) - API-SELL Fetch_Executions_ExecRefID : [0]
+2023-12-19T18:23:55,360 [main] INFO  (APIHelperClass.java:2459) - API-SELL Fetch_Executions_ExecTransType : [0]
+2023-12-19T18:23:55,360 [main] INFO  (APIHelperClass.java:2460) - API-SELL Fetch_Executions_ExecTransTypeDesc : [New]
+2023-12-19T18:31:48,654 [main] INFO  (APIHelperClass.java:2616) - API-Executions BuyExecutionsLastPrice   : [{3=24.0673, 4=24.0773, 5=24.0873, 6=24.0773, 7=24.0673, 8=24.0573, 9=24.0473, 10=24.0373, 11=24.0273, 12=24.0373}]
+2023-12-19T18:31:48,654 [main] INFO  (APIHelperClass.java:2617) - API-Executions SellExecutionsLastPrice  : [{3=99.7989, 4=99.8089, 5=99.7989, 6=99.8089, 7=99.7989}]
+2023-12-19T18:31:48,654 [main] INFO  (APIHelperClass.java:2623) - API-Executions Buy ExecIDs  : [[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]
+2023-12-19T18:31:48,655 [main] INFO  (APIHelperClass.java:2624) - API-Executions Sell ExecIDs   : [[3, 4, 5, 6, 7]]
+2023-12-19T18:31:48,655 [main] INFO  (APIHelperClass.java:2665) - API-SELL Execution Data : [(1.0 * 99.7989)] = 99.7989
+2023-12-19T18:31:48,655 [main] INFO  (APIHelperClass.java:2666) - API-BUY Execution Data : [(1.0 * 24.0673)] = 24.0673
+2023-12-19T18:31:48,655 [main] INFO  (APIHelperClass.java:2665) - API-SELL Execution Data : [(1.0 * 99.8089)] = 199.6078
+2023-12-19T18:31:48,655 [main] INFO  (APIHelperClass.java:2666) - API-BUY Execution Data : [(1.0 * 24.0773)] = 48.1446
+2023-12-19T18:31:48,655 [main] INFO  (APIHelperClass.java:2665) - API-SELL Execution Data : [(1.0 * 99.7989)] = 299.4067
+2023-12-19T18:31:48,655 [main] INFO  (APIHelperClass.java:2666) - API-BUY Execution Data : [(1.0 * 24.0873)] = 72.2319
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2665) - API-SELL Execution Data : [(1.0 * 99.8089)] = 399.2156
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2666) - API-BUY Execution Data : [(1.0 * 24.0773)] = 96.3092
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2665) - API-SELL Execution Data : [(1.0 * 99.7989)] = 499.0145
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2666) - API-BUY Execution Data : [(1.0 * 24.0673)] = 120.37650000000001
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2674) - API-Remaining SellExecIDs :[]
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2675) - API-Remaining BuyExecID :[8, 9, 10, 11, 12]
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2676) - API-Total Buy Prx Value : 120.37650000000001
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2677) - API-Total Sell Prx Value :499.0145
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2689) - API-Calculating Option Realize PNL : [Previous PnL: (-670.618)] + Current PnL:(499.0145-120.37650000000001)]
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2691) - API-Total Option Realize PNL  = -291.9800000000001
+2023-12-19T18:31:48,656 [main] INFO  (APIHelperClass.java:2699) - Add Execution Prx = 0.0 + 24.0573
+2023-12-19T18:31:48,657 [main] INFO  (APIHelperClass.java:2699) - Add Execution Prx = 24.0573 + 24.0473
+2023-12-19T18:31:48,657 [main] INFO  (APIHelperClass.java:2699) - Add Execution Prx = 48.104600000000005 + 24.0373
+2023-12-19T18:31:48,657 [main] INFO  (APIHelperClass.java:2699) - Add Execution Prx = 72.1419 + 24.0273
+2023-12-19T18:31:48,657 [main] INFO  (APIHelperClass.java:2699) - Add Execution Prx = 96.1692 + 24.0373
+2023-12-19T18:31:48,657 [main] INFO  (APIHelperClass.java:2705) - Total Prx counts :5
+2023-12-19T18:31:48,657 [main] INFO  (APIHelperClass.java:2706) - Total Executions Prx Added :120.2065
+2023-12-19T18:31:48,657 [main] INFO  (APIHelperClass.java:2711) - Total OptionOrder Avg. Price :24.0413
+2023-12-19T18:31:48,657 [main] INFO  (Option_Positions_Subscribe.java:622) - API - Calculated AvgPrice After Executions : 24.0413
+2023-12-19T18:31:48,658 [main] INFO  (Option_Positions_Subscribe.java:623) - API - Calculated RealizePNL After Executions : -291.9800000000001
+2023-12-19T18:31:48,658 [main] INFO  (Option_Positions_Subscribe.java:629) - API-Subscribe_position_ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:31:49,735 [main] INFO  (APIHelperClass.java:2037) - API-OptionPosition : Found PositionID [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M] - Expected PositionID  [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T18:31:49,735 [main] INFO  (APIHelperClass.java:2038) - API-OptionPosition : Found Average Prx [24.041] - Expected Average Prx [24.041]
+2023-12-19T18:31:49,735 [main] INFO  (APIHelperClass.java:2039) - API-OptionPosition : Found RealizePNL [-291.980] - Expected RealizePNL [-291.980]
+2023-12-19T18:31:49,735 [main] INFO  (APIHelperClass.java:2040) - API-OptionPosition : Found Position [LONG] - Expected Position [LONG]
+2023-12-19T18:31:49,735 [main] INFO  (APIHelperClass.java:2041) - API-OptionPosition : Found completeDayBuyOrderQty [20.0] - Expected completeDayBuyOrderQty  [20.0]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2042) - API-OptionPosition : Found completeDaySellLongOrderQty [15.0] - Expected completeDaySellLongOrderQty  [15.0]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2043) - API-OptionPosition : Found completeDaySellShortOrderQty [0.0] - Expected completeDaySellShortOrderQty  [0.0]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2044) - API-OptionPosition : Found comment [null] - Expected comment  [null]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2045) - API-OptionPosition : Found currency [null] - Expected currency  [null]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2046) - API-OptionPosition : Found exchangeName [null] - Expected exchangeName  [null]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2047) - API-OptionPosition : Found exchangeID [null] - Expected exchangeID  [null]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2048) - API-OptionPosition : Found rule80A [null] - Expected rule80A  [null]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2049) - API-OptionPosition : Found positionOperation [2] - Expected positionOperation  [2]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2050) - API-OptionPosition : Found positionSide [1] - Expected positionSide  [1]
+2023-12-19T18:31:49,736 [main] INFO  (APIHelperClass.java:2051) - API-OptionPosition : Found PositionID [0.0] - Expected parentOrdPrice  [0.0]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2052) - API-OptionPosition : Found parentOrdQty [0.0] - Expected parentOrdQty  [0.0]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2053) - API-OptionPosition : Found clientID [1LOC-LOCA-123456-M] - Expected clientID  [1LOC-LOCA-123456-M]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2054) - API-OptionPosition : Found boothID [LSL] - Expected boothID  [LSL]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2055) - API-OptionPosition : Found totalBuyOrderQty [20.0] - Expected totalBuyOrderQty  [20.0]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2056) - API-OptionPosition : Found totalSellOrderQty [15.0] - Expected totalSellOrderQty  [15.0]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2057) - API-OptionPosition : Found symbolWithoutSfx [BRK] - Expected symbolWithoutSfx  [BRK]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2058) - API-OptionPosition : Found optionSymbol [BRK.B] - Expected optionSymbol  [BRK.B]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2059) - API-OptionPosition : Found optionsFields [null] - Expected optionsFields  [null]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2060) - API-OptionPosition : Found optionDesc [BRK.B Aug 30, 2099 88.00 PUT] - Expected optionDesc  [BRK.B Aug 30, 2099 88.00 PUT]
+2023-12-19T18:31:49,737 [main] INFO  (APIHelperClass.java:2061) - API-OptionPosition : Found maturityDay [30] - Expected maturityDay  [30]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2062) - API-OptionPosition : Found maturityMonthYear [209908] - Expected maturityMonthYear  [209908]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2063) - API-OptionPosition : Found maturityMonthYearDesc [2099-08] - Expected maturityMonthYearDesc  [2099-08]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2064) - API-OptionPosition : Found maturityDate [2099-08-30] - Expected maturityDate  [2099-08-30]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2065) - API-OptionPosition : Found strikePrice [88.0] - Expected strikePrice  [88.0]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2066) - API-OptionPosition : Found putOrCallInt [48] - Expected putOrCallInt  [48]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2067) - API-OptionPosition : Found putOrCall [PUT] - Expected putOrCall  [PUT]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2068) - API-OptionPosition : Found coveredOrUncoveredInt [0] - Expected coveredOrUncoveredInt  [0]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2069) - API-OptionPosition : Found coveredOrUncovered [0] - Expected coveredOrUncovered  [0]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2070) - API-OptionPosition : Found customerOrFirmInt [0] - Expected customerOrFirmInt  [0]
+2023-12-19T18:31:49,738 [main] INFO  (APIHelperClass.java:2071) - API-OptionPosition : Found customerOrFirm [0] - Expected customerOrFirm  [0]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2072) - API-OptionPosition : Found openCloseBoxed [null] - Expected openCloseBoxed  [null]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2073) - API-OptionPosition : Found openClose [0] - Expected openClose  [0]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2074) - API-OptionPosition : Found cmta [null] - Expected cmta  [null]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2075) - API-OptionPosition : Found expiryDate [null] - Expected expiryDate  [null]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2076) - API-OptionPosition : Found positionString [LONG] - Expected positionString  [LONG]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2077) - API-OptionPosition : Found execQtyFrac [0.0] - Expected execQtyFrac  [0.0]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2078) - API-OptionPosition : Found unRealizedPnL [0.0] - Expected unRealizedPnL  [0.0]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2079) - API-OptionPosition : Found openQty [0.0] - Expected openQty  [0.0]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2080) - API-OptionPosition : Found buyAvgPx [0.0] - Expected buyAvgPx  [0.0]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2081) - API-OptionPosition : Found sellAvgPx [0.0] - Expected sellAvgPx  [0.0]
+2023-12-19T18:31:49,739 [main] INFO  (APIHelperClass.java:2082) - API-OptionPosition : Found Symbol [BRK.B] - Expected Symbol  [BRK.B]
+2023-12-19T18:31:49,740 [main] INFO  (APIHelperClass.java:2083) - API-OptionPosition : Found TotDollarOfTrade [120.2065] - Expected TotDollarOfTrade  [120.2065]
+2023-12-19T18:31:49,740 [main] INFO  (APIHelperClass.java:2084) - API-OptionPosition : Found SymbolSfx [B] - Expected SymbolSfx  [B]
+2023-12-19T18:31:49,740 [main] INFO  (APIHelperClass.java:2085) - API-OptionPosition : Found OriginatingUserDesc [null] - Expected OriginatingUserDesc  [null]
+2023-12-19T18:31:49,740 [main] INFO  (APIHelperClass.java:2086) - API-OptionPosition : Found Account [1LOC-LOCA-123456-M] - Expected PositionID  [1LOC-LOCA-123456-M]
+2023-12-19T18:31:49,766 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.internal.ExitCodeListener@6fa188b6: 0 ms
+2023-12-19T18:31:49,785 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@5fd21934: 19 ms
+2023-12-19T18:31:49,821 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.jq.Main@679749f0: 35 ms
+2023-12-19T18:31:49,821 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.FailedReporter@34a10be8: 0 ms
+2023-12-19T18:31:49,830 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.XMLReporter@1053ca08: 9 ms
+2023-12-19T18:31:49,836 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@2faa4f20: 6 ms
+2023-12-19T18:31:49,842 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@ca596b8: 6 ms
+2023-12-19T19:01:32,229 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,234 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,235 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,236 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,236 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,236 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,237 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,237 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,237 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,238 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,238 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,238 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,239 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,239 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,239 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,239 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,247 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2023-12-19T19:01:32,255 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 6 ms.
+2023-12-19T19:01:32,256 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,256 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,258 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,258 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,258 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,258 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,259 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,259 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,259 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,259 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,259 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,260 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,260 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,260 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,260 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,260 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,261 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,261 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,261 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,261 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,262 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,262 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,264 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,264 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,265 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,265 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,265 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,265 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,266 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,266 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,266 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,266 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,267 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,267 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,267 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,267 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,268 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,268 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,268 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,269 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,269 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,270 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,271 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,271 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,271 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,271 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,275 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2023-12-19T19:01:32,278 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2023-12-19T19:01:32,279 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,280 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,280 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2023-12-19T19:01:32,280 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2023-12-19T19:01:32,289 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  C:\Users\ajmal.syed.LOGICIELSERVICE\AppData\Local\Temp\testng-eclipse--1917695001\testng-customsuite.xml
+
+2023-12-19T19:01:32,308 [main] INFO  (Logger.java:112) - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+2023-12-19T19:01:33,204 [main] INFO  (Login.java:26) - ====================================================================
+2023-12-19T19:01:33,204 [main] INFO  (Login.java:27) - TestCase : Verify_UserLogin_TC0001
+2023-12-19T19:01:33,204 [main] INFO  (Login.java:28) - ====================================================================
+2023-12-19T19:01:35,313 [main] INFO  (APIHelperClass.java:144) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2023-12-19T19:01:35,313 [main] INFO  (APIHelperClass.java:145) - API-Content_Type : [application/json]
+2023-12-19T19:01:35,313 [main] INFO  (APIHelperClass.java:146) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2023-12-19T19:01:35,313 [main] INFO  (APIHelperClass.java:147) - API-Status_Code_Step1_StatusCode : [202]
+2023-12-19T19:01:35,325 [main] INFO  (APIHelperClass.java:148) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"e4c30558-d3e5-46b7-a81b-2c2dbe34026a","status":true,"message":"Proceed with TFA to complete the login"}]
+2023-12-19T19:01:35,772 [main] INFO  (APIHelperClass.java:152) - API-getCodeID : [e4c30558-d3e5-46b7-a81b-2c2dbe34026a]
+2023-12-19T19:01:35,772 [main] INFO  (APIHelperClass.java:153) - API-TFACode : [123456]
+2023-12-19T19:01:36,620 [main] INFO  (APIHelperClass.java:171) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/e4c30558-d3e5-46b7-a81b-2c2dbe34026a/123456]
+2023-12-19T19:01:36,620 [main] INFO  (APIHelperClass.java:172) - API-response_Login_Step2_StatusCode : [200]
+2023-12-19T19:01:36,621 [main] INFO  (APIHelperClass.java:173) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDI5OTQ0OTYsImV4cCI6MTcwMjk5NTA5NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzAyOTk0NDk2LCJpZHAiOiJsb2NhbCIsImp0aSI6IkZCM0YyRjc3RTcwQjYwMkNEQzQ0REI2MkFCREMwOTdGIiwiaWF0IjoxNzAyOTk0NDk2LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.AIEDhaMfadXYpTC2Rbg6eMmQpTv514bGjbfIgOTKB2ydcZoJUcosPWXPOLL82Eb-IynnYhF2VjwiDYuoxebrZ0MwBpQGo6fHRHiNkXFPNSokGG98lh4X8KyHiVGF4FSUgHt6O6qDsl3gB9_Rgdr0lYOT7JIYoTa6QwhLBwgLdN6CWQfYomlxlf9FceJ8G4vkdkaO0n5V4544Or_MpQRUa83j-cQQP6y6bT3lKO7W4Ux9PhngVn6dadxwdggkrdXck2uWhC4s2MuajTQU8FWCYPH3Hsifq1_9WT8iTzZWx2zcpNcp-jY9N1I67fDxpWk6B0fRx_XuWg5G3TgEn13bTg","expires_in":600,"token_type":"Bearer","refresh_token":"BFABBCE53010094391D58A260312E1CF8A153CBAFBAAFFD36BF986EFCE6B4667","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2023-12-19T19:01:36,635 [main] INFO  (Login.java:41) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDI5OTQ0OTYsImV4cCI6MTcwMjk5NTA5NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzAyOTk0NDk2LCJpZHAiOiJsb2NhbCIsImp0aSI6IkZCM0YyRjc3RTcwQjYwMkNEQzQ0REI2MkFCREMwOTdGIiwiaWF0IjoxNzAyOTk0NDk2LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.AIEDhaMfadXYpTC2Rbg6eMmQpTv514bGjbfIgOTKB2ydcZoJUcosPWXPOLL82Eb-IynnYhF2VjwiDYuoxebrZ0MwBpQGo6fHRHiNkXFPNSokGG98lh4X8KyHiVGF4FSUgHt6O6qDsl3gB9_Rgdr0lYOT7JIYoTa6QwhLBwgLdN6CWQfYomlxlf9FceJ8G4vkdkaO0n5V4544Or_MpQRUa83j-cQQP6y6bT3lKO7W4Ux9PhngVn6dadxwdggkrdXck2uWhC4s2MuajTQU8FWCYPH3Hsifq1_9WT8iTzZWx2zcpNcp-jY9N1I67fDxpWk6B0fRx_XuWg5G3TgEn13bTg]
+2023-12-19T19:01:37,334 [main] INFO  (Flat_Positions.java:143) - ======================================================================================
+2023-12-19T19:01:37,334 [main] INFO  (Flat_Positions.java:144) - TestCase : Flat_Option_Position [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T19:01:37,334 [main] INFO  (Flat_Positions.java:145) - ======================================================================================
+2023-12-19T19:01:38,138 [main] INFO  (Flat_Positions.java:158) - API-Subscribe_Order_Positions_BasePath : [/int/ord/api/v3/subscription/optionpositions/subscribe]
+2023-12-19T19:01:38,138 [main] INFO  (Flat_Positions.java:159) - API-Subscribe_Order_Positions_StatusCode : [200]
+2023-12-19T19:01:38,376 [main] INFO  (APIHelperClass.java:1640) - API-Before Flat Option Position response_ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T19:01:38,376 [main] INFO  (APIHelperClass.java:1641) - API-Before Flat Option Position response_positionString : [LONG]
+2023-12-19T19:01:38,377 [main] INFO  (APIHelperClass.java:1642) - API-Before Flat Option Position response_realizedPnL : [-291.98]
+2023-12-19T19:01:38,377 [main] INFO  (APIHelperClass.java:1643) - API-Before Flat Option Position response_account : [1LOC-LOCA-123456-M]
+2023-12-19T19:01:38,377 [main] INFO  (APIHelperClass.java:1644) - API-Before Flat Option Position response_execQty : [5]
+2023-12-19T19:01:38,377 [main] INFO  (APIHelperClass.java:1645) - API-Before Flat Option Position response_symbol : [BRK.B]
+2023-12-19T19:01:39,046 [main] INFO  (APIHelperClass.java:1681) - API-Response : [Order successfully created.]
+2023-12-19T19:01:39,786 [main] INFO  (APIHelperClass.java:1729) - API-After Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T19:01:39,787 [main] INFO  (APIHelperClass.java:1730) - API-After Flat Position positionString : [FLAT]
+2023-12-19T19:01:39,787 [main] INFO  (APIHelperClass.java:1731) - API-After Flat Position realizedPnL : [-39.083]
+2023-12-19T19:01:39,787 [main] INFO  (APIHelperClass.java:1732) - API-After Flat Position account : [1LOC-LOCA-123456-M]
+2023-12-19T19:01:39,787 [main] INFO  (APIHelperClass.java:1733) - API-After Flat Position execQty : [0.0]
+2023-12-19T19:01:39,787 [main] INFO  (APIHelperClass.java:1734) - API-After Flat Position symbol : [BRK.B]
+2023-12-19T19:01:39,787 [main] INFO  (APIHelperClass.java:1735) - API-After Flat Position completeDayBuyOrderQty : [20.0]
+2023-12-19T19:01:39,787 [main] INFO  (APIHelperClass.java:1736) - API-After Flat Position completeDaySellLongOrderQty : [20.0]
+2023-12-19T19:01:39,787 [main] INFO  (APIHelperClass.java:1737) - API-After Flat Position completeDaySellShortOrderQty : [0.0]
+2023-12-19T19:01:39,788 [main] INFO  (APIHelperClass.java:1738) - API-After Flat Position totDollarOfTrade : [0.0]
+2023-12-19T19:01:39,788 [main] INFO  (APIHelperClass.java:1739) - API-After Flat Position avgPrice : [0.0]
+2023-12-19T19:01:39,788 [main] INFO  (APIHelperClass.java:1740) - API-After Flat Position symbolSfx : [B]
+2023-12-19T19:01:39,788 [main] INFO  (APIHelperClass.java:1741) - API-After Flat Position originatingUserDesc : [null]
+2023-12-19T19:01:39,788 [main] INFO  (Flat_Positions.java:192) - API-Get Option LONGrealizedPnL After Flat : [-39.083]
+2023-12-19T19:01:39,788 [main] INFO  (Flat_Positions.java:193) - API-Get Option SHORTrealizedPnL After Flat : [-39.083]
+2023-12-19T19:01:39,792 [main] INFO  (Flat_Positions.java:143) - ======================================================================================
+2023-12-19T19:01:39,792 [main] INFO  (Flat_Positions.java:144) - TestCase : Flat_Option_Position [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T19:01:39,792 [main] INFO  (Flat_Positions.java:145) - ======================================================================================
+2023-12-19T19:01:40,387 [main] INFO  (Flat_Positions.java:158) - API-Subscribe_Order_Positions_BasePath : [/int/ord/api/v3/subscription/optionpositions/subscribe]
+2023-12-19T19:01:40,388 [main] INFO  (Flat_Positions.java:159) - API-Subscribe_Order_Positions_StatusCode : [200]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1785) - API-Already Flat Position ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1786) - API-Already Flat Position positionString : [FLAT]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1787) - API-Already Flat Position realizedPnL : [-39.083]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1788) - API-Already Flat Position account : [1LOC-LOCA-123456-M]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1789) - API-Already Flat Position execQty : [0.0]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1790) - API-Already Flat Position symbol : [BRK.B]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1791) - API-Already Flat Position completeDayBuyOrderQty : [20.0]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1792) - API-Already Flat Position completeDaySellLongOrderQty : [20.0]
+2023-12-19T19:01:40,640 [main] INFO  (APIHelperClass.java:1793) - API-Already Flat Position completeDaySellShortOrderQty : [0.0]
+2023-12-19T19:01:40,641 [main] INFO  (APIHelperClass.java:1794) - API-Already Flat Position totDollarOfTrade : [0.0]
+2023-12-19T19:01:40,641 [main] INFO  (APIHelperClass.java:1795) - API-Already Flat Position avgPrice : [0.0]
+2023-12-19T19:01:40,641 [main] INFO  (APIHelperClass.java:1796) - API-Already Flat Position symbolSfx : [B]
+2023-12-19T19:01:40,641 [main] INFO  (APIHelperClass.java:1797) - API-Already Flat Position originatingUserDesc : [null]
+2023-12-19T19:01:40,641 [main] INFO  (Flat_Positions.java:192) - API-Get Option LONGrealizedPnL After Flat : [-39.083]
+2023-12-19T19:01:40,642 [main] INFO  (Flat_Positions.java:193) - API-Get Option SHORTrealizedPnL After Flat : [-39.083]
+2023-12-19T19:01:43,729 [main] INFO  (Option_Positions_Subscribe.java:820) - ====================================================================
+2023-12-19T19:01:43,729 [main] INFO  (Option_Positions_Subscribe.java:821) - TestCase : Option_SHORT_Position_TC0001
+2023-12-19T19:01:43,729 [main] INFO  (Option_Positions_Subscribe.java:822) - ====================================================================
+2023-12-19T19:01:44,314 [main] INFO  (Option_Positions_Subscribe.java:846) - API-OptionOrder_Filled_BUY_BasePath : [/int/ord/api/optionorders]
+2023-12-19T19:01:44,314 [main] INFO  (Option_Positions_Subscribe.java:847) - API-Content_Type : [application/json]
+2023-12-19T19:01:44,315 [main] INFO  (Option_Positions_Subscribe.java:848) - API-OptionOrder_Filled_BUY_Body : [{
+        "OrdType": "2",
+        "Side": "1",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 10,
+        "Price": 45,
+        "StopPx":0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 88,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }]
+2023-12-19T19:01:44,315 [main] INFO  (Option_Positions_Subscribe.java:849) - API-OptionOrder_Filled_BUY_StatusCode : [200]
+2023-12-19T19:01:44,316 [main] INFO  (Option_Positions_Subscribe.java:850) - API-OptionOrder_Filled_BUY_Response_Body : [Order successfully created.]
+2023-12-19T19:01:44,908 [main] INFO  (Option_Positions_Subscribe.java:871) - API-OptionOrder_Filled_SELL_BasePath : [/int/ord/api/optionorders]
+2023-12-19T19:01:44,909 [main] INFO  (Option_Positions_Subscribe.java:872) - API-Content_Type : [application/json]
+2023-12-19T19:01:44,909 [main] INFO  (Option_Positions_Subscribe.java:873) - API-OptionOrder_Filled_SELL_Body : [{
+        "OrdType": "2",
+        "Side": "2",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 15,
+        "Price": 45,
+        "StopPx":0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 88,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }]
+2023-12-19T19:01:44,909 [main] INFO  (Option_Positions_Subscribe.java:874) - API-OptionOrder_Filled_SELL_StatusCode : [200]
+2023-12-19T19:01:44,909 [main] INFO  (Option_Positions_Subscribe.java:875) - API-OptionOrder_Filled_SELL_Response_Body : [Order successfully created.]
+2023-12-19T19:01:45,519 [main] INFO  (APIHelperClass.java:250) - API-Get_orders_basePath : [/int/ord/api/v3/subscription/optionorders/subscribe]
+2023-12-19T19:01:45,519 [main] INFO  (APIHelperClass.java:251) - API-Get_orders_statusCode : [200]
+2023-12-19T19:01:45,520 [main] INFO  (APIHelperClass.java:252) - API-Get_orders_API Version : [V3]
+2023-12-19T19:01:46,020 [main] INFO  (Option_Positions_Subscribe.java:900) - API- BUY OrderID Before Execution : [96D3C602C6A4D7DE9B4ECA1BE2BCAB9BAF991140575FFFFD6144AB82D6D870B1]
+2023-12-19T19:01:46,020 [main] INFO  (Option_Positions_Subscribe.java:901) - API- BUY qOrderID Before Execution : [2222]
+2023-12-19T19:01:46,616 [main] INFO  (APIHelperClass.java:250) - API-Get_orders_basePath : [/int/ord/api/v3/subscription/optionorders/subscribe]
+2023-12-19T19:01:46,616 [main] INFO  (APIHelperClass.java:251) - API-Get_orders_statusCode : [200]
+2023-12-19T19:01:46,616 [main] INFO  (APIHelperClass.java:252) - API-Get_orders_API Version : [V3]
+2023-12-19T19:01:48,465 [main] INFO  (Option_Positions_Subscribe.java:925) - API- SELL OrderID Before Execution : [null]
+2023-12-19T19:01:48,465 [main] INFO  (Option_Positions_Subscribe.java:926) - API- SELL qOrderID Before Execution : [2222]
+2023-12-19T19:01:52,394 [main] INFO  (Option_Positions_Subscribe.java:942) - Verify_SubscribeSELLExecutions Buy Order ID : 96D3C602C6A4D7DE9B4ECA1BE2BCAB9BAF991140575FFFFD6144AB82D6D870B1
+2023-12-19T19:01:52,395 [main] INFO  (Option_Positions_Subscribe.java:943) - Verify_SubscribeSELLExecutions Sell Order ID  : null
+2023-12-19T19:01:53,490 [main] INFO  (APIHelperClass.java:2414) - API-Executions_Case : [SELL]
+2023-12-19T19:01:53,490 [main] INFO  (APIHelperClass.java:2415) - ----------------------[BUY Execution DATA]---------------------
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2416) - API-BUY Executions_OrderId : [96D3C602C6A4D7DE9B4ECA1BE2BCAB9BAF991140575FFFFD6144AB82D6D870B1]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2417) - API-BUY Executions_SideDesc : [Bought]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2418) - API-BUY Executions_Side : [1]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2419) - API-BUY Fetch_Executions_Symbol : [BRK.B]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2420) - API-BUY Fetch_Executions_Account : [1LOC-LOCA-123456-M]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2421) - API-BUY Fetch_Executions_OrderQty : [10.0]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2422) - API-BUY Fetch_Executions_Price : [45.0]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2423) - API-BUY Fetch_Executions_OrderType : [2]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2424) - API-BUY Fetch_Executions_Destination : [-OPTFIX]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2425) - API-BUY Fetch_Executions_SymbolSfx : [B]
+2023-12-19T19:01:53,491 [main] INFO  (APIHelperClass.java:2426) - API-BUY Fetch_Executions_Status : [null]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2427) - API-BUY Fetch_Executions_OrdStatus : [1]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2428) - API-BUY Fetch_Executions_Text : [null]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2429) - API-BUY Fetch_Last_Executions_OrdStatus : [2]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2430) - API-BUY Fetch_Executions_OriginatingUserDesc : [OPTFIX]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2431) - API-BUY Fetch_Executions_ExecBroker : [null]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2432) - API-BUY Fetch_Executions_TimeInForce : [0]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2433) - API-BUY Fetch_Executions_ExecRefID : [0]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2434) - API-BUY Fetch_Executions_ExecTransType : [0]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2435) - API-BUY Fetch_Executions_ExecTransTypeDesc : [New]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2437) - ----------------------[SELL Execution DATA]---------------------
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2438) - API-SELL Executions_OrderId : [null]
+2023-12-19T19:01:53,492 [main] INFO  (APIHelperClass.java:2439) - API-SELL Executions_SideDesc : [Sold]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2440) - API-SELL Executions_Side : [2]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2441) - API-SELL Fetch_Executions_Symbol : [BRK.B]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2442) - API-SELL Fetch_Executions_Account : [1LOC-LOCA-123456-M]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2443) - API-SELL Fetch_Executions_OrderQty : [5.0]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2444) - API-SELL Fetch_Executions_Price : [40.0]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2445) - API-SELL Fetch_Executions_OrderType : [2]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2446) - API-SELL Fetch_Executions_Destination : [-OPTFIX]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2447) - API-SELL Fetch_Executions_SymbolSfx : [B]
+2023-12-19T19:01:53,493 [main] INFO  (APIHelperClass.java:2448) - API-SELL Fetch_Executions_Status : [null]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2449) - API-SELL Fetch_Executions_OrdStatus : [1]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2450) - API-SELL Fetch_Executions_Text : [null]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2451) - API-SELL Fetch_Last_Executions_OrdStatus : [2]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2452) - API-SELL Fetch_Executions_OriginatingUserDesc : [OPTFIX]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2453) - API-SELL Fetch_Executions_ExecBroker : [null]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2454) - API-SELL Fetch_Executions_TimeInForce : [0]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2455) - API-SELL Fetch_Executions_ExecRefID : [0]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2456) - API-SELL Fetch_Executions_ExecTransType : [0]
+2023-12-19T19:01:53,494 [main] INFO  (APIHelperClass.java:2457) - API-SELL Fetch_Executions_ExecTransTypeDesc : [New]
+2023-12-19T19:10:44,304 [main] INFO  (APIHelperClass.java:2613) - API-Executions BuyExecutionsLastPrice   : [{3=99.5366, 4=99.5266, 5=99.5166, 6=99.5266, 7=99.5366, 8=99.5266, 9=99.5166, 10=99.5266, 11=99.5366, 12=99.5266}]
+2023-12-19T19:10:44,305 [main] INFO  (APIHelperClass.java:2614) - API-Executions SellExecutionsLastPrice  : [{}]
+2023-12-19T19:10:44,305 [main] INFO  (APIHelperClass.java:2620) - API-Executions Buy ExecIDs  : [[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]
+2023-12-19T19:10:44,305 [main] INFO  (APIHelperClass.java:2621) - API-Executions Sell ExecIDs   : [[]]
+2023-12-19T19:10:44,305 [main] INFO  (Option_Positions_Subscribe.java:994) - API - Calculated AvgPrice After Executions : 0.0
+2023-12-19T19:10:44,305 [main] INFO  (Option_Positions_Subscribe.java:995) - API - Calculated RealizePNL After Executions : -39.083
+2023-12-19T19:10:44,305 [main] INFO  (Option_Positions_Subscribe.java:1001) - API-Subscribe_position_ID : [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T19:10:45,477 [main] INFO  (APIHelperClass.java:2034) - API-OptionPosition : Found PositionID [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M] - Expected PositionID  [LSL-BRK.B Aug 30, 2099 88.00 PUT-1LOC-LOCA-123456-M]
+2023-12-19T19:10:45,478 [main] INFO  (APIHelperClass.java:2035) - API-OptionPosition : Found Average Prx [73.197] - Expected Average Prx [0.000]
+2023-12-19T19:10:45,478 [main] INFO  (APIHelperClass.java:2036) - API-OptionPosition : Found RealizePNL [-302.557] - Expected RealizePNL [-39.083]
+2023-12-19T19:10:45,478 [main] INFO  (APIHelperClass.java:2037) - API-OptionPosition : Found Position [SHORT] - Expected Position [LONG]
+2023-12-19T19:10:45,478 [main] INFO  (APIHelperClass.java:2038) - API-OptionPosition : Found completeDayBuyOrderQty [30.0] - Expected completeDayBuyOrderQty  [30.0]
+2023-12-19T19:10:45,478 [main] INFO  (APIHelperClass.java:2039) - API-OptionPosition : Found completeDaySellLongOrderQty [35.0] - Expected completeDaySellLongOrderQty  [35.0]
+2023-12-19T19:10:45,478 [main] INFO  (APIHelperClass.java:2040) - API-OptionPosition : Found completeDaySellShortOrderQty [0.0] - Expected completeDaySellShortOrderQty  [0.0]
+2023-12-19T19:10:45,478 [main] INFO  (APIHelperClass.java:2041) - API-OptionPosition : Found comment [null] - Expected comment  [null]
+2023-12-19T19:10:45,478 [main] INFO  (APIHelperClass.java:2042) - API-OptionPosition : Found currency [null] - Expected currency  [null]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2043) - API-OptionPosition : Found exchangeName [null] - Expected exchangeName  [null]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2044) - API-OptionPosition : Found exchangeID [null] - Expected exchangeID  [null]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2045) - API-OptionPosition : Found rule80A [null] - Expected rule80A  [null]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2046) - API-OptionPosition : Found positionOperation [2] - Expected positionOperation  [2]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2047) - API-OptionPosition : Found positionSide [0] - Expected positionSide  [1]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2048) - API-OptionPosition : Found PositionID [0.0] - Expected parentOrdPrice  [0.0]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2049) - API-OptionPosition : Found parentOrdQty [0.0] - Expected parentOrdQty  [0.0]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2050) - API-OptionPosition : Found clientID [1LOC-LOCA-123456-M] - Expected clientID  [1LOC-LOCA-123456-M]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2051) - API-OptionPosition : Found boothID [LSL] - Expected boothID  [LSL]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2052) - API-OptionPosition : Found totalBuyOrderQty [30.0] - Expected totalBuyOrderQty  [30.0]
+2023-12-19T19:10:45,479 [main] INFO  (APIHelperClass.java:2053) - API-OptionPosition : Found totalSellOrderQty [35.0] - Expected totalSellOrderQty  [35.0]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2054) - API-OptionPosition : Found symbolWithoutSfx [BRK] - Expected symbolWithoutSfx  [BRK]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2055) - API-OptionPosition : Found optionSymbol [BRK.B] - Expected optionSymbol  [BRK.B]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2056) - API-OptionPosition : Found optionsFields [null] - Expected optionsFields  [null]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2057) - API-OptionPosition : Found optionDesc [BRK.B Aug 30, 2099 88.00 PUT] - Expected optionDesc  [BRK.B Aug 30, 2099 88.00 PUT]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2058) - API-OptionPosition : Found maturityDay [30] - Expected maturityDay  [30]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2059) - API-OptionPosition : Found maturityMonthYear [209908] - Expected maturityMonthYear  [209908]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2060) - API-OptionPosition : Found maturityMonthYearDesc [2099-08] - Expected maturityMonthYearDesc  [2099-08]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2061) - API-OptionPosition : Found maturityDate [2099-08-30] - Expected maturityDate  [2099-08-30]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2062) - API-OptionPosition : Found strikePrice [88.0] - Expected strikePrice  [88.0]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2063) - API-OptionPosition : Found putOrCallInt [48] - Expected putOrCallInt  [48]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2064) - API-OptionPosition : Found putOrCall [PUT] - Expected putOrCall  [PUT]
+2023-12-19T19:10:45,480 [main] INFO  (APIHelperClass.java:2065) - API-OptionPosition : Found coveredOrUncoveredInt [0] - Expected coveredOrUncoveredInt  [0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2066) - API-OptionPosition : Found coveredOrUncovered [0] - Expected coveredOrUncovered  [0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2067) - API-OptionPosition : Found customerOrFirmInt [0] - Expected customerOrFirmInt  [0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2068) - API-OptionPosition : Found customerOrFirm [0] - Expected customerOrFirm  [0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2069) - API-OptionPosition : Found openCloseBoxed [null] - Expected openCloseBoxed  [null]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2070) - API-OptionPosition : Found openClose [0] - Expected openClose  [0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2071) - API-OptionPosition : Found cmta [null] - Expected cmta  [null]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2072) - API-OptionPosition : Found expiryDate [null] - Expected expiryDate  [null]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2073) - API-OptionPosition : Found positionString [SHORT] - Expected positionString  [LONG]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2074) - API-OptionPosition : Found execQtyFrac [0.0] - Expected execQtyFrac  [0.0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2075) - API-OptionPosition : Found unRealizedPnL [0.0] - Expected unRealizedPnL  [0.0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2076) - API-OptionPosition : Found openQty [0.0] - Expected openQty  [0.0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2077) - API-OptionPosition : Found buyAvgPx [0.0] - Expected buyAvgPx  [0.0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2078) - API-OptionPosition : Found sellAvgPx [0.0] - Expected sellAvgPx  [0.0]
+2023-12-19T19:10:45,481 [main] INFO  (APIHelperClass.java:2079) - API-OptionPosition : Found Symbol [BRK.B] - Expected Symbol  [BRK.B]
+2023-12-19T19:10:45,482 [main] INFO  (APIHelperClass.java:2080) - API-OptionPosition : Found TotDollarOfTrade [365.9860] - Expected TotDollarOfTrade  [0.0000]
+2023-12-19T19:10:45,483 [main] INFO  (APIHelperClass.java:2081) - API-OptionPosition : Found SymbolSfx [B] - Expected SymbolSfx  [B]
+2023-12-19T19:10:45,483 [main] INFO  (APIHelperClass.java:2082) - API-OptionPosition : Found OriginatingUserDesc [null] - Expected OriginatingUserDesc  [null]
+2023-12-19T19:10:45,483 [main] INFO  (APIHelperClass.java:2083) - API-OptionPosition : Found Account [1LOC-LOCA-123456-M] - Expected PositionID  [1LOC-LOCA-123456-M]
+2023-12-19T19:10:45,491 [main] ERROR (Option_Positions_Subscribe.java:41) - java.lang.AssertionError: Validate_Position_positionSide_Value expected [1] but found [0]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1577)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:1418)
+	at APIHelper.APIHelperClass.Validate_Option_Positions(APIHelperClass.java:2093)
+	at Subscriptions_V3.Option_Positions_Subscribe.Verify_SubscribeSHORTOption_Position(Option_Positions_Subscribe.java:1013)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+2023-12-19T19:10:45,522 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.internal.ExitCodeListener@63f9024: 0 ms
+2023-12-19T19:10:45,548 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@53245370: 26 ms
+2023-12-19T19:10:45,600 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.jq.Main@330cdf22: 52 ms
+2023-12-19T19:10:45,611 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.FailedReporter@67dbd767: 11 ms
+2023-12-19T19:10:45,622 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.XMLReporter@779daf18: 11 ms
+2023-12-19T19:10:45,630 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@66844a45: 7 ms
+2023-12-19T19:10:45,637 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@4e67af9: 7 ms

@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>TestNG:  Update User Status  API</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Update User Status  API</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Dec 26 15:12:16 PKT 2023</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2603 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='IdentityServer_API_Admin.UpdateUserStatus.Verify_Update_User_Status()'><b>Verify_Update_User_Status</b><br>Test class: IdentityServer_API_Admin.UpdateUserStatus<br>Parameters: Update_Status_TC0002, /int/is/api/v1/register/updateUserStatus, application/json, {
+    "Enabled": true,
+    "ClientId": "LSL",
+    "Email": "", 
+    "Username": "first004"
+}, 200, User enabled successfully., /int/is/api/login, {
+    "email": "first004@mailinator.com",
+    "password": "first004",
+    "captcha": ""
+}, Proceed with TFA to complete the login</td>
+<td></td>
+<td>1</td>
+<td>IdentityServer_API_Admin.UpdateUserStatus@1bdbf9be</td></tr>
+<tr>
+<td title='IdentityServer_API_Admin.UpdateUserStatus.Verify_Update_User_Status()'><b>Verify_Update_User_Status</b><br>Test class: IdentityServer_API_Admin.UpdateUserStatus<br>Parameters: Update_Status_TC0001, /int/is/api/v1/register/updateUserStatus, application/json, {
+    "Enabled": false,
+    "ClientId": "LSL",
+    "Email": "first004@mailinator.com", 
+    "Username": ""
+}, 200, User disabled successfully., /int/is/api/login, {
+    "email": "first004@mailinator.com",
+    "password": "first004",
+    "captcha": ""
+}, Invalid email or password.</td>
+<td></td>
+<td>1</td>
+<td>IdentityServer_API_Admin.UpdateUserStatus@1bdbf9be</td></tr>
+</table><p>
+</body>
+</html>

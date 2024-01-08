@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [OPTION ACTIVE-OPEN ORDERS]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Update-Delete-Cancel OptionOrder(failed)">
+    <classes>
+      <class name="OptionOrders.Delete_OptionOrder">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Verify_Delete_Option_Order" invocation-numbers="0"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- OptionOrders.Delete_OptionOrder -->
+      <class name="OptionOrders.Cancel_OptionOrder">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+          <include name="Verify_Cancel_Option_Order" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- OptionOrders.Cancel_OptionOrder -->
+      <class name="OptionOrders.Update_OptionOrder">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="Verify_Update_Option_Order" invocation-numbers="0"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- OptionOrders.Update_OptionOrder -->
+    </classes>
+  </test> <!-- Update-Delete-Cancel OptionOrder(failed) -->
+</suite> <!-- Failed suite [OPTION ACTIVE-OPEN ORDERS] -->

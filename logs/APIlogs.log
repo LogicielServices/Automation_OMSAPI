@@ -1,0 +1,509 @@
+2024-01-08T17:45:18,732 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,741 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2024-01-08T17:45:18,742 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,743 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,743 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,744 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,744 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,745 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,745 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,745 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,746 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,746 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,747 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,747 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,748 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,748 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,755 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 2 ms.
+2024-01-08T17:45:18,763 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 7 ms.
+2024-01-08T17:45:18,765 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,765 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,767 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,768 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,768 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,768 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,769 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,769 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,769 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,770 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,770 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,770 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,771 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,771 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,772 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,772 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,772 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,772 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,773 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,773 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,775 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,775 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,776 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,777 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,777 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,777 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,778 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,778 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,778 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,778 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,779 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,779 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,779 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,779 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,779 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,780 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,780 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,780 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,781 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,782 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,782 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,783 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,785 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,785 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,785 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,786 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,786 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,787 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,788 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,788 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,788 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,788 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,789 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,789 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,790 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,790 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,791 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,791 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,792 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,792 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,793 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,793 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,795 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,795 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,796 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,796 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,796 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,796 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,797 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,797 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,797 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,797 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,798 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,798 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,798 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,798 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,798 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,799 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,799 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,799 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,800 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,800 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,801 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,802 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,802 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,802 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,806 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,806 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,807 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,807 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,807 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,808 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,808 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,809 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,809 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,809 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,809 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,810 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,810 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,810 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,811 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,811 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,812 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,813 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,813 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,813 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,813 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,813 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,814 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,814 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,814 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,814 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,815 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,815 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,815 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,815 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,815 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,815 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,816 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,816 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,817 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,817 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,818 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,818 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,819 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,819 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,819 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,819 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,820 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,820 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,820 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,820 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,821 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,821 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,822 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,822 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,823 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,823 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,824 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,824 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,825 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,825 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,826 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,826 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,827 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,827 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,827 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,827 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,828 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,828 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,833 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,833 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,834 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,834 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,835 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,835 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,836 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,836 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,836 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,837 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,838 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,838 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,839 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,839 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,840 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,840 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,841 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,844 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2024-01-08T17:45:18,845 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,845 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,845 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:18,846 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:18,854 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  C:\Users\ajmal.syed.LOGICIELSERVICE\eclipse-workspace\OMS_API\src\test\resources\TestRunner\Locates.xml
+
+2024-01-08T17:45:18,889 [main] INFO  (Logger.java:112) - [Utils] DynamicGraphHelper.createDynamicGraph() took 9 ms.
+2024-01-08T17:45:20,108 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-08T17:45:20,108 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-08T17:45:20,108 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-08T17:45:21,730 [main] INFO  (APIHelperClass.java:135) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-08T17:45:21,730 [main] INFO  (APIHelperClass.java:136) - API-Content_Type : [application/json]
+2024-01-08T17:45:21,731 [main] INFO  (APIHelperClass.java:137) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-08T17:45:21,731 [main] INFO  (APIHelperClass.java:138) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-08T17:45:21,731 [main] INFO  (APIHelperClass.java:139) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"e59f7089-1d52-45f7-b42b-565c312c5b4b","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-08T17:45:22,192 [main] INFO  (APIHelperClass.java:143) - API-getCodeID : [e59f7089-1d52-45f7-b42b-565c312c5b4b]
+2024-01-08T17:45:22,192 [main] INFO  (APIHelperClass.java:144) - API-TFACode : [123456]
+2024-01-08T17:45:23,059 [main] INFO  (APIHelperClass.java:162) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/e59f7089-1d52-45f7-b42b-565c312c5b4b/123456]
+2024-01-08T17:45:23,059 [main] INFO  (APIHelperClass.java:163) - API-response_Login_Step2_StatusCode : [200]
+2024-01-08T17:45:23,060 [main] INFO  (APIHelperClass.java:164) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTc5MjIsImV4cCI6MTcwNDcxODUyMiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE3OTIyLCJpZHAiOiJsb2NhbCIsImp0aSI6IjgyNDMxMkM5NTEyRDc2MUFDOTQ3Qzg1OUY0RjFDQkZEIiwiaWF0IjoxNzA0NzE3OTIyLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.J0lE4CBe6LY8Msi338jHKVxpb9EPjd7gyljdFS-ZQPKHfa6X1PuOBfIE-5VkdOHVZnzJ3HjrgeQBm4NYtG-6fAUw1KWNCw7RIdU-w1m1esQLS8YPN2QaR1GcQ7yEZJ0LQN_IhMh_aRjGtg3VuV9usrUJe0Wnb1M2PIXn-Tz1Ml64rorNVDtUuJ0v7tOieP1MqoDNY-iSgjDjbaAnG8Yds2rIOeUtDueb2384qZPw_pEdAnTp25HsSfoEm1VIRN-1etgYTgBIcyPJbeuHoQkGR2j78UlkstHBa7LP8_SjS4Eun1sgXTL1dM0YJEeKRX5JzkY2XVMs7Gg8rykFAI_iIg","expires_in":600,"token_type":"Bearer","refresh_token":"7CE53DD948251E3F03D60C3A479AD6033AC85DCC77A84101C8EFA2D0F7672890","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-08T17:45:23,074 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTc5MjIsImV4cCI6MTcwNDcxODUyMiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE3OTIyLCJpZHAiOiJsb2NhbCIsImp0aSI6IjgyNDMxMkM5NTEyRDc2MUFDOTQ3Qzg1OUY0RjFDQkZEIiwiaWF0IjoxNzA0NzE3OTIyLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.J0lE4CBe6LY8Msi338jHKVxpb9EPjd7gyljdFS-ZQPKHfa6X1PuOBfIE-5VkdOHVZnzJ3HjrgeQBm4NYtG-6fAUw1KWNCw7RIdU-w1m1esQLS8YPN2QaR1GcQ7yEZJ0LQN_IhMh_aRjGtg3VuV9usrUJe0Wnb1M2PIXn-Tz1Ml64rorNVDtUuJ0v7tOieP1MqoDNY-iSgjDjbaAnG8Yds2rIOeUtDueb2384qZPw_pEdAnTp25HsSfoEm1VIRN-1etgYTgBIcyPJbeuHoQkGR2j78UlkstHBa7LP8_SjS4Eun1sgXTL1dM0YJEeKRX5JzkY2XVMs7Gg8rykFAI_iIg]
+2024-01-08T17:45:23,263 [main] INFO  (Locates.java:47) - ====================================================================
+2024-01-08T17:45:23,263 [main] INFO  (Locates.java:48) - TestCase : Verify_Post_Locates_TC0001
+2024-01-08T17:45:23,263 [main] INFO  (Locates.java:49) - ====================================================================
+2024-01-08T17:45:23,892 [main] INFO  (Locates.java:67) - API-StaticData_Account_BasePath : [/int/ord/api/locates]
+2024-01-08T17:45:23,892 [main] INFO  (Locates.java:68) - API-Content_Type : [application/json]
+2024-01-08T17:45:23,892 [main] INFO  (Locates.java:69) - API-Locates_Body : [{
+    "symbol": "MSFT",
+    "orderQty": 500,
+    "price": 0,
+    "account": "1LOC-LOCA-123456-M"
+}]
+2024-01-08T17:45:23,892 [main] INFO  (Locates.java:70) - API-Locates_StatusCode : [200]
+2024-01-08T17:45:23,892 [main] INFO  (Locates.java:72) - ====================================================================
+2024-01-08T17:45:24,132 [main] INFO  (Subscribe_Locates.java:53) - ====================================================================
+2024-01-08T17:45:24,132 [main] INFO  (Subscribe_Locates.java:54) - TestCase : Verify_Subscribe_Locates_TC0001
+2024-01-08T17:45:24,132 [main] INFO  (Subscribe_Locates.java:55) - ====================================================================
+2024-01-08T17:45:24,765 [main] INFO  (Subscribe_Locates.java:72) - API-Subscribe_Locates_BasePath : [/int/ord/api/locates/subscribe]
+2024-01-08T17:45:24,765 [main] INFO  (Subscribe_Locates.java:73) - API-Content_Type : [application/json]
+2024-01-08T17:45:24,766 [main] INFO  (Subscribe_Locates.java:74) - API-Subscribe_Locates_StatusCode : [200]
+2024-01-08T17:45:24,881 [main] INFO  (Subscribe_Locates.java:107) - API-Validate_OriginatingUserDesc : [qatest27] - Response getOriginatingUserDesc : qatest27
+2024-01-08T17:45:24,881 [main] INFO  (Subscribe_Locates.java:108) - API-Validate_OrderQty : [500] - Response getOrderQty : 500
+2024-01-08T17:45:24,881 [main] INFO  (Subscribe_Locates.java:109) - API-Validate_Symbol : [MSFT] - Response getSymbol : MSFT
+2024-01-08T17:45:24,881 [main] INFO  (Subscribe_Locates.java:110) - API-Validate_Account : [1LOC-LOCA-123456-M] - Response getOrderQty : 500
+2024-01-08T17:45:24,882 [main] INFO  (Subscribe_Locates.java:111) - API-Validate_Booth : [LSL] - Response getBoothID : LSL
+2024-01-08T17:45:24,882 [main] INFO  (Subscribe_Locates.java:113) - ====================================================================
+2024-01-08T17:45:25,087 [main] INFO  (Locates_Acquire.java:52) - ====================================================================
+2024-01-08T17:45:25,087 [main] INFO  (Locates_Acquire.java:53) - TestCase : Verify_Locates_Acquire_TC0001
+2024-01-08T17:45:25,087 [main] INFO  (Locates_Acquire.java:54) - ====================================================================
+2024-01-08T17:45:35,695 [main] INFO  (Locates_Acquire.java:78) - API-Locates_Acquire_BasePath : [/int/ord/api/locates/acquire]
+2024-01-08T17:45:35,695 [main] INFO  (Locates_Acquire.java:79) - API-Content_Type : [application/json]
+2024-01-08T17:45:35,695 [main] INFO  (Locates_Acquire.java:80) - API-Request Body : [{symbol=MSFT, synchronous=1, orderQty=500, timeInForce=3, quoteReqID=C1, account=1LOC-LOCA-123456-M}]
+2024-01-08T17:45:35,695 [main] INFO  (Locates_Acquire.java:81) - API-Subscribe_Locates_StatusCode : [200]
+2024-01-08T17:45:35,695 [main] INFO  (Locates_Acquire.java:82) - API-Subscribe_Locates_StatusLine : [HTTP/1.1 200 OK]
+2024-01-08T17:45:35,695 [main] INFO  (Locates_Acquire.java:84) - ====================================================================
+2024-01-08T17:45:35,907 [main] INFO  (Summary_Available_Subscribe.java:54) - ====================================================================
+2024-01-08T17:45:35,907 [main] INFO  (Summary_Available_Subscribe.java:55) - TestCase : Verify_Summary_Available_Subscribe_TC0001
+2024-01-08T17:45:35,907 [main] INFO  (Summary_Available_Subscribe.java:56) - ====================================================================
+2024-01-08T17:45:36,510 [main] INFO  (Summary_Available_Subscribe.java:73) - API-Summary_Available_Subscribe_BasePath : [/int/ord/api/locates/summary/available/subscribe/{account}/{symbol}]
+2024-01-08T17:45:36,510 [main] INFO  (Summary_Available_Subscribe.java:74) - API-Content_Type : [application/json]
+2024-01-08T17:45:36,510 [main] INFO  (Summary_Available_Subscribe.java:75) - API-Summary_Available_Subscribe_StatusCode : [200]
+2024-01-08T17:45:36,577 [main] INFO  (Summary_Available_Subscribe.java:85) - API-Validate_ID : [1LOC-LOCA-123456-M_MSFT] - Response getID : ["1LOC-LOCA-123456-M_MSFT"]
+2024-01-08T17:45:36,577 [main] INFO  (Summary_Available_Subscribe.java:86) - API-Validate_OriginatingUserDesc : [qatest27] - Response getOriginatingUserDesc : ["qatest27"]
+2024-01-08T17:45:36,577 [main] INFO  (Summary_Available_Subscribe.java:87) - API-Validate_ClientID : [1LOC-LOCA-123456-M] - Response getClientID : ["1LOC-LOCA-123456-M"]
+2024-01-08T17:45:36,578 [main] INFO  (Summary_Available_Subscribe.java:88) - API-Validate_Symbol : [MSFT] - Response getSymbol : ["MSFT"]
+2024-01-08T17:45:36,578 [main] INFO  (Summary_Available_Subscribe.java:89) - API-Validate_Account : [1LOC-LOCA-123456-M] - Response getAccount : ["1LOC-LOCA-123456-M"]
+2024-01-08T17:45:36,578 [main] INFO  (Summary_Available_Subscribe.java:90) - API-Validate_Booth : [LSL] - Response getBoothID : ["LSL"]
+2024-01-08T17:45:36,578 [main] INFO  (Summary_Available_Subscribe.java:98) - ====================================================================
+2024-01-08T17:45:36,693 [main] INFO  (Summary_Available_UnSubscribe.java:48) - ====================================================================
+2024-01-08T17:45:36,693 [main] INFO  (Summary_Available_UnSubscribe.java:49) - TestCase : Verify_Summary_Available_UnSubscribe_TC0001
+2024-01-08T17:45:36,693 [main] INFO  (Summary_Available_UnSubscribe.java:50) - ====================================================================
+2024-01-08T17:45:37,274 [main] INFO  (Summary_Available_UnSubscribe.java:65) - API-Summary_Available_UnSubscribe_BasePath : [/int/ord/api/locates/summary/available/unsubscribe]
+2024-01-08T17:45:37,275 [main] INFO  (Summary_Available_UnSubscribe.java:66) - API-Content_Type : [application/json]
+2024-01-08T17:45:37,275 [main] INFO  (Summary_Available_UnSubscribe.java:67) - API-Summary_Available_UnSubscribe_StatusCode : [200]
+2024-01-08T17:45:37,275 [main] INFO  (Summary_Available_UnSubscribe.java:68) - API-Summary_Available_UnSubscribe_StatusLine : [HTTP/1.1 200 OK]
+2024-01-08T17:45:37,275 [main] INFO  (Summary_Available_UnSubscribe.java:69) - API-Response Body : [Success!]
+2024-01-08T17:45:37,276 [main] INFO  (Summary_Available_UnSubscribe.java:73) - ====================================================================
+2024-01-08T17:45:37,445 [main] INFO  (Summary_Locate_Subscribe.java:52) - ====================================================================
+2024-01-08T17:45:37,445 [main] INFO  (Summary_Locate_Subscribe.java:53) - TestCase : Verify_Summary_Locate_Subscribe_TC0001
+2024-01-08T17:45:37,446 [main] INFO  (Summary_Locate_Subscribe.java:54) - ====================================================================
+2024-01-08T17:45:38,049 [main] INFO  (Summary_Locate_Subscribe.java:69) - API-BasePath : [/int/ord/api/locates/summary/subscribe]
+2024-01-08T17:45:38,050 [main] INFO  (Summary_Locate_Subscribe.java:70) - API-Content_Type : [application/json]
+2024-01-08T17:45:38,050 [main] INFO  (Summary_Locate_Subscribe.java:71) - API-Summary_Available_Subscribe_StatusCode : [200]
+2024-01-08T17:45:38,051 [main] INFO  (Summary_Locate_Subscribe.java:83) - API-Validate_ID : [1LOC-LOCA-123456-M_MSFT] - Response getID : ["1LOC-LOCA-123456-M_MSFT"]
+2024-01-08T17:45:38,051 [main] INFO  (Summary_Locate_Subscribe.java:84) - API-Validate_OriginatingUserDesc : [qatest27] - Response getOriginatingUserDesc : ["qatest27"]
+2024-01-08T17:45:38,051 [main] INFO  (Summary_Locate_Subscribe.java:85) - API-Validate_ClientID : [1LOC-LOCA-123456-M] - Response getClientID : ["1LOC-LOCA-123456-M"]
+2024-01-08T17:45:38,051 [main] INFO  (Summary_Locate_Subscribe.java:86) - API-Validate_Symbol : [MSFT] - Response getSymbol : ["MSFT"]
+2024-01-08T17:45:38,051 [main] INFO  (Summary_Locate_Subscribe.java:87) - API-Validate_Account : [1LOC-LOCA-123456-M] - Response getAccount : ["1LOC-LOCA-123456-M"]
+2024-01-08T17:45:38,051 [main] INFO  (Summary_Locate_Subscribe.java:88) - API-Validate_Booth : [LSL] - Response getBoothID : ["LSL"]
+2024-01-08T17:45:38,051 [main] INFO  (Summary_Locate_Subscribe.java:98) - ====================================================================
+2024-01-08T17:45:38,146 [main] INFO  (Summary_Locate_UnSubscribe.java:47) - ====================================================================
+2024-01-08T17:45:38,146 [main] INFO  (Summary_Locate_UnSubscribe.java:48) - TestCase : Verify_Summary_Locate_UnSubscribe_TC0001
+2024-01-08T17:45:38,146 [main] INFO  (Summary_Locate_UnSubscribe.java:49) - ====================================================================
+2024-01-08T17:45:38,731 [main] INFO  (Summary_Locate_UnSubscribe.java:64) - API-Summary_Locate_UnSubscribe_BasePath : [/int/ord/api/locates/summary/unsubscribe]
+2024-01-08T17:45:38,731 [main] INFO  (Summary_Locate_UnSubscribe.java:65) - API-Content_Type : [application/json]
+2024-01-08T17:45:38,732 [main] INFO  (Summary_Locate_UnSubscribe.java:66) - API-Summary_Locate_UnSubscribe_StatusCode : [200]
+2024-01-08T17:45:38,732 [main] INFO  (Summary_Locate_UnSubscribe.java:67) - API-SSummary_Locate_UnSubscribe_StatusLine : [HTTP/1.1 200 OK]
+2024-01-08T17:45:38,732 [main] INFO  (Summary_Locate_UnSubscribe.java:68) - API-Response Body : [Success!]
+2024-01-08T17:45:38,733 [main] INFO  (Summary_Locate_UnSubscribe.java:71) - ====================================================================
+2024-01-08T17:45:38,845 [main] INFO  (UnSubscribe_Locates.java:47) - ====================================================================
+2024-01-08T17:45:38,845 [main] INFO  (UnSubscribe_Locates.java:48) - TestCase : Verify_UnSubscribe_Locates_TC0001
+2024-01-08T17:45:38,845 [main] INFO  (UnSubscribe_Locates.java:49) - ====================================================================
+2024-01-08T17:45:39,427 [main] INFO  (UnSubscribe_Locates.java:64) - API-UnSubscribe_Locates_BasePath : [/int/ord/api/locates/unsubscribe]
+2024-01-08T17:45:39,427 [main] INFO  (UnSubscribe_Locates.java:65) - API-Content_Type : [application/json]
+2024-01-08T17:45:39,427 [main] INFO  (UnSubscribe_Locates.java:66) - API-UnSubscribe_Locates_StatusCode : [200]
+2024-01-08T17:45:39,428 [main] INFO  (UnSubscribe_Locates.java:67) - API-UnSubscribe_Locates_StatusLine : [HTTP/1.1 200 OK]
+2024-01-08T17:45:39,428 [main] INFO  (UnSubscribe_Locates.java:68) - API-Response Body : [Success!]
+2024-01-08T17:45:39,428 [main] INFO  (UnSubscribe_Locates.java:71) - ====================================================================
+2024-01-08T17:45:39,464 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.internal.ExitCodeListener@5cc87de4: 0 ms
+2024-01-08T17:45:39,486 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@178ebac3: 22 ms
+2024-01-08T17:45:39,528 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.jq.Main@346690d6: 42 ms
+2024-01-08T17:45:39,529 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.FailedReporter@2831c178: 1 ms
+2024-01-08T17:45:39,542 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.XMLReporter@2093bb6c: 12 ms
+2024-01-08T17:45:39,546 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@350be5ec: 4 ms
+2024-01-08T17:45:39,562 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@6fbfd28b: 14 ms
+2024-01-08T17:45:45,899 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,904 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,906 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,907 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,907 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,907 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,908 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,908 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,909 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,909 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,909 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,910 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,910 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,910 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,911 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,911 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,919 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 2 ms.
+2024-01-08T17:45:45,926 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 6 ms.
+2024-01-08T17:45:45,928 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,928 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,931 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,931 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,931 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,932 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,932 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,932 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,933 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,933 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,933 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,933 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,934 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,934 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,934 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,935 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,935 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,935 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,936 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,936 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,938 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,938 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,939 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,940 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,940 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,940 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,941 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,943 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2024-01-08T17:45:45,944 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,945 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,945 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:45,945 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:45,954 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  C:\Users\ajmal.syed.LOGICIELSERVICE\AppData\Local\Temp\testng-eclipse-21454495\testng-customsuite.xml
+
+2024-01-08T17:45:45,986 [main] INFO  (Logger.java:112) - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+2024-01-08T17:45:47,213 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-08T17:45:47,213 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-08T17:45:47,213 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-08T17:45:48,832 [main] INFO  (APIHelperClass.java:135) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-08T17:45:48,833 [main] INFO  (APIHelperClass.java:136) - API-Content_Type : [application/json]
+2024-01-08T17:45:48,833 [main] INFO  (APIHelperClass.java:137) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-08T17:45:48,833 [main] INFO  (APIHelperClass.java:138) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-08T17:45:48,833 [main] INFO  (APIHelperClass.java:139) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"4a548c12-aa7e-447a-8324-741b6681c275","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-08T17:45:49,296 [main] INFO  (APIHelperClass.java:143) - API-getCodeID : [4a548c12-aa7e-447a-8324-741b6681c275]
+2024-01-08T17:45:49,297 [main] INFO  (APIHelperClass.java:144) - API-TFACode : [123456]
+2024-01-08T17:45:50,153 [main] INFO  (APIHelperClass.java:162) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/4a548c12-aa7e-447a-8324-741b6681c275/123456]
+2024-01-08T17:45:50,153 [main] INFO  (APIHelperClass.java:163) - API-response_Login_Step2_StatusCode : [200]
+2024-01-08T17:45:50,154 [main] INFO  (APIHelperClass.java:164) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTc5NTAsImV4cCI6MTcwNDcxODU1MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE3OTUwLCJpZHAiOiJsb2NhbCIsImp0aSI6IkNBQUY2NEQ3OTRCQ0YyODBENDQzQUIzMzIzODk5RDcwIiwiaWF0IjoxNzA0NzE3OTUwLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.TPioaBJq76pQKqlPtw1ei5IUz1tBhex0nfeRp_cpoVwhqqwtKPQxUTrHaFAdinbNHYB-HkEq5WxY8wE-Afld9reFqViCBBtJCyQcroDCLm9m0rCja-kEVz1RM_6-TYXUqfkRdfGmlWqO4KjWzU8rgQQfaE0RO85tPiGwEp-p5WQEfmvzkvQ1MJVQLt3EpjT0jDAYcGoCi1KELJofY0ascCMowDqhf7s_WhkJhEZEchYLFSAdz4UwsYewzQpy9VTYnvR4Xddtwkn5mt4xUVKHITmL3FtyDN_BGqTA_ekyOGP2FMk1L7HoFOBmrDQdjLc5hc-xcR55RdBkMjZThRorhA","expires_in":600,"token_type":"Bearer","refresh_token":"CAD44126515E7875786525872533F1BB08974FC429C0A195FF83E3B46F26BE55","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-08T17:45:50,173 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTc5NTAsImV4cCI6MTcwNDcxODU1MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE3OTUwLCJpZHAiOiJsb2NhbCIsImp0aSI6IkNBQUY2NEQ3OTRCQ0YyODBENDQzQUIzMzIzODk5RDcwIiwiaWF0IjoxNzA0NzE3OTUwLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.TPioaBJq76pQKqlPtw1ei5IUz1tBhex0nfeRp_cpoVwhqqwtKPQxUTrHaFAdinbNHYB-HkEq5WxY8wE-Afld9reFqViCBBtJCyQcroDCLm9m0rCja-kEVz1RM_6-TYXUqfkRdfGmlWqO4KjWzU8rgQQfaE0RO85tPiGwEp-p5WQEfmvzkvQ1MJVQLt3EpjT0jDAYcGoCi1KELJofY0ascCMowDqhf7s_WhkJhEZEchYLFSAdz4UwsYewzQpy9VTYnvR4Xddtwkn5mt4xUVKHITmL3FtyDN_BGqTA_ekyOGP2FMk1L7HoFOBmrDQdjLc5hc-xcR55RdBkMjZThRorhA]
+2024-01-08T17:45:50,336 [main] INFO  (Subscribe_AccountBalance.java:48) - ====================================================================
+2024-01-08T17:45:50,336 [main] INFO  (Subscribe_AccountBalance.java:49) - TestCase : Subscribe_AccountBalance_TC0001
+2024-01-08T17:45:50,336 [main] INFO  (Subscribe_AccountBalance.java:50) - ====================================================================
+2024-01-08T17:45:50,949 [main] INFO  (Subscribe_AccountBalance.java:65) - API-Subscribe_AccountBalance_BasePath : [/int/ord/api/account/balances/subscribe]
+2024-01-08T17:45:50,949 [main] INFO  (Subscribe_AccountBalance.java:66) - API-Content_Type : [application/json]
+2024-01-08T17:45:50,949 [main] INFO  (Subscribe_AccountBalance.java:67) - API-Subscribe_AccountBalance_StatusCode : [200]
+2024-01-08T17:45:50,985 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.internal.ExitCodeListener@5ebf776c: 0 ms
+2024-01-08T17:45:51,005 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@27210a3b: 20 ms
+2024-01-08T17:45:51,050 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.jq.Main@28295554: 44 ms
+2024-01-08T17:45:51,051 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.FailedReporter@4e671ef: 0 ms
+2024-01-08T17:45:51,060 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.XMLReporter@2447940d: 8 ms
+2024-01-08T17:45:51,066 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@1f521c69: 6 ms
+2024-01-08T17:45:51,072 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@49f6c25e: 5 ms
+2024-01-08T17:45:56,218 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,224 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,226 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,226 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,227 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,227 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,228 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,228 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,229 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,229 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,230 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,230 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,231 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,231 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,232 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,232 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,240 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2024-01-08T17:45:56,250 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 7 ms.
+2024-01-08T17:45:56,252 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,252 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,254 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,255 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,255 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,255 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,256 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,256 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,256 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,256 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,257 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,257 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,257 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,258 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,258 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,258 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,258 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,259 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,259 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,260 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,261 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,261 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,263 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,264 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,264 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,264 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,265 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,268 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2024-01-08T17:45:56,270 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,270 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,270 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2024-01-08T17:45:56,270 [main] INFO  (Logger.java:112) - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2024-01-08T17:45:56,282 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  C:\Users\ajmal.syed.LOGICIELSERVICE\AppData\Local\Temp\testng-eclipse-1877883262\testng-customsuite.xml
+
+2024-01-08T17:45:56,321 [main] INFO  (Logger.java:112) - [Utils] DynamicGraphHelper.createDynamicGraph() took 7 ms.
+2024-01-08T17:45:57,604 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-08T17:45:57,605 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-08T17:45:57,605 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-08T17:45:59,245 [main] INFO  (APIHelperClass.java:135) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-08T17:45:59,245 [main] INFO  (APIHelperClass.java:136) - API-Content_Type : [application/json]
+2024-01-08T17:45:59,245 [main] INFO  (APIHelperClass.java:137) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-08T17:45:59,245 [main] INFO  (APIHelperClass.java:138) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-08T17:45:59,245 [main] INFO  (APIHelperClass.java:139) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"068bf3fc-3367-40ba-8fa8-de6d4475ffe1","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-08T17:45:59,697 [main] INFO  (APIHelperClass.java:143) - API-getCodeID : [068bf3fc-3367-40ba-8fa8-de6d4475ffe1]
+2024-01-08T17:45:59,697 [main] INFO  (APIHelperClass.java:144) - API-TFACode : [123456]
+2024-01-08T17:46:00,461 [main] INFO  (APIHelperClass.java:162) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/068bf3fc-3367-40ba-8fa8-de6d4475ffe1/123456]
+2024-01-08T17:46:00,461 [main] INFO  (APIHelperClass.java:163) - API-response_Login_Step2_StatusCode : [200]
+2024-01-08T17:46:00,461 [main] INFO  (APIHelperClass.java:164) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTc5NjAsImV4cCI6MTcwNDcxODU2MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE3OTYwLCJpZHAiOiJsb2NhbCIsImp0aSI6IkUxNTQxRkI0ODE4RkI3MDI4RTNFODFDRTk5RDM5NzYwIiwiaWF0IjoxNzA0NzE3OTYwLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.a2ulFM1l5E23qt_FtLKkQCfTgK4WIJrNvCJCPgMd8zsrIkUsr3bXkb7Tjdip_mhAv9yxzyKQmH1TGS_iPGRa9tSgpqk7JPrvue_gmW3DgtAmyCIaD3n7IN8SPIf4rq7YdR9sBxv_S7rdtMXNbSbRLR0gGVco-wDfFs82ApZg0iBJZ1gr_gu5uOsUeJTbScbfsPXjV0MlhSgRQWXIdlfPsry7GsrsD3BqE_tmNJD-NFrov-Cq1T2TAJPPJnpg_lvPWEdG5rFI2-lamXcfuqgFKDF2Uzo7JSxZz6AwY7VTwJF8TO05X17v6bzqTzLie1AfYfupDJF1gDMhwL6VugPU_Q","expires_in":600,"token_type":"Bearer","refresh_token":"0B06B6DC6EBA8AD426C2F3BEFBB7B40CA26AE8B875ADFF355F33349A55727FC3","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-08T17:46:00,477 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTc5NjAsImV4cCI6MTcwNDcxODU2MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE3OTYwLCJpZHAiOiJsb2NhbCIsImp0aSI6IkUxNTQxRkI0ODE4RkI3MDI4RTNFODFDRTk5RDM5NzYwIiwiaWF0IjoxNzA0NzE3OTYwLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.a2ulFM1l5E23qt_FtLKkQCfTgK4WIJrNvCJCPgMd8zsrIkUsr3bXkb7Tjdip_mhAv9yxzyKQmH1TGS_iPGRa9tSgpqk7JPrvue_gmW3DgtAmyCIaD3n7IN8SPIf4rq7YdR9sBxv_S7rdtMXNbSbRLR0gGVco-wDfFs82ApZg0iBJZ1gr_gu5uOsUeJTbScbfsPXjV0MlhSgRQWXIdlfPsry7GsrsD3BqE_tmNJD-NFrov-Cq1T2TAJPPJnpg_lvPWEdG5rFI2-lamXcfuqgFKDF2Uzo7JSxZz6AwY7VTwJF8TO05X17v6bzqTzLie1AfYfupDJF1gDMhwL6VugPU_Q]
+2024-01-08T17:46:00,606 [main] INFO  (UnSubscribe_AccountBalance.java:48) - ====================================================================
+2024-01-08T17:46:00,606 [main] INFO  (UnSubscribe_AccountBalance.java:49) - TestCase : UnSubscribe_AccountBalance_TC0001
+2024-01-08T17:46:00,606 [main] INFO  (UnSubscribe_AccountBalance.java:50) - ====================================================================
+2024-01-08T17:46:01,213 [main] INFO  (UnSubscribe_AccountBalance.java:65) - API-UnSubscribe_AccountBalance_BasePath : [/int/ord/api/account/balances/unsubscribe]
+2024-01-08T17:46:01,214 [main] INFO  (UnSubscribe_AccountBalance.java:66) - API-Content_Type : [application/json]
+2024-01-08T17:46:01,214 [main] INFO  (UnSubscribe_AccountBalance.java:67) - API-UnSubscribe_AccountBalance_StatusCode : [200]
+2024-01-08T17:46:01,214 [main] INFO  (UnSubscribe_AccountBalance.java:68) - API-UnSubscribe_AccountBalance_StatusCode : [Success!]
+2024-01-08T17:46:01,252 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.internal.ExitCodeListener@50c2ef56: 1 ms
+2024-01-08T17:46:01,273 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@7c88d04f: 20 ms
+2024-01-08T17:46:01,310 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.jq.Main@b3a8455: 37 ms
+2024-01-08T17:46:01,312 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.FailedReporter@5c930fc3: 1 ms
+2024-01-08T17:46:01,327 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.XMLReporter@18b45500: 15 ms
+2024-01-08T17:46:01,332 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@6c13019c: 5 ms
+2024-01-08T17:46:01,338 [main] INFO  (Logger.java:112) - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@74e2cfc5: 5 ms
+2024-01-08T17:47:02,410 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  C:\Users\ajmal.syed.LOGICIELSERVICE\eclipse-workspace\OMS_API\src\test\resources\TestRunner\Account_Balance.xml
+
+2024-01-08T17:47:03,739 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-08T17:47:03,739 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-08T17:47:03,739 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-08T17:47:05,341 [main] INFO  (APIHelperClass.java:135) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-08T17:47:05,341 [main] INFO  (APIHelperClass.java:136) - API-Content_Type : [application/json]
+2024-01-08T17:47:05,342 [main] INFO  (APIHelperClass.java:137) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-08T17:47:05,342 [main] INFO  (APIHelperClass.java:138) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-08T17:47:05,342 [main] INFO  (APIHelperClass.java:139) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"d493d73e-0504-4442-b2a0-4890b8643a01","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-08T17:47:05,787 [main] INFO  (APIHelperClass.java:143) - API-getCodeID : [d493d73e-0504-4442-b2a0-4890b8643a01]
+2024-01-08T17:47:05,787 [main] INFO  (APIHelperClass.java:144) - API-TFACode : [123456]
+2024-01-08T17:47:06,590 [main] INFO  (APIHelperClass.java:162) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/d493d73e-0504-4442-b2a0-4890b8643a01/123456]
+2024-01-08T17:47:06,590 [main] INFO  (APIHelperClass.java:163) - API-response_Login_Step2_StatusCode : [200]
+2024-01-08T17:47:06,590 [main] INFO  (APIHelperClass.java:164) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTgwMjYsImV4cCI6MTcwNDcxODYyNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE4MDI2LCJpZHAiOiJsb2NhbCIsImp0aSI6IjEwRjdBNTk2M0ZDQkQ3RDNCRUUxMzQ1MzhCRjJFRjM0IiwiaWF0IjoxNzA0NzE4MDI2LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.EgwzMXVAtEADvkMZFsF7WxzVSlkXJopBw2h0N48h2qhzoW7avVS8eoa9q8MLtRH8ufZjCWyk2AAMIMAJ2c3rMu0Mkm8tkYEJN31aVBGjRU_gE1bWE_kHIe_OFGouR3ZlpnoaD5QP-jWQP73U6yvuhqEfq4m3CZB2nuRdOC-yH9a_k9dg2C46DbxibR_6oqMX33I9oxwIZArF98Mktx27ORsvhHdt8_S9trePv2eiMk_fCPtQtcpzt9xORWCst0FsoNLJ3vjsA3i5VrKEp9zNRVVEuU05J-G9Io9wfKtKlD2jVoR37LWnL_g4XEQitvDw6icIPs-3cSxuapTRuztcrQ","expires_in":600,"token_type":"Bearer","refresh_token":"41D68ECAE88C15D98F9B188EC329F42F6FC5329317379C3BEB529F6DEE353D5E","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-08T17:47:06,604 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTgwMjYsImV4cCI6MTcwNDcxODYyNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE4MDI2LCJpZHAiOiJsb2NhbCIsImp0aSI6IjEwRjdBNTk2M0ZDQkQ3RDNCRUUxMzQ1MzhCRjJFRjM0IiwiaWF0IjoxNzA0NzE4MDI2LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.EgwzMXVAtEADvkMZFsF7WxzVSlkXJopBw2h0N48h2qhzoW7avVS8eoa9q8MLtRH8ufZjCWyk2AAMIMAJ2c3rMu0Mkm8tkYEJN31aVBGjRU_gE1bWE_kHIe_OFGouR3ZlpnoaD5QP-jWQP73U6yvuhqEfq4m3CZB2nuRdOC-yH9a_k9dg2C46DbxibR_6oqMX33I9oxwIZArF98Mktx27ORsvhHdt8_S9trePv2eiMk_fCPtQtcpzt9xORWCst0FsoNLJ3vjsA3i5VrKEp9zNRVVEuU05J-G9Io9wfKtKlD2jVoR37LWnL_g4XEQitvDw6icIPs-3cSxuapTRuztcrQ]
+2024-01-08T17:47:06,720 [main] INFO  (Subscribe_AccountBalance.java:48) - ====================================================================
+2024-01-08T17:47:06,720 [main] INFO  (Subscribe_AccountBalance.java:49) - TestCase : Subscribe_AccountBalance_TC0001
+2024-01-08T17:47:06,720 [main] INFO  (Subscribe_AccountBalance.java:50) - ====================================================================
+2024-01-08T17:47:07,341 [main] INFO  (Subscribe_AccountBalance.java:65) - API-Subscribe_AccountBalance_BasePath : [/int/ord/api/account/balances/subscribe]
+2024-01-08T17:47:07,341 [main] INFO  (Subscribe_AccountBalance.java:66) - API-Content_Type : [application/json]
+2024-01-08T17:47:07,342 [main] INFO  (Subscribe_AccountBalance.java:67) - API-Subscribe_AccountBalance_StatusCode : [200]
+2024-01-08T17:47:07,640 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-08T17:47:07,640 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-08T17:47:07,640 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-08T17:47:08,228 [main] INFO  (APIHelperClass.java:135) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-08T17:47:08,229 [main] INFO  (APIHelperClass.java:136) - API-Content_Type : [application/json]
+2024-01-08T17:47:08,229 [main] INFO  (APIHelperClass.java:137) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-08T17:47:08,229 [main] INFO  (APIHelperClass.java:138) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-08T17:47:08,229 [main] INFO  (APIHelperClass.java:139) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"74452129-b8e6-4a4d-a2e7-68e88a3738b8","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-08T17:47:08,238 [main] INFO  (APIHelperClass.java:143) - API-getCodeID : [74452129-b8e6-4a4d-a2e7-68e88a3738b8]
+2024-01-08T17:47:08,239 [main] INFO  (APIHelperClass.java:144) - API-TFACode : [123456]
+2024-01-08T17:47:09,015 [main] INFO  (APIHelperClass.java:162) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/74452129-b8e6-4a4d-a2e7-68e88a3738b8/123456]
+2024-01-08T17:47:09,016 [main] INFO  (APIHelperClass.java:163) - API-response_Login_Step2_StatusCode : [200]
+2024-01-08T17:47:09,017 [main] INFO  (APIHelperClass.java:164) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTgwMjgsImV4cCI6MTcwNDcxODYyOCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE4MDI4LCJpZHAiOiJsb2NhbCIsImp0aSI6IkZBMjg5RUI2Qjc5QzhCRTc3MThBOEEwNEFERDY2N0ZEIiwiaWF0IjoxNzA0NzE4MDI4LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.VZeGVf2NkH_T4MQ9Ws_E4zz5y5S2DTSkkCPCnnLUYg6AJCUg-0NgDHHqogCn_raIN7Bbd96XWh9nab7FgAlg5vxQDsTBKHUnwkTizcQ4Tp1oo1fByLaRU1bjOuJaQ06q1D9DdZfljVq5m3PoV5MthT5VMjNYfVVWxyyK27YzFLKxymJqU_8rq1P6HCCCtkaYAZf47NxeKmoHMDN2Xg5JbmVjKGjCb1G3EPVzi5VFQITRVi6EZR3CluJcBKHD5zvXY0u_0JTiF2g8R4XXJj3HPnFGa6RRaoiiXv0mcsas34W35f6BM2hx38YSQ-oLq6IkL4N_r-SkLPXs926p_3L6zQ","expires_in":600,"token_type":"Bearer","refresh_token":"180501E58000506FCBE0903F5226A5F6639512BAA9DD4114409E81E042DC0B4B","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-08T17:47:09,027 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDQ3MTgwMjgsImV4cCI6MTcwNDcxODYyOCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA0NzE4MDI4LCJpZHAiOiJsb2NhbCIsImp0aSI6IkZBMjg5RUI2Qjc5QzhCRTc3MThBOEEwNEFERDY2N0ZEIiwiaWF0IjoxNzA0NzE4MDI4LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.VZeGVf2NkH_T4MQ9Ws_E4zz5y5S2DTSkkCPCnnLUYg6AJCUg-0NgDHHqogCn_raIN7Bbd96XWh9nab7FgAlg5vxQDsTBKHUnwkTizcQ4Tp1oo1fByLaRU1bjOuJaQ06q1D9DdZfljVq5m3PoV5MthT5VMjNYfVVWxyyK27YzFLKxymJqU_8rq1P6HCCCtkaYAZf47NxeKmoHMDN2Xg5JbmVjKGjCb1G3EPVzi5VFQITRVi6EZR3CluJcBKHD5zvXY0u_0JTiF2g8R4XXJj3HPnFGa6RRaoiiXv0mcsas34W35f6BM2hx38YSQ-oLq6IkL4N_r-SkLPXs926p_3L6zQ]
+2024-01-08T17:47:09,110 [main] INFO  (UnSubscribe_AccountBalance.java:48) - ====================================================================
+2024-01-08T17:47:09,110 [main] INFO  (UnSubscribe_AccountBalance.java:49) - TestCase : UnSubscribe_AccountBalance_TC0001
+2024-01-08T17:47:09,111 [main] INFO  (UnSubscribe_AccountBalance.java:50) - ====================================================================
+2024-01-08T17:47:09,688 [main] INFO  (UnSubscribe_AccountBalance.java:65) - API-UnSubscribe_AccountBalance_BasePath : [/int/ord/api/account/balances/unsubscribe]
+2024-01-08T17:47:09,688 [main] INFO  (UnSubscribe_AccountBalance.java:66) - API-Content_Type : [application/json]
+2024-01-08T17:47:09,688 [main] INFO  (UnSubscribe_AccountBalance.java:67) - API-UnSubscribe_AccountBalance_StatusCode : [200]
+2024-01-08T17:47:09,688 [main] INFO  (UnSubscribe_AccountBalance.java:68) - API-UnSubscribe_AccountBalance_StatusCode : [Success!]

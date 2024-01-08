@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>TestNG:  OptionOrder Active-Open Creation</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>OptionOrder Active-Open Creation</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 27 20:26:54 PKT 2023</td>
+</tr>
+<tr><td>Total time:</td><td>7 seconds (7342 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='IdentityServer_API_User.Login.UserLogin()'><b>UserLogin</b><br>Test class: IdentityServer_API_User.Login<br>Parameters: Verify_UserLogin_TC0001, /int/is/api/login, qatest27@mailinator.com, @Qatest27, application/json, 202, /int/is/api/login/tfa/, 123456, 200</td>
+<td></td>
+<td>2</td>
+<td>IdentityServer_API_User.Login@60222fd8</td></tr>
+<tr>
+<td title='Subscriptions.Option_Order_Subscribe.Verify_SubscribeActiveOptionOrder()'><b>Verify_SubscribeActiveOptionOrder</b><br>Test class: Subscriptions.Option_Order_Subscribe<br>Parameters: OptionOrder_ActiveOpen_Subscribe_TC0001, V3, /int/ord/api/v3/subscription/optionorders/subscribe, application/json, 200, qatest27, 1, 1, BO, BRK.B, 1LOC-LOCA-123456-M, -OPTFIX, 0.0, 120.0, BRK.B, 90.0, 30, 209908, 2099-08, 2099-08-30, Aug 30, 2099, 294, null, 48, PUT, 48, COVERED, 48, CUSTOMER, 79, OPEN, null, null, 0.0, 0, DAY, B, BRK, MKT, 0.0, 0.0, 0.0, 120.0, null, null, false, 0.0, LSL, Active</td>
+<td></td>
+<td>1</td>
+<td>Subscriptions.Option_Order_Subscribe@14a54ef6</td></tr>
+<tr>
+<td title='OptionOrders.Create_OptionOrder.Verify_Order_Creation_Active_Open_Status()'><b>Verify_Order_Creation_Active_Open_Status</b><br>Test class: OptionOrders.Create_OptionOrder<br>Parameters: Verify_OptionOrder_Creation_Active_Open_TC0001, V3, /int/ord/api/v3/optionorders, application/json, {
+        "OrdType": "1",
+        "Side": "1",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 120,
+        "Price": 0,
+        "StopPx": 0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 90,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }, 200, Order successfully created.</td>
+<td></td>
+<td>0</td>
+<td>OptionOrders.Create_OptionOrder@6759f091</td></tr>
+</table><p>
+</body>
+</html>

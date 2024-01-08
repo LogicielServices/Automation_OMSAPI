@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [EQUITY FILLED ORDERS]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="EquityOrder Buy Filled Creation(failed)">
+    <classes>
+      <class name="Subscriptions.Equity_Order_Subscribe">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
+          <include name="Verify_SubscribeBUYFilledEquityOrder" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Subscriptions.Equity_Order_Subscribe -->
+    </classes>
+  </test> <!-- EquityOrder Buy Filled Creation(failed) -->
+  <test thread-count="5" name="EquityOrder Sell Filled Creation(failed)">
+    <classes>
+      <class name="Subscriptions.Equity_Order_Subscribe">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
+          <include name="Verify_SubscribeSELLFilledEquityOrder" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Subscriptions.Equity_Order_Subscribe -->
+    </classes>
+  </test> <!-- EquityOrder Sell Filled Creation(failed) -->
+  <test thread-count="5" name="EquityOrder ShortSell Filled Creation(failed)">
+    <classes>
+      <class name="Subscriptions.Equity_Order_Subscribe">
+        <methods>
+          <include name="Verify_SubscribeSHORTSELLFilledEquityOrder" invocation-numbers="0"/>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Subscriptions.Equity_Order_Subscribe -->
+    </classes>
+  </test> <!-- EquityOrder ShortSell Filled Creation(failed) -->
+</suite> <!-- Failed suite [EQUITY FILLED ORDERS] -->

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [EQUITY ACTIVE-OPEN ORDERS]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="EquityOrder Active-Open Creation(failed)">
+    <classes>
+      <class name="Subscriptions.Equity_Order_Subscribe">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Verify_SubscribeActiveEquityOrder" invocation-numbers="0"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Subscriptions.Equity_Order_Subscribe -->
+    </classes>
+  </test> <!-- EquityOrder Active-Open Creation(failed) -->
+</suite> <!-- Failed suite [EQUITY ACTIVE-OPEN ORDERS] -->

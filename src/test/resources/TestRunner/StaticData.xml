@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="STATIC DATA APIs" guice-stage="DEVELOPMENT">
+  <test thread-count="1" name="Static_Data test">
+    <classes>
+	  <class name="IdentityServer_API_User.Login">
+        <methods>
+          <include name="UserLogin"/>
+        </methods>
+      </class> <!-- IdentityServer_API_User.Login -->
+      <class name="Static_Data.StaticData_Account"/>
+      <class name="Static_Data.StaticData_Blotter_Permissions"/>
+      <class name="Static_Data.StaticData_LocateTIF"/>
+      <class name="Static_Data.StaticData_ETBHTB"/>
+      <class name="Static_Data.StaticData_MktTopPerfCateg"/>
+      <class name="Static_Data.StaticData_Destination_TraderOnly"/>
+      <class name="Static_Data.StaticData_MktTopPerfExchange"/>
+      <class name="Static_Data.StaticData_Account"/>
+      <class name="Static_Data.StaticData_TIF"/>
+      <class name="Static_Data.StaticData_OrdType"/>
+      <class name="Static_Data.StaticData_Option_Destination"/>
+      <class name="Static_Data.StaticData_Destination"/>
+      <class name="Static_Data.StaticData_Side"/>
+      <class name="Static_Data.StaticData_CommType"/>
+      <class name="Static_Data.StaticData_BlotterPackage_Permissions"/>
+       <!-- Static_Data_V3.StaticData_Account -->
+      
+      
+    </classes>
+  </test> <!-- Static_Data test -->
+</suite> <!-- Static_Data suite -->

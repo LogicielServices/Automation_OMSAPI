@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>TestNG:  Update-Delete-Cancel OptionOrder</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Update-Delete-Cancel OptionOrder</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 27 20:27:02 PKT 2023</td>
+</tr>
+<tr><td>Total time:</td><td>12 seconds (12073 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='OptionOrders.Delete_OptionOrder.Verify_Delete_Option_Order()'><b>Verify_Delete_Option_Order</b><br>Test class: OptionOrders.Delete_OptionOrder<br>Parameters: Verify_OptionOrder_Delete_TC0001, V3, /int/ord/api/v3/optionorders, application/json, {
+        "OrdType": "1",
+        "Side": "1",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 110,
+        "Price": 0,
+        "StopPx": 0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 91,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }, 200, Order successfully created., /int/ord/api/v3/subscription/optionorders/subscribe, qatest27, 1, 1, BRK.B, 1LOC-LOCA-123456-M, -OPTFIX, 0.0, 110.0, Active, 200, /int/ord/api/v3/optionorders/, 200, Cancelled, true</td>
+<td></td>
+<td>3</td>
+<td>OptionOrders.Delete_OptionOrder@3163987e</td></tr>
+<tr>
+<td title='IdentityServer_API_User.Login.UserLogin()'><b>UserLogin</b><br>Test class: IdentityServer_API_User.Login<br>Parameters: Verify_UserLogin_TC0001, /int/is/api/login, qatest27@mailinator.com, @Qatest27, application/json, 202, /int/is/api/login/tfa/, 123456, 200</td>
+<td></td>
+<td>1</td>
+<td>IdentityServer_API_User.Login@30cdae70</td></tr>
+<tr>
+<td title='OptionOrders.Cancel_OptionOrder.Verify_Cancel_Option_Order()'><b>Verify_Cancel_Option_Order</b><br>Test class: OptionOrders.Cancel_OptionOrder<br>Parameters: Verify_OptionOrder_Cancel_TC0001, V3, /int/ord/api/v3/optionorders, application/json, {
+        "OrdType": "1",
+        "Side": "1",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 111,
+        "Price": 0,
+        "StopPx": 0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 90,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }, 200, Order successfully created., /int/ord/api/v3/subscription/optionorders/subscribe, qatest27, 1, 1, BRK.B, 1LOC-LOCA-123456-M, -OPTFIX, 0.0, 111.0, Active, 200, /int/ord/api/v3/optionorders/cancel, 200, Cancelled, true</td>
+<td></td>
+<td>2</td>
+<td>OptionOrders.Cancel_OptionOrder@2577d6c8</td></tr>
+<tr>
+<td title='OptionOrders.Update_OptionOrder.Verify_Update_Option_Order()'><b>Verify_Update_Option_Order</b><br>Test class: OptionOrders.Update_OptionOrder<br>Parameters: Verify_OptionOrder_Update_TC0001, V3, /int/ord/api/v3/optionorders, application/json, {
+        "OrdType": "1",
+        "Side": "1",
+        "Symbol": "BRK.B",
+        "TimeInForce": "0",
+        "Account": "1LOC-LOCA-123456-M",
+        "destination": "-OPTFIX",
+        "OrderQty": 113,
+        "Price": 0,
+        "StopPx": 0,
+        "ComplianceID": null,
+        "ContactName": null,
+        "LocateID": null,
+        "LocateRate": 0,
+        "LocateRequired": false,
+        "StrikePrice": 90,
+        "PutOrCall": "0",
+        "CoveredOrUncovered": "0",
+        "CustomerOrFirm": "0",
+        "ExpiryDate": "2099-08-30T13:20:00.000Z",
+        "Cmta": "294",
+        "OpenClose": "O"
+    }, 200, Order successfully created., /int/ord/api/v3/subscription/optionorders/subscribe, qatest27, 1, 1, BRK.B, 1LOC-LOCA-123456-M, -OPTFIX, 0.0, 113.0, Active, 200, /int/ord/api/v3/optionorders, 2, 100, 110, ComplianceID_01, 200, true</td>
+<td></td>
+<td>2</td>
+<td>OptionOrders.Update_OptionOrder@1654a892</td></tr>
+</table><p>
+</body>
+</html>

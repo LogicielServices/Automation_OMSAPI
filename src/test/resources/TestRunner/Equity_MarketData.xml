@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="EQUITY MARKET DATA API" guice-stage="DEVELOPMENT">
+  
+	 <test thread-count="1" name="Equity MarketData Individual Subscriptions">
+		<classes>
+			  <class name="IdentityServer_API_User.Login"/>
+			  <class name="MarketData_L1.Subscribe_MarketData">
+				  <methods>
+					 <include name="Verify_Subscribe_Equity_MarketData"/>
+				   </methods>
+			  </class>
+			  <class name="MarketData_L1.UnSubscribe">
+				  <methods>
+					 <include name="Verify_UnSubscribe_Equity_MarketData"/>
+				   </methods>
+			  </class>
+		  </classes>
+	  </test> 
+	  	  
+	  <test thread-count="1" name="Equity MarketData Bulk Subscriptions">
+		<classes>
+		  <class name="IdentityServer_API_User.Login"/>
+		  <class name="MarketData_L1.Subscribe_Bulk">
+			  <methods>
+				 <include name="Verify_Subscribe_Bulk_Equity_MarketData"/>
+			   </methods>
+		  </class>
+		   <class name="MarketData_L1.UnSubscribe_Bulk">
+			  <methods>
+				 <include name="Verify_UnSubscribe_Bulk_Equity_MarketData"/>
+			   </methods>
+		  </class>
+		</classes>
+	  </test> 
+	  
+	   
+	  <test thread-count="1" name="MarketData Company Information">
+		<classes>
+		  <class name="IdentityServer_API_User.Login"/>
+		  <class name="MarketData_L1.CompanyInformation">
+			  <methods>
+				 <include name="Verify_CompanyInformation_MarketData"/>
+			   </methods>
+		  </class>
+		</classes>
+	  </test> 
+		  
+	  <test thread-count="1" name="Historicaldata Snapshot">
+		<classes>
+		  <class name="IdentityServer_API_User.Login"/>
+		  <class name="MarketData_L1.Historicaldata_Snapshot">
+			  <methods>
+				 <include name="Verify_Historicaldata_Snapshot_MarketData"/>
+			   </methods>
+		  </class>
+		</classes>
+	  </test> 
+  
+</suite>

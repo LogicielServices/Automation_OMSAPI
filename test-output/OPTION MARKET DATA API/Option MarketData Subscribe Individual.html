@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>TestNG:  Option MarketData Subscribe Individual</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Option MarketData Subscribe Individual</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jan 03 20:44:33 PKT 2024</td>
+</tr>
+<tr><td>Total time:</td><td>12 seconds (12101 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='MarketData_OPT_L1.Opt_Subscribe.Verify_Subscribe_Individual()'><b>Verify_Subscribe_Individual</b><br>Test class: MarketData_OPT_L1.Opt_Subscribe<br>Parameters: Verify_Opt_Subscribe_MarketData_TC0001, V1, /int/mkt/api/v1/marketData/opt/L1/topic?symbol=, application/json, IBM, 200, /int/mkt/api/v1/marketData/opt/L1/subscribe, 1, 200, [CustomStatus, CloseCondition, LastSize, PreviousNetChange, CloseDate, PreviousClose, ShortSalePriceRestricted, PreviousBid, QuoteDate, PreviousCumulativePrice, PreviousOpen, PreviousTradeCount, LifetimeHighDate, TradingStatusDetails, ClosingAsk, Low, Volume, PreviousTradingDate, PreviousCumulativeValue, TradeCount, Close, TradingStatusReason, LimitHighLowTime, AskSize, CloseCumulativeVolumeDate, TradingStatus, UpdateId, LocalCode, ClosingQuoteDate, BidSize, Open, QuoteLotSize, PreviousCumulativeVolumeDate, Ask, TradeDate, LowTime, CloseStatus, OpenInterestDate, PreviousCumulativeVolume, Context, TradeExchange, LowCondition, TradeTime, ClosingAskExchange, Week52Low, BidExchange, LifetimeLow, LifetimeLowDate, CloseCumulativeValue, PrePostMarketTrade, PreviousOpenInterestDate, ClientIdentity, ExpirationDate, ResetDate, LowExchange, AskTime, BidTime, PrePostMarketTradeSize, LastUpdateDate, AskExchange, PreviousTradeTime, CreateDate, CloseCumulativeVolumeStatus, LimitLowPrice, Last, HighExchange, PreviousAsk, LotSize, PreviousTradeLow, PercentChange, PreviousTradeHigh, PreviousCloseDate, Week52High, TradingStatusReasonDetails, CloseCumulativeValueStatus, OpenInterest, EntityType, State, ClosingBid, ClosingBidExchange, PreviousPercentChange, CloseCumulativeVolume, Symbol, HighTime, CloseExchange, CumulativeValue, PreviousOpenInterest, HighCondition, PreviousQuoteDate, ExpirationType, ShortSalePriceRestrictedDescription, Bid, OpenCondition, LifetimeHigh, OptionType, High, StrikePrice, Change, TradeCondition, LimitHighPrice, PermissionId]</td>
+<td></td>
+<td>1</td>
+<td>MarketData_OPT_L1.Opt_Subscribe@240139e1</td></tr>
+<tr>
+<td title='IdentityServer_API_User.Login.UserLogin()'><b>UserLogin</b><br>Test class: IdentityServer_API_User.Login<br>Parameters: Verify_UserLogin_TC0001, /int/is/api/login, qatest27@mailinator.com, @Qatest27, application/json, 202, /int/is/api/login/tfa/, 123456, 200</td>
+<td></td>
+<td>1</td>
+<td>IdentityServer_API_User.Login@1d8e2eea</td></tr>
+<tr>
+<td title='MarketData_OPT_L1.Opt_Subscribe.Verify_Subscribe_Individual()'><b>Verify_Subscribe_Individual</b><br>Test class: MarketData_OPT_L1.Opt_Subscribe<br>Parameters: Verify_Opt_Subscribe_MarketData_TC0003, V1, /int/mkt/api/v1/marketData/opt/L1/topic?symbol=, application/json, QQQ, 200, /int/mkt/api/v1/marketData/opt/L1/subscribe, 3, 200, [CustomStatus, CloseCondition, LastSize, PreviousNetChange, CloseDate, PreviousClose, ShortSalePriceRestricted, PreviousBid, QuoteDate, PreviousCumulativePrice, PreviousOpen, PreviousTradeCount, LifetimeHighDate, TradingStatusDetails, ClosingAsk, Low, Volume, PreviousTradingDate, PreviousCumulativeValue, TradeCount, Close, TradingStatusReason, LimitHighLowTime, AskSize, CloseCumulativeVolumeDate, TradingStatus, UpdateId, LocalCode, ClosingQuoteDate, BidSize, Open, QuoteLotSize, PreviousCumulativeVolumeDate, Ask, TradeDate, LowTime, CloseStatus, OpenInterestDate, PreviousCumulativeVolume, Context, TradeExchange, LowCondition, TradeTime, ClosingAskExchange, Week52Low, BidExchange, LifetimeLow, LifetimeLowDate, CloseCumulativeValue, PrePostMarketTrade, PreviousOpenInterestDate, ClientIdentity, ExpirationDate, ResetDate, LowExchange, AskTime, BidTime, PrePostMarketTradeSize, LastUpdateDate, AskExchange, PreviousTradeTime, CreateDate, CloseCumulativeVolumeStatus, LimitLowPrice, Last, HighExchange, PreviousAsk, LotSize, PreviousTradeLow, PercentChange, PreviousTradeHigh, PreviousCloseDate, Week52High, TradingStatusReasonDetails, CloseCumulativeValueStatus, OpenInterest, EntityType, State, ClosingBid, ClosingBidExchange, PreviousPercentChange, CloseCumulativeVolume, Symbol, HighTime, CloseExchange, CumulativeValue, PreviousOpenInterest, HighCondition, PreviousQuoteDate, ExpirationType, ShortSalePriceRestrictedDescription, Bid, OpenCondition, LifetimeHigh, OptionType, High, StrikePrice, Change, TradeCondition, LimitHighPrice, PermissionId]</td>
+<td></td>
+<td>2</td>
+<td>MarketData_OPT_L1.Opt_Subscribe@240139e1</td></tr>
+<tr>
+<td title='MarketData_OPT_L1.Opt_Subscribe.Verify_Subscribe_Individual()'><b>Verify_Subscribe_Individual</b><br>Test class: MarketData_OPT_L1.Opt_Subscribe<br>Parameters: Verify_Opt_Subscribe_MarketData_TC0004, V1, /int/mkt/api/v1/marketData/opt/L1/topic?symbol=, application/json, MSFT, 200, /int/mkt/api/v1/marketData/opt/L1/subscribe, 4, 200, [CustomStatus, CloseCondition, LastSize, PreviousNetChange, CloseDate, PreviousClose, ShortSalePriceRestricted, PreviousBid, QuoteDate, PreviousCumulativePrice, PreviousOpen, PreviousTradeCount, LifetimeHighDate, TradingStatusDetails, ClosingAsk, Low, Volume, PreviousTradingDate, PreviousCumulativeValue, TradeCount, Close, TradingStatusReason, LimitHighLowTime, AskSize, CloseCumulativeVolumeDate, TradingStatus, UpdateId, LocalCode, ClosingQuoteDate, BidSize, Open, QuoteLotSize, PreviousCumulativeVolumeDate, Ask, TradeDate, LowTime, CloseStatus, OpenInterestDate, PreviousCumulativeVolume, Context, TradeExchange, LowCondition, TradeTime, ClosingAskExchange, Week52Low, BidExchange, LifetimeLow, LifetimeLowDate, CloseCumulativeValue, PrePostMarketTrade, PreviousOpenInterestDate, ClientIdentity, ExpirationDate, ResetDate, LowExchange, AskTime, BidTime, PrePostMarketTradeSize, LastUpdateDate, AskExchange, PreviousTradeTime, CreateDate, CloseCumulativeVolumeStatus, LimitLowPrice, Last, HighExchange, PreviousAsk, LotSize, PreviousTradeLow, PercentChange, PreviousTradeHigh, PreviousCloseDate, Week52High, TradingStatusReasonDetails, CloseCumulativeValueStatus, OpenInterest, EntityType, State, ClosingBid, ClosingBidExchange, PreviousPercentChange, CloseCumulativeVolume, Symbol, HighTime, CloseExchange, CumulativeValue, PreviousOpenInterest, HighCondition, PreviousQuoteDate, ExpirationType, ShortSalePriceRestrictedDescription, Bid, OpenCondition, LifetimeHigh, OptionType, High, StrikePrice, Change, TradeCondition, LimitHighPrice, PermissionId]</td>
+<td></td>
+<td>3</td>
+<td>MarketData_OPT_L1.Opt_Subscribe@240139e1</td></tr>
+<tr>
+<td title='MarketData_OPT_L1.Opt_Subscribe.Verify_Subscribe_Individual()'><b>Verify_Subscribe_Individual</b><br>Test class: MarketData_OPT_L1.Opt_Subscribe<br>Parameters: Verify_Opt_Subscribe_MarketData_TC0002, V1, /int/mkt/api/v1/marketData/opt/L1/topic?symbol=, application/json, A, 200, /int/mkt/api/v1/marketData/opt/L1/subscribe, 2, 200, [CustomStatus, CloseCondition, LastSize, PreviousNetChange, CloseDate, PreviousClose, ShortSalePriceRestricted, PreviousBid, QuoteDate, PreviousCumulativePrice, PreviousOpen, PreviousTradeCount, LifetimeHighDate, TradingStatusDetails, ClosingAsk, Low, Volume, PreviousTradingDate, PreviousCumulativeValue, TradeCount, Close, TradingStatusReason, LimitHighLowTime, AskSize, CloseCumulativeVolumeDate, TradingStatus, UpdateId, LocalCode, ClosingQuoteDate, BidSize, Open, QuoteLotSize, PreviousCumulativeVolumeDate, Ask, TradeDate, LowTime, CloseStatus, OpenInterestDate, PreviousCumulativeVolume, Context, TradeExchange, LowCondition, TradeTime, ClosingAskExchange, Week52Low, BidExchange, LifetimeLow, LifetimeLowDate, CloseCumulativeValue, PrePostMarketTrade, PreviousOpenInterestDate, ClientIdentity, ExpirationDate, ResetDate, LowExchange, AskTime, BidTime, PrePostMarketTradeSize, LastUpdateDate, AskExchange, PreviousTradeTime, CreateDate, CloseCumulativeVolumeStatus, LimitLowPrice, Last, HighExchange, PreviousAsk, LotSize, PreviousTradeLow, PercentChange, PreviousTradeHigh, PreviousCloseDate, Week52High, TradingStatusReasonDetails, CloseCumulativeValueStatus, OpenInterest, EntityType, State, ClosingBid, ClosingBidExchange, PreviousPercentChange, CloseCumulativeVolume, Symbol, HighTime, CloseExchange, CumulativeValue, PreviousOpenInterest, HighCondition, PreviousQuoteDate, ExpirationType, ShortSalePriceRestrictedDescription, Bid, OpenCondition, LifetimeHigh, OptionType, High, StrikePrice, Change, TradeCondition, LimitHighPrice, PermissionId]</td>
+<td></td>
+<td>1</td>
+<td>MarketData_OPT_L1.Opt_Subscribe@240139e1</td></tr>
+</table><p>
+</body>
+</html>

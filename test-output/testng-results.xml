@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-01-08T17:47:02 PKT" name="ACCOUNT BALANCE API" finished-at="2024-01-08T17:47:09 PKT" duration-ms="7268">
+    <groups>
+      <group name="UserLoginAuthentications">
+        <method signature="Login.UserLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:IdentityServer_API_User.Login@5c09d180]" name="UserLogin" class="IdentityServer_API_User.Login"/>
+        <method signature="Login.UserLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:IdentityServer_API_User.Login@253c1256]" name="UserLogin" class="IdentityServer_API_User.Login"/>
+      </group> <!-- UserLoginAuthentications -->
+      <group name="Subscribe_AccountBalance">
+        <method signature="Subscribe_AccountBalance.Verify_Subscribe_AccountBalance(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Account_Balances.Subscribe_AccountBalance@2617f816]" name="Verify_Subscribe_AccountBalance" class="Account_Balances.Subscribe_AccountBalance"/>
+      </group> <!-- Subscribe_AccountBalance -->
+      <group name="UnSubscribe_AccountBalance">
+        <method signature="UnSubscribe_AccountBalance.Verify_UnSubscribe_AccountBalance(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Account_Balances.UnSubscribe_AccountBalance@8dfe921]" name="Verify_UnSubscribe_AccountBalance" class="Account_Balances.UnSubscribe_AccountBalance"/>
+      </group> <!-- UnSubscribe_AccountBalance -->
+    </groups>
+    <test started-at="2024-01-08T17:47:02 PKT" name="Subscribe AccountBalance" finished-at="2024-01-08T17:47:07 PKT" duration-ms="4922">
+      <class name="IdentityServer_API_User.Login">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:IdentityServer_API_User.Login@5c09d180]" started-at="2024-01-08T17:47:03 PKT" name="beforeMethod" finished-at="2024-01-08T17:47:03 PKT" duration-ms="311" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="UserLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:IdentityServer_API_User.Login@5c09d180]" started-at="2024-01-08T17:47:03 PKT" name="UserLogin" data-provider="UserLogin" finished-at="2024-01-08T17:47:06 PKT" duration-ms="2893" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Verify_UserLogin_TC0001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[/int/is/api/login]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[qatest27@mailinator.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[@Qatest27]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[application/json]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[202]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[/int/is/api/login/tfa/]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UserLogin -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:IdentityServer_API_User.Login@5c09d180]" started-at="2024-01-08T17:47:06 PKT" name="afterMethod" finished-at="2024-01-08T17:47:06 PKT" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=UserLogin status=SUCCESS method=Login.UserLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:IdentityServer_API_User.Login@5c09d180] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- IdentityServer_API_User.Login -->
+      <class name="Account_Balances.Subscribe_AccountBalance">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Account_Balances.Subscribe_AccountBalance@2617f816]" started-at="2024-01-08T17:47:06 PKT" name="beforeMethod" finished-at="2024-01-08T17:47:06 PKT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Verify_Subscribe_AccountBalance(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Account_Balances.Subscribe_AccountBalance@2617f816]" started-at="2024-01-08T17:47:06 PKT" name="Verify_Subscribe_AccountBalance" data-provider="Subscribe_AccountBalance" depends-on-groups="UserLoginAuthentications" finished-at="2024-01-08T17:47:07 PKT" duration-ms="624" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Subscribe_AccountBalance_TC0001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[V1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[/int/ord/api/account/balances/subscribe]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[application/json]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_Subscribe_AccountBalance -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Account_Balances.Subscribe_AccountBalance@2617f816]" started-at="2024-01-08T17:47:07 PKT" name="afterMethod" finished-at="2024-01-08T17:47:07 PKT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Verify_Subscribe_AccountBalance status=SUCCESS method=Subscribe_AccountBalance.Verify_Subscribe_AccountBalance(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Account_Balances.Subscribe_AccountBalance@2617f816] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Account_Balances.Subscribe_AccountBalance -->
+    </test> <!-- Subscribe AccountBalance -->
+    <test started-at="2024-01-08T17:47:07 PKT" name="UnSubscribe AccountBalance" finished-at="2024-01-08T17:47:09 PKT" duration-ms="2322">
+      <class name="Account_Balances.UnSubscribe_AccountBalance">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Account_Balances.UnSubscribe_AccountBalance@8dfe921]" started-at="2024-01-08T17:47:09 PKT" name="beforeMethod" finished-at="2024-01-08T17:47:09 PKT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Verify_UnSubscribe_AccountBalance(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Account_Balances.UnSubscribe_AccountBalance@8dfe921]" started-at="2024-01-08T17:47:09 PKT" name="Verify_UnSubscribe_AccountBalance" data-provider="UnSubscribe_AccountBalance" depends-on-groups="UserLoginAuthentications" finished-at="2024-01-08T17:47:09 PKT" duration-ms="580" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[UnSubscribe_AccountBalance_TC0001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[V1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[/int/ord/api/account/balances/unsubscribe]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[application/json]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Success!]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_UnSubscribe_AccountBalance -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Account_Balances.UnSubscribe_AccountBalance@8dfe921]" started-at="2024-01-08T17:47:09 PKT" name="afterMethod" finished-at="2024-01-08T17:47:09 PKT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Verify_UnSubscribe_AccountBalance status=SUCCESS method=UnSubscribe_AccountBalance.Verify_UnSubscribe_AccountBalance(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Account_Balances.UnSubscribe_AccountBalance@8dfe921] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Account_Balances.UnSubscribe_AccountBalance -->
+      <class name="IdentityServer_API_User.Login">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:IdentityServer_API_User.Login@253c1256]" started-at="2024-01-08T17:47:07 PKT" name="beforeMethod" finished-at="2024-01-08T17:47:07 PKT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="UserLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:IdentityServer_API_User.Login@253c1256]" started-at="2024-01-08T17:47:07 PKT" name="UserLogin" data-provider="UserLogin" finished-at="2024-01-08T17:47:09 PKT" duration-ms="1390" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Verify_UserLogin_TC0001]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[/int/is/api/login]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[qatest27@mailinator.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[@Qatest27]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[application/json]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[202]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[/int/is/api/login/tfa/]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UserLogin -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:IdentityServer_API_User.Login@253c1256]" started-at="2024-01-08T17:47:09 PKT" name="afterMethod" finished-at="2024-01-08T17:47:09 PKT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=UserLogin status=SUCCESS method=Login.UserLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:IdentityServer_API_User.Login@253c1256] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- IdentityServer_API_User.Login -->
+    </test> <!-- UnSubscribe AccountBalance -->
+  </suite> <!-- ACCOUNT BALANCE API -->
+</testng-results>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OPTION ACTIVE-OPEN ORDERS">
+		
+		<test thread-count="1" name="OptionOrder Active-Open Creation">
+		    <classes>
+				<class name="IdentityServer_API_User.Login"/>
+				<class name="OptionOrders.Create_OptionOrder">
+				    <methods>
+				         <include name="Verify_Order_Creation_Active_Open_Status"/>
+				    </methods>
+	      	  </class>
+	      	  <class name="Subscriptions.Option_Order_Subscribe">
+				    <methods>
+				         <include name="Verify_SubscribeActiveOptionOrder"/>
+				    </methods>       
+	      	  </class>
+	      	</classes>
+		</test>
+		
+				
+				
+		<test thread-count="1" name="Update-Delete-Cancel OptionOrder">
+		    <classes>
+			  <class name="IdentityServer_API_User.Login"/>
+			  <class name="OptionOrders.Update_OptionOrder"/>
+			  <class name="OptionOrders.Cancel_OptionOrder"/>
+			  <class name="OptionOrders.Delete_OptionOrder"/>
+			  			 
+	      	</classes>
+		</test> 
+		
+			  
+</suite> <!-- Suite -->
