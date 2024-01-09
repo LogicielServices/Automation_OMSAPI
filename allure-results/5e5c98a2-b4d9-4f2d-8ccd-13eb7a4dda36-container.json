@@ -1,1 +1,0 @@
-{"uuid":"5e5c98a2-b4d9-4f2d-8ccd-13eb7a4dda36","name":"Orders.Delete.afterMethod","children":["02e1dffd-c167-4e46-9566-7c0c6723b94b"],"description":"","befores":[],"afters":[{"name":"afterMethod","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1703678379730,"stop":1703678379730}],"start":1703678379730,"stop":1703678379730}
