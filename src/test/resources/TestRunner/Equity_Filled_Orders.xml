@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="EQUITY FILLED ORDERS">
+		     	
+		
+	 	<test thread-count="5" name="EquityOrder Buy Filled Creation">
+		    <classes>
+				<class name="IdentityServer_API_User.Login"/>
+				<class name="Orders.Filled_Orders">
+				    <methods>
+				         <include name="Verify_BUY_Equity_Order_Filled_Creation"/>
+				    </methods>
+	      	  </class>
+	      	  <class name="Subscriptions.Equity_Order_Subscribe">
+				    <methods>
+				         <include name="Verify_SubscribeBUYFilledEquityOrder"/>
+				    </methods>       
+	      	  </class>
+	      	</classes>
+		 </test> 
+		
+		  
+		 <test thread-count="5" name="EquityOrder Sell Filled Creation">
+		    <classes>
+				<class name="IdentityServer_API_User.Login"/>
+				<class name="Orders.Filled_Orders">
+				    <methods>
+				         <include name="Verify_SELL_Equity_Order_Filled_Creation"/>
+				    </methods>
+	      	  </class>
+	      	  <class name="Subscriptions.Equity_Order_Subscribe">
+				    <methods>
+				         <include name="Verify_SubscribeSELLFilledEquityOrder"/>
+				    </methods>       
+	      	  </class>
+	      	</classes>
+		</test> 
+		
+		
+		<test thread-count="5" name="EquityOrder ShortSell Filled Creation">
+		    <classes>
+				<class name="IdentityServer_API_User.Login"/>
+				<class name="Orders.Filled_Orders">
+				    <methods>
+				         <include name="Verify_SHORTSELL_EquityOrder_Filled_Creation"/>
+				    </methods>
+	      	  </class>
+	      	  <class name="Subscriptions.Equity_Order_Subscribe">
+				    <methods>
+				         <include name="Verify_SubscribeSHORTSELLFilledEquityOrder"/>
+				    </methods>       
+	      	  </class>
+	      	</classes>
+		</test>
+
+</suite> <!-- Suite -->		  
+		  
+
+		 

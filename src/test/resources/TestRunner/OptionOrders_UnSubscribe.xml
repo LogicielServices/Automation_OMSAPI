@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OPTION ORDERS UnSUBSCRIBE">
+
+		<test thread-count="5" name="UnSubscribe OptionOrder">
+		    <classes>
+				<class name="IdentityServer_API_User.Login"/>
+				<class name="Subscriptions.Option_Order_UnSubscribe">
+				    <methods>
+						<include name="Verify_UnSubscribe_OptionOrder"/>
+				    </methods>       
+	      	  </class>
+	      	</classes>
+		</test> <!-- Test: UnSubscribe OptionOrder -->
+				 	  
+</suite> <!-- Suite -->

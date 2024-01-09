@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="EQUITY REJECTED ORDERS">
+		  
+			
+	<test thread-count="1" name="EquityOrder Rejected Creation">
+		    <classes>
+				<class name="IdentityServer_API_User.Login"/>
+				<class name="Orders.Create">
+				    <methods>
+				         <include name="Verify_Equity_Order_Rejected_Creation"/>
+				    </methods>
+	      	  </class>
+	      	  <class name="Subscriptions.Equity_Order_Subscribe">
+				    <methods>
+						<include name="Verify_SubscribeRejectedEquityOrder"/>
+				    </methods>       
+	      	  </class>
+	      	</classes>
+		</test> <!-- Test: Equity_Order_Rejected_Creation -->
+		  
+		
+		
+</suite> <!-- Suite -->		  
+		  
+
+		 

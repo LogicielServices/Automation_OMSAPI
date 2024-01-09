@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ACCOUNT BALANCE API" guice-stage="DEVELOPMENT">
+ 
+ 
+ 
+  <test thread-count="1" name="Subscribe AccountBalance">
+    <classes>
+	  <class name="IdentityServer_API_User.Login"/>
+      <class name="Account_Balances.Subscribe_AccountBalance">
+	      <methods>
+	         <include name="Verify_Subscribe_AccountBalance"/>
+	       </methods>
+      </class>
+      </classes>
+  </test> 
+  
+  <test thread-count="1" name="UnSubscribe AccountBalance">
+    <classes>
+	  <class name="IdentityServer_API_User.Login"/>
+      <class name="Account_Balances.UnSubscribe_AccountBalance">
+	      <methods>
+	         <include name="Verify_UnSubscribe_AccountBalance"/>
+	       </methods>
+      </class>
+      </classes>
+  </test> 
+</suite>

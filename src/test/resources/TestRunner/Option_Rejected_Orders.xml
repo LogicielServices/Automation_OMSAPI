@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OPTION REJECTED ORDERS">
+		  
+		 
+			  
+		<test thread-count="5" name="OptionOrder Rejected Creation">
+		    <classes>
+				<class name="IdentityServer_API_User.Login"/>
+				<class name="OptionOrders.Create_OptionOrder">
+				    <methods>
+				         <include name="Verify_Order_Creation_Rejected_Status"/>
+				    </methods>
+	      	  </class>
+	      	  <class name="Subscriptions.Option_Order_Subscribe">
+				    <methods>
+						<include name="Verify_SubscribeRejectedOptionOrder"/>
+				    </methods>       
+	      	  </class>
+	      	</classes>
+		</test> 
+				  
+</suite> <!-- Suite -->
+		
