@@ -296,7 +296,8 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 			        
 			       
 			         //check if condition meets
-			         System.out.println(response_UserID +" --- "+orderUserid);
+			     	 /*
+			      	 System.out.println(response_UserID +" --- "+orderUserid);
 			         System.out.println(response_status +" --- "+expected_orderStatus);
 			         System.out.println(response_account +" --- "+expected_order_account);
 			         System.out.println(response_symbol +" --- "+expected_order_symbol);
@@ -305,7 +306,7 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 			         System.out.println(response_side +" --- "+expected_order_side);
 			         System.out.println(response_orderQty.toString() +" --- "+expected_order_orderQty);
 			         System.out.println(response_ordType +" --- "+expected_order_ordType);
-			         
+			         */
 			         if (response_UserID.equalsIgnoreCase(orderUserid)
 				        			&& response_status.equalsIgnoreCase(expected_orderStatus) 
 				        			&& response_account.equalsIgnoreCase(expected_order_account)
@@ -806,15 +807,13 @@ public static void Option_OrdersSubscriptionValidation(String Order_Status,
 				Assert.assertEquals(NVL(Global.getOptionCustomerOrFirm,"null"),Subscribe_Order_customerOrFirm,"Validate_Subscribe_Order_customerOrFirm");
 				Assert.assertEquals(Global.getOptionOpenCloseBoxed,Integer.parseInt(Subscribe_Order_openCloseBoxed),"Validate_Subscribe_Order_openCloseBoxed");
 				Assert.assertEquals(NVL(Global.getOptionOpenClose,"null"),Subscribe_Order_openClose,"Validate_Subscribe_Order_openClose");
-				
-			
 				break;
 			
 			case "Open":
 				Assert.assertNotEquals(Global.getOptionID,null,"Validate_ID");  
-				Assert.assertNotEquals(Global.getOptionOrderID,null,"Validate_OrderID"); 
-				Assert.assertNotEquals(Global.getOptionqOrderID,null,"Validate_qOrderID");              
-				Assert.assertNotEquals(Global.getOptionclOrdID,null,"Validate_clOrdID");            
+				Assert.assertNotEquals(Global.getOptionOrderID,null,"Validate_OrderID");
+				Assert.assertNotEquals(Global.getOptionqOrderID,null,"Validate_qOrderID");
+				Assert.assertNotEquals(Global.getOptionclOrdID,null,"Validate_clOrdID");
 				Assert.assertEquals	(Global.getOptionOrigClOrdID,null,"Validate_OrigClOrdID");
 				Assert.assertNotEquals(Global.getOptionTime,null,"Validate_time");
 				Assert.assertEquals(NVL(Global.getOptionOriginatingUserDesc,"null"),Subscribe_Order_UserID,"Validate_Subscribe_Order_UserID ");           

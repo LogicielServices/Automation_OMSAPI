@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Data/OrderData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Data/OrderData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Subscribe_DUMM.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +130,7 @@
       <updated>1704800731750</updated>
       <workItem from="1704800733041" duration="8291000" />
       <workItem from="1704809944132" duration="3408000" />
+      <workItem from="1705650275821" duration="6859000" />
     </task>
     <servers />
   </component>
