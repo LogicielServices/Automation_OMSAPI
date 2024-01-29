@@ -80,7 +80,6 @@ public class StaticData_TIF {
 			Assert.assertEquals(TIFValue,"[\""+Validate_TIF_Value+"\"]", "Validate_TIF_Value");
 			Assert.assertEquals(TIFName,"[\""+Validate_TIF_Name+"\"]", "Validate_TIF_Name");
 			//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
-			LoggingManager.logger.info("====================================================================");
 		}
 		catch (Exception e) 
 		{

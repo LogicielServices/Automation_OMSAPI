@@ -61,47 +61,54 @@ public class Flat_Positions {
 												String Order_StopPx,
 												String Order_Creation_StatusCode )
 	{
-		
-		 LoggingManager.logger.info("====================================================================================");
-		 if (Account_Type_BoxvsShort.equalsIgnoreCase("1")) {LoggingManager.logger.info("TestCase : "+Flat_Position_TestCases+" ["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT+"]");}
-		 else {LoggingManager.logger.info("TestCase : "+Flat_Position_TestCases+" ["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"]");}
-		 LoggingManager.logger.info("====================================================================================");
-		 RestAssured.baseURI=Global.BaseURL;		
-		 Response get_position_response=
-				
-				given()	
-					.header("Content-Type",Content_Type) 
-					.header("Authorization", "Bearer " + Global.getAccToken)
-				.when()
-					.get(Subscribe_Order_Positions_BasePath)
-					
-				.then()
-					.extract().response();
-		 
-		 LoggingManager.logger.info("API-Subscribe_Order_Positions_BasePath : ["+Subscribe_Order_Positions_BasePath+"]");
-		 LoggingManager.logger.info("API-Subscribe_Order_Positions_StatusCode : ["+get_position_response.statusCode()+"]");
-		 
-		 Assert.assertEquals(get_position_response.getStatusCode(),Integer.parseInt(Subscribe_Order_Positions_StatusCode),"Verify_OrderSymbol_Positions");
-		 APIHelperClass.Flat_Equity_Positions(  	 EndpointVersion,Subscribe_Order_Positions_BasePath,
-											 Content_Type,
-											 Subscribe_Order_Positions_StatusCode,
-											 Account_Type_BoxvsShort,
-											 get_position_response,
-											 Validate_BoothID,
-											 Validate_Symbol_Value,
-											 Validate_Account_Value,
-											 Validate_Position_LONG_SHORT,
-											 Validate_Position_FLAT,
-											 Order_Creation_BasePath,
-											 Order_Side,
-											 Order_OrdType,
-											 Order_TimeInForce,
-											 Order_Destination,
-											 Order_Price,
-											 Order_StopPx,
-											 Order_Creation_StatusCode);
-		 
-		
+		try
+		{
+			LoggingManager.logger.info("====================================================================================");
+			if (Account_Type_BoxvsShort.equalsIgnoreCase("1")) {LoggingManager.logger.info("TestCase : "+Flat_Position_TestCases+" ["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT+"]");}
+			else {LoggingManager.logger.info("TestCase : "+Flat_Position_TestCases+" ["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"]");}
+			LoggingManager.logger.info("====================================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response get_position_response=
+
+							given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+							.when()
+							.get(Subscribe_Order_Positions_BasePath)
+
+							.then()
+							.extract().response();
+
+			LoggingManager.logger.info("API-Subscribe_Order_Positions_BasePath : ["+Subscribe_Order_Positions_BasePath+"]");
+			LoggingManager.logger.info("API-Subscribe_Order_Positions_StatusCode : ["+get_position_response.statusCode()+"]");
+
+			Assert.assertEquals(get_position_response.getStatusCode(),Integer.parseInt(Subscribe_Order_Positions_StatusCode),"Verify_OrderSymbol_Positions");
+			APIHelperClass.Flat_Equity_Positions(EndpointVersion,
+												Subscribe_Order_Positions_BasePath,
+												Content_Type,
+												Subscribe_Order_Positions_StatusCode,
+												Account_Type_BoxvsShort,
+												get_position_response,
+												Validate_BoothID,
+												Validate_Symbol_Value,
+												Validate_Account_Value,
+												Validate_Position_LONG_SHORT,
+												Validate_Position_FLAT,
+												Order_Creation_BasePath,
+												Order_Side,
+												Order_OrdType,
+												Order_TimeInForce,
+												Order_Destination,
+												Order_Price,
+												Order_StopPx,
+												Order_Creation_StatusCode);
+
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
 	}
 	
 	
@@ -137,57 +144,61 @@ public class Flat_Positions {
 												String Order_ExpiryDate,
 												String Order_Creation_StatusCode )
 	{
-		
-		 LoggingManager.logger.info("======================================================================================");
-		 LoggingManager.logger.info("TestCase : "+Flat_Position_TestCases+" ["+Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value+"]");
-		 LoggingManager.logger.info("======================================================================================");
-		 RestAssured.baseURI=Global.BaseURL;		
-		 Response get_position_response=
-				
-				given()	
-					.header("Content-Type",Content_Type) 
-					.header("Authorization", "Bearer " + Global.getAccToken)
-				.when()
-					.get(Subscribe_Order_Positions_BasePath)
-					
-				.then()
-					.extract().response();
-		 
-		 LoggingManager.logger.info("API-Subscribe_Order_Positions_BasePath : ["+Subscribe_Order_Positions_BasePath+"]");
-		 LoggingManager.logger.info("API-Subscribe_Order_Positions_StatusCode : ["+get_position_response.statusCode()+"]");
-		 
-		 Assert.assertEquals(get_position_response.getStatusCode(),Integer.parseInt(Subscribe_Order_Positions_StatusCode),"Verify_OrderSymbol_Positions");
-		 APIHelperClass.Flat_Option_Positions(  	 EndpointVersion,
-				 							 Subscribe_Order_Positions_BasePath,
-											 Content_Type,
-											 Subscribe_Order_Positions_StatusCode,
-											 get_position_response,
-											 Validate_BoothID,
-											 Validate_Symbol_Value,
-											 Validate_Account_Value,
-											 Validate_PutOrCall_Value,
-											 Validate_StrikePrice_Value,
-											 Validate_Mat_ExpDate, 
-											 Validate_Position_LONG_SHORT,
-											 Validate_Position_FLAT,
-											 Order_Creation_BasePath,
-											 Order_Side,
-											 Order_OrdType,
-											 Order_TimeInForce,
-											 Order_Destination,
-											 Order_Price,
-											 Order_StopPx,
-											 Order_PutOrCall,
-											 Order_StrikePrice,
-											 Order_CoveredOrUncovered,
-											 Order_CustomerOrFirm,
-											 Order_Cmta,
-											 Order_OpenClose,
-											 Order_ExpiryDate,
-											 Order_Creation_StatusCode);
-		 
-		 
-		 }
-	
-	
+		try
+		{
+			LoggingManager.logger.info("======================================================================================");
+			LoggingManager.logger.info("TestCase : "+Flat_Position_TestCases+" ["+Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value+"]");
+			LoggingManager.logger.info("======================================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response get_position_response=
+
+							 given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+							.when()
+							.get(Subscribe_Order_Positions_BasePath)
+
+							.then()
+							.extract().response();
+
+			LoggingManager.logger.info("API-Subscribe_Order_Positions_BasePath : ["+Subscribe_Order_Positions_BasePath+"]");
+			LoggingManager.logger.info("API-Subscribe_Order_Positions_StatusCode : ["+get_position_response.statusCode()+"]");
+
+			Assert.assertEquals(get_position_response.getStatusCode(),Integer.parseInt(Subscribe_Order_Positions_StatusCode),"Verify_OrderSymbol_Positions");
+			APIHelperClass.Flat_Option_Positions(  	EndpointVersion,
+													Subscribe_Order_Positions_BasePath,
+													Content_Type,
+													Subscribe_Order_Positions_StatusCode,
+													get_position_response,
+													Validate_BoothID,
+													Validate_Symbol_Value,
+													Validate_Account_Value,
+													Validate_PutOrCall_Value,
+													Validate_StrikePrice_Value,
+													Validate_Mat_ExpDate,
+													Validate_Position_LONG_SHORT,
+													Validate_Position_FLAT,
+													Order_Creation_BasePath,
+													Order_Side,
+													Order_OrdType,
+													Order_TimeInForce,
+													Order_Destination,
+													Order_Price,
+													Order_StopPx,
+													Order_PutOrCall,
+													Order_StrikePrice,
+													Order_CoveredOrUncovered,
+													Order_CustomerOrFirm,
+													Order_Cmta,
+													Order_OpenClose,
+													Order_ExpiryDate,
+													Order_Creation_StatusCode);
+
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
 }

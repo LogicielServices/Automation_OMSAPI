@@ -66,7 +66,6 @@ public class Opt_UnSubscribe_Bulk_Symbols {
 			LoggingManager.logger.info("API-UnSubscribe_Bulk_CompanySymbol_MarketData_ResponseBody : ["+response.getBody().asString()+"]");
 			Assert.assertEquals(response.statusCode(),Integer.parseInt(UnSubscribe_StatusCode),"Verify_UnSubscribe_Bulk_CompanySymbol_StatusCode");
 			Assert.assertEquals(response.getBody().asString(),UnSubscribe_Message,"Verify_UnSubscribe_Bulk_CompanySymbol");
-			LoggingManager.logger.info("====================================================================");	
 			//Assert.assertTrue(response.getBody().asString().equalsIgnoreCase(UnSubscribe_Enqueued_Message) || response.getBody().asString().equalsIgnoreCase(UnSubscribe_Success_Message) ,"Verify_UnSubscribe_Bulk_CompanySymbol");
 		}	
 		catch (Exception e) 

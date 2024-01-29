@@ -119,8 +119,9 @@ public class Opt_Subscribe_Bulk {
 		catch (Exception e) 
 		{
 			LoggingManager.logger.error(e);
-		}	
-		
+		}
+	}
+}
 		//LoggingManager.logger.info("API-LocalCode : ["+jsonresponse.getJsonObject("[*].Data.LocalCode")+"]");
 		//LoggingManager.logger.info("API-Response : ["+jsonresponse.getInt("size()")+"]");
 		//LoggingManager.logger.info("API-LocalCode : ["+jsonresponse.getJsonObject("[*].Data.LocalCode")+"]");
@@ -129,5 +130,4 @@ public class Opt_Subscribe_Bulk {
 		// jsonPath.getMap("[1].Data").keySet().forEach(System.out::println);
 		//LoggingManager.logger.info("API-KeySet : ["+jsonPath.getMap("[1].Data").keySet()+"]"); 
 	
-	}
-}
+

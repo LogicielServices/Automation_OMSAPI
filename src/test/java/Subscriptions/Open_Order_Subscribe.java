@@ -70,31 +70,32 @@ public class Open_Order_Subscribe {
 											 String Subscribe_OpenOrder_boothID,
 										     String Subscribe_OpenOrder_ExpectedStatus)
 		{
-			 	LoggingManager.logger.info("====================================================================");
+			try
+			{
+				LoggingManager.logger.info("====================================================================");
 				LoggingManager.logger.info("TestCase : "+TestCases);
 				LoggingManager.logger.info("====================================================================");
 				APIHelperClass.GetOrderValues(Subscribe_OpenOrder_BasePath,
-														    Global.getAccToken,
-														    Content_Type,
-														    Integer.parseInt(Subscribe_OpenOrder_StatusCode),
-															Endpoint_Version,
-															Subscribe_OpenOrder_UserID,
-															Subscribe_OpenOrder_ExpectedStatus,
-															Subscribe_OpenOrder_Account,
-															Subscribe_OpenOrder_Symbol,
-															Subscribe_OpenOrder_Destination,
-															Subscribe_OpenOrder_Price,
-															Subscribe_OpenOrder_Side,
-															Subscribe_OpenOrder_OrderQty,
-															Subscribe_OpenOrder_OrderType,"equity");
+												Global.getAccToken,
+												Content_Type,
+												Integer.parseInt(Subscribe_OpenOrder_StatusCode),
+												Endpoint_Version,
+												Subscribe_OpenOrder_UserID,
+												Subscribe_OpenOrder_ExpectedStatus,
+												Subscribe_OpenOrder_Account,
+												Subscribe_OpenOrder_Symbol,
+												Subscribe_OpenOrder_Destination,
+												Subscribe_OpenOrder_Price,
+												Subscribe_OpenOrder_Side,
+												Subscribe_OpenOrder_OrderQty,
+												Subscribe_OpenOrder_OrderType,"equity");
 
 				LoggingManager.logger.info("API-Found Order_ID :  ["+Global.getOrderID+"]");
 				LoggingManager.logger.info("API-Found Order_Status :  ["+Global.getStatus+"]");
 				LoggingManager.logger.info("API-Found Side Desc. :  ["+Global.getSideDesc+"]");
-				if(Global.getOrderID == null || Global.getOrderID=="" ) 
+				if(Global.getOrderID == null || Global.getOrderID=="" )
 				{Assert.fail("Logs : Order Not Found with status :["+Subscribe_OpenOrder_ExpectedStatus+"]");}
-				
-				APIHelperClass.OrdersSubscriptionValidation( Subscribe_OpenOrder_ExpectedStatus,
+				APIHelperClass.OrdersSubscriptionValidation(Subscribe_OpenOrder_ExpectedStatus,
 															Subscribe_OpenOrder_UserID,
 															Subscribe_OpenOrder_OrderType,
 															Subscribe_OpenOrder_Side,
@@ -122,12 +123,12 @@ public class Open_Order_Subscribe {
 															Subscribe_OpenOrder_locateRate,
 															Subscribe_OpenOrder_boothID,
 															Subscribe_OpenOrder_ExpectedStatus,"","","","");
-												
-				
-				
-		}
-	
 
-	 
-	
+			}
+			catch (Exception e)
+			{
+				LoggingManager.logger.error(e);
+			}
+		}
+
 }

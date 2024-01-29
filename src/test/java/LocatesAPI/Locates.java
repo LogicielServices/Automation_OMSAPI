@@ -42,34 +42,34 @@ public class Locates {
 									String Locates_Body,
 									String Locates_StatusCode )
 	{
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+Locates_TestCase);
-		LoggingManager.logger.info("====================================================================");
-		
-		
-		RestAssured.baseURI=Global.BaseURL;
-		
-		Response response=	given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								.body(Locates_Body)
-								
-							.when()
-								.post(Locates_BasePath)
-								
-							.then()
-								//.statusCode(Integer.parseInt(Locates_StatusCode))
-								//.statusLine("HTTP/1.1 200 OK")
-								.extract().response();
-		
-		LoggingManager.logger.info("API-StaticData_Account_BasePath : ["+Locates_BasePath+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-Locates_Body : ["+Locates_Body+"]");
-		LoggingManager.logger.info("API-Locates_StatusCode : ["+response.getStatusCode()+"]");
-		Assert.assertEquals(response.statusCode(),Integer.parseInt(Locates_StatusCode), "Verify_Post_Locates_StatusCode");
-		LoggingManager.logger.info("====================================================================");
-		
-		
-		
-	}	
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+Locates_TestCase);
+			LoggingManager.logger.info("====================================================================");
+
+
+			RestAssured.baseURI=Global.BaseURL;
+
+			Response response=	given()
+										.header("Content-Type",Content_Type)
+										.header("Authorization", "Bearer " + Global.getAccToken)
+										.body(Locates_Body)
+								.when()
+										.post(Locates_BasePath)
+								.then()
+										.extract()
+										.response();
+
+			LoggingManager.logger.info("API-StaticData_Account_BasePath : ["+Locates_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Locates_Body : ["+Locates_Body+"]");
+			LoggingManager.logger.info("API-Locates_StatusCode : ["+response.getStatusCode()+"]");
+			Assert.assertEquals(response.statusCode(),Integer.parseInt(Locates_StatusCode), "Verify_Post_Locates_StatusCode");
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
 }

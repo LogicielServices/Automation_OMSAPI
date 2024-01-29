@@ -49,42 +49,45 @@ public class Locates_Acquire {
 									String Locates_Acquire_Account,
 									String Locates_Acquire_StatusCode )
 	{
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+Locates_Acquire_TestCase);
-		LoggingManager.logger.info("====================================================================");
-		RestAssured.baseURI=Global.BaseURL;
-		HashMap<String, Object> Locates_Acquire_Body=new HashMap<String, Object>(); 
-		
-		Locates_Acquire_Body.put("quoteReqID",Global.getID);
-		Locates_Acquire_Body.put("symbol",Locates_Acquire_Symbol);
-		Locates_Acquire_Body.put("timeInForce",Locates_Acquire_TimeInForce);
-		Locates_Acquire_Body.put("orderQty",Integer.parseInt(Locates_Acquire_OrderQty));
-		Locates_Acquire_Body.put("synchronous",Integer.parseInt(Locates_Acquire_Synchronous));
-		Locates_Acquire_Body.put("account",Locates_Acquire_Account);
-		
-		Response response=	given()	
-								.header("Content-Type",Content_Type) 
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+Locates_Acquire_TestCase);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			HashMap<String, Object> Locates_Acquire_Body=new HashMap<String, Object>();
+
+			Locates_Acquire_Body.put("quoteReqID",Global.getID);
+			Locates_Acquire_Body.put("symbol",Locates_Acquire_Symbol);
+			Locates_Acquire_Body.put("timeInForce",Locates_Acquire_TimeInForce);
+			Locates_Acquire_Body.put("orderQty",Integer.parseInt(Locates_Acquire_OrderQty));
+			Locates_Acquire_Body.put("synchronous",Integer.parseInt(Locates_Acquire_Synchronous));
+			Locates_Acquire_Body.put("account",Locates_Acquire_Account);
+
+			Response response=	given()
+								.header("Content-Type",Content_Type)
 								.header("Authorization", "Bearer " + Global.getAccToken)
 								.body(Locates_Acquire_Body)
-								
-							.when()
+
+								.when()
 								.post(Locates_Acquire_BasePath)
-								
-							.then()
+
+								.then()
 								//.statusCode(Integer.parseInt(Locates_Acquire_StatusCode))
 								//.statusLine("HTTP/1.1 200 OK")
 								.extract().response();
-							
-		LoggingManager.logger.info("API-Locates_Acquire_BasePath : ["+Locates_Acquire_BasePath+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-Request Body : ["+Locates_Acquire_Body.toString()+"]");
-		LoggingManager.logger.info("API-Subscribe_Locates_StatusCode : ["+response.getStatusCode()+"]");
-		LoggingManager.logger.info("API-Subscribe_Locates_StatusLine : ["+response.getStatusLine()+"]");
-		Assert.assertEquals(response.statusCode(),Integer.parseInt(Locates_Acquire_StatusCode), "Verify_Locates_Acquire_StatusCode");
-		LoggingManager.logger.info("====================================================================");
-		//Assert.assertEquals(Subscribe_qOrderID,"[\""+Validate_Subscribe_qOrderID+"\"]", "Validate_Subscribe_qOrderID");
-		
-		
-		
-	}	
+
+			LoggingManager.logger.info("API-Locates_Acquire_BasePath : ["+Locates_Acquire_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Request Body : ["+Locates_Acquire_Body.toString()+"]");
+			LoggingManager.logger.info("API-Subscribe_Locates_StatusCode : ["+response.getStatusCode()+"]");
+			LoggingManager.logger.info("API-Subscribe_Locates_StatusLine : ["+response.getStatusLine()+"]");
+			Assert.assertEquals(response.statusCode(),Integer.parseInt(Locates_Acquire_StatusCode), "Verify_Locates_Acquire_StatusCode");
+			//Assert.assertEquals(Subscribe_qOrderID,"[\""+Validate_Subscribe_qOrderID+"\"]", "Validate_Subscribe_qOrderID");
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
 }

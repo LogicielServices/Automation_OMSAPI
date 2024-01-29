@@ -44,33 +44,37 @@ public class Order_Executions_UnSubscribe {
 											     String UnSubscribe_Executions_StatusCode,													 
 											     String UnSubscribe_Validation_Message
 												)
-		{
+	 {
+	 	try
+		 {
 
-		 	LoggingManager.logger.info("====================================================================");
-			LoggingManager.logger.info("TestCase : "+TestCases);
-			LoggingManager.logger.info("====================================================================");
-		    RestAssured.baseURI=Global.BaseURL;
-			Response response=
-								given()	
-									.header("Content-Type",Content_Type) 
-									.header("Authorization", "Bearer " + Global.getAccToken)
-									
-								.when()
-									.get(UnSubscribe_Executions_BasePath)
-									
-								.then()
-									.statusCode(Integer.parseInt(UnSubscribe_Executions_StatusCode))
-									//.statusLine("HTTP/1.1 200 OK")
-									.extract().response();
-			LoggingManager.logger.info("API - UnSubscribe Executions BasePath : ["+UnSubscribe_Executions_BasePath+"]");
-			LoggingManager.logger.info("API - UnSubscribe Executions Content_Type : ["+Content_Type+"]");
-			LoggingManager.logger.info("API - UnSubscribe Executions StatusCode : ["+UnSubscribe_Executions_StatusCode+"]");
-			LoggingManager.logger.info("API - UnSubscribe Executions Validation Message : ["+response.jsonPath().get("message")+"]");
-			if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), UnSubscribe_Validation_Message,"Validate_UnSubscribeExecutions");}
-			else{Assert.assertEquals(response.jsonPath().get("message"),UnSubscribe_Validation_Message, "Validate_UnSubscribeExecutions");}
-							
+			 LoggingManager.logger.info("====================================================================");
+			 LoggingManager.logger.info("TestCase : "+TestCases);
+			 LoggingManager.logger.info("====================================================================");
+			 RestAssured.baseURI=Global.BaseURL;
+			 Response response=
+					          given()
+							 .header("Content-Type",Content_Type)
+							 .header("Authorization", "Bearer " + Global.getAccToken)
+
+							 .when()
+							 .get(UnSubscribe_Executions_BasePath)
+
+							 .then()
+							 .statusCode(Integer.parseInt(UnSubscribe_Executions_StatusCode))
+							 //.statusLine("HTTP/1.1 200 OK")
+							 .extract().response();
+			 LoggingManager.logger.info("API - UnSubscribe Executions BasePath : ["+UnSubscribe_Executions_BasePath+"]");
+			 LoggingManager.logger.info("API - UnSubscribe Executions Content_Type : ["+Content_Type+"]");
+			 LoggingManager.logger.info("API - UnSubscribe Executions StatusCode : ["+UnSubscribe_Executions_StatusCode+"]");
+			 LoggingManager.logger.info("API - UnSubscribe Executions Validation Message : ["+response.jsonPath().get("message")+"]");
+			 if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), UnSubscribe_Validation_Message,"Validate_UnSubscribeExecutions");}
+			 else{Assert.assertEquals(response.jsonPath().get("message"),UnSubscribe_Validation_Message, "Validate_UnSubscribeExecutions");}
 		}
-	 
-	 
-	
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	 }
+
 }

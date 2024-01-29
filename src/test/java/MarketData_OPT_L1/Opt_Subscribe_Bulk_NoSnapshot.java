@@ -132,7 +132,6 @@ public class Opt_Subscribe_Bulk_NoSnapshot {
 			 LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_ResponseBody : ["+response.getBody().asString()+"]");
 			 Assert.assertEquals(response.statusCode(),Integer.parseInt(UnSubscribe_StatusCode),"Verify_UnSubscribe_Bulk_StatusCode");
 			 Assert.assertEquals(response.getBody().asString(),UnSubscribe_Message,"Verify_UnSubscribe_Bulk_NoSnapshot");
-			 LoggingManager.logger.info("====================================================================");	
 		}	
 		catch (Exception e) 
 		{

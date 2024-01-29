@@ -78,7 +78,7 @@ public class Opt_UnSubscribe {
 			Assert.assertEquals(topicResponse.statusCode(),Integer.parseInt(Get_Topic_StatusCode),"Get Topic Response");
 			Global.getTopicValue=topicResponse.jsonPath().get("OptionSymbol["+Topic_Response_Index+"]").toString();
 			subscribeBody.put("optionSymbol",Global.getTopicValue);
-			Response subscriberesponse=  				 
+			Response subscribe_response=
 								 given()	
 										.header("Content-Type",Content_Type) 
 										.header("Authorization", "Bearer " + Global.getAccToken)
@@ -90,18 +90,17 @@ public class Opt_UnSubscribe {
 										.response();
 			
 			
-			JSONObject jsonObject=(JSONObject) JSONValue.parse(subscriberesponse.getBody().asString());//convert Object into JSONObject 
+			JSONObject jsonObject=(JSONObject) JSONValue.parse(subscribe_response.getBody().asString());//convert Object into JSONObject
 			LoggingManager.logger.info("API-Subscribe_MarketData_Base_Path : ["+Subscribe_Base_Path+"]");
 			LoggingManager.logger.info("API-Subscribe_MarketData_Body : ["+subscribeBody.toString()+"]");
-			LoggingManager.logger.info("API-Subscribe_MarketData_StatusCode : ["+subscriberesponse.statusCode()+"]");
-			LoggingManager.logger.info("API-Subscribe_MarketData_TopicValue Expected : ["+Global.getTopicValue+"] and Found : ["+subscriberesponse.jsonPath().get("LocalCode")+"]"); 
-			Assert.assertEquals(subscriberesponse.jsonPath().get("LocalCode"),Global.getTopicValue,"Verify_Subscribe_Individual_LocalCode");
+			LoggingManager.logger.info("API-Subscribe_MarketData_StatusCode : ["+subscribe_response.statusCode()+"]");
+			LoggingManager.logger.info("API-Subscribe_MarketData_TopicValue Expected : ["+Global.getTopicValue+"] and Found : ["+subscribe_response.jsonPath().get("LocalCode")+"]");
+			Assert.assertEquals(subscribe_response.jsonPath().get("LocalCode"),Global.getTopicValue,"Verify_Subscribe_Individual_LocalCode");
 			Assert.assertEquals((jsonObject.keySet()).toString(),Validate_Response_Fields,"Verify_Subscribe_Individual_Fields");
 			
 			//Global.getTopicValue=Global.getTopicResponse.jsonPath().get("OptionSymbol["+Topic_Response_Index+"]").toString();
-			
 			UnsubscribeBody.put("optionSymbol",Global.getTopicValue);
-			Response unsubscirbeResponse=  				 
+			Response unsubscirbe_response=
 								 given()	
 										.header("Content-Type",Content_Type) 
 										.header("Authorization", "Bearer " + Global.getAccToken)
@@ -115,11 +114,10 @@ public class Opt_UnSubscribe {
 			
 			LoggingManager.logger.info("API-UnSubscribe_Individual_MarketData_Base_Path : ["+UnSubscribe_Base_Path+"]");
 			LoggingManager.logger.info("API-UnSubscribe_Individual_MarketData_Body : ["+UnsubscribeBody+"]");
-			LoggingManager.logger.info("API-UnSubscribe_Individual_MarketData_StatusCode : ["+unsubscirbeResponse.statusCode()+"]"); 
-			LoggingManager.logger.info("API-UnSubscribe_Individual_MarketData_ResponseBody : ["+unsubscirbeResponse.getBody().asString()+"]");
-			Assert.assertEquals(unsubscirbeResponse.statusCode(),Integer.parseInt(UnSubscribe_StatusCode),"Verify_UnSubscribe_Individual_StatusCode");
-			Assert.assertEquals(unsubscirbeResponse.getBody().asString(),UnSubscribe_Message,"Verify_Subscribe_Individual");
-			LoggingManager.logger.info("====================================================================");	
+			LoggingManager.logger.info("API-UnSubscribe_Individual_MarketData_StatusCode : ["+unsubscirbe_response.statusCode()+"]");
+			LoggingManager.logger.info("API-UnSubscribe_Individual_MarketData_ResponseBody : ["+unsubscirbe_response.getBody().asString()+"]");
+			Assert.assertEquals(unsubscirbe_response.statusCode(),Integer.parseInt(UnSubscribe_StatusCode),"Verify_UnSubscribe_Individual_StatusCode");
+			Assert.assertEquals(unsubscirbe_response.getBody().asString(),UnSubscribe_Message,"Verify_Subscribe_Individual");
 		}	
 		catch (Exception e) 
 		{
