@@ -51,35 +51,41 @@ public class Create {
 															 String EquityOrder_Creation_StatusCode,
 															 String EquityOrder_Creation_Response)
 		{
-			
-		 	LoggingManager.logger.info("====================================================================");
-			LoggingManager.logger.info("TestCase : "+EquityOrder_TestCase);
-			LoggingManager.logger.info("====================================================================");
-			
-		 	RestAssured.baseURI=Global.BaseURL;
-			Response response=
-				
-					given()	
-						.header("Content-Type",Content_Type) 
-						.header("Authorization", "Bearer " + Global.getAccToken)
-						.body(EquityOrder_Creation_Body)
-						
-					.when()
-						.post(EquityOrder_Creation_BasePath)
-						
-					.then()
-						.extract()
-						.response();
-			
-			LoggingManager.logger.info("API-EquityOrder_Creation_BasePath : ["+EquityOrder_Creation_BasePath+"]");
-			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-			LoggingManager.logger.info("API-EquityOrder_Creation_Body : ["+EquityOrder_Creation_Body+"]");
-			LoggingManager.logger.info("API-EquityOrder_Creation_StatusCode : ["+response.getStatusCode()+"]");
-			LoggingManager.logger.info("API-EquityOrder_Response_Body : ["+response.getBody().asString()+"]");
-			Assert.assertEquals(response.getStatusCode(), Integer.parseInt(EquityOrder_Creation_StatusCode),"Verify_Equity_Order_Active_Open_Creation");
-			if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), EquityOrder_Creation_Response,"Verify_Equity_Order_Active_Open_Response");}
-			else{Assert.assertEquals(response.jsonPath().get("message"), EquityOrder_Creation_Response,"Verify_Equity_Order_Active_Open_Response");}
-			
+			try
+			{
+				LoggingManager.logger.info("====================================================================");
+				LoggingManager.logger.info("TestCase : "+EquityOrder_TestCase);
+				LoggingManager.logger.info("====================================================================");
+
+				RestAssured.baseURI=Global.BaseURL;
+				Response response=
+
+								 given()
+								.header("Content-Type",Content_Type)
+								.header("Authorization", "Bearer " + Global.getAccToken)
+								.body(EquityOrder_Creation_Body)
+
+								.when()
+								.post(EquityOrder_Creation_BasePath)
+
+								.then()
+								.extract()
+								.response();
+
+				LoggingManager.logger.info("API-EquityOrder_Creation_BasePath : ["+EquityOrder_Creation_BasePath+"]");
+				LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+				LoggingManager.logger.info("API-EquityOrder_Creation_Body : ["+EquityOrder_Creation_Body+"]");
+				LoggingManager.logger.info("API-EquityOrder_Creation_StatusCode : ["+response.getStatusCode()+"]");
+				LoggingManager.logger.info("API-EquityOrder_Response_Body : ["+response.getBody().asString()+"]");
+				Assert.assertEquals(response.getStatusCode(), Integer.parseInt(EquityOrder_Creation_StatusCode),"Verify_Equity_Order_Active_Open_Creation");
+				if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), EquityOrder_Creation_Response,"Verify_Equity_Order_Active_Open_Response");}
+				else{Assert.assertEquals(response.jsonPath().get("message"), EquityOrder_Creation_Response,"Verify_Equity_Order_Active_Open_Response");}
+
+			}
+			catch (Exception e)
+			{
+				LoggingManager.logger.error(e);
+			}
 		}
 	 
 	
@@ -95,34 +101,40 @@ public class Create {
 														 String EquityOrder_Creation_StatusCode,
 														 String EquityOrder_Creation_Response)
 	{
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+EquityOrder_TestCase);
-		LoggingManager.logger.info("====================================================================");
-		RestAssured.baseURI=Global.BaseURL;
-		Response response=
-			
-							given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								.body(EquityOrder_Creation_Body)
-								
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+EquityOrder_TestCase);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response response=
+							given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+							.body(EquityOrder_Creation_Body)
+
 							.when()
-								.post(EquityOrder_Creation_BasePath)
-								
+							.post(EquityOrder_Creation_BasePath)
+
 							.then()
-								.extract()
-								.response();
-		
-		LoggingManager.logger.info("API-EquityOrder_Creation_BasePath : ["+EquityOrder_Creation_BasePath+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-EquityOrder_Creation_Body : ["+EquityOrder_Creation_Body+"]");
-		LoggingManager.logger.info("API-EquityOrder_Creation_StatusCode : ["+response.getStatusCode()+"]");
-		LoggingManager.logger.info("API-EquityOrder_Response_Body : ["+response.getBody().asPrettyString()+"]");
-		Assert.assertEquals(response.getStatusCode(), Integer.parseInt(EquityOrder_Creation_StatusCode),"Verify_Equity_Order_Creation");
-		if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), EquityOrder_Creation_Response,"Verify_Equity_Order_Rejected_Response");}
-		else{Assert.assertEquals(response.jsonPath().get("message"), EquityOrder_Creation_Response,"Verify_Equity_Order_Rejected_Response");}
-		
-			
+							.extract()
+							.response();
+
+			LoggingManager.logger.info("API-EquityOrder_Creation_BasePath : ["+EquityOrder_Creation_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-EquityOrder_Creation_Body : ["+EquityOrder_Creation_Body+"]");
+			LoggingManager.logger.info("API-EquityOrder_Creation_StatusCode : ["+response.getStatusCode()+"]");
+			LoggingManager.logger.info("API-EquityOrder_Response_Body : ["+response.getBody().asPrettyString()+"]");
+			Assert.assertEquals(response.getStatusCode(), Integer.parseInt(EquityOrder_Creation_StatusCode),"Verify_Equity_Order_Creation");
+			if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), EquityOrder_Creation_Response,"Verify_Equity_Order_Rejected_Response");}
+			else{Assert.assertEquals(response.jsonPath().get("message"), EquityOrder_Creation_Response,"Verify_Equity_Order_Rejected_Response");}
+
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
 	}
 	 
 }

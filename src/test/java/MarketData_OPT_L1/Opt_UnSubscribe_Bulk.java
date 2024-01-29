@@ -134,7 +134,6 @@ public class Opt_UnSubscribe_Bulk {
 			LoggingManager.logger.info("API-UnSubscribe_Bulk_MarketData_ResponseBody : ["+unsubscribeResponse.getBody().asString()+"]");
 			Assert.assertEquals(unsubscribeResponse.statusCode(),Integer.parseInt(UnSubscribe_StatusCode),"Verify_UnSubscribe_Bulk_StatusCode");
 			Assert.assertEquals(unsubscribeResponse.getBody().asString(),UnSubscribe_Message,"Verify_UnSubscribe_Bulk");
-			LoggingManager.logger.info("====================================================================");	
 	
 		}	
 		catch (Exception e) 

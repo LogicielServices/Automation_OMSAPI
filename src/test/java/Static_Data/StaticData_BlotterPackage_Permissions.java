@@ -49,60 +49,58 @@ public class StaticData_BlotterPackage_Permissions {
 															  String Validate_WindowPermissions_isVisible,
 															  String Validate_WindowPermissions_isEnable)
 	{
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+StaticData_BlotterPackage_Permissions_TestCases);
-		LoggingManager.logger.info("====================================================================");
-	try {
-		RestAssured.baseURI=Global.BaseURL;
-		Response response=
-							given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+StaticData_BlotterPackage_Permissions_TestCases);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response response=
+							given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+
 							.when()
-								.get(StaticData_BlotterPackage_Permissions_BasePath)
-								
+							.get(StaticData_BlotterPackage_Permissions_BasePath)
+
 							.then()
-								//.statusCode(Integer.parseInt(StaticData_BlotterPackage_Permissions_StatusCode))
-								//.statusLine("HTTP/1.1 200 OK")
-								.extract().response();
-		
-		LoggingManager.logger.info("API-StaticData_BlotterPackage_Permissions_BasePath : ["+StaticData_BlotterPackage_Permissions_BasePath+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-StaticData_BlotterPackage_Permissions_StatusCode : ["+response.getStatusCode()+"]");
-		Assert.assertEquals(response.getStatusCode(),Integer.parseInt(StaticData_BlotterPackage_Permissions_StatusCode), "Validate_StaticData_BlotterPackage_Permissions_StatusCode");
-		//String BlotterPermissionsPackage=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package).toString();
-		String BlotterPackage_isWindowAllowed=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".isWindowAllowed").toString();
-		String BlotterPackage_NumberOfWindowsAllowed=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".numberOfWindowsAllowed").toString();
-		String BlotterPackage_WindowPermissions_Name=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".windowPermissions[?(@.name =='"+Validate_WindowPermissions_Name+"')].name").toString();
-		String BlotterPackage_WindowPermissions_isVisible=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".windowPermissions[?(@.name =='"+Validate_WindowPermissions_Name+"')].isVisible").toString();
-		String BlotterPackage_WindowPermissions_isEnable=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".windowPermissions[?(@.name =='"+Validate_WindowPermissions_Name+"')].isEnable").toString();
-		
-		LoggingManager.logger.info("API-Validate_isWindowAllowed : ["+Validate_isWindowAllowed +"] - Response BlotterPackage_isWindowAllowed : "+BlotterPackage_isWindowAllowed);
-		LoggingManager.logger.info("API-Validate_NumberOfWindowsAllowed : ["+Validate_NumberOfWindowsAllowed +"] - Response BlotterPackage_NumberOfWindowsAllowed : "+BlotterPackage_NumberOfWindowsAllowed);
-		LoggingManager.logger.info("API-Validate_WindowPermissions_Name : ["+Validate_WindowPermissions_Name +"] - Response BlotterPackage_WindowPermissions_Name : "+BlotterPackage_WindowPermissions_Name);
-		LoggingManager.logger.info("API-Validate_WindowPermissions_isVisible : ["+Validate_WindowPermissions_isVisible +"] - Response BlotterPackage_WindowPermissions_isVisible : "+BlotterPackage_WindowPermissions_isVisible);
-		LoggingManager.logger.info("API-Validate_WindowPermissions_isEnable : ["+Validate_WindowPermissions_isEnable +"] - Response BlotterPackage_WindowPermissions_isEnable : "+BlotterPackage_WindowPermissions_isEnable);
-		
-		if (Validate_WindowPermissions_Name.equalsIgnoreCase("null")) 
-		{
-			Assert.assertEquals(BlotterPackage_isWindowAllowed,Validate_isWindowAllowed, "Validate_BlotterPackage_isWindowAllowed");
-			Assert.assertEquals(BlotterPackage_NumberOfWindowsAllowed,Validate_NumberOfWindowsAllowed, "Validate_BlotterPackage_NumberOfWindowsAllowed");
+							//.statusCode(Integer.parseInt(StaticData_BlotterPackage_Permissions_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+			LoggingManager.logger.info("API-StaticData_BlotterPackage_Permissions_BasePath : ["+StaticData_BlotterPackage_Permissions_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-StaticData_BlotterPackage_Permissions_StatusCode : ["+response.getStatusCode()+"]");
+			Assert.assertEquals(response.getStatusCode(),Integer.parseInt(StaticData_BlotterPackage_Permissions_StatusCode), "Validate_StaticData_BlotterPackage_Permissions_StatusCode");
+			//String BlotterPermissionsPackage=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package).toString();
+			String BlotterPackage_isWindowAllowed=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".isWindowAllowed").toString();
+			String BlotterPackage_NumberOfWindowsAllowed=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".numberOfWindowsAllowed").toString();
+			String BlotterPackage_WindowPermissions_Name=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".windowPermissions[?(@.name =='"+Validate_WindowPermissions_Name+"')].name").toString();
+			String BlotterPackage_WindowPermissions_isVisible=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".windowPermissions[?(@.name =='"+Validate_WindowPermissions_Name+"')].isVisible").toString();
+			String BlotterPackage_WindowPermissions_isEnable=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.package."+Validate_BlotterPermissions_Package+".windowPermissions[?(@.name =='"+Validate_WindowPermissions_Name+"')].isEnable").toString();
+			LoggingManager.logger.info("API-Validate_isWindowAllowed : ["+Validate_isWindowAllowed +"] - Response BlotterPackage_isWindowAllowed : "+BlotterPackage_isWindowAllowed);
+			LoggingManager.logger.info("API-Validate_NumberOfWindowsAllowed : ["+Validate_NumberOfWindowsAllowed +"] - Response BlotterPackage_NumberOfWindowsAllowed : "+BlotterPackage_NumberOfWindowsAllowed);
+			LoggingManager.logger.info("API-Validate_WindowPermissions_Name : ["+Validate_WindowPermissions_Name +"] - Response BlotterPackage_WindowPermissions_Name : "+BlotterPackage_WindowPermissions_Name);
+			LoggingManager.logger.info("API-Validate_WindowPermissions_isVisible : ["+Validate_WindowPermissions_isVisible +"] - Response BlotterPackage_WindowPermissions_isVisible : "+BlotterPackage_WindowPermissions_isVisible);
+			LoggingManager.logger.info("API-Validate_WindowPermissions_isEnable : ["+Validate_WindowPermissions_isEnable +"] - Response BlotterPackage_WindowPermissions_isEnable : "+BlotterPackage_WindowPermissions_isEnable);
+			if (Validate_WindowPermissions_Name.equalsIgnoreCase("null"))
+			{
+				Assert.assertEquals(BlotterPackage_isWindowAllowed,Validate_isWindowAllowed, "Validate_BlotterPackage_isWindowAllowed");
+				Assert.assertEquals(BlotterPackage_NumberOfWindowsAllowed,Validate_NumberOfWindowsAllowed, "Validate_BlotterPackage_NumberOfWindowsAllowed");
+			}
+			else
+			{
+				Assert.assertEquals(BlotterPackage_isWindowAllowed,Validate_isWindowAllowed, "Validate_BlotterPackage_isWindowAllowed");
+				Assert.assertEquals(BlotterPackage_NumberOfWindowsAllowed,Validate_NumberOfWindowsAllowed, "Validate_BlotterPackage_NumberOfWindowsAllowed");
+				Assert.assertEquals(BlotterPackage_WindowPermissions_Name,"[\""+Validate_WindowPermissions_Name+"\"]", "Validate_BlotterPackage__WindowPermissions_Name");
+				Assert.assertEquals(BlotterPackage_WindowPermissions_isVisible,"["+Validate_WindowPermissions_isVisible+"]", "Validate_BlotterPackage_WindowPermissions_isVisible");
+				Assert.assertEquals(BlotterPackage_WindowPermissions_isEnable,"["+Validate_WindowPermissions_isEnable+"]", "Validate_BlotterPackage_WindowPermissions_isEnable");
+			}
+
 		}
-		else 
+		catch (Exception e)
 		{
-			Assert.assertEquals(BlotterPackage_isWindowAllowed,Validate_isWindowAllowed, "Validate_BlotterPackage_isWindowAllowed");
-			Assert.assertEquals(BlotterPackage_NumberOfWindowsAllowed,Validate_NumberOfWindowsAllowed, "Validate_BlotterPackage_NumberOfWindowsAllowed");
-			Assert.assertEquals(BlotterPackage_WindowPermissions_Name,"[\""+Validate_WindowPermissions_Name+"\"]", "Validate_BlotterPackage__WindowPermissions_Name");
-			Assert.assertEquals(BlotterPackage_WindowPermissions_isVisible,"["+Validate_WindowPermissions_isVisible+"]", "Validate_BlotterPackage_WindowPermissions_isVisible");
-			Assert.assertEquals(BlotterPackage_WindowPermissions_isEnable,"["+Validate_WindowPermissions_isEnable+"]", "Validate_BlotterPackage_WindowPermissions_isEnable");
+			LoggingManager.logger.error(e);
 		}
-		
-		LoggingManager.logger.info("====================================================================");
 	}
-	catch (Exception e) 
-	{
-		LoggingManager.logger.error(e);
-	}
- }
 }

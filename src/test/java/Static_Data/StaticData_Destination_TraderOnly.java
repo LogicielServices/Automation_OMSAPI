@@ -45,42 +45,42 @@ public class StaticData_Destination_TraderOnly {
 														  String Validate_Destination_TraderOnly_Value,
 														  String Validate_Booth )
 	{
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+StaticData_Destination_TraderOnly_TestCases);
-		LoggingManager.logger.info("====================================================================");
-	try {
-		RestAssured.baseURI=Global.BaseURL;
-		Response response=
-							given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+StaticData_Destination_TraderOnly_TestCases);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response response=
+					given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+
 							.when()
-								.get(StaticData_Destination_TraderOnly_BasePath)
-								
+							.get(StaticData_Destination_TraderOnly_BasePath)
+
 							.then()
-								//.statusCode(Integer.parseInt(StaticData_Destination_TraderOnly_StatusCode))
-								//.statusLine("HTTP/1.1 200 OK")
-								.extract().response();
-		
-		LoggingManager.logger.info("API-StaticData_Destination_TraderOnly_BasePath : ["+StaticData_Destination_TraderOnly_BasePath+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-StaticData_Destination_TraderOnly_StatusCode : ["+response.getStatusCode()+"]");
-		Assert.assertEquals(response.getStatusCode(),Integer.parseInt(StaticData_Destination_TraderOnly_StatusCode), "Validate_StaticData_Destination_TraderOnly_StatusCode");
-		String DestinationTraderOnlyName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_TraderOnly_Value.substring(1, Validate_Destination_TraderOnly_Value.length() - 1)+"' )].name").toString();
-		String DestinationTraderOnlyValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_TraderOnly_Value.substring(1, Validate_Destination_TraderOnly_Value.length() - 1)+"' )].value").toString();
-		//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
-		
-		LoggingManager.logger.info("API-Validate_Destination_TraderOnly_Name : ["+Validate_Destination_TraderOnly_Name +"] - Response DestinationTraderOnlyName : "+DestinationTraderOnlyName);
-		LoggingManager.logger.info("API-Validate_Destination_TraderOnly_Value : ["+Validate_Destination_TraderOnly_Value +"] - Response DestinationTraderOnlyValue : "+DestinationTraderOnlyValue);
-		Assert.assertEquals(DestinationTraderOnlyValue,"["+Validate_Destination_TraderOnly_Value+"]", "Validate_Destination_TraderOnly_Value");
-		Assert.assertEquals(DestinationTraderOnlyName,"[\""+Validate_Destination_TraderOnly_Name+"\"]", "Validate_Destination_TraderOnly_Name");
-		//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
-		LoggingManager.logger.info("====================================================================");
+							//.statusCode(Integer.parseInt(StaticData_Destination_TraderOnly_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+			LoggingManager.logger.info("API-StaticData_Destination_TraderOnly_BasePath : ["+StaticData_Destination_TraderOnly_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-StaticData_Destination_TraderOnly_StatusCode : ["+response.getStatusCode()+"]");
+			Assert.assertEquals(response.getStatusCode(),Integer.parseInt(StaticData_Destination_TraderOnly_StatusCode), "Validate_StaticData_Destination_TraderOnly_StatusCode");
+			String DestinationTraderOnlyName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_TraderOnly_Value.substring(1, Validate_Destination_TraderOnly_Value.length() - 1)+"' )].name").toString();
+			String DestinationTraderOnlyValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_TraderOnly_Value.substring(1, Validate_Destination_TraderOnly_Value.length() - 1)+"' )].value").toString();
+			//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
+			LoggingManager.logger.info("API-Validate_Destination_TraderOnly_Name : ["+Validate_Destination_TraderOnly_Name +"] - Response DestinationTraderOnlyName : "+DestinationTraderOnlyName);
+			LoggingManager.logger.info("API-Validate_Destination_TraderOnly_Value : ["+Validate_Destination_TraderOnly_Value +"] - Response DestinationTraderOnlyValue : "+DestinationTraderOnlyValue);
+			Assert.assertEquals(DestinationTraderOnlyValue,"["+Validate_Destination_TraderOnly_Value+"]", "Validate_Destination_TraderOnly_Value");
+			Assert.assertEquals(DestinationTraderOnlyName,"[\""+Validate_Destination_TraderOnly_Name+"\"]", "Validate_Destination_TraderOnly_Name");
+			//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
 	}
-	catch (Exception e) 
-	{
-		LoggingManager.logger.error(e);
-	}
-	}	
 }

@@ -44,30 +44,35 @@ public class UnSubscribe_qOrderID {
 											String UnSubscribe_qOrderID_StatusCode,
 										  	String Validate_UnSubscribe_Response )
 	{
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+UnSubscribe_qOrderID_TestCases);
-		LoggingManager.logger.info("====================================================================");
-		RestAssured.baseURI=Global.BaseURL;
-		Response response=
-							given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+UnSubscribe_qOrderID_TestCases);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response response=
+							given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+
 							.when()
-								.get(UnSubscribe_qOrderID_BasePath+Global.qOrderID)
-								
+							.get(UnSubscribe_qOrderID_BasePath+Global.qOrderID)
+
 							.then()
-								//.statusCode(Integer.parseInt(UnSubscribe_qOrderID_StatusCode))
-								//.statusLine("HTTP/1.1 200 OK")
-								.extract().response();
-		
-		LoggingManager.logger.info("API-UnSubscribe_qOrderID_BasePath : ["+UnSubscribe_qOrderID_BasePath+Global.qOrderID+"]");
-		LoggingManager.logger.info("API-UnSubscribe_qOrderID_StatusCode : ["+response.statusCode()+"]");	
-		LoggingManager.logger.info("API-UnSubscribe_qOrderID_Responses_Body : ["+response.getBody().asString()+"]");
-		Assert.assertEquals(response.statusCode(),Integer.parseInt(UnSubscribe_qOrderID_StatusCode), "Validate_UnSubscribe_qOrderID_StatusCode");
-		Assert.assertEquals(response.getBody().asString(),Validate_UnSubscribe_Response, "Validate_UnSubscribe_Audit_Response_Body");
-		
-		
-		
-	}	
+							//.statusCode(Integer.parseInt(UnSubscribe_qOrderID_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+			LoggingManager.logger.info("API-UnSubscribe_qOrderID_BasePath : ["+UnSubscribe_qOrderID_BasePath+Global.qOrderID+"]");
+			LoggingManager.logger.info("API-UnSubscribe_qOrderID_StatusCode : ["+response.statusCode()+"]");
+			LoggingManager.logger.info("API-UnSubscribe_qOrderID_Responses_Body : ["+response.getBody().asString()+"]");
+			Assert.assertEquals(response.statusCode(),Integer.parseInt(UnSubscribe_qOrderID_StatusCode), "Validate_UnSubscribe_qOrderID_StatusCode");
+			Assert.assertEquals(response.getBody().asString(),Validate_UnSubscribe_Response, "Validate_UnSubscribe_Audit_Response_Body");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
 }

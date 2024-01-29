@@ -72,9 +72,9 @@ import Subscriptions.Order_Positions_Subscribe;
 */
 
 public class LoggingManager {
-	
+
 	public static final Logger logger = LogManager.getLogger(LoggingManager.class);
-	
+}
 /*
  * 
 ///====================================================APIHelper==============================================================================================
@@ -173,14 +173,11 @@ public class LoggingManager {
 */
 
 	
-
-	
-	
-	/*	logger.debug("This is debug message");
+/*	logger.debug("This is debug message");
 		logger.info("This is info message");
 		logger.warn("This is warn message");
 		logger.fatal("This is fatal message");
 		logger.error("This is error message");
 	
 */
-}
+

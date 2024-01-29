@@ -46,44 +46,43 @@ public class StaticData_OrdType {
 											  String Validate_OrdType_Value,
 											  String Validate_Booth )
 	{
-		
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+StaticData_OrdType_TestCases);
-		LoggingManager.logger.info("====================================================================");
-	try {
-		RestAssured.baseURI=Global.BaseURL;
-		Response response=
-							given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								
+		try
+		{
+
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+StaticData_OrdType_TestCases);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response response=
+					given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+
 							.when()
-								.get(StaticData_OrdType_BasePath)
-								
+							.get(StaticData_OrdType_BasePath)
+
 							.then()
-								.statusCode(Integer.parseInt(StaticData_OrdType_StatusCode))
-								//.statusLine("HTTP/1.1 200 OK")
-								.extract().response();
-		
-		
-		String OrdTypeName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_OrdType_Value+"' )].name").toString();
-		String OrdTypeValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_OrdType_Value+"' )].value").toString();
-		//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
-		LoggingManager.logger.info("API-StaticData_BlotterPermissions_BasePath : ["+StaticData_OrdType_BasePath+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-StaticData_OrdType_StatusCode : ["+response.getStatusCode()+"]");
-		LoggingManager.logger.info("API-Validate_OrdType_Name : ["+Validate_OrdType_Name +"] - Response OrdTypeName : "+OrdTypeName);
-		LoggingManager.logger.info("API-Validate_OrdType_Value : ["+Validate_OrdType_Value +"] - Response OrdTypeValue : "+OrdTypeValue);
-		//LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response BoothID : "+BoothID);
-		Assert.assertEquals(OrdTypeValue,"[\""+Validate_OrdType_Value+"\"]", "Validate_OrdType_Value");
-		Assert.assertEquals(OrdTypeName,"[\""+Validate_OrdType_Name+"\"]", "Validate_OrdType_Name");
-		//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
-		
-		LoggingManager.logger.info("====================================================================");
+							.statusCode(Integer.parseInt(StaticData_OrdType_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+			String OrdTypeName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_OrdType_Value+"' )].name").toString();
+			String OrdTypeValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_OrdType_Value+"' )].value").toString();
+			//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
+			LoggingManager.logger.info("API-StaticData_BlotterPermissions_BasePath : ["+StaticData_OrdType_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-StaticData_OrdType_StatusCode : ["+response.getStatusCode()+"]");
+			LoggingManager.logger.info("API-Validate_OrdType_Name : ["+Validate_OrdType_Name +"] - Response OrdTypeName : "+OrdTypeName);
+			LoggingManager.logger.info("API-Validate_OrdType_Value : ["+Validate_OrdType_Value +"] - Response OrdTypeValue : "+OrdTypeValue);
+			//LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response BoothID : "+BoothID);
+			Assert.assertEquals(OrdTypeValue,"[\""+Validate_OrdType_Value+"\"]", "Validate_OrdType_Value");
+			Assert.assertEquals(OrdTypeName,"[\""+Validate_OrdType_Name+"\"]", "Validate_OrdType_Name");
+			//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
 	}
-	catch (Exception e) 
-	{
-		LoggingManager.logger.error(e);
-	}
-	}	
 }

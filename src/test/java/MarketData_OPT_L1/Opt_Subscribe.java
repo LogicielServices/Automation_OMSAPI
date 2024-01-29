@@ -105,8 +105,5 @@ public class Opt_Subscribe {
 		{
 			LoggingManager.logger.error(e);
 		}	
-
-		
-	
 	}
 }

@@ -46,42 +46,41 @@ public class StaticData_MktTopPerfExchange {
 											  String Validate_MktTopPerfExchange_Value,
 											  String Validate_Booth )
 	{
-		
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+StaticData_MktTopPerfExchange_TestCases);
-		LoggingManager.logger.info("====================================================================");
-	try {	
-		RestAssured.baseURI=Global.BaseURL;
-		Response response=
-							given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+StaticData_MktTopPerfExchange_TestCases);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response response=
+					given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+
 							.when()
-								.get(StaticData_MktTopPerfExchange_BasePath)
-								
+							.get(StaticData_MktTopPerfExchange_BasePath)
+
 							.then()
-								.statusCode(Integer.parseInt(StaticData_MktTopPerfExchange_StatusCode))
-								//.statusLine("HTTP/1.1 200 OK")
-								.extract().response();
-		
-		
-		String MktTopPerfExchangeName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_MktTopPerfExchange_Value+"' )].name").toString();
-		String MktTopPerfExchangeValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_MktTopPerfExchange_Value+"' )].value").toString();
-		//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
-		LoggingManager.logger.info("API-StaticData_MktTopPerfExchange_BasePath : ["+StaticData_MktTopPerfExchange_BasePath+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-StaticData_MktTopPerfExchange_StatusCode : ["+response.getStatusCode()+"]");
-		LoggingManager.logger.info("API-Validate_MktTopPerfExchange_Name : ["+Validate_MktTopPerfExchange_Name +"] - Response MktTopPerfExchangeName : "+MktTopPerfExchangeName);
-		LoggingManager.logger.info("API-Validate_MktTopPerfExchange_Value : ["+Validate_MktTopPerfExchange_Value +"] - Response MktTopPerfExchangeValue : "+MktTopPerfExchangeValue);
-		Assert.assertEquals(MktTopPerfExchangeValue,"[\""+Validate_MktTopPerfExchange_Value+"\"]", "Validate_MktTopPerfExchange_Value");
-		Assert.assertEquals(MktTopPerfExchangeName,"[\""+Validate_MktTopPerfExchange_Name+"\"]", "Validate_MktTopPerfExchange_Name");
-		//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
-		LoggingManager.logger.info("====================================================================");
+							.statusCode(Integer.parseInt(StaticData_MktTopPerfExchange_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+			String MktTopPerfExchangeName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_MktTopPerfExchange_Value+"' )].name").toString();
+			String MktTopPerfExchangeValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_MktTopPerfExchange_Value+"' )].value").toString();
+			//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
+			LoggingManager.logger.info("API-StaticData_MktTopPerfExchange_BasePath : ["+StaticData_MktTopPerfExchange_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-StaticData_MktTopPerfExchange_StatusCode : ["+response.getStatusCode()+"]");
+			LoggingManager.logger.info("API-Validate_MktTopPerfExchange_Name : ["+Validate_MktTopPerfExchange_Name +"] - Response MktTopPerfExchangeName : "+MktTopPerfExchangeName);
+			LoggingManager.logger.info("API-Validate_MktTopPerfExchange_Value : ["+Validate_MktTopPerfExchange_Value +"] - Response MktTopPerfExchangeValue : "+MktTopPerfExchangeValue);
+			Assert.assertEquals(MktTopPerfExchangeValue,"[\""+Validate_MktTopPerfExchange_Value+"\"]", "Validate_MktTopPerfExchange_Value");
+			Assert.assertEquals(MktTopPerfExchangeName,"[\""+Validate_MktTopPerfExchange_Name+"\"]", "Validate_MktTopPerfExchange_Name");
+			//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
 	}
-	catch (Exception e) 
-	{
-		LoggingManager.logger.error(e);
-	}	
-	}	
 }

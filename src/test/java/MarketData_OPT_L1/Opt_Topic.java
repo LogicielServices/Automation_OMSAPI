@@ -63,7 +63,6 @@ public class Opt_Topic {
 			LoggingManager.logger.info("API-Topic_MarketData_StatusCode : ["+response.statusCode()+"]");
 			//LoggingManager.logger.info("API-Topic_MarketData_Response: ["+response.getBody().asPrettyString()+"]");
 			Assert.assertEquals(response.statusCode(),Integer.parseInt(Get_Topic_StatusCode),"Get Topic Response");
-			LoggingManager.logger.info("====================================================================");	
 			//Global.getTopicValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.OptionSymbol.*").toString();
 			//LoggingManager.logger.info("API-Topic_MarketData_Response : ["+Global.getTopicValue+"]");
 		

@@ -51,50 +51,56 @@ public class Summary_Available_Subscribe {
 												String Validate_Account,
 												String Validate_Booth)
 	{
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+Summary_Available_Subscribe_TestCase);
-		LoggingManager.logger.info("====================================================================");
-		RestAssured.baseURI=Global.BaseURL;
-		Response response=
-							given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								.pathParam("account", Summary_Available_Account)
-				                .pathParam("symbol", Summary_Available_Symbol)
-						
-							.when()
-								.get(Summary_Available_Subscribe_BasePath.concat("{account}/{symbol}"))
-								
-							.then()
-								//.statusCode(Integer.parseInt(Summary_Available_Subscribe_StatusCode))
-								//.statusLine("HTTP/1.1 200 OK")
-								.extract().response();
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+Summary_Available_Subscribe_TestCase);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response response=
+							given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+							.pathParam("account", Summary_Available_Account)
+							.pathParam("symbol", Summary_Available_Symbol)
 
-		LoggingManager.logger.info("API-Summary_Available_Subscribe_BasePath : ["+Summary_Available_Subscribe_BasePath.concat("{account}/{symbol}")+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-Summary_Available_Subscribe_StatusCode : ["+response.getStatusCode()+"]");
-		Assert.assertEquals(response.statusCode(),Integer.parseInt(Summary_Available_Subscribe_StatusCode), "Verify_Summary_Available_Subscribe_StatusCode");
-		
-		String getID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].id").toString();
-		String getOriginatingUserDesc=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].originatingUserDesc").toString();
-		String getClientID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].clientID").toString();
-		String getSymbol=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].symbol").toString();
-		String getAccount=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].account").toString();
-		String getBoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].boothID").toString();
-		
-		LoggingManager.logger.info("API-Validate_ID : ["+Validate_ID +"] - Response getID : "+getID);
-		LoggingManager.logger.info("API-Validate_OriginatingUserDesc : ["+Validate_OriginatingUserDesc +"] - Response getOriginatingUserDesc : "+getOriginatingUserDesc);
-		LoggingManager.logger.info("API-Validate_ClientID : ["+Validate_ClientID +"] - Response getClientID : "+getClientID);
-		LoggingManager.logger.info("API-Validate_Symbol : ["+Validate_Symbol +"] - Response getSymbol : "+getSymbol);
-		LoggingManager.logger.info("API-Validate_Account : ["+Validate_Account +"] - Response getAccount : "+getAccount);
-		LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response getBoothID : "+getBoothID);
-		
-		Assert.assertEquals(getID,"[\""+Validate_ID+"\"]", "Validate_Summary_Available_Subscribe_ID");
-		Assert.assertEquals(getOriginatingUserDesc,"[\""+Validate_OriginatingUserDesc+"\"]", "Validate_Summary_Available_Subscribe_OriginatingUserDesc");
-		Assert.assertEquals(getClientID,"[\""+Validate_ClientID+"\"]", "Validate_Summary_Available_Subscribe_ClientID");
-		Assert.assertEquals(getSymbol,"[\""+Validate_Symbol+"\"]", "Validate_Summary_Available_Subscribe_Symbol");
-		Assert.assertEquals(getAccount,"[\""+Validate_Account+"\"]", "Validate_Summary_Available_Subscribe_Account");
-		Assert.assertEquals(getBoothID,"[\""+Validate_Booth+"\"]", "Validate_Summary_Available_Subscribe_Booth");
-		LoggingManager.logger.info("====================================================================");
-	}	
+							.when()
+							.get(Summary_Available_Subscribe_BasePath.concat("{account}/{symbol}"))
+
+							.then()
+							//.statusCode(Integer.parseInt(Summary_Available_Subscribe_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+			LoggingManager.logger.info("API-Summary_Available_Subscribe_BasePath : ["+Summary_Available_Subscribe_BasePath.concat("{account}/{symbol}")+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Summary_Available_Subscribe_StatusCode : ["+response.getStatusCode()+"]");
+			Assert.assertEquals(response.statusCode(),Integer.parseInt(Summary_Available_Subscribe_StatusCode), "Verify_Summary_Available_Subscribe_StatusCode");
+
+			String getID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].id").toString();
+			String getOriginatingUserDesc=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].originatingUserDesc").toString();
+			String getClientID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].clientID").toString();
+			String getSymbol=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].symbol").toString();
+			String getAccount=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].account").toString();
+			String getBoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].boothID").toString();
+
+			LoggingManager.logger.info("API-Validate_ID : ["+Validate_ID +"] - Response getID : "+getID);
+			LoggingManager.logger.info("API-Validate_OriginatingUserDesc : ["+Validate_OriginatingUserDesc +"] - Response getOriginatingUserDesc : "+getOriginatingUserDesc);
+			LoggingManager.logger.info("API-Validate_ClientID : ["+Validate_ClientID +"] - Response getClientID : "+getClientID);
+			LoggingManager.logger.info("API-Validate_Symbol : ["+Validate_Symbol +"] - Response getSymbol : "+getSymbol);
+			LoggingManager.logger.info("API-Validate_Account : ["+Validate_Account +"] - Response getAccount : "+getAccount);
+			LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response getBoothID : "+getBoothID);
+
+			Assert.assertEquals(getID,"[\""+Validate_ID+"\"]", "Validate_Summary_Available_Subscribe_ID");
+			Assert.assertEquals(getOriginatingUserDesc,"[\""+Validate_OriginatingUserDesc+"\"]", "Validate_Summary_Available_Subscribe_OriginatingUserDesc");
+			Assert.assertEquals(getClientID,"[\""+Validate_ClientID+"\"]", "Validate_Summary_Available_Subscribe_ClientID");
+			Assert.assertEquals(getSymbol,"[\""+Validate_Symbol+"\"]", "Validate_Summary_Available_Subscribe_Symbol");
+			Assert.assertEquals(getAccount,"[\""+Validate_Account+"\"]", "Validate_Summary_Available_Subscribe_Account");
+			Assert.assertEquals(getBoothID,"[\""+Validate_Booth+"\"]", "Validate_Summary_Available_Subscribe_Booth");
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
 }

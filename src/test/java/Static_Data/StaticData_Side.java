@@ -46,45 +46,44 @@ public class StaticData_Side {
 											  String Validate_Side_Value,
 											  String Validate_Booth )
 	{
-		
-		LoggingManager.logger.info("====================================================================");
-		LoggingManager.logger.info("TestCase : "+StaticData_Side_TestCases);
-		LoggingManager.logger.info("====================================================================");
-	try {	
-		RestAssured.baseURI=Global.BaseURL;
-		Response response=
-							given()	
-								.header("Content-Type",Content_Type) 
-								.header("Authorization", "Bearer " + Global.getAccToken)
-								
+		try
+		{
+			LoggingManager.logger.info("====================================================================");
+			LoggingManager.logger.info("TestCase : "+StaticData_Side_TestCases);
+			LoggingManager.logger.info("====================================================================");
+			RestAssured.baseURI=Global.BaseURL;
+			Response response=
+							 given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+
 							.when()
-								.get(StaticData_Side_BasePath)
-								
+							.get(StaticData_Side_BasePath)
+
 							.then()
-								.statusCode(Integer.parseInt(StaticData_Side_StatusCode))
-								//.statusLine("HTTP/1.1 200 OK")
-								.extract().response();
-		
-		
-		String SideName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Side_Value+"' )].name").toString();
-		String SideValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Side_Value+"' )].value").toString();
-		//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
-		
-		LoggingManager.logger.info("API-StaticData_Side_BasePath : ["+StaticData_Side_BasePath+"]");
-		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-		LoggingManager.logger.info("API-StaticData_Side_StatusCode : ["+response.getStatusCode()+"]");
-		LoggingManager.logger.info("API-Validate_Side_Name : ["+Validate_Side_Name +"] - Response SideName : "+SideName);
-		LoggingManager.logger.info("API-Validate_Side_Value : ["+Validate_Side_Value +"] - Response SideValue : "+SideValue);
-		//LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response BoothID : "+BoothID);
-		
-		Assert.assertEquals(SideValue,"[\""+Validate_Side_Value+"\"]", "Validate_Side_Value");
-		Assert.assertEquals(SideName,"[\""+Validate_Side_Name+"\"]", "Validate_Side_Name");
-		//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
-		LoggingManager.logger.info("====================================================================");
+							.statusCode(Integer.parseInt(StaticData_Side_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+
+			String SideName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Side_Value+"' )].name").toString();
+			String SideValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Side_Value+"' )].value").toString();
+			//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
+			LoggingManager.logger.info("API-StaticData_Side_BasePath : ["+StaticData_Side_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-StaticData_Side_StatusCode : ["+response.getStatusCode()+"]");
+			LoggingManager.logger.info("API-Validate_Side_Name : ["+Validate_Side_Name +"] - Response SideName : "+SideName);
+			LoggingManager.logger.info("API-Validate_Side_Value : ["+Validate_Side_Value +"] - Response SideValue : "+SideValue);
+			//LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response BoothID : "+BoothID);
+			Assert.assertEquals(SideValue,"[\""+Validate_Side_Value+"\"]", "Validate_Side_Value");
+			Assert.assertEquals(SideName,"[\""+Validate_Side_Name+"\"]", "Validate_Side_Name");
+			//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
 	}
-	catch (Exception e) 
-	{
-		LoggingManager.logger.error(e);
-	}
-	}	
+
 }
