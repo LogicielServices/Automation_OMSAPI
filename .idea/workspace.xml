@@ -6,71 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/LoggingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/LoggingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AuditTrail/Subscribe_OrderID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AuditTrail/Subscribe_OrderID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AuditTrail/Subscribe_qOrderID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AuditTrail/Subscribe_qOrderID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AuditTrail/UnSubscribe_OrderID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AuditTrail/UnSubscribe_OrderID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AuditTrail/UnSubscribe_qOrderID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AuditTrail/UnSubscribe_qOrderID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_Acquire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_Acquire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Subscribe_Locates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Subscribe_Locates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Available_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Available_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Available_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Available_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Locate_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Locate_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Locate_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Locate_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/UnSubscribe_Locates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/UnSubscribe_Locates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_Subscribe_Bulk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_Subscribe_Bulk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_Subscribe_Bulk_NoSnapshot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_Subscribe_Bulk_NoSnapshot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_UnSubscribe_Bulk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_UnSubscribe_Bulk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_UnSubscribe_Bulk_Symbols.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_OPT_L1/Opt_UnSubscribe_Bulk_Symbols.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OpenOrders/Create_OpenOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OpenOrders/Create_OpenOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OptionOrders/Cancel_OptionOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OptionOrders/Cancel_OptionOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OptionOrders/Create_OptionOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OptionOrders/Create_OptionOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OptionOrders/Delete_OptionOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OptionOrders/Delete_OptionOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OptionOrders/Filled_OptionOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OptionOrders/Filled_OptionOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OptionOrders/Update_OptionOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OptionOrders/Update_OptionOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Cancel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Cancel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Create.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Delete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Delete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Filled_Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Filled_Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Update.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_BlotterPackage_Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_BlotterPackage_Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Blotter_Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Blotter_Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CommType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CommType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination_TraderOnly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination_TraderOnly.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_ETBHTB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_ETBHTB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_LocateTIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_LocateTIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfCateg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfCateg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfExchange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Option_Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Option_Destination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OrdType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OrdType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Side.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_TIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_TIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Option_Order_Subscription_1233333.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Option_Positions_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Option_Positions_Subscription.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Option_Positions_Subscription_V3.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Order_Positions_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Order_Positions_Subscription.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Equity_Order_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Equity_Order_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Equity_Order_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Equity_Order_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Flat_Positions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Flat_Positions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Open_Order_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Open_Order_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Open_Order_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Open_Order_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Executions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Executions_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Order_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Order_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Order_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Order_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Executions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Executions_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Executions_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Executions_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_Subscribe_CopY.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_UnSubscribe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_L1/Data/MarketData_L1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_L1/Data/MarketData_L1.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +57,17 @@
       <recent name="XLDataProvider" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Position.xml">
+  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_MarketData.xml">
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_MarketData.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="F:/IntelliJ/src/test/resources/TestRunner/Equity_Executions.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="OMSAPI" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Executions.xml" />
@@ -152,16 +98,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="F:/IntelliJ/src/test/resources/TestRunner/OptionOrders_Executions.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Executions.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="F:/IntelliJ/src/test/resources/TestRunner/OptionOrders_Position.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="OMSAPI" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Position.xml" />
@@ -174,11 +110,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_MarketData.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Position.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Filled_Orders.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Executions.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/OptionOrders_Position.xml" />
-        <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/OptionOrders_Executions.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +128,7 @@
       <updated>1704800731750</updated>
       <workItem from="1704800733041" duration="8291000" />
       <workItem from="1704809944132" duration="3408000" />
-      <workItem from="1705650275821" duration="20672000" />
+      <workItem from="1705650275821" duration="22427000" />
     </task>
     <servers />
   </component>

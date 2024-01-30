@@ -1,41 +1,365 @@
-2024-01-16T15:46:19,004 [main] INFO  (Login.java:66) - ====================================================================
-2024-01-16T15:46:19,011 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
-2024-01-16T15:46:19,012 [main] INFO  (Login.java:68) - ====================================================================
-2024-01-16T15:46:20,886 [main] INFO  (APIHelperClass.java:135) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
-2024-01-16T15:46:20,886 [main] INFO  (APIHelperClass.java:136) - API-Content_Type : [application/json]
-2024-01-16T15:46:20,887 [main] INFO  (APIHelperClass.java:137) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
-2024-01-16T15:46:20,887 [main] INFO  (APIHelperClass.java:138) - API-Status_Code_Step1_StatusCode : [202]
-2024-01-16T15:46:20,888 [main] INFO  (APIHelperClass.java:139) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"d45e3aaf-2c5b-47f6-9eef-74dfae1d80c0","status":true,"message":"Proceed with TFA to complete the login"}]
-2024-01-16T15:46:21,298 [main] INFO  (APIHelperClass.java:143) - API-getCodeID : [d45e3aaf-2c5b-47f6-9eef-74dfae1d80c0]
-2024-01-16T15:46:21,299 [main] INFO  (APIHelperClass.java:144) - API-TFACode : [123456]
-2024-01-16T15:46:22,116 [main] INFO  (APIHelperClass.java:162) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/d45e3aaf-2c5b-47f6-9eef-74dfae1d80c0/123456]
-2024-01-16T15:46:22,117 [main] INFO  (APIHelperClass.java:163) - API-response_Login_Step2_StatusCode : [200]
-2024-01-16T15:46:22,117 [main] INFO  (APIHelperClass.java:164) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDU0MDE5ODIsImV4cCI6MTcwNTQwMjU4MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA1NDAxOTgyLCJpZHAiOiJsb2NhbCIsImp0aSI6IkIzQ0JDNEJFNzg5QzA1MDg1RkYzQjNDODI2M0JBRjYwIiwiaWF0IjoxNzA1NDAxOTgyLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.l_M-4w9_nl05CSZ5DbM7_kM4VH76V9X3OFraukzqkyCNeq3QvnEva1D9G2tUDGv0uCXJoK44RnBHN8KjxBWRjgPyBlD4pScN_Yd0Uw8NE1YHtGe9SmoHHr5mqGI-6mIKvW_D7PWZguT8dRII5CdXCrudndQxt7KLXGJ8Uwl3JRG1Kk8iq34IXQJWDXD7OsM_nkO8vDVepZ0hWBvw3vueZvNCtv3V-AC_z39VA1mIWTewyRiwVxeF04rGKCEx85kIOLnpqAuxPo9l7vUn4UW6SNsHo6gJT4MZqAOtUOYPS1HcUT1nJDGbGorwAZjKm30nNzOvWnpXqRKFXqrFxPC16w","expires_in":600,"token_type":"Bearer","refresh_token":"B0273E5918E593436ABD3F9AC698EBFA89CF9AC9766B9D05A4D9C3AE288F76CF","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
-2024-01-16T15:46:22,130 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDU0MDE5ODIsImV4cCI6MTcwNTQwMjU4MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA1NDAxOTgyLCJpZHAiOiJsb2NhbCIsImp0aSI6IkIzQ0JDNEJFNzg5QzA1MDg1RkYzQjNDODI2M0JBRjYwIiwiaWF0IjoxNzA1NDAxOTgyLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.l_M-4w9_nl05CSZ5DbM7_kM4VH76V9X3OFraukzqkyCNeq3QvnEva1D9G2tUDGv0uCXJoK44RnBHN8KjxBWRjgPyBlD4pScN_Yd0Uw8NE1YHtGe9SmoHHr5mqGI-6mIKvW_D7PWZguT8dRII5CdXCrudndQxt7KLXGJ8Uwl3JRG1Kk8iq34IXQJWDXD7OsM_nkO8vDVepZ0hWBvw3vueZvNCtv3V-AC_z39VA1mIWTewyRiwVxeF04rGKCEx85kIOLnpqAuxPo9l7vUn4UW6SNsHo6gJT4MZqAOtUOYPS1HcUT1nJDGbGorwAZjKm30nNzOvWnpXqRKFXqrFxPC16w]
-2024-01-16T15:46:22,235 [main] INFO  (Subscribe_AccountBalance.java:48) - ====================================================================
-2024-01-16T15:46:22,236 [main] INFO  (Subscribe_AccountBalance.java:49) - TestCase : Subscribe_AccountBalance_TC0001
-2024-01-16T15:46:22,236 [main] INFO  (Subscribe_AccountBalance.java:50) - ====================================================================
-2024-01-16T15:46:23,025 [main] INFO  (Subscribe_AccountBalance.java:65) - API-Subscribe_AccountBalance_BasePath : [/int/ord/api/account/balances/subscribe]
-2024-01-16T15:46:23,025 [main] INFO  (Subscribe_AccountBalance.java:66) - API-Content_Type : [application/json]
-2024-01-16T15:46:23,025 [main] INFO  (Subscribe_AccountBalance.java:67) - API-Subscribe_AccountBalance_StatusCode : [200]
-2024-01-16T15:46:23,275 [main] INFO  (Login.java:66) - ====================================================================
-2024-01-16T15:46:23,275 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
-2024-01-16T15:46:23,275 [main] INFO  (Login.java:68) - ====================================================================
-2024-01-16T15:46:23,868 [main] INFO  (APIHelperClass.java:135) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
-2024-01-16T15:46:23,868 [main] INFO  (APIHelperClass.java:136) - API-Content_Type : [application/json]
-2024-01-16T15:46:23,868 [main] INFO  (APIHelperClass.java:137) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
-2024-01-16T15:46:23,868 [main] INFO  (APIHelperClass.java:138) - API-Status_Code_Step1_StatusCode : [202]
-2024-01-16T15:46:23,869 [main] INFO  (APIHelperClass.java:139) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"c30106fa-c001-4799-bd11-f3f129eee61c","status":true,"message":"Proceed with TFA to complete the login"}]
-2024-01-16T15:46:23,876 [main] INFO  (APIHelperClass.java:143) - API-getCodeID : [c30106fa-c001-4799-bd11-f3f129eee61c]
-2024-01-16T15:46:23,876 [main] INFO  (APIHelperClass.java:144) - API-TFACode : [123456]
-2024-01-16T15:46:24,783 [main] INFO  (APIHelperClass.java:162) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/c30106fa-c001-4799-bd11-f3f129eee61c/123456]
-2024-01-16T15:46:24,784 [main] INFO  (APIHelperClass.java:163) - API-response_Login_Step2_StatusCode : [200]
-2024-01-16T15:46:24,784 [main] INFO  (APIHelperClass.java:164) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDU0MDE5ODQsImV4cCI6MTcwNTQwMjU4NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA1NDAxOTg0LCJpZHAiOiJsb2NhbCIsImp0aSI6IjJERkFDOTQ4NUFFQTAwNzc0OEQ5QTNFNTE1QTNEOUFDIiwiaWF0IjoxNzA1NDAxOTg0LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.DG3mJSF3oIb9tgFtRR0O9iSfeVIHQbJPDBrFcMxRUgKQgnR47eZVvZ0mrsM4SAhNFQfy6mR6wFOTsjPHW-JTlOxx4JqMOlFhnoK7kmoxcdmP1814twadsXHcyTNm_i0BFq1bB3wHD0RgXdNZrdUGs59nZhfMo7pDB8liQmiQFdWBrTCqDwA1ZR9FghtvtHJuLpN3Bj6DjvicwmlyAVp7p63RaUHENTxfi5bY02f3GAmyrapNNZcsMK5TJAtrY-9NXqfoGap3BLKEhKecB8toXIlD-JwC3dLpZV2JHWkyQxXYW6YLTYwuex1p6bneUN5Ut2M14XRBJY4caoKWUeaYig","expires_in":600,"token_type":"Bearer","refresh_token":"E4418ADDD67C715796BD8BA18865FE10EED048E4B13AFA5851AEF58020193478","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
-2024-01-16T15:46:24,793 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDU0MDE5ODQsImV4cCI6MTcwNTQwMjU4NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA1NDAxOTg0LCJpZHAiOiJsb2NhbCIsImp0aSI6IjJERkFDOTQ4NUFFQTAwNzc0OEQ5QTNFNTE1QTNEOUFDIiwiaWF0IjoxNzA1NDAxOTg0LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.DG3mJSF3oIb9tgFtRR0O9iSfeVIHQbJPDBrFcMxRUgKQgnR47eZVvZ0mrsM4SAhNFQfy6mR6wFOTsjPHW-JTlOxx4JqMOlFhnoK7kmoxcdmP1814twadsXHcyTNm_i0BFq1bB3wHD0RgXdNZrdUGs59nZhfMo7pDB8liQmiQFdWBrTCqDwA1ZR9FghtvtHJuLpN3Bj6DjvicwmlyAVp7p63RaUHENTxfi5bY02f3GAmyrapNNZcsMK5TJAtrY-9NXqfoGap3BLKEhKecB8toXIlD-JwC3dLpZV2JHWkyQxXYW6YLTYwuex1p6bneUN5Ut2M14XRBJY4caoKWUeaYig]
-2024-01-16T15:46:24,861 [main] INFO  (UnSubscribe_AccountBalance.java:48) - ====================================================================
-2024-01-16T15:46:24,862 [main] INFO  (UnSubscribe_AccountBalance.java:49) - TestCase : UnSubscribe_AccountBalance_TC0001
-2024-01-16T15:46:24,862 [main] INFO  (UnSubscribe_AccountBalance.java:50) - ====================================================================
-2024-01-16T15:46:25,442 [main] INFO  (UnSubscribe_AccountBalance.java:65) - API-UnSubscribe_AccountBalance_BasePath : [/int/ord/api/account/balances/unsubscribe]
-2024-01-16T15:46:25,443 [main] INFO  (UnSubscribe_AccountBalance.java:66) - API-Content_Type : [application/json]
-2024-01-16T15:46:25,443 [main] INFO  (UnSubscribe_AccountBalance.java:67) - API-UnSubscribe_AccountBalance_StatusCode : [200]
-2024-01-16T15:46:25,443 [main] INFO  (UnSubscribe_AccountBalance.java:68) - API-UnSubscribe_AccountBalance_StatusCode : [Success!]
+2024-01-30T12:45:23,267 [main] INFO  (Logger.java:112) - [TestNG] Running:
+  D:\Automation_OMSAPI\src\test\resources\TestRunner\Equity_MarketData.xml
+
+2024-01-30T12:45:24,485 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-30T12:45:24,485 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-30T12:45:24,485 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-30T12:45:26,143 [main] INFO  (APIHelperClass.java:146) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-30T12:45:26,143 [main] INFO  (APIHelperClass.java:147) - API-Content_Type : [application/json]
+2024-01-30T12:45:26,143 [main] INFO  (APIHelperClass.java:148) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-30T12:45:26,143 [main] INFO  (APIHelperClass.java:149) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-30T12:45:26,143 [main] INFO  (APIHelperClass.java:150) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"7e9c1a88-0604-4110-8e47-192377ff1646","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-30T12:45:26,528 [main] INFO  (APIHelperClass.java:154) - API-getCodeID : [7e9c1a88-0604-4110-8e47-192377ff1646]
+2024-01-30T12:45:26,528 [main] INFO  (APIHelperClass.java:155) - API-TFACode : [123456]
+2024-01-30T12:45:27,308 [main] INFO  (APIHelperClass.java:170) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/7e9c1a88-0604-4110-8e47-192377ff1646/123456]
+2024-01-30T12:45:27,308 [main] INFO  (APIHelperClass.java:171) - API-response_Login_Step2_StatusCode : [200]
+2024-01-30T12:45:27,308 [main] INFO  (APIHelperClass.java:172) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDY2MDA3MjcsImV4cCI6MTcwNjYwMTMyNywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA2NjAwNzI3LCJpZHAiOiJsb2NhbCIsImp0aSI6IjBFRTJBRTBEQTQ5QzQxOUJBOUM3MkRENkZBQUU4NTcxIiwiaWF0IjoxNzA2NjAwNzI3LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.C-19j6ura4OgGOUL-tuAG3xEX0Im_rDG7nETkRh8JA-wkwkiwpf-OUsUwijIJp6hzxDUpyAz00dFSNBuXBy-uXpcjIcZQcwThTMOzHU7ixnwuZtUc_YyNg6ijUuAAFrSLDAiwiTruPg1uPIuyXjEHkpc0rgA4HKqp8cUDYnCYWJzjXa1Pzth5S6JFJuNGXaQSNxYAZxh77MzrlcUvSoSmydPteLIJ3aIupooVNHIL3yD_xIIq_XxSZPvkLeS1Uo9Yutikyagk4PqghDqEmMLF0AyDBuPfiJy9jDTTkpILD1cxmjBWCXCmfwIS_nRMpds1ID3-dPx0EK_yPBfJnvejw","expires_in":600,"token_type":"Bearer","refresh_token":"6D73B1D893FD4481A9945F55B34C66A404E1A126237C1B632ED9C37246720FF4","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-30T12:45:27,308 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDY2MDA3MjcsImV4cCI6MTcwNjYwMTMyNywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA2NjAwNzI3LCJpZHAiOiJsb2NhbCIsImp0aSI6IjBFRTJBRTBEQTQ5QzQxOUJBOUM3MkRENkZBQUU4NTcxIiwiaWF0IjoxNzA2NjAwNzI3LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.C-19j6ura4OgGOUL-tuAG3xEX0Im_rDG7nETkRh8JA-wkwkiwpf-OUsUwijIJp6hzxDUpyAz00dFSNBuXBy-uXpcjIcZQcwThTMOzHU7ixnwuZtUc_YyNg6ijUuAAFrSLDAiwiTruPg1uPIuyXjEHkpc0rgA4HKqp8cUDYnCYWJzjXa1Pzth5S6JFJuNGXaQSNxYAZxh77MzrlcUvSoSmydPteLIJ3aIupooVNHIL3yD_xIIq_XxSZPvkLeS1Uo9Yutikyagk4PqghDqEmMLF0AyDBuPfiJy9jDTTkpILD1cxmjBWCXCmfwIS_nRMpds1ID3-dPx0EK_yPBfJnvejw]
+2024-01-30T12:45:27,978 [main] INFO  (Subscribe_MarketData.java:54) - ====================================================================
+2024-01-30T12:45:27,978 [main] INFO  (Subscribe_MarketData.java:55) - TestCase : MarketData_Subscribe_TC0001
+2024-01-30T12:45:27,978 [main] INFO  (Subscribe_MarketData.java:56) - ====================================================================
+2024-01-30T12:45:28,827 [main] INFO  (Subscribe_MarketData.java:74) - API-Subscribe_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/subscribe?symbol=IBM]
+2024-01-30T12:45:28,834 [main] INFO  (Subscribe_MarketData.java:75) - API-Subscribe_StatusCode : [200]
+2024-01-30T12:45:28,834 [main] INFO  (Subscribe_MarketData.java:76) - API-Subscribe_ResponseBody : [{"success":true,"message":"","data":{"localCode":"IBM","symbol":"IBM.EDA","week52High":0,"week52Low":0,"cumulativeValue":0,"permissionId":278,"tradingStatusReason":null,"shortSalePriceRestricted":null,"shortSalePriceRestrictedDescription":"","tradingStatusReasonDetails":"","tradingStatusDetails":"","ask":null,"askSize":0,"askTime":0,"askExchange":null,"bid":null,"bidSize":0,"bidTime":0,"bidExchange":null,"open":0,"close":187.13,"high":0,"highTime":0,"highExchange":null,"low":0,"lowTime":0,"lowExchange":null,"quoteLotSize":100,"volume":0,"tradingStatus":null,"change":null,"percentChange":null,"last":null,"lastSize":0,"lastUpdateDate":"2024-01-30T00:00:00","prePostMarketTrade":null,"prePostMarketTradeSize":0,"lotSize":100,"limitHighPrice":0,"limitLowPrice":0,"limitHighLowTime":0}}]
+2024-01-30T12:45:28,865 [main] INFO  (Subscribe_MarketData.java:91) - API-Validate_LocalCode_Subscribe : Expected [IBM] - Found : [IBM]
+2024-01-30T12:45:28,865 [main] INFO  (Subscribe_MarketData.java:92) - API-Validate_Symbol_Subscribe : Expected [IBM.EDA] - Found : [IBM.EDA]
+2024-01-30T12:45:28,881 [main] INFO  (Subscribe_MarketData.java:93) - API-Validate_Response_Fields : Expected [[localCode, symbol, week52High, week52Low, cumulativeValue, permissionId, tradingStatusReason, shortSalePriceRestricted, shortSalePriceRestrictedDescription, tradingStatusReasonDetails, tradingStatusDetails, ask, askSize, askTime, askExchange, bid, bidSize, bidTime, bidExchange, open, close, high, highTime, highExchange, low, lowTime, lowExchange, quoteLotSize, volume, tradingStatus, change, percentChange, last, lastSize, lastUpdateDate, prePostMarketTrade, prePostMarketTradeSize, lotSize, limitHighPrice, limitLowPrice, limitHighLowTime]] - Found : [[localCode, symbol, week52High, week52Low, cumulativeValue, permissionId, tradingStatusReason, shortSalePriceRestricted, shortSalePriceRestrictedDescription, tradingStatusReasonDetails, tradingStatusDetails, ask, askSize, askTime, askExchange, bid, bidSize, bidTime, bidExchange, open, close, high, highTime, highExchange, low, lowTime, lowExchange, quoteLotSize, volume, tradingStatus, change, percentChange, last, lastSize, lastUpdateDate, prePostMarketTrade, prePostMarketTradeSize, lotSize, limitHighPrice, limitLowPrice, limitHighLowTime]]
+2024-01-30T12:45:28,896 [main] INFO  (Subscribe_MarketData.java:54) - ====================================================================
+2024-01-30T12:45:28,896 [main] INFO  (Subscribe_MarketData.java:55) - TestCase : MarketData_Subscribe_TC0002
+2024-01-30T12:45:28,896 [main] INFO  (Subscribe_MarketData.java:56) - ====================================================================
+2024-01-30T12:45:29,686 [main] INFO  (Subscribe_MarketData.java:74) - API-Subscribe_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/subscribe?symbol=A]
+2024-01-30T12:45:29,686 [main] INFO  (Subscribe_MarketData.java:75) - API-Subscribe_StatusCode : [200]
+2024-01-30T12:45:29,686 [main] INFO  (Subscribe_MarketData.java:76) - API-Subscribe_ResponseBody : [{"success":true,"message":"","data":{"localCode":"A","symbol":"A.EDA","week52High":0,"week52Low":0,"cumulativeValue":0,"permissionId":278,"tradingStatusReason":null,"shortSalePriceRestricted":null,"shortSalePriceRestrictedDescription":"","tradingStatusReasonDetails":"","tradingStatusDetails":"","ask":null,"askSize":0,"askTime":0,"askExchange":null,"bid":null,"bidSize":0,"bidTime":0,"bidExchange":null,"open":0,"close":132.12,"high":0,"highTime":0,"highExchange":null,"low":0,"lowTime":0,"lowExchange":null,"quoteLotSize":100,"volume":0,"tradingStatus":null,"change":null,"percentChange":null,"last":null,"lastSize":0,"lastUpdateDate":"2024-01-30T00:00:00","prePostMarketTrade":null,"prePostMarketTradeSize":0,"lotSize":100,"limitHighPrice":0,"limitLowPrice":0,"limitHighLowTime":0}}]
+2024-01-30T12:45:29,686 [main] INFO  (Subscribe_MarketData.java:91) - API-Validate_LocalCode_Subscribe : Expected [A] - Found : [A]
+2024-01-30T12:45:29,686 [main] INFO  (Subscribe_MarketData.java:92) - API-Validate_Symbol_Subscribe : Expected [A.EDA] - Found : [A.EDA]
+2024-01-30T12:45:29,701 [main] INFO  (Subscribe_MarketData.java:93) - API-Validate_Response_Fields : Expected [[localCode, symbol, week52High, week52Low, cumulativeValue, permissionId, tradingStatusReason, shortSalePriceRestricted, shortSalePriceRestrictedDescription, tradingStatusReasonDetails, tradingStatusDetails, ask, askSize, askTime, askExchange, bid, bidSize, bidTime, bidExchange, open, close, high, highTime, highExchange, low, lowTime, lowExchange, quoteLotSize, volume, tradingStatus, change, percentChange, last, lastSize, lastUpdateDate, prePostMarketTrade, prePostMarketTradeSize, lotSize, limitHighPrice, limitLowPrice, limitHighLowTime]] - Found : [[localCode, symbol, week52High, week52Low, cumulativeValue, permissionId, tradingStatusReason, shortSalePriceRestricted, shortSalePriceRestrictedDescription, tradingStatusReasonDetails, tradingStatusDetails, ask, askSize, askTime, askExchange, bid, bidSize, bidTime, bidExchange, open, close, high, highTime, highExchange, low, lowTime, lowExchange, quoteLotSize, volume, tradingStatus, change, percentChange, last, lastSize, lastUpdateDate, prePostMarketTrade, prePostMarketTradeSize, lotSize, limitHighPrice, limitLowPrice, limitHighLowTime]]
+2024-01-30T12:45:29,701 [main] INFO  (Subscribe_MarketData.java:54) - ====================================================================
+2024-01-30T12:45:29,701 [main] INFO  (Subscribe_MarketData.java:55) - TestCase : MarketData_Subscribe_TC0003
+2024-01-30T12:45:29,701 [main] INFO  (Subscribe_MarketData.java:56) - ====================================================================
+2024-01-30T12:45:30,469 [main] INFO  (Subscribe_MarketData.java:74) - API-Subscribe_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/subscribe?symbol=MSFT]
+2024-01-30T12:45:30,469 [main] INFO  (Subscribe_MarketData.java:75) - API-Subscribe_StatusCode : [200]
+2024-01-30T12:45:30,469 [main] INFO  (Subscribe_MarketData.java:76) - API-Subscribe_ResponseBody : [{"success":true,"message":"","data":{"localCode":"MSFT","symbol":"MSFT.EDA","week52High":0,"week52Low":0,"cumulativeValue":0,"permissionId":278,"tradingStatusReason":null,"shortSalePriceRestricted":null,"shortSalePriceRestrictedDescription":"","tradingStatusReasonDetails":"","tradingStatusDetails":"","ask":null,"askSize":0,"askTime":0,"askExchange":null,"bid":null,"bidSize":0,"bidTime":0,"bidExchange":null,"open":0,"close":409.74,"high":0,"highTime":0,"highExchange":null,"low":0,"lowTime":0,"lowExchange":null,"quoteLotSize":100,"volume":0,"tradingStatus":null,"change":null,"percentChange":null,"last":null,"lastSize":0,"lastUpdateDate":"2024-01-30T00:00:00","prePostMarketTrade":null,"prePostMarketTradeSize":0,"lotSize":100,"limitHighPrice":0,"limitLowPrice":0,"limitHighLowTime":0}}]
+2024-01-30T12:45:30,469 [main] INFO  (Subscribe_MarketData.java:91) - API-Validate_LocalCode_Subscribe : Expected [MSFT] - Found : [MSFT]
+2024-01-30T12:45:30,469 [main] INFO  (Subscribe_MarketData.java:92) - API-Validate_Symbol_Subscribe : Expected [MSFT.EDA] - Found : [MSFT.EDA]
+2024-01-30T12:45:30,484 [main] INFO  (Subscribe_MarketData.java:93) - API-Validate_Response_Fields : Expected [[localCode, symbol, week52High, week52Low, cumulativeValue, permissionId, tradingStatusReason, shortSalePriceRestricted, shortSalePriceRestrictedDescription, tradingStatusReasonDetails, tradingStatusDetails, ask, askSize, askTime, askExchange, bid, bidSize, bidTime, bidExchange, open, close, high, highTime, highExchange, low, lowTime, lowExchange, quoteLotSize, volume, tradingStatus, change, percentChange, last, lastSize, lastUpdateDate, prePostMarketTrade, prePostMarketTradeSize, lotSize, limitHighPrice, limitLowPrice, limitHighLowTime]] - Found : [[localCode, symbol, week52High, week52Low, cumulativeValue, permissionId, tradingStatusReason, shortSalePriceRestricted, shortSalePriceRestrictedDescription, tradingStatusReasonDetails, tradingStatusDetails, ask, askSize, askTime, askExchange, bid, bidSize, bidTime, bidExchange, open, close, high, highTime, highExchange, low, lowTime, lowExchange, quoteLotSize, volume, tradingStatus, change, percentChange, last, lastSize, lastUpdateDate, prePostMarketTrade, prePostMarketTradeSize, lotSize, limitHighPrice, limitLowPrice, limitHighLowTime]]
+2024-01-30T12:45:30,500 [main] INFO  (Subscribe_MarketData.java:54) - ====================================================================
+2024-01-30T12:45:30,500 [main] INFO  (Subscribe_MarketData.java:55) - TestCase : MarketData_Subscribe_TC0004
+2024-01-30T12:45:30,500 [main] INFO  (Subscribe_MarketData.java:56) - ====================================================================
+2024-01-30T12:45:31,388 [main] INFO  (Subscribe_MarketData.java:74) - API-Subscribe_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/subscribe?symbol=AA]
+2024-01-30T12:45:31,388 [main] INFO  (Subscribe_MarketData.java:75) - API-Subscribe_StatusCode : [200]
+2024-01-30T12:45:31,388 [main] INFO  (Subscribe_MarketData.java:76) - API-Subscribe_ResponseBody : [{"success":true,"message":"","data":{"localCode":"AA","symbol":"AA.EDA","week52High":0,"week52Low":0,"cumulativeValue":0,"permissionId":278,"tradingStatusReason":null,"shortSalePriceRestricted":null,"shortSalePriceRestrictedDescription":"","tradingStatusReasonDetails":"","tradingStatusDetails":"","ask":null,"askSize":0,"askTime":0,"askExchange":null,"bid":null,"bidSize":0,"bidTime":0,"bidExchange":null,"open":0,"close":30.91,"high":0,"highTime":0,"highExchange":null,"low":0,"lowTime":0,"lowExchange":null,"quoteLotSize":100,"volume":0,"tradingStatus":null,"change":null,"percentChange":null,"last":null,"lastSize":0,"lastUpdateDate":"2024-01-30T00:00:00","prePostMarketTrade":null,"prePostMarketTradeSize":0,"lotSize":100,"limitHighPrice":0,"limitLowPrice":0,"limitHighLowTime":0}}]
+2024-01-30T12:45:31,388 [main] INFO  (Subscribe_MarketData.java:91) - API-Validate_LocalCode_Subscribe : Expected [AA] - Found : [AA]
+2024-01-30T12:45:31,388 [main] INFO  (Subscribe_MarketData.java:92) - API-Validate_Symbol_Subscribe : Expected [AA.EDA] - Found : [AA.EDA]
+2024-01-30T12:45:31,418 [main] INFO  (Subscribe_MarketData.java:93) - API-Validate_Response_Fields : Expected [[localCode, symbol, week52High, week52Low, cumulativeValue, permissionId, tradingStatusReason, shortSalePriceRestricted, shortSalePriceRestrictedDescription, tradingStatusReasonDetails, tradingStatusDetails, ask, askSize, askTime, askExchange, bid, bidSize, bidTime, bidExchange, open, close, high, highTime, highExchange, low, lowTime, lowExchange, quoteLotSize, volume, tradingStatus, change, percentChange, last, lastSize, lastUpdateDate, prePostMarketTrade, prePostMarketTradeSize, lotSize, limitHighPrice, limitLowPrice, limitHighLowTime]] - Found : [[localCode, symbol, week52High, week52Low, cumulativeValue, permissionId, tradingStatusReason, shortSalePriceRestricted, shortSalePriceRestrictedDescription, tradingStatusReasonDetails, tradingStatusDetails, ask, askSize, askTime, askExchange, bid, bidSize, bidTime, bidExchange, open, close, high, highTime, highExchange, low, lowTime, lowExchange, quoteLotSize, volume, tradingStatus, change, percentChange, last, lastSize, lastUpdateDate, prePostMarketTrade, prePostMarketTradeSize, lotSize, limitHighPrice, limitLowPrice, limitHighLowTime]]
+2024-01-30T12:45:31,757 [main] INFO  (UnSubscribe.java:51) - ====================================================================
+2024-01-30T12:45:31,757 [main] INFO  (UnSubscribe.java:52) - TestCase : MarketData_UnSubscribe_TC0001
+2024-01-30T12:45:31,757 [main] INFO  (UnSubscribe.java:53) - ====================================================================
+2024-01-30T12:45:32,343 [main] INFO  (UnSubscribe.java:68) - API-UnSubscribe_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/unsubscribe?symbol=IBM]
+2024-01-30T12:45:32,343 [main] INFO  (UnSubscribe.java:69) - API-UnSubscribe_StatusCode : [200]
+2024-01-30T12:45:32,359 [main] INFO  (UnSubscribe.java:70) - API-UnSubscribe_Message : [Unsubscribed successfully]
+2024-01-30T12:45:32,374 [main] INFO  (UnSubscribe.java:51) - ====================================================================
+2024-01-30T12:45:32,374 [main] INFO  (UnSubscribe.java:52) - TestCase : MarketData_UnSubscribe_TC0001
+2024-01-30T12:45:32,374 [main] INFO  (UnSubscribe.java:53) - ====================================================================
+2024-01-30T12:45:32,962 [main] INFO  (UnSubscribe.java:68) - API-UnSubscribe_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/unsubscribe?symbol=A]
+2024-01-30T12:45:32,962 [main] INFO  (UnSubscribe.java:69) - API-UnSubscribe_StatusCode : [200]
+2024-01-30T12:45:32,962 [main] INFO  (UnSubscribe.java:70) - API-UnSubscribe_Message : [Unsubscribed successfully]
+2024-01-30T12:45:32,978 [main] INFO  (UnSubscribe.java:51) - ====================================================================
+2024-01-30T12:45:32,978 [main] INFO  (UnSubscribe.java:52) - TestCase : MarketData_UnSubscribe_TC0002
+2024-01-30T12:45:32,978 [main] INFO  (UnSubscribe.java:53) - ====================================================================
+2024-01-30T12:45:34,246 [main] INFO  (UnSubscribe.java:68) - API-UnSubscribe_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/unsubscribe?symbol=MSFT]
+2024-01-30T12:45:34,246 [main] INFO  (UnSubscribe.java:69) - API-UnSubscribe_StatusCode : [200]
+2024-01-30T12:45:34,246 [main] INFO  (UnSubscribe.java:70) - API-UnSubscribe_Message : [Unsubscribed successfully]
+2024-01-30T12:45:34,261 [main] INFO  (UnSubscribe.java:51) - ====================================================================
+2024-01-30T12:45:34,261 [main] INFO  (UnSubscribe.java:52) - TestCase : MarketData_UnSubscribe_TC0003
+2024-01-30T12:45:34,261 [main] INFO  (UnSubscribe.java:53) - ====================================================================
+2024-01-30T12:45:34,848 [main] INFO  (UnSubscribe.java:68) - API-UnSubscribe_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/unsubscribe?symbol=AA]
+2024-01-30T12:45:34,848 [main] INFO  (UnSubscribe.java:69) - API-UnSubscribe_StatusCode : [200]
+2024-01-30T12:45:34,848 [main] INFO  (UnSubscribe.java:70) - API-UnSubscribe_Message : [Unsubscribed successfully]
+2024-01-30T12:45:34,980 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-30T12:45:34,980 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-30T12:45:34,980 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-30T12:45:35,568 [main] INFO  (APIHelperClass.java:146) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-30T12:45:35,568 [main] INFO  (APIHelperClass.java:147) - API-Content_Type : [application/json]
+2024-01-30T12:45:35,568 [main] INFO  (APIHelperClass.java:148) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-30T12:45:35,568 [main] INFO  (APIHelperClass.java:149) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-30T12:45:35,568 [main] INFO  (APIHelperClass.java:150) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"74bd8859-d1be-411c-b01b-c048c835479c","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-30T12:45:35,583 [main] INFO  (APIHelperClass.java:154) - API-getCodeID : [74bd8859-d1be-411c-b01b-c048c835479c]
+2024-01-30T12:45:35,583 [main] INFO  (APIHelperClass.java:155) - API-TFACode : [123456]
+2024-01-30T12:45:36,339 [main] INFO  (APIHelperClass.java:170) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/74bd8859-d1be-411c-b01b-c048c835479c/123456]
+2024-01-30T12:45:36,354 [main] INFO  (APIHelperClass.java:171) - API-response_Login_Step2_StatusCode : [200]
+2024-01-30T12:45:36,354 [main] INFO  (APIHelperClass.java:172) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDY2MDA3MzYsImV4cCI6MTcwNjYwMTMzNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA2NjAwNzM2LCJpZHAiOiJsb2NhbCIsImp0aSI6IjZENzVERUQ0NTYzNDAzNDI3Njg0M0YxRDZGQzRGREQ5IiwiaWF0IjoxNzA2NjAwNzM2LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.Qbwh-h8Dd5OvGP58GTf42nC_2PqNqDdV4-OSNfSopezRE_VJGJwCPh8pAB8hjU2Zs95lnDY7MogMya708_fSh0JTcHLEhe-2Wj7Z3dUBE3HpWwmfRGBlZqUdTEO2BAtVmzWUKzsV7MYvwoLpd6TreqvhbEnVEbWT9KVM6j9QJkV2rTH_zcWCCQhcZEUuUhYjWe3A2BvYYlkI1NO5vdBMPYjc_-T068vh3tk0Ac07UcWwVXbBUm_Ma2JlEOajhw6H3axLIXY7xYU2N5x34w92qI0Pkuj1SPDHejhmy2RDnTFZHfuJ5cleCbItt-ZE5qHhynpvcGKHv9LdMWeHqylzrQ","expires_in":600,"token_type":"Bearer","refresh_token":"C2C639A8B0EE815C80E94D938034617BFC1D2A50DA3563DC8F9C50469114A959","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-30T12:45:36,354 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDY2MDA3MzYsImV4cCI6MTcwNjYwMTMzNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA2NjAwNzM2LCJpZHAiOiJsb2NhbCIsImp0aSI6IjZENzVERUQ0NTYzNDAzNDI3Njg0M0YxRDZGQzRGREQ5IiwiaWF0IjoxNzA2NjAwNzM2LCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.Qbwh-h8Dd5OvGP58GTf42nC_2PqNqDdV4-OSNfSopezRE_VJGJwCPh8pAB8hjU2Zs95lnDY7MogMya708_fSh0JTcHLEhe-2Wj7Z3dUBE3HpWwmfRGBlZqUdTEO2BAtVmzWUKzsV7MYvwoLpd6TreqvhbEnVEbWT9KVM6j9QJkV2rTH_zcWCCQhcZEUuUhYjWe3A2BvYYlkI1NO5vdBMPYjc_-T068vh3tk0Ac07UcWwVXbBUm_Ma2JlEOajhw6H3axLIXY7xYU2N5x34w92qI0Pkuj1SPDHejhmy2RDnTFZHfuJ5cleCbItt-ZE5qHhynpvcGKHv9LdMWeHqylzrQ]
+2024-01-30T12:45:36,742 [main] INFO  (Subscribe_Bulk.java:56) - ====================================================================
+2024-01-30T12:45:36,743 [main] INFO  (Subscribe_Bulk.java:57) - TestCase : MarketData_Subscribe_Bulk_TC0001
+2024-01-30T12:45:36,743 [main] INFO  (Subscribe_Bulk.java:58) - ====================================================================
+2024-01-30T12:45:37,572 [main] INFO  (Subscribe_Bulk.java:73) - API-Subscribe_Bulk_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/subscribe/bulk]
+2024-01-30T12:45:37,572 [main] INFO  (Subscribe_Bulk.java:74) - API-Subscribe_Bulk_Equity_Body : [{
+    "symbols": ["GOOGL", "QQQ", "AAPL","MSFT","IBM","DO"]
+}]
+2024-01-30T12:45:37,572 [main] INFO  (Subscribe_Bulk.java:75) - API-Subscribe_Bulk_StatusCode : [200]
+2024-01-30T12:45:37,572 [main] INFO  (Subscribe_Bulk.java:86) - API-Response_LocalCode_Validation : Expected ["GOOGL","QQQ","AAPL","MSFT","IBM","DO"] - Found : ["GOOGL","QQQ","AAPL","MSFT","IBM","DO"]
+2024-01-30T12:45:37,572 [main] INFO  (Subscribe_Bulk.java:87) - API-Response_Symbols_Validation : Expected ["GOOGL.EDA","QQQ.EDA","AAPL.EDA","MSFT.EDA","IBM.EDA","DO.EDA"] - Found : ["GOOGL.EDA","QQQ.EDA","AAPL.EDA","MSFT.EDA","IBM.EDA","DO.EDA"]
+2024-01-30T12:45:37,588 [main] INFO  (Subscribe_Bulk.java:91) - API-jsonPath.getInt data.size()) : [6]
+2024-01-30T12:45:37,704 [main] INFO  (Subscribe_Bulk.java:56) - ====================================================================
+2024-01-30T12:45:37,704 [main] INFO  (Subscribe_Bulk.java:57) - TestCase : MarketData_Subscribe_Bulk_TC0002
+2024-01-30T12:45:37,704 [main] INFO  (Subscribe_Bulk.java:58) - ====================================================================
+2024-01-30T12:45:38,475 [main] INFO  (Subscribe_Bulk.java:73) - API-Subscribe_Bulk_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/subscribe/bulk]
+2024-01-30T12:45:38,475 [main] INFO  (Subscribe_Bulk.java:74) - API-Subscribe_Bulk_Equity_Body : [{
+    "symbols": ["GOOGL", "AAPL","MSFT","IBM"]
+}]
+2024-01-30T12:45:38,475 [main] INFO  (Subscribe_Bulk.java:75) - API-Subscribe_Bulk_StatusCode : [200]
+2024-01-30T12:45:38,475 [main] INFO  (Subscribe_Bulk.java:86) - API-Response_LocalCode_Validation : Expected ["GOOGL","AAPL","MSFT","IBM"] - Found : ["GOOGL","AAPL","MSFT","IBM"]
+2024-01-30T12:45:38,475 [main] INFO  (Subscribe_Bulk.java:87) - API-Response_Symbols_Validation : Expected ["GOOGL.EDA","AAPL.EDA","MSFT.EDA","IBM.EDA"] - Found : ["GOOGL.EDA","AAPL.EDA","MSFT.EDA","IBM.EDA"]
+2024-01-30T12:45:38,491 [main] INFO  (Subscribe_Bulk.java:91) - API-jsonPath.getInt data.size()) : [4]
+2024-01-30T12:45:38,528 [main] INFO  (Subscribe_Bulk.java:56) - ====================================================================
+2024-01-30T12:45:38,528 [main] INFO  (Subscribe_Bulk.java:57) - TestCase : MarketData_Subscribe_Bulk_TC0003
+2024-01-30T12:45:38,528 [main] INFO  (Subscribe_Bulk.java:58) - ====================================================================
+2024-01-30T12:45:39,315 [main] INFO  (Subscribe_Bulk.java:73) - API-Subscribe_Bulk_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/subscribe/bulk]
+2024-01-30T12:45:39,315 [main] INFO  (Subscribe_Bulk.java:74) - API-Subscribe_Bulk_Equity_Body : [{
+    "symbols": ["AA", "A", "QQQ","DO"]
+}]
+2024-01-30T12:45:39,315 [main] INFO  (Subscribe_Bulk.java:75) - API-Subscribe_Bulk_StatusCode : [200]
+2024-01-30T12:45:39,315 [main] INFO  (Subscribe_Bulk.java:86) - API-Response_LocalCode_Validation : Expected ["AA","A","QQQ","DO"] - Found : ["AA","A","QQQ","DO"]
+2024-01-30T12:45:39,315 [main] INFO  (Subscribe_Bulk.java:87) - API-Response_Symbols_Validation : Expected ["AA.EDA","A.EDA","QQQ.EDA","DO.EDA"] - Found : ["AA.EDA","A.EDA","QQQ.EDA","DO.EDA"]
+2024-01-30T12:45:39,331 [main] INFO  (Subscribe_Bulk.java:91) - API-jsonPath.getInt data.size()) : [4]
+2024-01-30T12:45:39,386 [main] INFO  (Subscribe_Bulk.java:56) - ====================================================================
+2024-01-30T12:45:39,386 [main] INFO  (Subscribe_Bulk.java:57) - TestCase : MarketData_Subscribe_Bulk_TC0004
+2024-01-30T12:45:39,386 [main] INFO  (Subscribe_Bulk.java:58) - ====================================================================
+2024-01-30T12:45:40,196 [main] INFO  (Subscribe_Bulk.java:73) - API-Subscribe_Bulk_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/subscribe/bulk]
+2024-01-30T12:45:40,196 [main] INFO  (Subscribe_Bulk.java:74) - API-Subscribe_Bulk_Equity_Body : [{
+    "symbols": ["QQQ", "AAPL","MSFT","IBM"]
+}]
+2024-01-30T12:45:40,196 [main] INFO  (Subscribe_Bulk.java:75) - API-Subscribe_Bulk_StatusCode : [200]
+2024-01-30T12:45:40,196 [main] INFO  (Subscribe_Bulk.java:86) - API-Response_LocalCode_Validation : Expected ["QQQ","AAPL","MSFT","IBM"] - Found : ["QQQ","AAPL","MSFT","IBM"]
+2024-01-30T12:45:40,196 [main] INFO  (Subscribe_Bulk.java:87) - API-Response_Symbols_Validation : Expected ["QQQ.EDA","AAPL.EDA","MSFT.EDA","IBM.EDA"] - Found : ["QQQ.EDA","AAPL.EDA","MSFT.EDA","IBM.EDA"]
+2024-01-30T12:45:40,218 [main] INFO  (Subscribe_Bulk.java:91) - API-jsonPath.getInt data.size()) : [4]
+2024-01-30T12:45:40,534 [main] INFO  (UnSubscribe_Bulk.java:53) - ====================================================================
+2024-01-30T12:45:40,534 [main] INFO  (UnSubscribe_Bulk.java:54) - TestCase : MarketData_UnSubscribe_Bulk_TC0001
+2024-01-30T12:45:40,534 [main] INFO  (UnSubscribe_Bulk.java:55) - ====================================================================
+2024-01-30T12:45:41,120 [main] INFO  (UnSubscribe_Bulk.java:71) - API-UnSubscribe_Bulk_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/unsubscribe/bulk]
+2024-01-30T12:45:41,120 [main] INFO  (UnSubscribe_Bulk.java:72) - API-UnSubscribe_Bulk_Equity_Body : [{
+    "symbols": ["GOOGL", "QQQ"]
+}]
+2024-01-30T12:45:41,120 [main] INFO  (UnSubscribe_Bulk.java:73) - API-UnSubscribe_Bulk_StatusCode : [200]
+2024-01-30T12:45:41,120 [main] INFO  (UnSubscribe_Bulk.java:77) - API-UnSubscribe_Bulk_StatusCode : [[true,true]]
+2024-01-30T12:45:41,136 [main] INFO  (UnSubscribe_Bulk.java:86) - API-Response_Success_Flag_Validation : true - Found : true
+2024-01-30T12:45:41,136 [main] INFO  (UnSubscribe_Bulk.java:87) - API-Response_Message_Validation :  - Found : 
+2024-01-30T12:45:41,136 [main] INFO  (UnSubscribe_Bulk.java:88) - API-Response_DataValue_Validation : [true,true] - Found: [true,true]
+2024-01-30T12:45:41,136 [main] INFO  (UnSubscribe_Bulk.java:53) - ====================================================================
+2024-01-30T12:45:41,136 [main] INFO  (UnSubscribe_Bulk.java:54) - TestCase : MarketData_UnSubscribe_Bulk_TC0001
+2024-01-30T12:45:41,136 [main] INFO  (UnSubscribe_Bulk.java:55) - ====================================================================
+2024-01-30T12:45:41,722 [main] INFO  (UnSubscribe_Bulk.java:71) - API-UnSubscribe_Bulk_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/unsubscribe/bulk]
+2024-01-30T12:45:41,722 [main] INFO  (UnSubscribe_Bulk.java:72) - API-UnSubscribe_Bulk_Equity_Body : [{
+    "symbols": ["AAPL","MSFT"]
+}]
+2024-01-30T12:45:41,722 [main] INFO  (UnSubscribe_Bulk.java:73) - API-UnSubscribe_Bulk_StatusCode : [200]
+2024-01-30T12:45:41,722 [main] INFO  (UnSubscribe_Bulk.java:77) - API-UnSubscribe_Bulk_StatusCode : [[true,true]]
+2024-01-30T12:45:41,722 [main] INFO  (UnSubscribe_Bulk.java:86) - API-Response_Success_Flag_Validation : true - Found : true
+2024-01-30T12:45:41,722 [main] INFO  (UnSubscribe_Bulk.java:87) - API-Response_Message_Validation :  - Found : 
+2024-01-30T12:45:41,722 [main] INFO  (UnSubscribe_Bulk.java:88) - API-Response_DataValue_Validation : [true,true] - Found: [true,true]
+2024-01-30T12:45:41,738 [main] INFO  (UnSubscribe_Bulk.java:53) - ====================================================================
+2024-01-30T12:45:41,738 [main] INFO  (UnSubscribe_Bulk.java:54) - TestCase : MarketData_UnSubscribe_Bulk_TC0001
+2024-01-30T12:45:41,738 [main] INFO  (UnSubscribe_Bulk.java:55) - ====================================================================
+2024-01-30T12:45:42,344 [main] INFO  (UnSubscribe_Bulk.java:71) - API-UnSubscribe_Bulk_Equity_Base_Path : [/int/mkt/api/v3/marketData/L1/unsubscribe/bulk]
+2024-01-30T12:45:42,344 [main] INFO  (UnSubscribe_Bulk.java:72) - API-UnSubscribe_Bulk_Equity_Body : [{
+    "symbols": ["AA","MSFT","IBM","DO"]
+}]
+2024-01-30T12:45:42,344 [main] INFO  (UnSubscribe_Bulk.java:73) - API-UnSubscribe_Bulk_StatusCode : [200]
+2024-01-30T12:45:42,345 [main] INFO  (UnSubscribe_Bulk.java:77) - API-UnSubscribe_Bulk_StatusCode : [[true,false,true,true]]
+2024-01-30T12:45:42,355 [main] INFO  (UnSubscribe_Bulk.java:86) - API-Response_Success_Flag_Validation : true - Found : true
+2024-01-30T12:45:42,355 [main] INFO  (UnSubscribe_Bulk.java:87) - API-Response_Message_Validation :  - Found : 
+2024-01-30T12:45:42,356 [main] INFO  (UnSubscribe_Bulk.java:88) - API-Response_DataValue_Validation : [true,false,true,true] - Found: [true,false,true,true]
+2024-01-30T12:45:42,525 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-30T12:45:42,525 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-30T12:45:42,525 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-30T12:45:43,123 [main] INFO  (APIHelperClass.java:146) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-30T12:45:43,124 [main] INFO  (APIHelperClass.java:147) - API-Content_Type : [application/json]
+2024-01-30T12:45:43,124 [main] INFO  (APIHelperClass.java:148) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-30T12:45:43,124 [main] INFO  (APIHelperClass.java:149) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-30T12:45:43,125 [main] INFO  (APIHelperClass.java:150) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"0f0a8f7d-dccb-4e93-b7c2-06b289831300","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-30T12:45:43,138 [main] INFO  (APIHelperClass.java:154) - API-getCodeID : [0f0a8f7d-dccb-4e93-b7c2-06b289831300]
+2024-01-30T12:45:43,138 [main] INFO  (APIHelperClass.java:155) - API-TFACode : [123456]
+2024-01-30T12:45:43,968 [main] INFO  (APIHelperClass.java:170) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/0f0a8f7d-dccb-4e93-b7c2-06b289831300/123456]
+2024-01-30T12:45:43,968 [main] INFO  (APIHelperClass.java:171) - API-response_Login_Step2_StatusCode : [200]
+2024-01-30T12:45:43,968 [main] INFO  (APIHelperClass.java:172) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDY2MDA3NDMsImV4cCI6MTcwNjYwMTM0MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA2NjAwNzQzLCJpZHAiOiJsb2NhbCIsImp0aSI6IjZBMEZDODQzQkUxRkFBOTY4RDBDQTA3OTg3MUI5RDQ4IiwiaWF0IjoxNzA2NjAwNzQzLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.RuewJFIuSoOwrDRop27UlHOce1MJWSH4gOKk2ubJXoYNNBxeLrhmOGLt4yfRsAY_2F8azUmOn0ImFh2kbp8-kGlDueyl10Hw7CLSQl2aHsqE2jNtkONI_6LT5JTWZtXVf8TBbhrQymkARMCrvSw67Tl2bCc9Q8S2IP9-1iojrwGeo79QzvdvNDf-FhwJj38QRyqH-0t3aRD61OmYsc7hxHGhBSLiVw3bKYjS19Q2wV2FFXC4SnyIrqm7Yjo8DePemyVPuWgjdAdMQ_T3l2yAllWWWVOEHmwyV6wIDUVdX-c8e8xYV3-cQ9XevE3eehExisWEsclZfRIcTpGj8bhZKw","expires_in":600,"token_type":"Bearer","refresh_token":"FCBE5BECE7506E83F30D0CD87667A9676D9BBCD9C75976435A7B055FC358159D","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-30T12:45:43,974 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDY2MDA3NDMsImV4cCI6MTcwNjYwMTM0MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA2NjAwNzQzLCJpZHAiOiJsb2NhbCIsImp0aSI6IjZBMEZDODQzQkUxRkFBOTY4RDBDQTA3OTg3MUI5RDQ4IiwiaWF0IjoxNzA2NjAwNzQzLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.RuewJFIuSoOwrDRop27UlHOce1MJWSH4gOKk2ubJXoYNNBxeLrhmOGLt4yfRsAY_2F8azUmOn0ImFh2kbp8-kGlDueyl10Hw7CLSQl2aHsqE2jNtkONI_6LT5JTWZtXVf8TBbhrQymkARMCrvSw67Tl2bCc9Q8S2IP9-1iojrwGeo79QzvdvNDf-FhwJj38QRyqH-0t3aRD61OmYsc7hxHGhBSLiVw3bKYjS19Q2wV2FFXC4SnyIrqm7Yjo8DePemyVPuWgjdAdMQ_T3l2yAllWWWVOEHmwyV6wIDUVdX-c8e8xYV3-cQ9XevE3eehExisWEsclZfRIcTpGj8bhZKw]
+2024-01-30T12:45:44,856 [main] INFO  (CompanyInformation.java:54) - ====================================================================
+2024-01-30T12:45:44,856 [main] INFO  (CompanyInformation.java:55) - TestCase : CompanyInformation_TC0001
+2024-01-30T12:45:44,856 [main] INFO  (CompanyInformation.java:56) - ====================================================================
+2024-01-30T12:45:45,523 [main] INFO  (CompanyInformation.java:76) - API-CompanyInformation_Base_Path : [/int/mkt/api/companyInformation?symbol=IBM]
+2024-01-30T12:45:45,524 [main] INFO  (CompanyInformation.java:77) - API-CompanyInformation_StatusCode : [200]
+2024-01-30T12:45:45,535 [main] INFO  (CompanyInformation.java:78) - API-CompanyInformation_StatusCode : Expected [IBM.] - Found [IBM.]
+2024-01-30T12:45:45,566 [main] INFO  (CompanyInformation.java:54) - ====================================================================
+2024-01-30T12:45:45,566 [main] INFO  (CompanyInformation.java:55) - TestCase : CompanyInformation_TC0002
+2024-01-30T12:45:45,566 [main] INFO  (CompanyInformation.java:56) - ====================================================================
+2024-01-30T12:45:46,224 [main] INFO  (CompanyInformation.java:76) - API-CompanyInformation_Base_Path : [/int/mkt/api/companyInformation?symbol=AAPL]
+2024-01-30T12:45:46,224 [main] INFO  (CompanyInformation.java:77) - API-CompanyInformation_StatusCode : [200]
+2024-01-30T12:45:46,229 [main] INFO  (CompanyInformation.java:78) - API-CompanyInformation_StatusCode : Expected [AAPL.] - Found [AAPL.]
+2024-01-30T12:45:46,252 [main] INFO  (CompanyInformation.java:54) - ====================================================================
+2024-01-30T12:45:46,252 [main] INFO  (CompanyInformation.java:55) - TestCase : CompanyInformation_TC0003
+2024-01-30T12:45:46,252 [main] INFO  (CompanyInformation.java:56) - ====================================================================
+2024-01-30T12:45:46,875 [main] INFO  (CompanyInformation.java:76) - API-CompanyInformation_Base_Path : [/int/mkt/api/companyInformation?symbol=MSFT]
+2024-01-30T12:45:46,875 [main] INFO  (CompanyInformation.java:77) - API-CompanyInformation_StatusCode : [200]
+2024-01-30T12:45:46,880 [main] INFO  (CompanyInformation.java:78) - API-CompanyInformation_StatusCode : Expected [MSFT.] - Found [MSFT.]
+2024-01-30T12:45:46,906 [main] INFO  (CompanyInformation.java:54) - ====================================================================
+2024-01-30T12:45:46,906 [main] INFO  (CompanyInformation.java:55) - TestCase : CompanyInformation_TC0004
+2024-01-30T12:45:46,906 [main] INFO  (CompanyInformation.java:56) - ====================================================================
+2024-01-30T12:45:47,540 [main] INFO  (CompanyInformation.java:76) - API-CompanyInformation_Base_Path : [/int/mkt/api/companyInformation?symbol=GOOGL]
+2024-01-30T12:45:47,540 [main] INFO  (CompanyInformation.java:77) - API-CompanyInformation_StatusCode : [200]
+2024-01-30T12:45:47,540 [main] INFO  (CompanyInformation.java:78) - API-CompanyInformation_StatusCode : Expected [GOOGL.] - Found [GOOGL.]
+2024-01-30T12:45:47,556 [main] INFO  (CompanyInformation.java:54) - ====================================================================
+2024-01-30T12:45:47,556 [main] INFO  (CompanyInformation.java:55) - TestCase : CompanyInformation_TC0005
+2024-01-30T12:45:47,556 [main] INFO  (CompanyInformation.java:56) - ====================================================================
+2024-01-30T12:45:48,194 [main] INFO  (CompanyInformation.java:76) - API-CompanyInformation_Base_Path : [/int/mkt/api/companyInformation?symbol=DO]
+2024-01-30T12:45:48,194 [main] INFO  (CompanyInformation.java:77) - API-CompanyInformation_StatusCode : [200]
+2024-01-30T12:45:48,210 [main] INFO  (CompanyInformation.java:78) - API-CompanyInformation_StatusCode : Expected [DO.] - Found [DO.]
+2024-01-30T12:45:48,226 [main] INFO  (CompanyInformation.java:54) - ====================================================================
+2024-01-30T12:45:48,226 [main] INFO  (CompanyInformation.java:55) - TestCase : CompanyInformation_TC0006
+2024-01-30T12:45:48,226 [main] INFO  (CompanyInformation.java:56) - ====================================================================
+2024-01-30T12:45:48,877 [main] INFO  (CompanyInformation.java:76) - API-CompanyInformation_Base_Path : [/int/mkt/api/companyInformation?symbol=A]
+2024-01-30T12:45:48,877 [main] INFO  (CompanyInformation.java:77) - API-CompanyInformation_StatusCode : [200]
+2024-01-30T12:45:48,883 [main] INFO  (CompanyInformation.java:78) - API-CompanyInformation_StatusCode : Expected [A.] - Found [A.]
+2024-01-30T12:45:48,907 [main] INFO  (CompanyInformation.java:54) - ====================================================================
+2024-01-30T12:45:48,907 [main] INFO  (CompanyInformation.java:55) - TestCase : CompanyInformation_TC0007
+2024-01-30T12:45:48,907 [main] INFO  (CompanyInformation.java:56) - ====================================================================
+2024-01-30T12:45:49,546 [main] INFO  (CompanyInformation.java:76) - API-CompanyInformation_Base_Path : [/int/mkt/api/companyInformation?symbol=AA]
+2024-01-30T12:45:49,546 [main] INFO  (CompanyInformation.java:77) - API-CompanyInformation_StatusCode : [200]
+2024-01-30T12:45:49,546 [main] INFO  (CompanyInformation.java:78) - API-CompanyInformation_StatusCode : Expected [AA.] - Found [AA.]
+2024-01-30T12:45:49,715 [main] INFO  (Login.java:66) - ====================================================================
+2024-01-30T12:45:49,715 [main] INFO  (Login.java:67) - TestCase : Verify_UserLogin_TC0001
+2024-01-30T12:45:49,715 [main] INFO  (Login.java:68) - ====================================================================
+2024-01-30T12:45:50,310 [main] INFO  (APIHelperClass.java:146) - API-Login_BasePath_Login_Step1 : [/int/is/api/login]
+2024-01-30T12:45:50,310 [main] INFO  (APIHelperClass.java:147) - API-Content_Type : [application/json]
+2024-01-30T12:45:50,310 [main] INFO  (APIHelperClass.java:148) - API-Login_Step1_Body : [{password=@Qatest27, email=qatest27@mailinator.com}]
+2024-01-30T12:45:50,310 [main] INFO  (APIHelperClass.java:149) - API-Status_Code_Step1_StatusCode : [202]
+2024-01-30T12:45:50,310 [main] INFO  (APIHelperClass.java:150) - API-response_Login_Step1_Response_Body : [{"loginCode":0,"codeId":"2391fb94-0baa-4097-8a93-88e06e7897a4","status":true,"message":"Proceed with TFA to complete the login"}]
+2024-01-30T12:45:50,315 [main] INFO  (APIHelperClass.java:154) - API-getCodeID : [2391fb94-0baa-4097-8a93-88e06e7897a4]
+2024-01-30T12:45:50,315 [main] INFO  (APIHelperClass.java:155) - API-TFACode : [123456]
+2024-01-30T12:45:51,087 [main] INFO  (APIHelperClass.java:170) - API-Login_BasePath_Login_Step2 : [/int/is/api/login/tfa/2391fb94-0baa-4097-8a93-88e06e7897a4/123456]
+2024-01-30T12:45:51,087 [main] INFO  (APIHelperClass.java:171) - API-response_Login_Step2_StatusCode : [200]
+2024-01-30T12:45:51,087 [main] INFO  (APIHelperClass.java:172) - API-response_Login_Step2_Response_Body : [{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDY2MDA3NTAsImV4cCI6MTcwNjYwMTM1MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA2NjAwNzUwLCJpZHAiOiJsb2NhbCIsImp0aSI6IkJCOTNEQkZDQzg1QTk1MTBCRTMwN0E3NTZBMUE0QUU1IiwiaWF0IjoxNzA2NjAwNzUwLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.AofOfJ_tdlxdm5PPE_7LUfsYHaISrMjMUPusTxpungKDxwYpAd0jc9lUBRxMv9ZntOhiL9WPyE-l90UTdJ4UlQ-jwhySyR0pnWBTEKjX5WoVlCx69ca2wpXcD7GUAGuPaR1uBfpswHA1OH4pyO5GtyI1KaJPKGlHdLZMA2RRopMrDGipmdFUBvr13nIjpBpCOJR_awYLdkDu9nxWqkbntbSdX5SF07M1unxxmC7h9He87T_P63d_PWEgtFdfTkn0ctdZRaeyLuq3pnEHzGDiVl1NBZKdjNTK1cgYAiTjPSADPgC2Kd_1Ky7v30v8hWXXqkYWvwd-3FH-xPxJA6xQ2w","expires_in":600,"token_type":"Bearer","refresh_token":"22BEB77B618BEBE248014F27E3C02522A1E41E53799F03E38F4BF31E40D88A39","scope":"marketdata-api offline_access oms-api vtrader-web-api","email":"qatest27@mailinator.com","biometric_token":null,"biometric_token_expiry":"0001-01-01T00:00:00.000Z","error":null,"error_description":null}]
+2024-01-30T12:45:51,093 [main] INFO  (Login.java:82) - API-Response_Login_AccToken : [eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE3MDY2MDA3NTAsImV4cCI6MTcwNjYwMTM1MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAzIiwiYXVkIjpbIm1hcmtldGRhdGEtYXBpIiwib21zLWFwaSIsInZ0cmFkZXItd2ViLWFwaSJdLCJjbGllbnRfaWQiOiJMU0wiLCJpbnRlcm5hbCI6InRydWUiLCJtYXhfY29ubmVjdGlvbl9hbGxvd2VkX2Zvcl9odWIiOiIxMCIsInN1YiI6InFhdGVzdDI3IiwiYXV0aF90aW1lIjoxNzA2NjAwNzUwLCJpZHAiOiJsb2NhbCIsImp0aSI6IkJCOTNEQkZDQzg1QTk1MTBCRTMwN0E3NTZBMUE0QUU1IiwiaWF0IjoxNzA2NjAwNzUwLCJzY29wZSI6WyJtYXJrZXRkYXRhLWFwaSIsIm9tcy1hcGkiLCJ2dHJhZGVyLXdlYi1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicGFzc3dvcmQiXX0.AofOfJ_tdlxdm5PPE_7LUfsYHaISrMjMUPusTxpungKDxwYpAd0jc9lUBRxMv9ZntOhiL9WPyE-l90UTdJ4UlQ-jwhySyR0pnWBTEKjX5WoVlCx69ca2wpXcD7GUAGuPaR1uBfpswHA1OH4pyO5GtyI1KaJPKGlHdLZMA2RRopMrDGipmdFUBvr13nIjpBpCOJR_awYLdkDu9nxWqkbntbSdX5SF07M1unxxmC7h9He87T_P63d_PWEgtFdfTkn0ctdZRaeyLuq3pnEHzGDiVl1NBZKdjNTK1cgYAiTjPSADPgC2Kd_1Ky7v30v8hWXXqkYWvwd-3FH-xPxJA6xQ2w]
+2024-01-30T12:45:51,723 [main] INFO  (Historicaldata_Snapshot.java:50) - ====================================================================
+2024-01-30T12:45:51,723 [main] INFO  (Historicaldata_Snapshot.java:51) - TestCase : Historicaldata_Snapshot_TC0001
+2024-01-30T12:45:51,723 [main] INFO  (Historicaldata_Snapshot.java:52) - ====================================================================
+2024-01-30T12:45:52,468 [main] INFO  (Historicaldata_Snapshot.java:68) - API-Historicaldata_Snapshot_Base_Path : [/int/mkt/api/historicaldata/snapshot]
+2024-01-30T12:45:52,468 [main] INFO  (Historicaldata_Snapshot.java:69) - API-Historicaldata_Snapshot_Body : [{
+  "symbol": "IBM",
+  "startDate": "2023-09-18T09:30:00.000Z",
+  "endDate": "2023-09-18T10:00:00.000Z",
+  "interval": "Minute",
+  "period": 1,
+  "outsideMarketHours": false
+}]
+2024-01-30T12:45:52,468 [main] INFO  (Historicaldata_Snapshot.java:70) - API-Historicaldata_Snapshot_StatusCode : [200]
+2024-01-30T12:45:52,469 [main] INFO  (Historicaldata_Snapshot.java:72) - API-Response Data Size : [0]
+2024-01-30T12:45:52,474 [main] INFO  (Historicaldata_Snapshot.java:50) - ====================================================================
+2024-01-30T12:45:52,474 [main] INFO  (Historicaldata_Snapshot.java:51) - TestCase : Historicaldata_Snapshot_TC0002
+2024-01-30T12:45:52,475 [main] INFO  (Historicaldata_Snapshot.java:52) - ====================================================================
+2024-01-30T12:45:53,224 [main] INFO  (Historicaldata_Snapshot.java:68) - API-Historicaldata_Snapshot_Base_Path : [/int/mkt/api/historicaldata/snapshot]
+2024-01-30T12:45:53,224 [main] INFO  (Historicaldata_Snapshot.java:69) - API-Historicaldata_Snapshot_Body : [{
+  "symbol": "IBM",
+  "startDate": "2023-09-15T09:30:00.000Z",
+  "endDate": "2023-09-18T10:00:00.000Z",
+  "interval": "Day",
+  "period": 1,
+  "outsideMarketHours": false
+}]
+2024-01-30T12:45:53,224 [main] INFO  (Historicaldata_Snapshot.java:70) - API-Historicaldata_Snapshot_StatusCode : [200]
+2024-01-30T12:45:53,224 [main] INFO  (Historicaldata_Snapshot.java:72) - API-Response Data Size : [1]
+2024-01-30T12:45:53,226 [main] INFO  (Historicaldata_Snapshot.java:75) - API-Symbol_Validation_Historicaldata_Snapshot index[0]: IBM.EDA - Found : IBM.EDA
+2024-01-30T12:45:53,232 [main] INFO  (Historicaldata_Snapshot.java:76) - API-Response Keys Validation_Historicaldata_Snapshot index[0]: [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume] - Found : [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume]
+2024-01-30T12:45:53,241 [main] INFO  (Historicaldata_Snapshot.java:50) - ====================================================================
+2024-01-30T12:45:53,241 [main] INFO  (Historicaldata_Snapshot.java:51) - TestCase : Historicaldata_Snapshot_TC0003
+2024-01-30T12:45:53,241 [main] INFO  (Historicaldata_Snapshot.java:52) - ====================================================================
+2024-01-30T12:45:53,970 [main] INFO  (Historicaldata_Snapshot.java:68) - API-Historicaldata_Snapshot_Base_Path : [/int/mkt/api/historicaldata/snapshot]
+2024-01-30T12:45:53,970 [main] INFO  (Historicaldata_Snapshot.java:69) - API-Historicaldata_Snapshot_Body : [{
+  "symbol": "IBM",
+  "startDate": "2023-09-12T09:30:00.000Z",
+  "endDate": "2023-09-18T10:00:00.000Z",
+  "interval": "Week",
+  "period": 1,
+  "outsideMarketHours": false
+}]
+2024-01-30T12:45:53,970 [main] INFO  (Historicaldata_Snapshot.java:70) - API-Historicaldata_Snapshot_StatusCode : [200]
+2024-01-30T12:45:53,970 [main] INFO  (Historicaldata_Snapshot.java:72) - API-Response Data Size : [1]
+2024-01-30T12:45:53,971 [main] INFO  (Historicaldata_Snapshot.java:75) - API-Symbol_Validation_Historicaldata_Snapshot index[0]: IBM.EDA - Found : IBM.EDA
+2024-01-30T12:45:53,975 [main] INFO  (Historicaldata_Snapshot.java:76) - API-Response Keys Validation_Historicaldata_Snapshot index[0]: [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume] - Found : [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume]
+2024-01-30T12:45:53,982 [main] INFO  (Historicaldata_Snapshot.java:50) - ====================================================================
+2024-01-30T12:45:53,982 [main] INFO  (Historicaldata_Snapshot.java:51) - TestCase : Historicaldata_Snapshot_TC0004
+2024-01-30T12:45:53,982 [main] INFO  (Historicaldata_Snapshot.java:52) - ====================================================================
+2024-01-30T12:45:54,709 [main] INFO  (Historicaldata_Snapshot.java:68) - API-Historicaldata_Snapshot_Base_Path : [/int/mkt/api/historicaldata/snapshot]
+2024-01-30T12:45:54,709 [main] INFO  (Historicaldata_Snapshot.java:69) - API-Historicaldata_Snapshot_Body : [{
+  "symbol": "IBM",
+  "startDate": "2023-08-18T09:30:00.000Z",
+  "endDate": "2023-09-18T10:00:00.000Z",
+  "interval": "Month",
+  "period": 1,
+  "outsideMarketHours": false
+}]
+2024-01-30T12:45:54,709 [main] INFO  (Historicaldata_Snapshot.java:70) - API-Historicaldata_Snapshot_StatusCode : [200]
+2024-01-30T12:45:54,709 [main] INFO  (Historicaldata_Snapshot.java:72) - API-Response Data Size : [1]
+2024-01-30T12:45:54,710 [main] INFO  (Historicaldata_Snapshot.java:75) - API-Symbol_Validation_Historicaldata_Snapshot index[0]: IBM.EDA - Found : IBM.EDA
+2024-01-30T12:45:54,715 [main] INFO  (Historicaldata_Snapshot.java:76) - API-Response Keys Validation_Historicaldata_Snapshot index[0]: [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume] - Found : [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume]
+2024-01-30T12:45:54,719 [main] INFO  (Historicaldata_Snapshot.java:50) - ====================================================================
+2024-01-30T12:45:54,719 [main] INFO  (Historicaldata_Snapshot.java:51) - TestCase : Historicaldata_Snapshot_TC0005
+2024-01-30T12:45:54,719 [main] INFO  (Historicaldata_Snapshot.java:52) - ====================================================================
+2024-01-30T12:45:55,457 [main] INFO  (Historicaldata_Snapshot.java:68) - API-Historicaldata_Snapshot_Base_Path : [/int/mkt/api/historicaldata/snapshot]
+2024-01-30T12:45:55,457 [main] INFO  (Historicaldata_Snapshot.java:69) - API-Historicaldata_Snapshot_Body : [{
+  "symbol": "AAPL",
+  "startDate": "2023-09-18T09:30:00.000Z",
+  "endDate": "2023-09-18T10:00:00.000Z",
+  "interval": "Minute",
+  "period": 1,
+  "outsideMarketHours": false
+}]
+2024-01-30T12:45:55,457 [main] INFO  (Historicaldata_Snapshot.java:70) - API-Historicaldata_Snapshot_StatusCode : [200]
+2024-01-30T12:45:55,457 [main] INFO  (Historicaldata_Snapshot.java:72) - API-Response Data Size : [0]
+2024-01-30T12:45:55,461 [main] INFO  (Historicaldata_Snapshot.java:50) - ====================================================================
+2024-01-30T12:45:55,461 [main] INFO  (Historicaldata_Snapshot.java:51) - TestCase : Historicaldata_Snapshot_TC0006
+2024-01-30T12:45:55,461 [main] INFO  (Historicaldata_Snapshot.java:52) - ====================================================================
+2024-01-30T12:45:56,192 [main] INFO  (Historicaldata_Snapshot.java:68) - API-Historicaldata_Snapshot_Base_Path : [/int/mkt/api/historicaldata/snapshot]
+2024-01-30T12:45:56,192 [main] INFO  (Historicaldata_Snapshot.java:69) - API-Historicaldata_Snapshot_Body : [{
+  "symbol": "AAPL",
+  "startDate": "2023-09-15T09:30:00.000Z",
+  "endDate": "2023-09-18T10:00:00.000Z",
+  "interval": "Day",
+  "period": 1,
+  "outsideMarketHours": false
+}]
+2024-01-30T12:45:56,192 [main] INFO  (Historicaldata_Snapshot.java:70) - API-Historicaldata_Snapshot_StatusCode : [200]
+2024-01-30T12:45:56,192 [main] INFO  (Historicaldata_Snapshot.java:72) - API-Response Data Size : [1]
+2024-01-30T12:45:56,192 [main] INFO  (Historicaldata_Snapshot.java:75) - API-Symbol_Validation_Historicaldata_Snapshot index[0]: AAPL.EDA - Found : AAPL.EDA
+2024-01-30T12:45:56,198 [main] INFO  (Historicaldata_Snapshot.java:76) - API-Response Keys Validation_Historicaldata_Snapshot index[0]: [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume] - Found : [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume]
+2024-01-30T12:45:56,206 [main] INFO  (Historicaldata_Snapshot.java:50) - ====================================================================
+2024-01-30T12:45:56,206 [main] INFO  (Historicaldata_Snapshot.java:51) - TestCase : Historicaldata_Snapshot_TC0007
+2024-01-30T12:45:56,206 [main] INFO  (Historicaldata_Snapshot.java:52) - ====================================================================
+2024-01-30T12:45:57,044 [main] INFO  (Historicaldata_Snapshot.java:68) - API-Historicaldata_Snapshot_Base_Path : [/int/mkt/api/historicaldata/snapshot]
+2024-01-30T12:45:57,044 [main] INFO  (Historicaldata_Snapshot.java:69) - API-Historicaldata_Snapshot_Body : [{
+  "symbol": "AAPL",
+  "startDate": "2023-09-12T09:30:00.000Z",
+  "endDate": "2023-09-18T10:00:00.000Z",
+  "interval": "Week",
+  "period": 1,
+  "outsideMarketHours": false
+}]
+2024-01-30T12:45:57,044 [main] INFO  (Historicaldata_Snapshot.java:70) - API-Historicaldata_Snapshot_StatusCode : [200]
+2024-01-30T12:45:57,044 [main] INFO  (Historicaldata_Snapshot.java:72) - API-Response Data Size : [1]
+2024-01-30T12:45:57,044 [main] INFO  (Historicaldata_Snapshot.java:75) - API-Symbol_Validation_Historicaldata_Snapshot index[0]: AAPL.EDA - Found : AAPL.EDA
+2024-01-30T12:45:57,048 [main] INFO  (Historicaldata_Snapshot.java:76) - API-Response Keys Validation_Historicaldata_Snapshot index[0]: [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume] - Found : [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume]
+2024-01-30T12:45:57,056 [main] INFO  (Historicaldata_Snapshot.java:50) - ====================================================================
+2024-01-30T12:45:57,056 [main] INFO  (Historicaldata_Snapshot.java:51) - TestCase : Historicaldata_Snapshot_TC0008
+2024-01-30T12:45:57,056 [main] INFO  (Historicaldata_Snapshot.java:52) - ====================================================================
+2024-01-30T12:45:57,804 [main] INFO  (Historicaldata_Snapshot.java:68) - API-Historicaldata_Snapshot_Base_Path : [/int/mkt/api/historicaldata/snapshot]
+2024-01-30T12:45:57,805 [main] INFO  (Historicaldata_Snapshot.java:69) - API-Historicaldata_Snapshot_Body : [{
+  "symbol": "AAPL",
+  "startDate": "2023-08-18T09:30:00.000Z",
+  "endDate": "2023-09-18T10:00:00.000Z",
+  "interval": "Month",
+  "period": 1,
+  "outsideMarketHours": false
+}]
+2024-01-30T12:45:57,805 [main] INFO  (Historicaldata_Snapshot.java:70) - API-Historicaldata_Snapshot_StatusCode : [200]
+2024-01-30T12:45:57,805 [main] INFO  (Historicaldata_Snapshot.java:72) - API-Response Data Size : [1]
+2024-01-30T12:45:57,805 [main] INFO  (Historicaldata_Snapshot.java:75) - API-Symbol_Validation_Historicaldata_Snapshot index[0]: AAPL.EDA - Found : AAPL.EDA
+2024-01-30T12:45:57,817 [main] INFO  (Historicaldata_Snapshot.java:76) - API-Response Keys Validation_Historicaldata_Snapshot index[0]: [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume] - Found : [symbol, dateTime, open, close, highIndicationPrice, lowIndicationPrice, volume]
