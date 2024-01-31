@@ -1,5 +1,6 @@
 package Static_Data;
 
+import APIHelper.APIHelperClass;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -39,6 +40,7 @@ public class StaticData_ETBHTB {
 	
 	@Test (dataProvider="StaticData_ETBHTB", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_ETBHTB"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_ETBHTB( String StaticData_ETBHTB_TestCases,
+										  String EndpointVersion,
 			  							  String StaticData_ETBHTB_BasePath,
 										  String Content_Type,
 										  String StaticData_ETBHTB_StatusCode,
@@ -53,6 +55,7 @@ public class StaticData_ETBHTB {
 			LoggingManager.logger.info("====================================================================");
 			LoggingManager.logger.info("TestCase : "+StaticData_ETBHTB_TestCases);
 			LoggingManager.logger.info("====================================================================");
+			Global.getResponseArray=APIHelperClass.apiRespVersion(EndpointVersion);
 			RestAssured.baseURI=Global.BaseURL;
 			Response response=
 					given()
@@ -68,11 +71,12 @@ public class StaticData_ETBHTB {
 							.extract().response();
 
 
-			String ETBHTB_ID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.id =='"+Validate_ETBHTB_ID+"' )].id").toString();
-			String ETBHTB_Symbol=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.id =='"+Validate_ETBHTB_ID+"' )].symbol").toString();
-			String ETBHTB_LocationID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.id =='"+Validate_ETBHTB_ID+"' )].locationID").toString();
-			String ETBHTB_ContactName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.id =='"+Validate_ETBHTB_ID+"' )].contactName").toString();
-			String ETBHTB_BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.id =='"+Validate_ETBHTB_ID+"' )].boothID").toString();
+			String ETBHTB_ID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.id =='"+Validate_ETBHTB_ID+"' )].id").toString();
+			String ETBHTB_Symbol=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.id =='"+Validate_ETBHTB_ID+"' )].symbol").toString();
+			String ETBHTB_LocationID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.id =='"+Validate_ETBHTB_ID+"' )].locationID").toString();
+			String ETBHTB_ContactName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.id =='"+Validate_ETBHTB_ID+"' )].contactName").toString();
+			String ETBHTB_BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.id =='"+Validate_ETBHTB_ID+"' )].boothID").toString();
+			LoggingManager.logger.info("API-Endpoint Version : [" + EndpointVersion + "]");
 			LoggingManager.logger.info("API-StaticData_ETBHTB_BasePath : ["+StaticData_ETBHTB_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			LoggingManager.logger.info("API-StaticData_ETBHTB_StatusCode : ["+response.getStatusCode()+"]");
@@ -80,12 +84,12 @@ public class StaticData_ETBHTB {
 			LoggingManager.logger.info("API-Validate_ETBHTB_Symbol : ["+Validate_ETBHTB_Symbol +"] - Response ETBHTB_Symbol : "+ETBHTB_Symbol);
 			LoggingManager.logger.info("API-Validate_ETBHTB_LocationID : ["+Validate_ETBHTB_LocationID +"] - Response ETBHTB_LocationID : "+ETBHTB_LocationID);
 			LoggingManager.logger.info("API-Validate_ETBHTB_ContactName : ["+Validate_ETBHTB_ContactName +"] - Response ETBHTB_ContactName : "+ETBHTB_ContactName);
-			LoggingManager.logger.info("API-Validate_ETBHTB_BoothID : ["+Validate_ETBHTB_BoothID +"] - Response ETBHTB_BoothID : "+ETBHTB_BoothID);
-			Assert.assertEquals(ETBHTB_ID,"[\""+Validate_ETBHTB_ID+"\"]", "Validate_ETBHTB_ID");
-			Assert.assertEquals(ETBHTB_Symbol,"[\""+Validate_ETBHTB_Symbol+"\"]", "Validate_ETBHTB_Symbol");
-			Assert.assertEquals(ETBHTB_LocationID,"[\""+Validate_ETBHTB_LocationID+"\"]", "Validate_ETBHTB_LocationID");
-			Assert.assertEquals(ETBHTB_ContactName,"[\""+Validate_ETBHTB_ContactName+"\"]", "Validate_ETBHTB_ContactName");
-			Assert.assertEquals(ETBHTB_BoothID,"[\""+Validate_ETBHTB_BoothID+"\"]", "Validate_ETBHTB_BoothID");
+			LoggingManager.logger.info("API-Validate_ETBHTB_BoothID : "+APIHelperClass.ValidationNullValue(Validate_ETBHTB_BoothID)+" - Response ETBHTB_BoothID : "+ETBHTB_BoothID);
+			Assert.assertEquals(ETBHTB_ID,APIHelperClass.ValidationNullValue(Validate_ETBHTB_ID), "Validate_ETBHTB_ID");
+			Assert.assertEquals(ETBHTB_Symbol,APIHelperClass.ValidationNullValue(Validate_ETBHTB_Symbol), "Validate_ETBHTB_Symbol");
+			Assert.assertEquals(ETBHTB_LocationID,APIHelperClass.ValidationNullValue(Validate_ETBHTB_LocationID), "Validate_ETBHTB_LocationID");
+			Assert.assertEquals(ETBHTB_ContactName,APIHelperClass.ValidationNullValue(Validate_ETBHTB_ContactName), "Validate_ETBHTB_ContactName");
+			Assert.assertEquals(ETBHTB_BoothID, APIHelperClass.ValidationNullValue(Validate_ETBHTB_BoothID),"Validate_ETBHTB_BoothID");
 
 		}
 		catch (Exception e)

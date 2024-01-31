@@ -1,5 +1,6 @@
 package Static_Data;
 
+import APIHelper.APIHelperClass;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -39,18 +40,20 @@ public class StaticData_Side {
 	
 	@Test (dataProvider="StaticData_Side", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_Side"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_Side(String StaticData_Side_TestCases,
+									   String EndpointVersion,
 			  						   String StaticData_Side_BasePath,
-											  String Content_Type,
-											  String StaticData_Side_StatusCode,
-											  String Validate_Side_Name ,
-											  String Validate_Side_Value,
-											  String Validate_Booth )
+									   String Content_Type,
+									   String StaticData_Side_StatusCode,
+									   String Validate_Side_Name ,
+									   String Validate_Side_Value,
+									   String Validate_Booth )
 	{
 		try
 		{
 			LoggingManager.logger.info("====================================================================");
 			LoggingManager.logger.info("TestCase : "+StaticData_Side_TestCases);
 			LoggingManager.logger.info("====================================================================");
+			Global.getResponseArray=APIHelperClass.apiRespVersion(EndpointVersion);
 			RestAssured.baseURI=Global.BaseURL;
 			Response response=
 							 given()
@@ -66,18 +69,19 @@ public class StaticData_Side {
 							.extract().response();
 
 
-			String SideName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Side_Value+"' )].name").toString();
-			String SideValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Side_Value+"' )].value").toString();
-			//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
+			String SideName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_Side_Value+"' )].name").toString();
+			String SideValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_Side_Value+"' )].value").toString();
+			String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_Side_Value+"' )].booth").toString();
+			LoggingManager.logger.info("API-Endpoint Version : [" + EndpointVersion + "]");
 			LoggingManager.logger.info("API-StaticData_Side_BasePath : ["+StaticData_Side_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			LoggingManager.logger.info("API-StaticData_Side_StatusCode : ["+response.getStatusCode()+"]");
-			LoggingManager.logger.info("API-Validate_Side_Name : ["+Validate_Side_Name +"] - Response SideName : "+SideName);
-			LoggingManager.logger.info("API-Validate_Side_Value : ["+Validate_Side_Value +"] - Response SideValue : "+SideValue);
-			//LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response BoothID : "+BoothID);
-			Assert.assertEquals(SideValue,"[\""+Validate_Side_Value+"\"]", "Validate_Side_Value");
-			Assert.assertEquals(SideName,"[\""+Validate_Side_Name+"\"]", "Validate_Side_Name");
-			//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
+			LoggingManager.logger.info("API-Validate_Side_Name : "+ APIHelperClass.ValidationNullValue(Validate_Side_Name)+" - Response SideName : "+SideName);
+			LoggingManager.logger.info("API-Validate_Side_Value : "+ APIHelperClass.ValidationNullValue(Validate_Side_Value)+" - Response SideValue : "+SideValue);
+			LoggingManager.logger.info("API-Validate_Booth : "+APIHelperClass.ValidationNullValue(Validate_Booth) +" - Response BoothID : "+BoothID);
+			Assert.assertEquals(SideValue,APIHelperClass.ValidationNullValue(Validate_Side_Value), "Validate_Side_Value");
+			Assert.assertEquals(SideName,APIHelperClass.ValidationNullValue(Validate_Side_Name), "Validate_Side_Name");
+			Assert.assertEquals(BoothID,APIHelperClass.ValidationNullValue(Validate_Booth),"Validate_Booth");
 
 		}
 		catch (Exception e)

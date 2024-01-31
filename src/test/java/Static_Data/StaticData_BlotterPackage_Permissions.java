@@ -1,5 +1,6 @@
 package Static_Data;
 
+import APIHelper.APIHelperClass;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -39,6 +40,7 @@ public class StaticData_BlotterPackage_Permissions {
 	
 	@Test (dataProvider="StaticData_BlotterPackage_Permissions", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_BlotterPackage_Permissions"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_BlotterPackage_Permissions( String StaticData_BlotterPackage_Permissions_TestCases,
+															  String EndpointVersion,
 			  												  String StaticData_BlotterPackage_Permissions_BasePath,
 															  String Content_Type,
 															  String StaticData_BlotterPackage_Permissions_StatusCode,
@@ -68,6 +70,7 @@ public class StaticData_BlotterPackage_Permissions {
 							//.statusLine("HTTP/1.1 200 OK")
 							.extract().response();
 
+			LoggingManager.logger.info("API-Endpoint Version : [" + EndpointVersion + "]");
 			LoggingManager.logger.info("API-StaticData_BlotterPackage_Permissions_BasePath : ["+StaticData_BlotterPackage_Permissions_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			LoggingManager.logger.info("API-StaticData_BlotterPackage_Permissions_StatusCode : ["+response.getStatusCode()+"]");
@@ -92,7 +95,7 @@ public class StaticData_BlotterPackage_Permissions {
 			{
 				Assert.assertEquals(BlotterPackage_isWindowAllowed,Validate_isWindowAllowed, "Validate_BlotterPackage_isWindowAllowed");
 				Assert.assertEquals(BlotterPackage_NumberOfWindowsAllowed,Validate_NumberOfWindowsAllowed, "Validate_BlotterPackage_NumberOfWindowsAllowed");
-				Assert.assertEquals(BlotterPackage_WindowPermissions_Name,"[\""+Validate_WindowPermissions_Name+"\"]", "Validate_BlotterPackage__WindowPermissions_Name");
+				Assert.assertEquals(BlotterPackage_WindowPermissions_Name,APIHelperClass.ValidationNullValue(Validate_WindowPermissions_Name), "Validate_BlotterPackage__WindowPermissions_Name");
 				Assert.assertEquals(BlotterPackage_WindowPermissions_isVisible,"["+Validate_WindowPermissions_isVisible+"]", "Validate_BlotterPackage_WindowPermissions_isVisible");
 				Assert.assertEquals(BlotterPackage_WindowPermissions_isEnable,"["+Validate_WindowPermissions_isEnable+"]", "Validate_BlotterPackage_WindowPermissions_isEnable");
 			}

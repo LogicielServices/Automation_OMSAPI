@@ -1,5 +1,6 @@
 package Static_Data;
 
+import APIHelper.APIHelperClass;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -39,6 +40,7 @@ public class StaticData_Blotter_Permissions {
 	 
 	@Test (dataProvider="StaticData_BlotterPermissions", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_BlotterPermissions"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_BlotterPermissions( String StaticData_BlotterPermissions_TestCases,
+													  String EndpointVersion,
 			  										  String StaticData_BlotterPermissions_BasePath,
 													  String Content_Type,
 													  String StaticData_BlotterPermissions_StatusCode,
@@ -51,7 +53,6 @@ public class StaticData_Blotter_Permissions {
 				LoggingManager.logger.info("====================================================================");
 				LoggingManager.logger.info("TestCase : "+StaticData_BlotterPermissions_TestCases);
 				LoggingManager.logger.info("====================================================================");
-
 				RestAssured.baseURI=Global.BaseURL;
 				Response response=
 									given()
@@ -66,6 +67,7 @@ public class StaticData_Blotter_Permissions {
 										//.statusLine("HTTP/1.1 200 OK")
 										.extract().response();
 
+				LoggingManager.logger.info("API-Endpoint Version : [" + EndpointVersion + "]");
 				LoggingManager.logger.info("API-StaticData_BlotterPermissions_BasePath : ["+StaticData_BlotterPermissions_BasePath+"]");
 				LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 				LoggingManager.logger.info("API-StaticData_BlotterPermissions_StatusCode : ["+response.getStatusCode()+"]");
@@ -73,10 +75,10 @@ public class StaticData_Blotter_Permissions {
 				String BlotterPermissions_Name=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.permissions[?(@.name =='"+Validate_BlotterPermissions_Name+"')].name").toString();
 				String BlotterPermissions_isVisible=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.permissions[?(@.name =='"+Validate_BlotterPermissions_Name+"')].isVisible").toString();
 				String BlotterPermissions_isEnable=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.permissions[?(@.name =='"+Validate_BlotterPermissions_Name+"')].isEnable").toString();
-				LoggingManager.logger.info("API-Validate_BlotterPermissions_Name : ["+Validate_BlotterPermissions_Name +"] - Response BlotterPermissions_Name : "+BlotterPermissions_Name);
+				LoggingManager.logger.info("API-Validate_BlotterPermissions_Name : "+APIHelperClass.ValidationNullValue(Validate_BlotterPermissions_Name)+" - Response BlotterPermissions_Name : "+BlotterPermissions_Name);
 				LoggingManager.logger.info("API-Validate_BlotterPermissions_isVisible : ["+Validate_BlotterPermissions_isVisible +"] - Response BlotterPermissions_isVisible : "+BlotterPermissions_isVisible);
 				LoggingManager.logger.info("API-Validate_BlotterPermissions_isEnable : ["+Validate_BlotterPermissions_isEnable +"] - Response BlotterPermissions_isEnable : "+BlotterPermissions_isEnable);
-				Assert.assertEquals(BlotterPermissions_Name,"[\""+Validate_BlotterPermissions_Name+"\"]", "Validate_BlotterPermissions_Name");
+				Assert.assertEquals(BlotterPermissions_Name,APIHelperClass.ValidationNullValue(Validate_BlotterPermissions_Name), "Validate_BlotterPermissions_Name");
 				Assert.assertEquals(BlotterPermissions_isVisible,"["+Validate_BlotterPermissions_isVisible+"]", "Validate_BlotterPermissions_isVisible");
 				Assert.assertEquals(BlotterPermissions_isEnable,"["+Validate_BlotterPermissions_isEnable+"]", "Validate_BlotterPermissions_isEnable");
 

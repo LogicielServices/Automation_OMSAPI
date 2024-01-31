@@ -368,6 +368,41 @@ public class ExcelDataProvider {
 			Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"ETBHTB");
 		    return DataObject;
 		}
+
+		@DataProvider(name="StaticData_PutCall")
+		public Object[][] StaticData_PutCall() throws IOException
+		{
+			Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"PutCall");
+			return DataObject;
+		}
+
+		@DataProvider(name="StaticData_CoveredUncovered")
+		public Object[][] StaticData_CoveredUncovered() throws IOException
+		{
+			Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"CoveredUncovered");
+			return DataObject;
+		}
+
+		@DataProvider(name="StaticData_CustomerFirm")
+		public Object[][] StaticData_CustomerFirm() throws IOException
+		{
+			Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"CustomerFirm");
+			return DataObject;
+		}
+
+		@DataProvider(name="StaticData_OptionOrderType")
+		public Object[][] StaticData_OptionOrderType() throws IOException
+		{
+			Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"OptionOrderType");
+			return DataObject;
+		}
+
+		@DataProvider(name="StaticData_OptionTIF")
+		public Object[][] StaticData_OptionTIF() throws IOException
+		{
+			Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"OptionTIF");
+			return DataObject;
+		}
 		
 	//==================================================Account Balance==================================================
 		

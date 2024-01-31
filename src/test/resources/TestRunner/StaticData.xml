@@ -7,7 +7,7 @@
         <methods>
           <include name="UserLogin"/>
         </methods>
-      </class> <!-- IdentityServer_API_User.Login -->
+      </class> <!---->
       <class name="Static_Data.StaticData_Account"/>
       <class name="Static_Data.StaticData_Blotter_Permissions"/>
       <class name="Static_Data.StaticData_LocateTIF"/>
@@ -23,7 +23,12 @@
       <class name="Static_Data.StaticData_Side"/>
       <class name="Static_Data.StaticData_CommType"/>
       <class name="Static_Data.StaticData_BlotterPackage_Permissions"/>
-       <!-- Static_Data_V3.StaticData_Account -->
+      <class name="Static_Data.StaticData_PutCall"/>
+      <class name="Static_Data.StaticData_CoveredUncovered"/>
+      <class name="Static_Data.StaticData_CustomerFirm"/>
+      <class name="Static_Data.StaticData_OptionOrderType"/>
+      <class name="Static_Data.StaticData_OptionTIF"/>
+
       
       
     </classes>

@@ -5,13 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CoveredUncovered.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CustomerFirm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OptionOrderType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OptionTIF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_PutCall.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MarketData_L1/Data/MarketData_L1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MarketData_L1/Data/MarketData_L1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/APIlogs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/APIlogs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/Data/Static_Data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/Data/Static_Data.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_BlotterPackage_Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_BlotterPackage_Permissions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Blotter_Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Blotter_Permissions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CommType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CommType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination_TraderOnly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination_TraderOnly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_ETBHTB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_ETBHTB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_LocateTIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_LocateTIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfCateg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfCateg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfExchange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Option_Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Option_Destination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OrdType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OrdType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Side.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_TIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_TIF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Tag Library Descriptor" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,6 +70,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -53,14 +87,26 @@
       <recent name="F:\IntelliJ\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Static_Data" />
+      <recent name="Static_Data.Data" />
       <recent name="Excel_Utilities" />
       <recent name="XLDataProvider" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_MarketData.xml">
+  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml">
     <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_MarketData.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="OMSAPI" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -98,23 +144,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="F:/IntelliJ/src/test/resources/TestRunner/OptionOrders_Position.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Position.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_MarketData.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Position.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Filled_Orders.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Executions.xml" />
-        <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/OptionOrders_Position.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -128,7 +164,8 @@
       <updated>1704800731750</updated>
       <workItem from="1704800733041" duration="8291000" />
       <workItem from="1704809944132" duration="3408000" />
-      <workItem from="1705650275821" duration="22427000" />
+      <workItem from="1705650275821" duration="41470000" />
+      <workItem from="1706688931021" duration="13496000" />
     </task>
     <servers />
   </component>
