@@ -1,5 +1,6 @@
 package Static_Data;
 
+import APIHelper.APIHelperClass;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -39,12 +40,13 @@ public class StaticData_TIF {
 	
 	@Test (dataProvider="StaticData_TIF", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_TIF"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_TIF(String StaticData_TIF_TestCases,
+									  String EndpointVersion,
 			  						  String StaticData_TIF_BasePath,
-											  String Content_Type,
-											  String StaticData_TIF_StatusCode,
-											  String Validate_TIF_Name ,
-											  String Validate_TIF_Value,
-											  String Validate_Booth )
+									  String Content_Type,
+									  String StaticData_TIF_StatusCode,
+									  String Validate_TIF_Name ,
+									  String Validate_TIF_Value,
+									  String Validate_Booth )
 	{
 		
 		try 
@@ -52,7 +54,7 @@ public class StaticData_TIF {
 			LoggingManager.logger.info("====================================================================");
 			LoggingManager.logger.info("TestCase : "+StaticData_TIF_TestCases);
 			LoggingManager.logger.info("====================================================================");
-		
+			Global.getResponseArray=APIHelperClass.apiRespVersion(EndpointVersion);
 			RestAssured.baseURI=Global.BaseURL;
 			Response response=
 								given()	
@@ -67,19 +69,19 @@ public class StaticData_TIF {
 									//.statusLine("HTTP/1.1 200 OK")
 									.extract().response();
 			
-			
-			String TIFName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_TIF_Value+"' )].name").toString();
-			String TIFValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_TIF_Value+"' )].value").toString();
-			//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
+			String TIFName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_TIF_Value+"' )].name").toString();
+			String TIFValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_TIF_Value+"' )].value").toString();
+			String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_TIF_Value+"' )].booth").toString();
+			LoggingManager.logger.info("API-Endpoint Version : [" + EndpointVersion + "]");
 			LoggingManager.logger.info("API-StaticData_TIF_BasePath : ["+StaticData_TIF_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			LoggingManager.logger.info("API-StaticData_TIF_StatusCode : ["+response.getStatusCode()+"]");
-			LoggingManager.logger.info("API-Validate_TIF_Name : ["+Validate_TIF_Name +"] - Response TIFName : "+TIFName);
-			LoggingManager.logger.info("API-Validate_TIF_Value : ["+Validate_TIF_Value +"] - Response TIFValue : "+TIFValue);
-			//LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response BoothID : "+BoothID);
-			Assert.assertEquals(TIFValue,"[\""+Validate_TIF_Value+"\"]", "Validate_TIF_Value");
-			Assert.assertEquals(TIFName,"[\""+Validate_TIF_Name+"\"]", "Validate_TIF_Name");
-			//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
+			LoggingManager.logger.info("API-Validate_TIF_Name : "+APIHelperClass.ValidationNullValue(Validate_TIF_Name)+" - Response TIFName : "+TIFName);
+			LoggingManager.logger.info("API-Validate_TIF_Value : "+ APIHelperClass.ValidationNullValue(Validate_TIF_Value)+" - Response TIFValue : "+TIFValue);
+			LoggingManager.logger.info("API-Validate_Booth : "+APIHelperClass.ValidationNullValue(Validate_Booth)+" - Response BoothID : "+BoothID);
+			Assert.assertEquals(TIFValue,APIHelperClass.ValidationNullValue(Validate_TIF_Value), "Validate_TIF_Value");
+			Assert.assertEquals(TIFName,APIHelperClass.ValidationNullValue(Validate_TIF_Name), "Validate_TIF_Name");
+			Assert.assertEquals(BoothID,APIHelperClass.ValidationNullValue(Validate_Booth),"Validate_Booth");
 		}
 		catch (Exception e) 
 		{

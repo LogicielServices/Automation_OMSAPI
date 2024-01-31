@@ -1,5 +1,6 @@
 package Static_Data;
 
+import APIHelper.APIHelperClass;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -39,6 +40,7 @@ public class StaticData_Option_Destination {
 	 
 	@Test (dataProvider="StaticData_Option_Destination", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_Option_Destination"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_Option_Destination(String StaticData_OptionDestination_TestCases,
+													 String EndpointVersion,
 													 String StaticData_OptionDestination_BasePath, 
 													 String Content_Type, 
 													 String StaticData_OptionDestination_StatusCode, 
@@ -53,6 +55,7 @@ public class StaticData_Option_Destination {
 			LoggingManager.logger.info("====================================================================");
 			LoggingManager.logger.info("TestCase : "+StaticData_OptionDestination_TestCases);
 			LoggingManager.logger.info("====================================================================");
+			Global.getResponseArray=APIHelperClass.apiRespVersion(EndpointVersion);
 			RestAssured.baseURI=Global.BaseURL;
 			Response response=
 							given()
@@ -68,27 +71,22 @@ public class StaticData_Option_Destination {
 							.extract().response();
 
 
-			String DestinationName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_OptionDestination_Value.substring(1, Validate_OptionDestination_Value.length() - 1)+"' )].name").toString();
-			String DestinationValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_OptionDestination_Value.substring(1, Validate_OptionDestination_Value.length() - 1)+"' )].value").toString();
-			String DestinationAccountValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_OptionDestination_Value.substring(1, Validate_OptionDestination_Value.length() - 1)+"' )].account").toString();
-			//String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.data.eventData[?(@.value =='"+Validate_Destination_Value+"' )].booth").toString();
+			String DestinationName=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_OptionDestination_Value.substring(1, Validate_OptionDestination_Value.length() - 1)+"' )].name").toString();
+			String DestinationValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_OptionDestination_Value.substring(1, Validate_OptionDestination_Value.length() - 1)+"' )].value").toString();
+			//String DestinationAccountValue=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_OptionDestination_Value.substring(1, Validate_OptionDestination_Value.length() - 1)+"' )].account").toString();
+			String BoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='"+Validate_OptionDestination_Value.substring(1, Validate_OptionDestination_Value.length() - 1)+"' )].booth").toString();
+			LoggingManager.logger.info("API-Endpoint Version : [" + EndpointVersion + "]");
 			LoggingManager.logger.info("API-StaticData_OptionDestination_BasePath : ["+StaticData_OptionDestination_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			LoggingManager.logger.info("API-StaticData_OptionDestination_StatusCode : ["+response.getStatusCode()+"]");
-			LoggingManager.logger.info("API-Validate_OptionDestination_Name : ["+Validate_OptionDestination_Name +"] - Response DestinationName : "+DestinationName);
-			LoggingManager.logger.info("API-Validate_OptionDestination_Value : ["+Validate_OptionDestination_Value +"] - Response DestinationValue : "+DestinationValue);
-			LoggingManager.logger.info("API-Validate_OptionDestination_Account_Value : ["+Validate_OptionDestination_Account_Value +"] - Response DestinationAccountValue : "+DestinationAccountValue);
+			LoggingManager.logger.info("API-Validate_OptionDestination_Name : "+APIHelperClass.ValidationNullValue(Validate_OptionDestination_Name)+" - Response DestinationName : "+DestinationName);
+			LoggingManager.logger.info("API-Validate_OptionDestination_Value : ["+Validate_OptionDestination_Value+"] - Response DestinationValue : "+DestinationValue);
+			//LoggingManager.logger.info("API-Validate_OptionDestination_Account_Value : ["+Validate_OptionDestination_Account_Value +"] - Response DestinationAccountValue : "+DestinationAccountValue);
+			LoggingManager.logger.info("API-Validate_Booth :"+APIHelperClass.ValidationNullValue(Validate_Booth)+" - Response Booth : " + BoothID);
+			Assert.assertEquals(DestinationName,APIHelperClass.ValidationNullValue(Validate_OptionDestination_Name), "Validate_OptionDestination_Name");
 			Assert.assertEquals(DestinationValue,"["+Validate_OptionDestination_Value+"]", "Validate_OptionDestination_Value");
-			Assert.assertEquals(DestinationName,"[\""+Validate_OptionDestination_Name+"\"]", "Validate_OptionDestination_Name");
-			//Assert.assertEquals(BoothID,"[\""+Validate_Booth+"\"]", "Validate_Booth");
-			if (Validate_OptionDestination_Account_Value.equalsIgnoreCase("null"))
-			{
-				Assert.assertEquals(DestinationAccountValue,"["+Validate_OptionDestination_Account_Value+"]", "Validate_OptionDestination_Account_Value");
-			}
-			else
-			{
-				Assert.assertEquals(DestinationAccountValue,"[\""+Validate_OptionDestination_Account_Value+"\"]", "Validate_OptionDestination_Account_Value");
-			}
+			//Assert.assertEquals(DestinationAccountValue,APIHelperClass.ValidationNullValue(Validate_OptionDestination_Account_Value), "Validate_OptionDestination_Account_Value");
+			Assert.assertEquals(BoothID, APIHelperClass.ValidationNullValue(Validate_Booth), "Validate_Booth");
 		}
 		catch (Exception e)
 		{

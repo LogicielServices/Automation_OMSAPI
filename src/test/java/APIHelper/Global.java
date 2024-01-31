@@ -22,7 +22,9 @@ public class Global {
 	public static Double   getSHORTrealizedPnL=0.00;
 	public static Double   getOptionLONGrealizedPnL=0.00;
 	public static Double   getOptionSHORTrealizedPnL=0.00;
-	
+	public static String   getResponseArray;
+
+
 //===================================================Orders Subscription Response Fields===============================================================
 	
 	public static String  getOrderValue="";

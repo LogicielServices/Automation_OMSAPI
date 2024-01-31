@@ -31,8 +31,8 @@ public String AdminUserLoginAuthentications(String admin_api_path,
 		Response response_AdminLogin=
 				given()
 						.config(RestAssured.config()
-								.encoderConfig(EncoderConfig.encoderConfig()
-										.encodeContentTypeAs(Content_Type, ContentType.URLENC)))
+						.encoderConfig(EncoderConfig.encoderConfig()
+						.encodeContentTypeAs(Content_Type, ContentType.URLENC)))
 						.contentType(ContentType.URLENC.withCharset("UTF-8"))
 						.formParam("grant_type", grant_type)
 						.formParam("client_id", client_id)
@@ -181,9 +181,27 @@ public String UserLoginAuthentications(String UserEmail,
 		LoggingManager.logger.error("AccToken is : "+Global.getAccToken+" : "+e);
 		return "";
 	}
-
 }
-	
+
+public static String ValidationNullValue(String value)
+{
+	try
+	{
+		if (value.equalsIgnoreCase("null"))
+		{
+			return "["+value+"]";
+		}
+		else
+		{
+			return "[\""+value+"\"]";
+		}
+	}
+	catch (Exception e)
+	{
+		LoggingManager.logger.error(e);
+		return "";
+	}
+}
 	
 public static String NVL(String ParamA,String ParamB)
 {
@@ -219,12 +237,11 @@ public static String apiRespVersion(String endpoint_version)
 			case "V3":
 				getResp="data.eventData";
 				break;
-
 			default:
-				getResp="data.eventData";
+				getResp="";
+				LoggingManager.logger.error("Endpoint Version ["+endpoint_version+"] Not Found");
 				break;
 		}
-
 		return getResp;
 		///if (endpoint_version=="V1"){getResponseArray="eventData";}else{getResponseArray="data.eventData";}
 	}
