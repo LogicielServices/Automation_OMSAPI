@@ -6,51 +6,37 @@
 	  <test thread-count="1" name="Equity Buy Order Position Subscriptions">
 		    <classes>
 				<class name="IdentityServer_API_User.Login"/>
-				<class name="Subscriptions.Flat_Positions">
-				    <methods>
-				         <include name="Verify_Flat_Equity_Positions"/>
-				    </methods>
-	      	  </class>
 				<class name="Subscriptions.Order_Positions_Subscribe">
-				    <methods>
-				         <include name="Verify_Subscribe_BUY_Order_Positions"/>
-				    </methods>
-	      	  </class>
+						<methods>
+							 <include name="Verify_Subscribe_BUY_Order_Positions"/>
+						</methods>
+				</class>
 	      	</classes>
 	  </test> <!-- Test: Verify_Subscribe_BUY_Order_Positions -->
-		
+
+
 	  <test thread-count="1" name="Equity Sell Order Position Subscriptions">
 	    <classes>
 			<class name="IdentityServer_API_User.Login"/>
-			<class name="Subscriptions.Flat_Positions">
-				    <methods>
-				         <include name="Verify_Flat_Equity_Positions"/>
-				    </methods>
-	      	</class>
 			<class name="Subscriptions.Order_Positions_Subscribe">
 			    <methods>
 			         <include name="Verify_Subscribe_SELL_Order_Positions"/>
 			    </methods>
-      	  </class>
+      	  	</class>
       	</classes>
 	  </test> <!-- Test: Verify_Subscribe_SELL_Order_Positions -->
-	
+
 	  <test thread-count="1" name="Equity ShortSell Order Position Subscriptions">
 	    <classes>
 			<class name="IdentityServer_API_User.Login"/>
-			<class name="Subscriptions.Flat_Positions">
-				    <methods>
-				         <include name="Verify_Flat_Equity_Positions"/>
-				    </methods>
-	      	</class>
 			<class name="Subscriptions.Order_Positions_Subscribe">
 			    <methods>
 			         <include name="Verify_Subscribe_SHORTSELL_Order_Positions"/>
 			    </methods>
-      	  </class>
+      	 	</class>
       	</classes>
 	  </test> <!-- Test: Verify_Subscribe_SHORTSELL_Order_Positions -->
-	  
+
 	  <test thread-count="1" name="Equity Position UnSubscribe">
 	    <classes>
 			<class name="IdentityServer_API_User.Login"/>
@@ -58,13 +44,11 @@
 			    <methods>
 			         <include name="Verify_UnSubscribe_Order_Positions"/>
 			    </methods>
-      	  </class>
+      	   	</class>
       	</classes>
 	  </test> <!-- Test: Verify_UnSubscribe_Order_Positions -->
-		
-	
-		
-		
+
+
 </suite> <!-- Suite -->		  
 		  
 

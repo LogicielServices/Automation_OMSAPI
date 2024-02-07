@@ -45,18 +45,21 @@ public class Order_Positions_Subscribe {
 		
 	}
 	 
-	 @Test (dataProvider="SubscribeBUYOrder_Positions", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeBUYOrder_Positions"}, dependsOnGroups={"Flat_Equity_Position"})//Flat_Equity_Position UserLoginAuthentications
+	 @Test (dataProvider="SubscribeBUYOrder_Positions", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeBUYOrder_Positions"}, dependsOnGroups={"UserLoginAuthentications"})//Flat_Equity_Position UserLoginAuthentications
 	 public void Verify_Subscribe_BUY_Order_Positions(	String Order_Position_TestCases,
 			 											String Endpoint_Version,
 			 											String Subscribe_Order_Positions_BasePath,
 			 											String Content_Type,
 														String Subscribe_Order_Positions_StatusCode,
 														String Flat_Account_Type_BoxvsShort,
-														String Validate_BoothID,
-														String Validate_Symbol_Value,
-														String Validate_Account_Value,
-														String Validate_Position_LONG_SHORT,
-														String EquityOrder_Creation_BasePath,
+														String PositionID,
+														String Validate_Position_FLAT,
+														String Order_Creation_BasePath,
+														String Order_OrdType,
+														String Order_TimeInForce,
+														String Order_Destination,
+														String Order_Price,
+														String Order_StopPx,
 														String EquityOrder_Creation_Body,
 														String EquityOrder_Creation_StatusCode,
 														String EquityOrder_Creation_Response,
@@ -102,29 +105,29 @@ public class Order_Positions_Subscribe {
 	 {
 	 	try
 		{
-
-
 			 LoggingManager.logger.info("====================================================================");
 			 LoggingManager.logger.info("TestCase : "+Order_Position_TestCases);
 			 LoggingManager.logger.info("====================================================================");
 			 DecimalFormat decimalFormat = new DecimalFormat("0.0000");
 			 decimalFormat.getRoundingMode();
-			 APIHelperClass apihelper=new APIHelperClass();
 			 RestAssured.baseURI=Global.BaseURL;
-			 String PositionID="";
-			 if (Flat_Account_Type_BoxvsShort.equalsIgnoreCase("1")) {PositionID=Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT;}
-			 else {PositionID=Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value;}
+			 APIHelperClass.Flat_Equity_Positions(	Endpoint_Version,
+													Subscribe_Order_Positions_BasePath,
+													Content_Type,
+													Subscribe_Order_Positions_StatusCode,
+													PositionID,
+													Validate_Position_FLAT,
+													Order_Creation_BasePath,
+													Order_OrdType,
+													Order_TimeInForce,
+													Order_Destination,
+													Order_Price,
+													Order_StopPx,
+													StatusCode);
 
-			 APIHelperClass.GetOrder_PositionsData(  Endpoint_Version,
-													 Subscribe_Order_Positions_BasePath,
-													 Content_Type,
-													 Subscribe_Order_Positions_StatusCode,
-													 Flat_Account_Type_BoxvsShort,
-													 PositionID,
-													 Validate_Position_LONG_SHORT);
 
-			 LoggingManager.logger.info("API-Get LONGrealizedPnL After Flat : ["+ Global.getLONGrealizedPnL+"]");
-			 LoggingManager.logger.info("API-Get SHORTrealizedPnL After Flat : ["+ Global.getSHORTrealizedPnL+"]");
+			 LoggingManager.logger.info("API-Get realizedPnL After Flat : ["+ Global.getLONGrealizedPnL+"]");
+			 // LoggingManager.logger.info("API-Get SHORTrealizedPnL After Flat : ["+ Global.getSHORTrealizedPnL+"]");
 
 			 //=======================================================Order Creation================================================================
 
@@ -136,20 +139,20 @@ public class Order_Positions_Subscribe {
 							 .body(EquityOrder_Creation_Body)
 
 							 .when()
-							 .post(EquityOrder_Creation_BasePath)
+							 .post(Order_Creation_BasePath)
 
 							 .then()
 							 .extract()
 							 .response();
 
-			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_BasePath : ["+EquityOrder_Creation_BasePath+"]");
+			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_BasePath : ["+Order_Creation_BasePath+"]");
 			 LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_Body : ["+EquityOrder_Creation_Body+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_StatusCode : ["+response.getStatusCode()+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_Response_Body : ["+response.getBody().asString()+"]");
 			 Assert.assertEquals(response.getStatusCode(), Integer.parseInt(EquityOrder_Creation_StatusCode),"Verify_EquityOrder_Creation_StatusCode");
 			 Assert.assertEquals(response.getBody().asString(), EquityOrder_Creation_Response,"Verify_EquityOrder_Creation_Response");
-			 apihelper.GetOrderValues(Subscribe_EquityOrder_BasePath,
+			 APIHelperClass.GetOrderValues(Subscribe_EquityOrder_BasePath,
 										 Global.getAccToken,
 										 Content_Type,
 										 Integer.parseInt(StatusCode),
@@ -220,7 +223,6 @@ public class Order_Positions_Subscribe {
 												 Fetch_Executions_ExecTransTypeDesc,"","","",0,"","","","","","","","","","","","","","","","","","position");
 
 			 // LoggingManager.logger.info("API- Before Execution : ["+Global.getOrderID+"]");
-
 			 //=======================================================Execution Subcription================================================================
 
 			 Response get_position_response=
@@ -232,7 +234,6 @@ public class Order_Positions_Subscribe {
 											 .then().extract().response();
 
 			 APIHelperClass.Validate_Positions(get_position_response,Endpoint_Version,Flat_Account_Type_BoxvsShort,Global.getAvgPrice,Global.getLONGrealizedPnL,Validate_Position_Symbol_Value,Validate_Position_symbolSfx_Value,Validate_Position_originatingUserDesc_Value,Validate_Position_positionString_Value,Validate_Position_Account_Value,Validate_Position_BoothID);
-
 		}
 		catch (Exception e)
 		{
@@ -241,18 +242,21 @@ public class Order_Positions_Subscribe {
 	 }
 	 
 	 
-	 @Test (dataProvider="SubscribeSELLOrder_Positions", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeSELLOrder_Positions"}, dependsOnGroups={"Flat_Equity_Position"})//UserLoginAuthentications Flat_Equity_Position
+	 @Test (dataProvider="SubscribeSELLOrder_Positions", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeSELLOrder_Positions"}, dependsOnGroups={"UserLoginAuthentications"})//UserLoginAuthentications Flat_Equity_Position
 	 public void Verify_Subscribe_SELL_Order_Positions(	String Order_Position_TestCases,
 														String Endpoint_Version,
 														String Subscribe_Order_Positions_BasePath,
 														String Content_Type,
 														String Subscribe_Order_Positions_StatusCode,
 														String Flat_Account_Type_BoxvsShort,
-														String Validate_BoothID,
-														String Validate_Symbol_Value,
-														String Validate_Account_Value,
-														String Validate_Position_LONG_SHORT,
-														String EquityOrder_Creation_BasePath,
+														String PositionID,
+													    String Validate_Position_FLAT,
+													    String Order_Creation_BasePath,
+													    String Order_OrdType,
+													    String Order_TimeInForce,
+													    String Order_Destination,
+													    String Order_Price,
+													    String Order_StopPx,
 														String EquityOrder_Creation_Body,
 														String EquityOrder_Creation_StatusCode,
 														String EquityOrder_Creation_Response,
@@ -338,36 +342,39 @@ public class Order_Positions_Subscribe {
 			 DecimalFormat decimalFormat = new DecimalFormat("0.0000");
 			 decimalFormat.getRoundingMode();
 			 RestAssured.baseURI=Global.BaseURL;
-			 String PositionID="";
-			 if (Flat_Account_Type_BoxvsShort.equalsIgnoreCase("1")) {PositionID=Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT;}
-			 else {PositionID=Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value;}
-			 APIHelperClass.GetOrder_PositionsData( Endpoint_Version,
-													 Subscribe_Order_Positions_BasePath,
-													 Content_Type,
-													 Subscribe_Order_Positions_StatusCode,
-													 Flat_Account_Type_BoxvsShort,
-													 PositionID,
-													 Validate_Position_LONG_SHORT);
+			 APIHelperClass.Flat_Equity_Positions(	Endpoint_Version,
+													Subscribe_Order_Positions_BasePath,
+													Content_Type,
+													Subscribe_Order_Positions_StatusCode,
+													PositionID,
+													Validate_Position_FLAT,
+													Order_Creation_BasePath,
+													Order_OrdType,
+													Order_TimeInForce,
+													Order_Destination,
+													Order_Price,
+													Order_StopPx,
+													StatusCode);
 
-			 LoggingManager.logger.info("API-Get LONGrealizedPnL After Flat : ["+ Global.getLONGrealizedPnL+"]");
-			 LoggingManager.logger.info("API-Get SHORTrealizedPnL After Flat : ["+ Global.getSHORTrealizedPnL+"]");
+			 LoggingManager.logger.info("API-Get realizedPnL After Flat : ["+ Global.getLONGrealizedPnL+"]");
+			 //LoggingManager.logger.info("API-Get SHORTrealizedPnL After Flat : ["+ Global.getSHORTrealizedPnL+"]");
 
-			 //====================================================BUY Order=============================================================================
+			//====================================================BUY Order=============================================================================
 
-			 Response response=
+			Response response=
 					          given()
 							 .header("Content-Type",Content_Type)
 							 .header("Authorization", "Bearer " + Global.getAccToken)
 							 .body(EquityOrder_Creation_Body)
 
 							 .when()
-							 .post(EquityOrder_Creation_BasePath)
+							 .post(Order_Creation_BasePath)
 
 							 .then()
 							 .extract()
 							 .response();
 
-			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_BasePath : ["+EquityOrder_Creation_BasePath+"]");
+			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_BasePath : ["+Order_Creation_BasePath+"]");
 			 LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_Body : ["+EquityOrder_Creation_Body+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_StatusCode : ["+response.getStatusCode()+"]");
@@ -385,14 +392,14 @@ public class Order_Positions_Subscribe {
 							 .body(SELL_EquityOrder_Creation_Body)
 
 							 .when()
-							 .post(EquityOrder_Creation_BasePath)
+							 .post(Order_Creation_BasePath)
 
 							 .then()
 							 .extract()
 							 .response();
 
 
-			 LoggingManager.logger.info("API-EquityOrder_Filled_SELL_BasePath : ["+EquityOrder_Creation_BasePath+"]");
+			 LoggingManager.logger.info("API-EquityOrder_Filled_SELL_BasePath : ["+Order_Creation_BasePath+"]");
 			 LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_SELL_Body : ["+SELL_EquityOrder_Creation_Body+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_SELL_StatusCode : ["+SELL_response.getStatusCode()+"]");
@@ -535,18 +542,21 @@ public class Order_Positions_Subscribe {
 	 
 	  
 
-	 @Test (dataProvider="SubscribeSHORTSELL_Position", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeSHORTSELL_Position"}, dependsOnGroups={"Flat_Equity_Position"})//Flat_Equity_Position  UserLoginAuthentications
+	 @Test (dataProvider="SubscribeSHORTSELL_Position", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeSHORTSELL_Position"}, dependsOnGroups={"UserLoginAuthentications"})//Flat_Equity_Position  UserLoginAuthentications
 	 public void Verify_Subscribe_SHORTSELL_Order_Positions(	String Order_Position_TestCases,
 					 											String Endpoint_Version,
 					 											String Subscribe_Order_Positions_BasePath,
 					 											String Content_Type,
 																String Subscribe_Order_Positions_StatusCode,
 																String Flat_Account_Type_BoxvsShort,
-																String Validate_BoothID,
-																String Validate_Symbol_Value,
-																String Validate_Account_Value,
-																String Validate_Position_LONG_SHORT,
-																String EquityOrder_Creation_BasePath,
+																String PositionID,
+																String Validate_Position_FLAT,
+																String Order_Creation_BasePath,
+																String Order_OrdType,
+																String Order_TimeInForce,
+																String Order_Destination,
+																String Order_Price,
+																String Order_StopPx,
 																String EquityOrder_Creation_Body,
 																String EquityOrder_Creation_StatusCode,
 																String EquityOrder_Creation_Response,
@@ -599,20 +609,22 @@ public class Order_Positions_Subscribe {
 			 DecimalFormat decimalFormat = new DecimalFormat("0.0000");
 			 decimalFormat.getRoundingMode();
 			 RestAssured.baseURI=Global.BaseURL;
-			 String PositionID="";
-			 if (Flat_Account_Type_BoxvsShort.equalsIgnoreCase("1")) {PositionID=Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT;}
-			 else {PositionID=Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value;}
+			 APIHelperClass.Flat_Equity_Positions(	Endpoint_Version,
+													Subscribe_Order_Positions_BasePath,
+													Content_Type,
+													Subscribe_Order_Positions_StatusCode,
+													PositionID,
+													Validate_Position_FLAT,
+													Order_Creation_BasePath,
+													Order_OrdType,
+													Order_TimeInForce,
+													Order_Destination,
+													Order_Price,
+													Order_StopPx,
+													StatusCode);
 
-			 APIHelperClass.GetOrder_PositionsData( Endpoint_Version,
-													 Subscribe_Order_Positions_BasePath,
-													 Content_Type,
-													 Subscribe_Order_Positions_StatusCode,
-													 Flat_Account_Type_BoxvsShort,
-													 PositionID,
-													 Validate_Position_LONG_SHORT);
-
-			 LoggingManager.logger.info("API-Get LONGrealizedPnL After Flat : ["+ Global.getLONGrealizedPnL+"]");
-			 LoggingManager.logger.info("API-Get SHORTrealizedPnL After Flat : ["+ Global.getSHORTrealizedPnL+"]");
+	 		 //LoggingManager.logger.info("API-Get LONGrealizedPnL After Flat : ["+ Global.getLONGrealizedPnL+"]");
+			 LoggingManager.logger.info("API-Get realizedPnL After Flat : ["+ Global.getSHORTrealizedPnL+"]");
 
 			 //=======================================================Order Creation================================================================
 
@@ -624,20 +636,19 @@ public class Order_Positions_Subscribe {
 							 .body(EquityOrder_Creation_Body)
 
 							 .when()
-							 .post(EquityOrder_Creation_BasePath)
+							 .post(Order_Creation_BasePath)
 
 							 .then()
 							 .extract()
 							 .response();
 
-			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_BasePath : ["+EquityOrder_Creation_BasePath+"]");
+			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_BasePath : ["+Order_Creation_BasePath+"]");
 			 LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_Body : ["+EquityOrder_Creation_Body+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_StatusCode : ["+response.getStatusCode()+"]");
 			 LoggingManager.logger.info("API-EquityOrder_Filled_BUY_Response_Body : ["+response.getBody().asString()+"]");
 			 Assert.assertEquals(response.getStatusCode(), Integer.parseInt(EquityOrder_Creation_StatusCode),"Verify_EquityOrder_Creation_StatusCode");
 			 Assert.assertEquals(response.getBody().asString(), EquityOrder_Creation_Response,"Verify_EquityOrder_Creation_Response");
-			 //APIHelperClass apihelper=new APIHelperClass();
 			 APIHelperClass.GetOrderValues(Subscribe_EquityOrder_BasePath,
 											 Global.getAccToken,
 											 Content_Type,
@@ -659,6 +670,7 @@ public class Order_Positions_Subscribe {
 			 Global.getcompleteDaySellShortOrderQty+=Double.parseDouble(Subscribe_EquityOrder_OrderQty);
 			 LoggingManager.logger.info("API- ShortSell OrderID Before Execution : ["+Global.getShortSellFilledOrderID+"]");
 			 LoggingManager.logger.info("API- ShortSell qOrderID Before Execution : ["+Global.getShortSellFilled_qOrderID+"]");
+			 LoggingManager.logger.info("API- ShortSell completeDaySellShortOrderQty Before Execution : ["+Global.getcompleteDaySellShortOrderQty+"]");
 			 if(Global.getShortSellFilledOrderID == null || Global.getShortSellFilledOrderID=="" )
 			 {Assert.fail("Logs : Order Not Found with status :["+Subscribe_EquityOrder_ExpectedStatus+"]");}
 
@@ -717,7 +729,6 @@ public class Order_Positions_Subscribe {
 											 .when()
 											 .get(Subscribe_Order_Positions_BasePath)
 											 .then().extract().response();
-
 
 			 APIHelperClass.Validate_Positions(get_position_response,Endpoint_Version,Flat_Account_Type_BoxvsShort,Global.getAvgPrice,Global.getSHORTrealizedPnL,Validate_Position_Symbol_Value,Validate_Position_symbolSfx_Value,Validate_Position_originatingUserDesc_Value,Validate_Position_positionString_Value,Validate_Position_Account_Value,Validate_Position_BoothID);
 		}
