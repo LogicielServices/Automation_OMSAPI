@@ -1340,412 +1340,217 @@ public static Boolean UpdateOptionOrderValidate( String Get_orders_basePath,
 	}
 }
 
-	
 public static void Flat_Equity_Positions(String endpoint_version,
-										String Subscribe_Order_Positions_BasePath,
-										String Content_Type,
-										String Subscribe_Order_Positions_StatusCode,
-										String Account_Type_BoxvsShort,
-										Response getresponse,
-										String Validate_BoothID,
-										String Validate_Symbol_Value,
-										String Validate_Account_Value,
-										String Validate_Position_LONG_SHORT,
-										//String Validate_Position_SHORT,
-										String Validate_Position_FLAT,
-										String Order_Creation_BasePath,
-										String Flat_Order_Position_Side,
-										String Order_OrdType,
-										String Order_TimeInForce,
-										String Order_Destination,
-										String Order_Price,
-										String Order_StopPx,
-										String Order_Creation_StatusCode  )
-{
-	try
+											 String Subscribe_Order_Positions_BasePath,
+											 String Content_Type,
+											 String Subscribe_Order_Positions_StatusCode,
+											 String PositionID,
+											 String Validate_Position_FLAT,
+											 String Order_Creation_BasePath,
+											 String Order_OrdType,
+											 String Order_TimeInForce,
+											 String Order_Destination,
+											 String Order_Price,
+											 String Order_StopPx,
+											 String Order_Creation_StatusCode)
 	{
+		try {
+			Global.getorderType = "Equity";
+			String getResponseArray = "", getexecQty = "",Flat_Order_Position_Side="";
+			int ResponseArraySize = 0, position = 0;
+			Global.getAvgPrice=0.0;
+			Global.getSHORTrealizedPnL=0.0;
+			Global.getLONGrealizedPnL=0.0;
+			Global.getcompleteDayBuyOrderQty=0.0;
+			Global.getcompleteDaySellLongOrderQty=0.0;
+			Global.getcompleteDayBuyOrderQty=0.0;
+			Global.getcompleteDaySellShortOrderQty=0.0;
+			getResponseArray = apiRespVersion(endpoint_version);
+			Response get_position_response =
 
-		Global.getorderType="Equity";
-		String getResponseArray="",getexecQty="";
-		int ResponseArraySize=0,position=0;
-		getResponseArray=apiRespVersion(endpoint_version);
-		JsonPath jsonresponse = new JsonPath(getresponse.getBody().asString());
-		ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
-		switch(Integer.parseInt(Account_Type_BoxvsShort))
+					given()
+							.header("Content-Type", Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+							.when()
+							.get(Subscribe_Order_Positions_BasePath)
+
+							.then()
+							.extract().response();
+
+			LoggingManager.logger.info("API-Subscribe_Order_Positions_BasePath : [" + Subscribe_Order_Positions_BasePath + "]");
+			LoggingManager.logger.info("API-Subscribe_Order_Positions_StatusCode : [" + get_position_response.statusCode() + "]");
+			Assert.assertEquals(get_position_response.getStatusCode(), Integer.parseInt(Subscribe_Order_Positions_StatusCode), "Verify_OrderSymbol_Positions");
+			JsonPath jsonresponse = new JsonPath(get_position_response.getBody().asString());
+			ResponseArraySize = jsonresponse.getInt(getResponseArray + ".size()");
+			getresponseloop:
+			for (position = ResponseArraySize - 1; position >= 0; position--)
+			{
+				String response_ID = jsonresponse.getString(getResponseArray + "[" + position + "].id");
+				String response_account = jsonresponse.getString(getResponseArray + "[" + position + "].account");
+				String response_symbol = jsonresponse.getString(getResponseArray + "[" + position + "].symbol");
+				String response_execQty = jsonresponse.getString(getResponseArray + "[" + position + "].execQty");
+				String response_positionString = jsonresponse.getString(getResponseArray + "[" + position + "].positionString");
+				String response_realizedPnL = jsonresponse.getString(getResponseArray + "[" + position + "].realizedPnL");
+
+				if (response_ID.equalsIgnoreCase(PositionID) && Double.parseDouble(response_execQty) != 0)
+				{
+					LoggingManager.logger.info("API-Before Flat Position response_ID : [" + response_ID + "]");
+					LoggingManager.logger.info("API-Before Flat Position response_positionString : [" + response_positionString + "]");
+					LoggingManager.logger.info("API-Before Flat Position response_realizedPnL : [" + response_realizedPnL + "]");
+					LoggingManager.logger.info("API-Before Flat Position response_account : [" + response_account + "]");
+					LoggingManager.logger.info("API-Before Flat Position response_execQty : [" + response_execQty + "]");
+					LoggingManager.logger.info("API-Before Flat Position response_symbol : [" + response_symbol + "]");
+					if (Double.parseDouble(response_execQty) < 0)
+					{
+						getexecQty = response_execQty.substring(1);
+						Flat_Order_Position_Side="1";
+					}
+					else
+					{
+						getexecQty = response_execQty;
+						Flat_Order_Position_Side="2";
+					}
+
+					HashMap<String, Object> fill_order_body = new HashMap<String, Object>();
+					fill_order_body.put("ordType", Order_OrdType);
+					fill_order_body.put("side", Flat_Order_Position_Side);
+					fill_order_body.put("timeInForce", Order_TimeInForce);
+					fill_order_body.put("destination", Order_Destination);
+					fill_order_body.put("account", response_account);
+					fill_order_body.put("orderQty", Double.parseDouble(getexecQty));
+					fill_order_body.put("symbol", response_symbol);
+					fill_order_body.put("Price", Double.parseDouble(Order_Price));
+					fill_order_body.put("StopPx", Double.parseDouble(Order_StopPx));
+					Response response =
+							given()
+									.header("Content-Type", Content_Type)
+									.header("Authorization", "Bearer " + Global.getAccToken)
+									.body(fill_order_body)
+
+									.when()
+									.post(Order_Creation_BasePath)
+
+									.then()
+									.extract()
+									.response();
+					Assert.assertEquals(response.getStatusCode(), Integer.parseInt(Order_Creation_StatusCode), "Verify_Order_Creation");
+					Response Validate_position_response =
+							given()
+									.header("Content-Type", Content_Type)
+									.header("Authorization", "Bearer " + Global.getAccToken)
+									.when()
+									.get(Subscribe_Order_Positions_BasePath)
+
+									.then()
+									.extract().response();
+
+					Assert.assertEquals(Validate_position_response.getStatusCode(), 200, "Validate_position_response");
+					JsonPath JSON_position_response = new JsonPath(Validate_position_response.getBody().asString());
+					ResponseArraySize = JSON_position_response.getInt(getResponseArray + ".size()");
+					for (position = ResponseArraySize - 1; position >= 0; position--)
+					{
+						Global.getPosition_id = JSON_position_response.getString(getResponseArray + "[" + position + "].id");
+						if (Global.getPosition_id.equalsIgnoreCase(PositionID))
+						{
+							Global.getPosition_completeDayBuyOrderQty = JSON_position_response.getDouble(getResponseArray + "[" + position + "].completeDayBuyOrderQty");
+							Global.getPosition_completeDaySellLongOrderQty = JSON_position_response.getDouble(getResponseArray + "[" + position + "].completeDaySellLongOrderQty");
+							Global.getPosition_completeDaySellShortOrderQty = JSON_position_response.getDouble(getResponseArray + "[" + position + "].completeDaySellShortOrderQty");
+							Global.getPosition_symbol = JSON_position_response.getString(getResponseArray + "[" + position + "].symbol");
+							Global.getPosition_positionString = JSON_position_response.getString(getResponseArray + "[" + position + "].positionString");
+							Global.getPosition_avgPrice = JSON_position_response.getDouble(getResponseArray + "[" + position + "].avgPrice");
+							Global.getPosition_totDollarOfTrade = JSON_position_response.getDouble(getResponseArray + "[" + position + "].totDollarOfTrade");
+							Global.getPosition_execQty = JSON_position_response.getDouble(getResponseArray + "[" + position + "].execQty");
+							Global.getPosition_realizedPnL = JSON_position_response.getDouble(getResponseArray + "[" + position + "].realizedPnL");
+							Global.getPosition_symbolSfx = JSON_position_response.getString(getResponseArray + "[" + position + "].symbolSfx");
+							Global.getPosition_originatingUserDesc = JSON_position_response.getString(getResponseArray + "[" + position + "].originatingUserDesc");
+							Global.getPosition_account = JSON_position_response.getString(getResponseArray + "[" + position + "].account");
+							Global.getLONGrealizedPnL=Global.getPosition_realizedPnL;
+							Global.getSHORTrealizedPnL=Global.getPosition_realizedPnL;
+							Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
+							Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
+							Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
+
+							LoggingManager.logger.info("API-After Flat Position ID : [" + Global.getPosition_id + "]");
+							LoggingManager.logger.info("API-After Flat Position positionString : [" + Global.getPosition_positionString + "]");
+							LoggingManager.logger.info("API-After Flat Position realizedPnL : [" + Global.getPosition_realizedPnL + "]");
+							LoggingManager.logger.info("API-After Flat Position account : [" + Global.getPosition_account + "]");
+							LoggingManager.logger.info("API-After Flat Position execQty : [" + Global.getPosition_execQty + "]");
+							LoggingManager.logger.info("API-After Flat Position symbol : [" + Global.getPosition_symbol + "]");
+							LoggingManager.logger.info("API-After Flat Position completeDayBuyOrderQty : [" + Global.getPosition_completeDayBuyOrderQty + "]");
+							LoggingManager.logger.info("API-After Flat Position completeDaySellLongOrderQty : [" + Global.getPosition_completeDaySellLongOrderQty + "]");
+							LoggingManager.logger.info("API-After Flat Position completeDaySellShortOrderQty : [" + Global.getPosition_completeDaySellShortOrderQty + "]");
+							LoggingManager.logger.info("API-After Flat Position totDollarOfTrade : [" + Global.getPosition_totDollarOfTrade + "]");
+							LoggingManager.logger.info("API-After Flat Position avgPrice : [" + Global.getPosition_avgPrice + "]");
+							LoggingManager.logger.info("API-After Flat Position symbolSfx : [" + Global.getPosition_symbolSfx + "]");
+							LoggingManager.logger.info("API-After Flat Position originatingUserDesc : [" + Global.getPosition_originatingUserDesc + "]");
+
+							Assert.assertEquals(Global.getPosition_execQty, 0.0, "Validate_ExecQty_Flat_Response_[" + PositionID + "]");
+							Assert.assertEquals(Global.getPosition_positionString, Validate_Position_FLAT, "Validate_Position: [" + PositionID + "]");
+							break getresponseloop;
+						}
+					}
+				}
+				else if (response_ID.equalsIgnoreCase(PositionID)
+							&& Double.parseDouble(response_execQty) == 0
+							&& response_positionString.equalsIgnoreCase(Validate_Position_FLAT))
+				{
+					Global.getPosition_id = jsonresponse.getString(getResponseArray + "[" + position + "].id");
+					Global.getPosition_completeDayBuyOrderQty = jsonresponse.getDouble(getResponseArray + "[" + position + "].completeDayBuyOrderQty");
+					Global.getPosition_completeDaySellLongOrderQty = jsonresponse.getDouble(getResponseArray + "[" + position + "].completeDaySellLongOrderQty");
+					Global.getPosition_completeDaySellShortOrderQty = jsonresponse.getDouble(getResponseArray + "[" + position + "].completeDaySellShortOrderQty");
+					Global.getPosition_symbol = jsonresponse.getString(getResponseArray + "[" + position + "].symbol");
+					Global.getPosition_positionString = jsonresponse.getString(getResponseArray + "[" + position + "].positionString");
+					Global.getPosition_avgPrice = jsonresponse.getDouble(getResponseArray + "[" + position + "].avgPrice");
+					Global.getPosition_totDollarOfTrade = jsonresponse.getDouble(getResponseArray + "[" + position + "].totDollarOfTrade");
+					Global.getPosition_execQty = jsonresponse.getDouble(getResponseArray + "[" + position + "].execQty");
+					Global.getPosition_realizedPnL = jsonresponse.getDouble(getResponseArray + "[" + position + "].realizedPnL");
+					Global.getPosition_symbolSfx = jsonresponse.getString(getResponseArray + "[" + position + "].symbolSfx");
+					Global.getPosition_originatingUserDesc = jsonresponse.getString(getResponseArray + "[" + position + "].originatingUserDesc");
+					Global.getPosition_account = jsonresponse.getString(getResponseArray + "[" + position + "].account");
+					Global.getLONGrealizedPnL=Global.getPosition_realizedPnL;
+					Global.getSHORTrealizedPnL=Global.getPosition_realizedPnL;
+					Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
+					Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
+					Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
+
+					LoggingManager.logger.info("API-Already Flat Position ID : [" + Global.getPosition_id + "]");
+					LoggingManager.logger.info("API-Already Flat Position positionString : [" + Global.getPosition_positionString + "]");
+					LoggingManager.logger.info("API-Already Flat Position realizedPnL : [" + Global.getPosition_realizedPnL + "]");
+					LoggingManager.logger.info("API-Already Flat Position account : [" + Global.getPosition_account + "]");
+					LoggingManager.logger.info("API-Already Flat Position execQty : [" + Global.getPosition_execQty + "]");
+					LoggingManager.logger.info("API-Already Flat Position symbol : [" + Global.getPosition_symbol + "]");
+					LoggingManager.logger.info("API-Already Flat Position completeDayBuyOrderQty : [" + Global.getPosition_completeDayBuyOrderQty + "]");
+					LoggingManager.logger.info("API-Already Flat Position completeDaySellLongOrderQty : [" + Global.getPosition_completeDaySellLongOrderQty + "]");
+					LoggingManager.logger.info("API-Already Flat Position completeDaySellShortOrderQty : [" + Global.getPosition_completeDaySellShortOrderQty + "]");
+					LoggingManager.logger.info("API-Already Flat Position totDollarOfTrade : [" + Global.getPosition_totDollarOfTrade + "]");
+					LoggingManager.logger.info("API-Already Flat Position avgPrice : [" + Global.getPosition_avgPrice + "]");
+					LoggingManager.logger.info("API-Already Flat Position symbolSfx : [" + Global.getPosition_symbolSfx + "]");
+					LoggingManager.logger.info("API-Already Flat Position originatingUserDesc : [" + Global.getPosition_originatingUserDesc + "]");
+
+					Assert.assertEquals(Global.getPosition_execQty, 0.0, "Validate_ExecQty_Flat_Response_[" + PositionID + "]");
+					Assert.assertEquals(Global.getPosition_positionString, Validate_Position_FLAT, "Validate_Position: [" + PositionID + "]");
+					break getresponseloop;
+				}
+				else
+				{
+					if (position == 0) { LoggingManager.logger.warn("API-Position not found with ID : [" + PositionID + "]"); }
+				}
+			}
+		}
+		catch (Exception e)
 		{
-			case 1:
-				LoggingManager.logger.info("API-Account_Type BoxvsShort Check : ["+Account_Type_BoxvsShort+"]");
-				getresponseloop:for(position = ResponseArraySize-1; position >=0; position--)
-				{
-					String response_ID = jsonresponse.getString(getResponseArray+"["+position+"].id");
-					String response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
-					String response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
-					String response_execQty = jsonresponse.getString(getResponseArray+"["+position+"].execQty");
-					String response_positionString = jsonresponse.getString(getResponseArray+"["+position+"].positionString");
-					String response_realizedPnL = jsonresponse.getString(getResponseArray+"["+position+"].realizedPnL");
-
-
-					if (response_ID.equalsIgnoreCase(Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT) && Double.parseDouble(response_execQty)!=0)
-
-					{
-						LoggingManager.logger.info("API-Before Flat Position response_ID : ["+response_ID+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_positionString : ["+response_positionString+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_realizedPnL : ["+response_realizedPnL+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_account : ["+response_account+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_execQty : ["+response_execQty+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_symbol : ["+response_symbol+"]");
-
-						if (Double.parseDouble(response_execQty)<0) {getexecQty=response_execQty.substring(1);}
-						else {getexecQty=response_execQty;}
-						//Global.getLONGrealizedPnL=Double.parseDouble(response_realizedPnL);
-
-						HashMap<String, Object> fill_order_body=new   HashMap<String, Object>();
-						fill_order_body.put("ordType",Order_OrdType);
-						fill_order_body.put("side", Flat_Order_Position_Side);
-						fill_order_body.put("timeInForce",Order_TimeInForce );
-						fill_order_body.put("destination",Order_Destination );
-						fill_order_body.put("account", response_account);
-						fill_order_body.put("orderQty", Double.parseDouble(getexecQty));
-						fill_order_body.put("symbol", response_symbol);
-						fill_order_body.put("Price", Double.parseDouble(Order_Price));
-						fill_order_body.put("StopPx", Double.parseDouble(Order_StopPx));
-
-						Response response=
-
-								given()
-										.header("Content-Type",Content_Type)
-										.header("Authorization", "Bearer " + Global.getAccToken)
-										.body(fill_order_body)
-
-										.when()
-										.post(Order_Creation_BasePath)
-
-										.then()
-										.extract()
-										.response();
-						Assert.assertEquals(response.getStatusCode(), Integer.parseInt(Order_Creation_StatusCode),"Verify_Order_Creation");
-						Response Validate_position_response=
-
-								given()
-										.header("Content-Type",Content_Type)
-										.header("Authorization", "Bearer " + Global.getAccToken)
-										.when()
-										.get(Subscribe_Order_Positions_BasePath)
-
-										.then()
-										.extract().response();
-
-						Assert.assertEquals(Validate_position_response.getStatusCode(),200,"Validate_response_LONG_BoxvsShort");
-						JsonPath JSON_position_response = new JsonPath(Validate_position_response.getBody().asString());
-						ResponseArraySize = JSON_position_response.getInt(getResponseArray+".size()");
-						for(position = ResponseArraySize-1; position >=0; position--)
-						{
-							Global.getPosition_id = JSON_position_response.getString(getResponseArray+"["+position+"].id");
-							if (Global.getPosition_id.equalsIgnoreCase(Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT))
-							{
-								Global.getPosition_completeDayBuyOrderQty = JSON_position_response.getDouble(getResponseArray+"["+position+"].completeDayBuyOrderQty");
-								Global.getPosition_completeDaySellLongOrderQty = JSON_position_response.getDouble(getResponseArray+"["+position+"].completeDaySellLongOrderQty");
-								Global.getPosition_completeDaySellShortOrderQty= JSON_position_response.getDouble(getResponseArray+"["+position+"].completeDaySellShortOrderQty");
-								Global.getPosition_symbol = JSON_position_response.getString(getResponseArray+"["+position+"].symbol");
-								Global.getPosition_positionString = JSON_position_response.getString(getResponseArray+"["+position+"].positionString");
-								Global.getPosition_avgPrice = JSON_position_response.getDouble(getResponseArray+"["+position+"].avgPrice");
-								Global.getPosition_totDollarOfTrade = JSON_position_response.getDouble(getResponseArray+"["+position+"].totDollarOfTrade");
-								Global.getPosition_execQty = JSON_position_response.getDouble(getResponseArray+"["+position+"].execQty");
-								Global.getPosition_realizedPnL = JSON_position_response.getDouble(getResponseArray+"["+position+"].realizedPnL");
-								Global.getPosition_symbolSfx = JSON_position_response.getString(getResponseArray+"["+position+"].symbolSfx");
-								Global.getPosition_originatingUserDesc = JSON_position_response.getString(getResponseArray+"["+position+"].originatingUserDesc");
-								Global.getPosition_account = JSON_position_response.getString(getResponseArray+"["+position+"].account");
-							
-							/*	
-								switch (Validate_Position_LONG_SHORT) 
-								{
-								
-								case "LONG":
-								Global.getLONGrealizedPnL=Global.getPosition_realizedPnL;
-								Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
-								Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-								break;
-								
-								case "SHORT":
-								Global.getSHORTrealizedPnL=Global.getPosition_realizedPnL;
-								Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
-								Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
-								Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-								break;
-								
-								default:
-									break;
-									
-								}
-								
-							*/
-								LoggingManager.logger.info("API-Flat Position ID : ["+Global.getPosition_id+"]");
-								LoggingManager.logger.info("API-Flat Position positionString : ["+Global.getPosition_positionString+"]");
-								LoggingManager.logger.info("API-Flat Position realizedPnL : ["+Global.getPosition_realizedPnL+"]");
-								LoggingManager.logger.info("API-Flat Position account : ["+Global.getPosition_account+"]");
-								LoggingManager.logger.info("API-Flat Position execQty : ["+Global.getPosition_execQty+"]");
-								LoggingManager.logger.info("API-Flat Position symbol : ["+Global.getPosition_symbol+"]");
-								LoggingManager.logger.info("API-Flat Position completeDayBuyOrderQty : ["+Global.getPosition_completeDayBuyOrderQty+"]");
-								LoggingManager.logger.info("API-Flat Position completeDaySellLongOrderQty : ["+Global.getPosition_completeDaySellLongOrderQty+"]");
-								LoggingManager.logger.info("API-Flat Position completeDaySellShortOrderQty : ["+Global.getPosition_completeDaySellShortOrderQty+"]");
-								LoggingManager.logger.info("API-Flat Position totDollarOfTrade : ["+Global.getPosition_totDollarOfTrade+"]");
-								LoggingManager.logger.info("API-Flat Position avgPrice : ["+Global.getPosition_avgPrice+"]");
-								LoggingManager.logger.info("API-Flat Position symbolSfx : ["+Global.getPosition_symbolSfx+"]");
-								LoggingManager.logger.info("API-Flat Position originatingUserDesc : ["+Global.getPosition_originatingUserDesc+"]");
-
-								Assert.assertEquals(Global.getPosition_execQty,0.0, "Validate_ExecQty_Flat_Response_["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT+"]");
-								Assert.assertEquals(Global.getPosition_positionString,Validate_Position_LONG_SHORT, "Validate_Position_LONG: ["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT+"]");
-
-
-								break;
-							}
-						}
-					}
-
-					else if (response_ID.equalsIgnoreCase(Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT) && Double.parseDouble(response_execQty)==0)
-					{
-						Global.getPosition_completeDayBuyOrderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].completeDayBuyOrderQty");
-						Global.getPosition_completeDaySellLongOrderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].completeDaySellLongOrderQty");
-						Global.getPosition_completeDaySellShortOrderQty= jsonresponse.getDouble(getResponseArray+"["+position+"].completeDaySellShortOrderQty");
-						Global.getPosition_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
-						Global.getPosition_positionString = jsonresponse.getString(getResponseArray+"["+position+"].positionString");
-						Global.getPosition_avgPrice = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPrice");
-						Global.getPosition_totDollarOfTrade = jsonresponse.getDouble(getResponseArray+"["+position+"].totDollarOfTrade");
-						Global.getPosition_execQty = jsonresponse.getDouble(getResponseArray+"["+position+"].execQty");
-						Global.getPosition_realizedPnL = jsonresponse.getDouble(getResponseArray+"["+position+"].realizedPnL");
-						Global.getPosition_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
-						Global.getPosition_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
-						Global.getPosition_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
-									
-							/*		Global.getLONGrealizedPnL=Global.getPosition_realizedPnL;
-									Global.getSHORTrealizedPnL=Global.getPosition_realizedPnL;
-									Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
-									Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-									Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
-							*/
-						LoggingManager.logger.info("API-Flat Position ID : ["+Global.getPosition_id+"]");
-						LoggingManager.logger.info("API-Flat Position positionString : ["+Global.getPosition_positionString+"]");
-						LoggingManager.logger.info("API-Flat Position realizedPnL : ["+Global.getPosition_realizedPnL+"]");
-						LoggingManager.logger.info("API-Flat Position account : ["+Global.getPosition_account+"]");
-						LoggingManager.logger.info("API-Flat Position execQty : ["+Global.getPosition_execQty+"]");
-						LoggingManager.logger.info("API-Flat Position symbol : ["+Global.getPosition_symbol+"]");
-						LoggingManager.logger.info("API-Flat Position completeDayBuyOrderQty : ["+Global.getPosition_completeDayBuyOrderQty+"]");
-						LoggingManager.logger.info("API-Flat Position completeDaySellLongOrderQty : ["+Global.getPosition_completeDaySellLongOrderQty+"]");
-						LoggingManager.logger.info("API-Flat Position completeDaySellShortOrderQty : ["+Global.getPosition_completeDaySellShortOrderQty+"]");
-						LoggingManager.logger.info("API-Flat Position totDollarOfTrade : ["+Global.getPosition_totDollarOfTrade+"]");
-						LoggingManager.logger.info("API-Flat Position avgPrice : ["+Global.getPosition_avgPrice+"]");
-						LoggingManager.logger.info("API-Flat Position symbolSfx : ["+Global.getPosition_symbolSfx+"]");
-						LoggingManager.logger.info("API-Flat Position originatingUserDesc : ["+Global.getPosition_originatingUserDesc+"]");
-
-						Assert.assertEquals(Global.getPosition_execQty,0.0, "Validate_ExecQty_Flat_Response_["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT+"]");
-						Assert.assertEquals(Global.getPosition_positionString,Validate_Position_LONG_SHORT, "Validate_Position_FLAT: ["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"-"+Validate_Position_LONG_SHORT+"]");
-
-					}
-				}
-				break;
-
-			case 0:
-				LoggingManager.logger.info("API-Account_Type BoxvsShort Check : ["+Account_Type_BoxvsShort+"]");
-				getresponseloop:for(position = ResponseArraySize-1; position >=0; position--)
-				{
-					String response_ID = jsonresponse.getString(getResponseArray+"["+position+"].id");
-					String response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
-					String response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
-					String response_execQty = jsonresponse.getString(getResponseArray+"["+position+"].execQty");
-					String response_positionString = jsonresponse.getString(getResponseArray+"["+position+"].positionString");
-					String response_realizedPnL = jsonresponse.getString(getResponseArray+"["+position+"].realizedPnL");
-
-					if (response_ID.equalsIgnoreCase(Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value)
-							&& response_positionString.equalsIgnoreCase(Validate_Position_LONG_SHORT))
-
-					{
-
-						LoggingManager.logger.info("API-Before Flat Position response_ID : ["+response_ID+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_positionString : ["+response_positionString+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_realizedPnL : ["+response_realizedPnL+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_account : ["+response_account+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_execQty : ["+response_execQty+"]");
-						LoggingManager.logger.info("API-Before Flat Position response_symbol : ["+response_symbol+"]");
-
-						//stopLoop+=1;
-						if (Double.parseDouble(response_execQty)<0) {getexecQty=response_execQty.substring(1);}
-						else {getexecQty=response_execQty;}
-
-						HashMap<String, Object> fill_order_body=new   HashMap<String, Object>();
-						fill_order_body.put("ordType",Order_OrdType);
-						fill_order_body.put("side", Flat_Order_Position_Side);
-						fill_order_body.put("timeInForce",Order_TimeInForce );
-						fill_order_body.put("destination",Order_Destination );
-						fill_order_body.put("account", response_account);
-						fill_order_body.put("orderQty", Double.parseDouble(response_execQty));
-						fill_order_body.put("symbol", response_symbol);
-						fill_order_body.put("Price", Double.parseDouble(Order_Price));
-						fill_order_body.put("StopPx", Double.parseDouble(Order_StopPx));
-
-						Response response=
-
-								given()
-										.header("Content-Type",Content_Type)
-										.header("Authorization", "Bearer " + Global.getAccToken)
-										.body(fill_order_body)
-
-										.when()
-										.post(Order_Creation_BasePath)
-
-										.then()
-										.extract().response();
-
-						Assert.assertEquals(response.getStatusCode(), Integer.parseInt(Order_Creation_StatusCode),"Verify_Order_Creation");
-						Response Validate_position_response=
-
-								given()
-										.header("Content-Type",Content_Type)
-										.header("Authorization", "Bearer " + Global.getAccToken)
-										.when()
-										.get(Subscribe_Order_Positions_BasePath)
-
-										.then()
-										.extract().response();
-
-						Assert.assertEquals(Validate_position_response.getStatusCode(),Integer.parseInt(Order_Creation_StatusCode),"Validate_response_LONG");
-						JsonPath JSON_position_response = new JsonPath(Validate_position_response.getBody().asString());
-						ResponseArraySize = JSON_position_response.getInt(getResponseArray+".size()");
-						for(position = ResponseArraySize-1; position >=0; position--)
-						{
-							Global.getPosition_id = JSON_position_response.getString(getResponseArray+"["+position+"].id");
-							if (Global.getPosition_id.equalsIgnoreCase(Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value))
-							{
-								Global.getPosition_completeDayBuyOrderQty = JSON_position_response.getDouble(getResponseArray+"["+position+"].completeDayBuyOrderQty");
-								Global.getPosition_completeDaySellLongOrderQty = JSON_position_response.getDouble(getResponseArray+"["+position+"].completeDaySellLongOrderQty");
-								Global.getPosition_completeDaySellShortOrderQty= JSON_position_response.getDouble(getResponseArray+"["+position+"].completeDaySellShortOrderQty");
-								Global.getPosition_symbol = JSON_position_response.getString(getResponseArray+"["+position+"].symbol");
-								Global.getPosition_positionString = JSON_position_response.getString(getResponseArray+"["+position+"].positionString");
-								Global.getPosition_avgPrice = JSON_position_response.getDouble(getResponseArray+"["+position+"].avgPrice");
-								Global.getPosition_totDollarOfTrade = JSON_position_response.getDouble(getResponseArray+"["+position+"].totDollarOfTrade");
-								Global.getPosition_execQty = JSON_position_response.getDouble(getResponseArray+"["+position+"].execQty");
-								Global.getPosition_realizedPnL = JSON_position_response.getDouble(getResponseArray+"["+position+"].realizedPnL");
-								Global.getPosition_symbolSfx = JSON_position_response.getString(getResponseArray+"["+position+"].symbolSfx");
-								Global.getPosition_originatingUserDesc = JSON_position_response.getString(getResponseArray+"["+position+"].originatingUserDesc");
-								Global.getPosition_account = JSON_position_response.getString(getResponseArray+"["+position+"].account");
-											
-									/*		switch (Validate_Position_LONG_SHORT) 
-											{
-											
-											case "LONG":
-											Global.getLONGrealizedPnL=Global.getPosition_realizedPnL;
-											Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
-											Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-											break;
-											
-											case "SHORT":
-											Global.getSHORTrealizedPnL=Global.getPosition_realizedPnL;
-											Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
-											Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
-											Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-											break;
-											
-											default:
-												break;
-												
-											}
-									*/
-								//Global.getLONGrealizedPnL=Global.getPosition_realizedPnL;
-								//Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
-								//Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-								//Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
-
-								LoggingManager.logger.info("API-Flat Position ID : ["+Global.getPosition_id+"]");
-								LoggingManager.logger.info("API-Flat Position positionString : ["+Global.getPosition_positionString+"]");
-								LoggingManager.logger.info("API-Flat Position realizedPnL : ["+Global.getPosition_realizedPnL+"]");
-								LoggingManager.logger.info("API-Flat Position account : ["+Global.getPosition_account+"]");
-								LoggingManager.logger.info("API-Flat Position execQty : ["+Global.getPosition_execQty+"]");
-								LoggingManager.logger.info("API-Flat Position symbol : ["+Global.getPosition_symbol+"]");
-								LoggingManager.logger.info("API-Flat Position completeDayBuyOrderQty : ["+Global.getPosition_completeDayBuyOrderQty+"]");
-								LoggingManager.logger.info("API-Flat Position completeDaySellLongOrderQty : ["+Global.getPosition_completeDaySellLongOrderQty+"]");
-								LoggingManager.logger.info("API-Flat Position completeDaySellShortOrderQty : ["+Global.getPosition_completeDaySellShortOrderQty+"]");
-								LoggingManager.logger.info("API-Flat Position totDollarOfTrade : ["+Global.getPosition_totDollarOfTrade+"]");
-								LoggingManager.logger.info("API-Flat Position avgPrice : ["+Global.getPosition_avgPrice+"]");
-								LoggingManager.logger.info("API-Flat Position symbolSfx : ["+Global.getPosition_symbolSfx+"]");
-								LoggingManager.logger.info("API-Flat Position originatingUserDesc : ["+Global.getPosition_originatingUserDesc+"]");
-
-								Assert.assertEquals(Global.getPosition_execQty,0.0, "Validate_ExecQty_Flat_Response_["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"]");
-								Assert.assertEquals(Global.getPosition_positionString,Validate_Position_LONG_SHORT, "Validate_Position_LONG: ["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"]");
-								break;
-							}
-
-						}
-					}
-					else if(response_ID.equalsIgnoreCase(Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value)
-							&& response_positionString.equalsIgnoreCase(Validate_Position_FLAT)
-							&& Double.parseDouble(response_execQty)==0)
-					{
-
-						Global.getPosition_completeDayBuyOrderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].completeDayBuyOrderQty");
-						Global.getPosition_completeDaySellLongOrderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].completeDaySellLongOrderQty");
-						Global.getPosition_completeDaySellShortOrderQty= jsonresponse.getDouble(getResponseArray+"["+position+"].completeDaySellShortOrderQty");
-						Global.getPosition_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
-						Global.getPosition_positionString = jsonresponse.getString(getResponseArray+"["+position+"].positionString");
-						Global.getPosition_avgPrice = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPrice");
-						Global.getPosition_totDollarOfTrade = jsonresponse.getDouble(getResponseArray+"["+position+"].totDollarOfTrade");
-						Global.getPosition_execQty = jsonresponse.getDouble(getResponseArray+"["+position+"].execQty");
-						Global.getPosition_realizedPnL = jsonresponse.getDouble(getResponseArray+"["+position+"].realizedPnL");
-						Global.getPosition_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
-						Global.getPosition_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
-						Global.getPosition_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
-										
-							/*
-										Global.getLONGrealizedPnL=Global.getPosition_realizedPnL;
-										Global.getSHORTrealizedPnL=Global.getPosition_realizedPnL;
-										Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
-										Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-										Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
-							*/
-
-						LoggingManager.logger.info("API-Flat Position ID : ["+Global.getPosition_id+"]");
-						LoggingManager.logger.info("API-Flat Position positionString : ["+Global.getPosition_positionString+"]");
-						LoggingManager.logger.info("API-Flat Position realizedPnL : ["+Global.getPosition_realizedPnL+"]");
-						LoggingManager.logger.info("API-Flat Position account : ["+Global.getPosition_account+"]");
-						LoggingManager.logger.info("API-Flat Position execQty : ["+Global.getPosition_execQty+"]");
-						LoggingManager.logger.info("API-Flat Position symbol : ["+Global.getPosition_symbol+"]");
-						LoggingManager.logger.info("API-Flat Position completeDayBuyOrderQty : ["+Global.getPosition_completeDayBuyOrderQty+"]");
-						LoggingManager.logger.info("API-Flat Position completeDaySellLongOrderQty : ["+Global.getPosition_completeDaySellLongOrderQty+"]");
-						LoggingManager.logger.info("API-Flat Position completeDaySellShortOrderQty : ["+Global.getPosition_completeDaySellShortOrderQty+"]");
-						LoggingManager.logger.info("API-Flat Position totDollarOfTrade : ["+Global.getPosition_totDollarOfTrade+"]");
-						LoggingManager.logger.info("API-Flat Position avgPrice : ["+Global.getPosition_avgPrice+"]");
-						LoggingManager.logger.info("API-Flat Position symbolSfx : ["+Global.getPosition_symbolSfx+"]");
-						LoggingManager.logger.info("API-Flat Position originatingUserDesc : ["+Global.getPosition_originatingUserDesc+"]");
-
-						Assert.assertEquals(Global.getPosition_execQty,0.0, "Validate_ExecQty_Flat_Response_["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"]");
-						Assert.assertEquals(Global.getPosition_positionString,Validate_Position_FLAT, "Validate_Position_FLAT: ["+Validate_BoothID+"-"+Validate_Symbol_Value+"-"+Validate_Account_Value+"]");
-
-					}
-					else {}
-				}
-				break;
+			LoggingManager.logger.error(e);
 		}
 	}
-	catch (Exception e)
-	{
-		LoggingManager.logger.error(e);
-	}
-}
 
 
 public static void Flat_Option_Positions(String endpoint_version,
 										String Subscribe_Order_Positions_BasePath,
 										String Content_Type,
 										String Subscribe_Order_Positions_StatusCode,
-										Response getresponse,
-										String Validate_BoothID,
-										String Validate_Symbol_Value,
-										String Validate_Account_Value,
-										String Validate_PutOrCall_Value,
-										String Validate_StrikePrice_Value,
-										String Validate_Mat_ExpDate,
-										String Validate_Position_LONG_SHORT,
+										String PositionID,
 										String Validate_Position_FLAT,
 										String Order_Creation_BasePath,
-										String Order_Side,
 										String Order_OrdType,
 										String Order_TimeInForce,
 										String Order_Destination,
@@ -1764,12 +1569,31 @@ public static void Flat_Option_Positions(String endpoint_version,
 		try
 		{
 			Global.getorderType="Option";
-			String getResponseArray="",getexecQty="";
+			Global.getOptionAvgPrice=0.0;
+			Global.getOptionSHORTrealizedPnL=0.0;
+			Global.getOptionLONGrealizedPnL=0.0;
+			Global.getOptioncompleteDayBuyOrderQty=0.0;
+			Global.getOptioncompleteDaySellLongOrderQty=0.0;
+			Global.getOptioncompleteDayBuyOrderQty=0.0;
+			Global.getOptioncompleteDaySellShortOrderQty=0.0;
+			String getResponseArray="",getexecQty="",Flat_Order_Position_Side="";
 			int ResponseArraySize=0,position=0,innerposition=0;
-			String position_ID=Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value;
 			getResponseArray=apiRespVersion(endpoint_version);
-			JsonPath jsonresponse = new JsonPath(getresponse.getBody().asString());
-			ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
+			Response get_position_response =
+											given()
+											.header("Content-Type", Content_Type)
+											.header("Authorization", "Bearer " + Global.getAccToken)
+											.when()
+											.get(Subscribe_Order_Positions_BasePath)
+
+											.then()
+											.extract().response();
+
+			LoggingManager.logger.info("API-Subscribe_Order_Positions_BasePath : [" + Subscribe_Order_Positions_BasePath + "]");
+			LoggingManager.logger.info("API-Subscribe_Order_Positions_StatusCode : [" + get_position_response.statusCode() + "]");
+			Assert.assertEquals(get_position_response.getStatusCode(), Integer.parseInt(Subscribe_Order_Positions_StatusCode), "Verify_OrderSymbol_Positions");
+			JsonPath jsonresponse = new JsonPath(get_position_response.getBody().asString());
+			ResponseArraySize = jsonresponse.getInt(getResponseArray + ".size()");
 			outerloop: for(position = ResponseArraySize-1; position >=0; position--)
 			{
 				String response_ID = jsonresponse.getString(getResponseArray+"["+position+"].id");
@@ -1782,7 +1606,7 @@ public static void Flat_Option_Positions(String endpoint_version,
 				//LoggingManager.logger.info("API-Fetched Option Validate_Position_LONG_SHORT : ["+response_positionString+"] - ["+Validate_Position_LONG_SHORT+"]");
 				//Assert.assertEquals(response_ID,position_ID,"Validate_response_ID");
 				//Assert.assertEquals(response_positionString,Validate_Position_LONG_SHORT,"Validate_Position_LONG_SHORT");
-				if (response_ID.equalsIgnoreCase(position_ID) && response_positionString.equalsIgnoreCase(Validate_Position_LONG_SHORT))
+				if (response_ID.equalsIgnoreCase(PositionID) && Double.parseDouble(response_execQty)!=0)
 				{
 					LoggingManager.logger.info("API-Before Flat Option Position response_ID : ["+response_ID+"]");
 					LoggingManager.logger.info("API-Before Flat Option Position response_positionString : ["+response_positionString+"]");
@@ -1790,11 +1614,19 @@ public static void Flat_Option_Positions(String endpoint_version,
 					LoggingManager.logger.info("API-Before Flat Option Position response_account : ["+response_account+"]");
 					LoggingManager.logger.info("API-Before Flat Option Position response_execQty : ["+response_execQty+"]");
 					LoggingManager.logger.info("API-Before Flat Option Position response_symbol : ["+response_symbol+"]");
-					if (Double.parseDouble(response_execQty)<0) {getexecQty=response_execQty.substring(1);}
-					else {getexecQty=response_execQty;}
+					if (Double.parseDouble(response_execQty) < 0)
+					{
+						getexecQty = response_execQty.substring(1);
+						Flat_Order_Position_Side="1";
+					}
+					else
+					{
+						getexecQty = response_execQty;
+						Flat_Order_Position_Side="2";
+					}
 					HashMap<String, Object> fill_optionOrder_body=new   HashMap<String, Object>();
 					fill_optionOrder_body.put("OrdType",Order_OrdType);
-					fill_optionOrder_body.put("Side", Order_Side);
+					fill_optionOrder_body.put("Side", Flat_Order_Position_Side);
 					fill_optionOrder_body.put("TimeInForce",Order_TimeInForce );
 					fill_optionOrder_body.put("Destination",Order_Destination );
 					fill_optionOrder_body.put("Account", response_account);
@@ -1840,7 +1672,7 @@ public static void Flat_Option_Positions(String endpoint_version,
 					{
 						Global.getOptionPosition_id = JSON_position_response.getString(getResponseArray+"["+innerposition+"].id");
 						Global.getOptionPosition_positionString = JSON_position_response.getString(getResponseArray+"["+innerposition+"].positionString");
-						if (Global.getOptionPosition_id.equalsIgnoreCase(position_ID) && Global.getOptionPosition_positionString.equalsIgnoreCase(Validate_Position_FLAT))
+						if (Global.getOptionPosition_id.equalsIgnoreCase(PositionID) && Global.getOptionPosition_positionString.equalsIgnoreCase(Validate_Position_FLAT))
 						{
 							Global.getOptionPosition_completeDayBuyOrderQty = JSON_position_response.getDouble(getResponseArray+"["+innerposition+"].completeDayBuyOrderQty");
 							Global.getOptionPosition_completeDaySellLongOrderQty = JSON_position_response.getDouble(getResponseArray+"["+innerposition+"].completeDaySellLongOrderQty");
@@ -1853,14 +1685,11 @@ public static void Flat_Option_Positions(String endpoint_version,
 							Global.getOptionPosition_symbolSfx = JSON_position_response.getString(getResponseArray+"["+innerposition+"].symbolSfx");
 							Global.getOptionPosition_originatingUserDesc = JSON_position_response.getString(getResponseArray+"["+innerposition+"].originatingUserDesc");
 							Global.getOptionPosition_account = JSON_position_response.getString(getResponseArray+"["+innerposition+"].account");
-							
-					/*		
 							Global.getOptionLONGrealizedPnL=Global.getOptionPosition_realizedPnL;
 							Global.getOptionSHORTrealizedPnL=Global.getOptionPosition_realizedPnL;
 							Global.getOptioncompleteDayBuyOrderQty=Global.getOptionPosition_completeDayBuyOrderQty;
 							Global.getOptioncompleteDaySellShortOrderQty=Global.getOptionPosition_completeDaySellShortOrderQty;
 							Global.getOptioncompleteDaySellLongOrderQty=Global.getOptionPosition_completeDaySellLongOrderQty;
-					*/
 
 							LoggingManager.logger.info("API-After Flat Position ID : ["+Global.getOptionPosition_id+"]");
 							LoggingManager.logger.info("API-After Flat Position positionString : ["+Global.getOptionPosition_positionString+"]");
@@ -1875,25 +1704,29 @@ public static void Flat_Option_Positions(String endpoint_version,
 							LoggingManager.logger.info("API-After Flat Position avgPrice : ["+Global.getOptionPosition_avgPrice+"]");
 							LoggingManager.logger.info("API-After Flat Position symbolSfx : ["+Global.getOptionPosition_symbolSfx+"]");
 							LoggingManager.logger.info("API-After Flat Position originatingUserDesc : ["+Global.getOptionPosition_originatingUserDesc+"]");
-							Assert.assertEquals(Global.getOptionPosition_execQty,0.0, "Validate_ExecQty_Flat_Response_["+position_ID+"]");
-							Assert.assertEquals(Global.getOptionPosition_positionString,Validate_Position_FLAT, "Validate_Position: ["+position_ID+"]");
+							Assert.assertEquals(Global.getOptionPosition_execQty,0.0, "Validate_ExecQty_Flat_Response_["+PositionID+"]");
+							Assert.assertEquals(Global.getOptionPosition_positionString,Validate_Position_FLAT, "Validate_Position: ["+PositionID+"]");
 							break outerloop;
 						}
-						else{
+						else
+						{
 							if (innerposition==0 && Global.getOptionPosition_positionString!=Validate_Position_FLAT)
-							{LoggingManager.logger.warn("API-Position ["+position_ID+"] : Found ["+Global.getOptionPosition_positionString+"]- Expected ["+Validate_Position_FLAT+"]");
-								Assert.assertEquals(Global.getOptionPosition_positionString,Validate_Position_FLAT, "Validate_Position: ["+position_ID+"]");
-								break outerloop;}
-							else {continue innerloop;}
+							{
+								LoggingManager.logger.warn("API-Position ["+PositionID+"] : Found ["+Global.getOptionPosition_positionString+"]- Expected ["+Validate_Position_FLAT+"]");
+								Assert.assertEquals(Global.getOptionPosition_positionString,Validate_Position_FLAT, "Validate_Position: ["+PositionID+"]");
+								break outerloop;
+							}
+							else
+							{
+								continue innerloop;
+							}
 						}
 					}
 				}
 
-				else if(response_ID.equalsIgnoreCase(position_ID)
-						&& response_positionString.equalsIgnoreCase(Validate_Position_FLAT)
-						&& Double.parseDouble(response_execQty)==0)
+				else if(response_ID.equalsIgnoreCase(PositionID) && response_positionString.equalsIgnoreCase(Validate_Position_FLAT) && Double.parseDouble(response_execQty)==0)
 				{
-
+					Global.getOptionPosition_id = jsonresponse.getString(getResponseArray+"["+position+"].id");
 					Global.getOptionPosition_completeDayBuyOrderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].completeDayBuyOrderQty");
 					Global.getOptionPosition_completeDaySellLongOrderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].completeDaySellLongOrderQty");
 					Global.getOptionPosition_completeDaySellShortOrderQty= jsonresponse.getDouble(getResponseArray+"["+position+"].completeDaySellShortOrderQty");
@@ -1906,13 +1739,11 @@ public static void Flat_Option_Positions(String endpoint_version,
 					Global.getOptionPosition_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
 					Global.getOptionPosition_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
 					Global.getOptionPosition_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
-				/*		
-						Global.getOptionLONGrealizedPnL=Global.getOptionPosition_realizedPnL;
-						Global.getOptionSHORTrealizedPnL=Global.getOptionPosition_realizedPnL;
-						Global.getOptioncompleteDayBuyOrderQty=Global.getOptionPosition_completeDayBuyOrderQty;
-						Global.getOptioncompleteDaySellShortOrderQty=Global.getOptionPosition_completeDaySellShortOrderQty;
-						Global.getOptioncompleteDaySellLongOrderQty=Global.getOptionPosition_completeDaySellLongOrderQty;
-				*/
+					Global.getOptionLONGrealizedPnL=Global.getOptionPosition_realizedPnL;
+					Global.getOptionSHORTrealizedPnL=Global.getOptionPosition_realizedPnL;
+					Global.getOptioncompleteDayBuyOrderQty=Global.getOptionPosition_completeDayBuyOrderQty;
+					Global.getOptioncompleteDaySellShortOrderQty=Global.getOptionPosition_completeDaySellShortOrderQty;
+					Global.getOptioncompleteDaySellLongOrderQty=Global.getOptionPosition_completeDaySellLongOrderQty;
 
 					LoggingManager.logger.info("API-Already Flat Position ID : ["+Global.getOptionPosition_id+"]");
 					LoggingManager.logger.info("API-Already Flat Position positionString : ["+Global.getOptionPosition_positionString+"]");
@@ -1927,13 +1758,15 @@ public static void Flat_Option_Positions(String endpoint_version,
 					LoggingManager.logger.info("API-Already Flat Position avgPrice : ["+Global.getOptionPosition_avgPrice+"]");
 					LoggingManager.logger.info("API-Already Flat Position symbolSfx : ["+Global.getOptionPosition_symbolSfx+"]");
 					LoggingManager.logger.info("API-Already Flat Position originatingUserDesc : ["+Global.getOptionPosition_originatingUserDesc+"]");
-					Assert.assertEquals(Global.getOptionPosition_execQty,0.0, "Validate_ExecQty_Flat_Response ["+position_ID+"]");
-					Assert.assertEquals(Global.getOptionPosition_positionString,Validate_Position_FLAT, "Validate_Position_FLAT: ["+position_ID+"]");
+					Assert.assertEquals(Global.getOptionPosition_execQty,0.0, "Validate_ExecQty_Flat_Response ["+PositionID+"]");
+					Assert.assertEquals(Global.getOptionPosition_positionString,Validate_Position_FLAT, "Validate_Position_FLAT: ["+PositionID+"]");
 					break outerloop;
 				}
 				else
-				{		if (position==0) {LoggingManager.logger.info("API-Position Data Not Exist Against : ["+position_ID+"]"); }
-				else {continue outerloop;}
+				{		if (position==0)
+						{LoggingManager.logger.warn("API-Position Data Not Exist Against : ["+PositionID+"]"); }
+						else
+						{continue outerloop;}
 				}
 			}
 		}
@@ -2003,14 +1836,14 @@ public static void Validate_Positions(Response getresponse,String endpoint_versi
 				Assert.assertEquals(String.format("%.4f",Global.getPosition_totDollarOfTrade),String.format("%.4f",Global.totalTrade),"Validate_totDollarOfTrade");
 
 				if (Validate_Position_positionString_Value.equalsIgnoreCase("SHORT"))
-				{LoggingManager.logger.info("API-Position : Found SHORT ExecQty ["+Global.getPosition_execQty+"] - Expected SHORT ExecQty  ["+(Global.getPosition_completeDayBuyOrderQty-(Global.getPosition_completeDaySellShortOrderQty+Global.getPosition_completeDaySellLongOrderQty))+"]");
+					{LoggingManager.logger.info("API-Position : Found SHORT ExecQty ["+Global.getPosition_execQty+"] - Expected SHORT ExecQty  ["+(Global.getPosition_completeDayBuyOrderQty-(Global.getPosition_completeDaySellShortOrderQty+Global.getPosition_completeDaySellLongOrderQty))+"]");
 					Assert.assertEquals(decimalFormat.format(Global.getPosition_execQty),decimalFormat.format(Global.getPosition_completeDayBuyOrderQty-(Global.getPosition_completeDaySellShortOrderQty+Global.getPosition_completeDaySellLongOrderQty)),"Validate_SHORT_execQty");}
 				else if (Validate_Position_positionString_Value.equalsIgnoreCase("FLAT"))
-				{LoggingManager.logger.info("API-Position : Found FLAT ExecQty ["+Global.getPosition_execQty+"] - Expected FLAT ExecQty  ["+(0.0)+"]");
+					{LoggingManager.logger.info("API-Position : Found FLAT ExecQty ["+Global.getPosition_execQty+"] - Expected FLAT ExecQty  ["+(0.0)+"]");
 					Assert.assertEquals(decimalFormat.format(Global.getPosition_execQty),decimalFormat.format(0.0),"Validate_FLAT_execQty");}
 				else
-				{LoggingManager.logger.info("API-Position : Found LONG ExecQty ["+Global.getPosition_execQty+"] - Expected LONG ExecQty  ["+(Global.getPosition_completeDayBuyOrderQty-Global.getPosition_completeDaySellLongOrderQty)+"]");
-					Assert.assertEquals(decimalFormat.format(Global.getPosition_execQty),decimalFormat.format(Global.getPosition_completeDayBuyOrderQty-Global.getPosition_completeDaySellLongOrderQty),"Validate_LONG_execQty");}
+					{LoggingManager.logger.info("API-Position : Found LONG ExecQty ["+Global.getPosition_execQty+"] - Expected LONG ExecQty  ["+(Global.getPosition_completeDayBuyOrderQty-(Global.getPosition_completeDaySellShortOrderQty+Global.getPosition_completeDaySellLongOrderQty))+"]");
+					Assert.assertEquals(decimalFormat.format(Global.getPosition_execQty),decimalFormat.format(Global.getPosition_completeDayBuyOrderQty-(Global.getPosition_completeDaySellShortOrderQty+Global.getPosition_completeDaySellLongOrderQty)),"Validate_LONG_execQty");}
 
 				Assert.assertEquals(NVL(Global.getPosition_symbolSfx,"null"),Validate_Position_symbolSfx_Value,"Validate_Position_symbolSfx_Value");
 				Assert.assertEquals(NVL(Global.getPosition_originatingUserDesc,"null"),Validate_Position_originatingUserDesc_Value,"Validate_Position_originatingUserDesc_Value");
@@ -2749,7 +2582,6 @@ public static void Validate_Executions(	Response getresponse,
 							if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
 							Global.getOptionAvgPrice=Global.getAvgPrice;
 							if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
-
 						}
 						else
 						{
@@ -2758,9 +2590,7 @@ public static void Validate_Executions(	Response getresponse,
 							Global.getOptionAvgPrice=Global.getAvgPrice;
 							if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
 						}
-
 					}
-
 				}
 
 				else
@@ -2931,9 +2761,11 @@ public static void Validate_Executions(	Response getresponse,
 	{
 		LoggingManager.logger.error(e);
 	}
+  }
 }
 
-		
+
+/*
 public static void GetOrder_PositionsData(  String endpoint_version,
 											String Subscribe_Order_Positions_BasePath,
 											String Content_Type,
@@ -2990,7 +2822,7 @@ public static void GetOrder_PositionsData(  String endpoint_version,
 					Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
 					Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
 					Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-				/*	
+
 					LoggingManager.logger.info("API-Flat Position ID : ["+Global.getPosition_id+"]");
 					LoggingManager.logger.info("API-Flat Position positionString : ["+Global.getPosition_positionString+"]");
 					LoggingManager.logger.info("API-Flat Position realizedPnL : ["+Global.getPosition_realizedPnL+"]");
@@ -3007,7 +2839,7 @@ public static void GetOrder_PositionsData(  String endpoint_version,
 					LoggingManager.logger.info("API-Flat Position avgPrice : ["+Global.getPosition_avgPrice+"]");
 					LoggingManager.logger.info("API-Flat Position symbolSfx : ["+Global.getPosition_symbolSfx+"]");
 					LoggingManager.logger.info("API-Flat Position originatingUserDesc : ["+Global.getPosition_originatingUserDesc+"]");
-				*/
+
 
 				}
 				else
@@ -3036,7 +2868,7 @@ public static void GetOrder_PositionsData(  String endpoint_version,
 					Global.getcompleteDayBuyOrderQty=Global.getPosition_completeDayBuyOrderQty;
 					Global.getcompleteDaySellShortOrderQty=Global.getPosition_completeDaySellShortOrderQty;
 					Global.getcompleteDaySellLongOrderQty=Global.getPosition_completeDaySellLongOrderQty;
-				/*	
+
 					LoggingManager.logger.info("API-Flat Position ID : ["+Global.getPosition_id+"]");
 					LoggingManager.logger.info("API-Flat Position positionString : ["+Global.getPosition_positionString+"]");
 					LoggingManager.logger.info("API-Flat Position realizedPnL : ["+Global.getPosition_realizedPnL+"]");
@@ -3053,7 +2885,7 @@ public static void GetOrder_PositionsData(  String endpoint_version,
 					LoggingManager.logger.info("API-Flat Position avgPrice : ["+Global.getPosition_avgPrice+"]");
 					LoggingManager.logger.info("API-Flat Position symbolSfx : ["+Global.getPosition_symbolSfx+"]");
 					LoggingManager.logger.info("API-Flat Position originatingUserDesc : ["+Global.getPosition_originatingUserDesc+"]");
-				*/
+
 
 				}
 				else
@@ -3072,7 +2904,8 @@ public static void GetOrder_PositionsData(  String endpoint_version,
 		LoggingManager.logger.error(e);
 	}
 }
-	
+
+
 
 public static void GetOption_PositionsData( String endpoint_version,
 											String Subscribe_Option_Positions_BasePath,
@@ -3140,10 +2973,8 @@ public static void GetOption_PositionsData( String endpoint_version,
 		LoggingManager.logger.error(e);
 	}
 }
-
-	
-	/*
-	
+*/
+/*
 	public Boolean DeleteOrderValidate( String BaseURL,
 										String basePath,
 										String AccToken,
@@ -3195,9 +3026,7 @@ public static void GetOption_PositionsData( String endpoint_version,
 	}
 	
 */
-	
-	
-	/*
+/*
 	
 	public String GetqOrderID(String BaseURL,
 							 String basePath,
@@ -3246,5 +3075,5 @@ public static void GetOption_PositionsData( String endpoint_version,
 	}
 	
 	*/
-}
+
 

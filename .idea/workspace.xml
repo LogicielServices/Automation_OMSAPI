@@ -5,34 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CoveredUncovered.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CustomerFirm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OptionOrderType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OptionTIF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_PutCall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Latest_Destination.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Flat_Positions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/APIlogs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/APIlogs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/Data/Static_Data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/Data/Static_Data.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_BlotterPackage_Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_BlotterPackage_Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Blotter_Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Blotter_Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CommType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_CommType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination_TraderOnly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Destination_TraderOnly.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_ETBHTB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_ETBHTB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_LocateTIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_LocateTIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfCateg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfCateg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_MktTopPerfExchange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Option_Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Option_Destination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OrdType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_OrdType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Side.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Side.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_TIF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_TIF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Filled_Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Filled_Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Flat_Symbol_Positions.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Flat_Symbol_Positions.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Option_Positions_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Option_Positions_Subscription.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Order_Positions_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Order_Positions_Subscription.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Flat_Positions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Flat_Positions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_Subscribe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Combine.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Position.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Position.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Position.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Position.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +44,7 @@
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/APIHelper/LoggingManager.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/test/resources/TestRunner/Combine.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/resources/TestRunner/Flat_Positions.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/resources/TestRunner/Account_Balance.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/AuditTrail/Subscribe_OrderID.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -87,16 +75,16 @@
       <recent name="F:\IntelliJ\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Static_Data" />
       <recent name="Static_Data.Data" />
+      <recent name="Static_Data" />
       <recent name="Excel_Utilities" />
       <recent name="XLDataProvider" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml">
-    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_MarketData.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/OptionOrders_Position.xml">
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Combine.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Combine.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -104,9 +92,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Flat_Positions.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Flat_Positions.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -114,19 +102,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="F:/IntelliJ/src/test/resources/TestRunner/Equity_Executions.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/OptionOrders_Position.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Executions.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="F:/IntelliJ/src/test/resources/TestRunner/Equity_Filled_Orders.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Filled_Orders.xml" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Position.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -144,13 +122,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Filled_Orders.Verify_BUY_Equity_Order_Filled_Creation" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="OMSAPI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Orders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Orders" />
+      <option name="MAIN_CLASS_NAME" value="Orders.Filled_Orders" />
+      <option name="METHOD_NAME" value="Verify_BUY_Equity_Order_Filled_Creation" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml" />
-        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_MarketData.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/OptionOrders_Position.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Position.xml" />
-        <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Filled_Orders.xml" />
-        <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Executions.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Flat_Positions.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Combine.xml" />
+        <item itemvalue="TestNG.Filled_Orders.Verify_BUY_Equity_Order_Filled_Creation" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +161,7 @@
       <workItem from="1704800733041" duration="8291000" />
       <workItem from="1704809944132" duration="3408000" />
       <workItem from="1705650275821" duration="41470000" />
-      <workItem from="1706688931021" duration="13496000" />
+      <workItem from="1706688931021" duration="80182000" />
     </task>
     <servers />
   </component>
@@ -228,5 +224,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OMSAPI$Filled_Orders_Verify_BUY_Equity_Order_Filled_Creation.ic" NAME="Filled_Orders.Verify_BUY_Equity_Order_Filled_Creation Coverage Results" MODIFIED="1706885235027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Orders.*</FILTER>
+    </SUITE>
   </component>
 </project>

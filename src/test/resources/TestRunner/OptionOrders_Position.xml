@@ -7,12 +7,7 @@
 		<test thread-count="1" name="Option Buy Order Position Subscriptions">
 		    <classes>
 				<class name="IdentityServer_API_User.Login"/>
-			    <class name="Subscriptions.Flat_Positions">
-				    <methods>
-				         <include name="Verify_Flat_Option_Positions"/>
-				    </methods>
-	      	    </class>
-				<class name="Subscriptions.Option_Positions_Subscribe">
+			   	<class name="Subscriptions.Option_Positions_Subscribe">
 				    <methods>
 				         <include name="Verify_Subscribe_BUY_Option_Positions"/>
 				    </methods>
@@ -20,48 +15,29 @@
 	      	</classes>
 		</test> <!-- Test: Verify_Subscribe_BUY_Order_Positions -->
 
-	<test thread-count="1" name="Option Sell Position Subscriptions">
-		    <classes>
+		<test thread-count="1" name="Option Sell Position Subscriptions">
+			<classes>
 				<class name="IdentityServer_API_User.Login"/>
-			    <class name="Subscriptions.Flat_Positions">
-				    <methods>
-				         <include name="Verify_Flat_Option_Positions"/>
-				    </methods>
-	      	    </class>
 				<class name="Subscriptions.Option_Positions_Subscribe">
-				    <methods>
-				         <include name="Verify_SubscribeSELL_Option_Positions"/>
-				    </methods>
-	      	  </class>
-	      	</classes>
+					<methods>
+						<include name="Verify_SubscribeSELL_Option_Positions"/>
+					</methods>
+				</class>
+			</classes>
 		</test> <!-- Test: Verify_Subscribe_SELL_Order_Positions -->
 
 
-		 <test thread-count="1" name="Option ShortSell Position Subscriptions">
-	    <classes>
-			<class name="IdentityServer_API_User.Login"/>
-		    <class name="Subscriptions.Flat_Positions">
-			    <methods>
-			         <include name="Verify_Flat_Option_Positions"/>
-			    </methods>
-      	    </class>
-			<class name="Subscriptions.Option_Positions_Subscribe">
-			    <methods>
-			         <include name="Verify_Subscribe_SHORTOption_Position"/>
-			    </methods>
-      	  </class>
-      	</classes>
-	  </test> <!-- Test: Verify_SubscribeSHORTOption_Position -->
+		<test thread-count="1" name="Option ShortSell Position Subscriptions">
+			<classes>
+				<class name="IdentityServer_API_User.Login"/>
+				<class name="Subscriptions.Option_Positions_Subscribe">
+					<methods>
+						<include name="Verify_Subscribe_SHORTOption_Position"/>
+					</methods>
+				</class>
+			</classes>
+		</test> <!-- Test: Verify_SubscribeSHORTOption_Position -->
 
-	  <test thread-count="1" name="Option Position UnSubscribe">
-	    <classes>
-			<class name="IdentityServer_API_User.Login"/>
-			<class name="Subscriptions.Option_Positions_UnSubscribe">
-			    <methods>
-			         <include name="Verify_UnSubscribe_Option_Positions"/>
-			    </methods>
-      	  </class>
-      	</classes>
-	  </test> <!-- Test: Verify_UnSubscribe_Order_Positions -->
+
 		 	  
 </suite> <!-- Suite -->

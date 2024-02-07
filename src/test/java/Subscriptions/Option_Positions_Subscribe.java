@@ -45,19 +45,28 @@ public class Option_Positions_Subscribe {
 		
 	}
 	 
-	 @Test (dataProvider="SubscribeBUYOption_Positions", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeBUYOption_Positions"}, dependsOnGroups={"Flat_Option_Position"})//UserLoginAuthentications
+	 @Test (dataProvider="SubscribeBUYOption_Positions", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeBUYOption_Positions"}, dependsOnGroups={"UserLoginAuthentications"})//UserLoginAuthentications
 	 public void Verify_Subscribe_BUY_Option_Positions(	String Option_Position_TestCases,
 			 											String Endpoint_Version,
 														String Subscribe_Option_Positions_BasePath,
 														String Content_Type,
 														String Subscribe_Option_Positions_StatusCode,
-														String Validate_BoothID,
-														String Validate_Symbol_Value,
-														String Validate_Account_Value,
-														String Validate_PutOrCall_Value,
-														String Validate_StrikePrice_Value,
-														String Validate_Mat_ExpDate,
-														String OptionOrder_Creation_BasePath,
+														String Position_ID,
+													    String Validate_Position_FLAT,
+													    String Order_Creation_BasePath,
+													    String Order_OrdType,
+													    String Order_TimeInForce,
+													    String Order_Destination,
+													    String Order_Price,
+													    String Order_StopPx,
+													    String Order_PutOrCall,
+													    String Order_StrikePrice,
+													    String Order_CoveredOrUncovered,
+													    String Order_CustomerOrFirm,
+													    String Order_Cmta,
+													    String Order_OpenClose,
+													    String Order_ExpiryDate,
+														String Order_Creation_StatusCode,
 														String OptionOrder_Creation_Body,
 														String OptionOrder_Creation_StatusCode,
 														String OptionOrder_Creation_Response,
@@ -108,6 +117,7 @@ public class Option_Positions_Subscribe {
 														String Validate_Position_symbolWithoutSfx_Value,
 														String Validate_Position_optionSymbol_Value,
 														String Validate_Position_optionsFields_Value,
+														String Validate_Position_OptionDesc,
 														String Validate_Position_maturityDay_Value,
 														String Validate_Position_maturityMonthYear_Value,
 														String Validate_Position_maturityMonthYearDesc_Value,
@@ -139,17 +149,31 @@ public class Option_Positions_Subscribe {
 			 DecimalFormat decimalFormat = new DecimalFormat("0.0000");
 			 decimalFormat.getRoundingMode();
 			 RestAssured.baseURI=Global.BaseURL;
-			 String position_ID=Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value;
-			 String position_OptionDesc=Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value;
+			 //String position_ID=Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value;
+			 //String position_OptionDesc=Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value;
+			 APIHelperClass.Flat_Option_Positions(	Endpoint_Version,
+					 								Subscribe_Option_Positions_BasePath,
+													Content_Type,
+													Subscribe_Option_Positions_StatusCode,
+					 								Position_ID,
+													Validate_Position_FLAT,
+													Order_Creation_BasePath,
+													Order_OrdType,
+													Order_TimeInForce,
+													Order_Destination,
+													Order_Price,
+													Order_StopPx,
+													Order_PutOrCall,
+													Order_StrikePrice,
+													Order_CoveredOrUncovered,
+													Order_CustomerOrFirm,
+													Order_Cmta,
+													Order_OpenClose,
+													Order_ExpiryDate,
+													Order_Creation_StatusCode );
 
-			 APIHelperClass.GetOption_PositionsData( Endpoint_Version,
-													 Subscribe_Option_Positions_BasePath,
-													 Content_Type,
-													 Subscribe_Option_Positions_StatusCode,
-													 position_ID);
-
-			 LoggingManager.logger.info("API-Get Option LONGrealizedPnL After Flat : ["+ Global.getOptionLONGrealizedPnL+"]");
-			 LoggingManager.logger.info("API-Get Option SHORTrealizedPnL After Flat : ["+ Global.getOptionSHORTrealizedPnL+"]");
+			 LoggingManager.logger.info("API-Get Option realizedPnL After Flat : ["+ Global.getOptionLONGrealizedPnL+"]");
+			 //LoggingManager.logger.info("API-Get Option SHORTrealizedPnL After Flat : ["+ Global.getOptionSHORTrealizedPnL+"]");
 			 //=======================================================Order Creation================================================================
 
 			 Response response=
@@ -160,13 +184,13 @@ public class Option_Positions_Subscribe {
 							 .body(OptionOrder_Creation_Body)
 
 							 .when()
-							 .post(OptionOrder_Creation_BasePath)
+							 .post(Order_Creation_BasePath)
 
 							 .then()
 							 .extract()
 							 .response();
 
-			 LoggingManager.logger.info("API-OptionOrder_Filled_BUY_BasePath : ["+OptionOrder_Creation_BasePath+"]");
+			 LoggingManager.logger.info("API-OptionOrder_Filled_BUY_BasePath : ["+Order_Creation_BasePath+"]");
 			 LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			 LoggingManager.logger.info("API-OptionOrder_Filled_BUY_Body : ["+OptionOrder_Creation_Body+"]");
 			 LoggingManager.logger.info("API-OptionOrder_Filled_BUY_StatusCode : ["+response.getStatusCode()+"]");
@@ -242,7 +266,7 @@ public class Option_Positions_Subscribe {
 
 			 //=======================================================Position Subcription================================================================
 
-			 LoggingManager.logger.info("API-Subscribe_position_ID : ["+position_ID+"]");
+			 LoggingManager.logger.info("API-Subscribe_position_ID : ["+Position_ID+"]");
 
 			 Response get_position_response=
 											 given()
@@ -255,7 +279,7 @@ public class Option_Positions_Subscribe {
 			 Assert.assertEquals(get_position_response.getStatusCode(), Integer.parseInt(Subscribe_Option_Positions_StatusCode),"Verify_Subscribe_Option_Positions_StatusCode");
 			 APIHelperClass.Validate_Option_Positions(get_position_response,
 														 Endpoint_Version,
-														 position_ID,
+					 									 Position_ID,
 														 Global.getOptionAvgPrice,
 														 Global.getOptionLONGrealizedPnL,
 														 Validate_Position_comment_Value,
@@ -272,7 +296,7 @@ public class Option_Positions_Subscribe {
 														 Validate_Position_symbolWithoutSfx_Value,
 														 Validate_Position_optionSymbol_Value,
 														 Validate_Position_optionsFields_Value,
-														 position_OptionDesc,
+					 									 Validate_Position_OptionDesc,
 														 Integer.parseInt(Validate_Position_maturityDay_Value),
 														 Validate_Position_maturityMonthYear_Value,
 														 Validate_Position_maturityMonthYearDesc_Value,
@@ -303,19 +327,28 @@ public class Option_Positions_Subscribe {
 	 }
 	 
 	 
-	 @Test (dataProvider="SubscribeSELLOption_Positions", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeSELLOption_Positions"}, dependsOnGroups={"Flat_Option_Position"})//UserLoginAuthentications  Flat_Option_Position
+	 @Test (dataProvider="SubscribeSELLOption_Positions", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeSELLOption_Positions"}, dependsOnGroups={"UserLoginAuthentications"})//UserLoginAuthentications  Flat_Option_Position
 	 public void Verify_SubscribeSELL_Option_Positions(	String Order_Position_TestCases,
 														String Endpoint_Version,
 														String Subscribe_Option_Positions_BasePath,
 														String Content_Type,
 														String Subscribe_Option_Positions_StatusCode,
-														String Validate_BoothID,
-														String Validate_Symbol_Value,
-														String Validate_Account_Value,
-														String Validate_PutOrCall_Value,
-														String Validate_StrikePrice_Value,
-														String Validate_Mat_ExpDate,
-														String OptionOrder_Creation_BasePath,
+														String Position_ID,
+													    String Validate_Position_FLAT,
+													    String Order_Creation_BasePath,
+													    String Order_OrdType,
+													    String Order_TimeInForce,
+													    String Order_Destination,
+													    String Order_Price,
+													    String Order_StopPx,
+													    String Order_PutOrCall,
+													    String Order_StrikePrice,
+													    String Order_CoveredOrUncovered,
+													    String Order_CustomerOrFirm,
+													    String Order_Cmta,
+													    String Order_OpenClose,
+													    String Order_ExpiryDate,
+													    String Order_Creation_StatusCode,
 														String BUY_OptionOrder_Creation_Body,
 														String SELL_OptionOrder_Creation_Body,
 														String OptionOrder_Creation_StatusCode,
@@ -397,6 +430,7 @@ public class Option_Positions_Subscribe {
 														String Validate_Position_symbolWithoutSfx_Value,
 														String Validate_Position_optionSymbol_Value,
 														String Validate_Position_optionsFields_Value,
+														String Validate_Position_OptionDesc,
 														String Validate_Position_maturityDay_Value,
 														String Validate_Position_maturityMonthYear_Value,
 														String Validate_Position_maturityMonthYearDesc_Value,
@@ -427,17 +461,31 @@ public class Option_Positions_Subscribe {
 			 DecimalFormat decimalFormat = new DecimalFormat("0.0000");
 			 decimalFormat.getRoundingMode();
 			 RestAssured.baseURI=Global.BaseURL;
-			 String position_ID=Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value;
-			 String position_OptionDesc=Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value;
+			// String position_ID=Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value;
+			 //String position_OptionDesc=Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value;
+			 APIHelperClass.Flat_Option_Positions(	Endpoint_Version,
+													Subscribe_Option_Positions_BasePath,
+													Content_Type,
+													Subscribe_Option_Positions_StatusCode,
+													Position_ID,
+													Validate_Position_FLAT,
+													Order_Creation_BasePath,
+													Order_OrdType,
+													Order_TimeInForce,
+													Order_Destination,
+													Order_Price,
+													Order_StopPx,
+													Order_PutOrCall,
+													Order_StrikePrice,
+													Order_CoveredOrUncovered,
+													Order_CustomerOrFirm,
+													Order_Cmta,
+													Order_OpenClose,
+													Order_ExpiryDate,
+													Order_Creation_StatusCode );
 
-			 APIHelperClass.GetOption_PositionsData( Endpoint_Version,
-													 Subscribe_Option_Positions_BasePath,
-													 Content_Type,
-													 Subscribe_Option_Positions_StatusCode,
-													 position_ID);
-
-			 LoggingManager.logger.info("API-Get Option LONGrealizedPnL After Flat : ["+ Global.getOptionLONGrealizedPnL+"]");
-			 LoggingManager.logger.info("API-Get Option SHORTrealizedPnL After Flat : ["+ Global.getOptionSHORTrealizedPnL+"]");
+			LoggingManager.logger.info("API-Get Option realizedPnL After Flat : ["+ Global.getOptionLONGrealizedPnL+"]");
+			//LoggingManager.logger.info("API-Get Option SHORTrealizedPnL After Flat : ["+ Global.getOptionSHORTrealizedPnL+"]");
 
 			 //====================================================BUY Order=============================================================================
 
@@ -448,14 +496,14 @@ public class Option_Positions_Subscribe {
 							 .body(BUY_OptionOrder_Creation_Body)
 
 							 .when()
-							 .post(OptionOrder_Creation_BasePath)
+							 .post(Order_Creation_BasePath)
 
 							 .then()
 							 .extract()
 							 .response();
 
 
-			 LoggingManager.logger.info("API-OptionOrder_Filled_BUY_BasePath : ["+OptionOrder_Creation_BasePath+"]");
+			 LoggingManager.logger.info("API-OptionOrder_Filled_BUY_BasePath : ["+Order_Creation_BasePath+"]");
 			 LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			 LoggingManager.logger.info("API-OptionOrder_Filled_BUY_Body : ["+BUY_OptionOrder_Creation_Body+"]");
 			 LoggingManager.logger.info("API-OptionOrder_Filled_BUY_StatusCode : ["+BUY_response.getStatusCode()+"]");
@@ -473,14 +521,14 @@ public class Option_Positions_Subscribe {
 							 .body(SELL_OptionOrder_Creation_Body)
 
 							 .when()
-							 .post(OptionOrder_Creation_BasePath)
+							 .post(Order_Creation_BasePath)
 
 							 .then()
 							 .extract()
 							 .response();
 
 
-			 LoggingManager.logger.info("API-OptionOrder_Filled_SELL_BasePath : ["+OptionOrder_Creation_BasePath+"]");
+			 LoggingManager.logger.info("API-OptionOrder_Filled_SELL_BasePath : ["+Order_Creation_BasePath+"]");
 			 LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			 LoggingManager.logger.info("API-OptionOrder_Filled_SELL_Body : ["+SELL_OptionOrder_Creation_Body+"]");
 			 LoggingManager.logger.info("API-OptionOrder_Filled_SELL_StatusCode : ["+SELL_response.getStatusCode()+"]");
@@ -607,7 +655,7 @@ public class Option_Positions_Subscribe {
 			 LoggingManager.logger.info("API - Calculated RealizePNL After Executions : "+Global.getOptionLONGrealizedPnL);
 			 //=======================================================Position Subcription================================================================
 
-			 LoggingManager.logger.info("API-Subscribe_position_ID : ["+position_ID+"]");
+			 LoggingManager.logger.info("API-Subscribe_position_ID : ["+Position_ID+"]");
 			 Response get_position_response=
 
 											  given()
@@ -620,7 +668,7 @@ public class Option_Positions_Subscribe {
 			 Assert.assertEquals(get_position_response.getStatusCode(), Integer.parseInt(Subscribe_Option_Positions_StatusCode),"Verify_Subscribe_Option_Positions_StatusCode");
 			 APIHelperClass.Validate_Option_Positions(get_position_response,
 														 Endpoint_Version,
-														 position_ID,
+														 Position_ID,
 														 Global.getOptionAvgPrice,
 														 Global.getOptionLONGrealizedPnL,
 														 Validate_Position_comment_Value,
@@ -637,7 +685,7 @@ public class Option_Positions_Subscribe {
 														 Validate_Position_symbolWithoutSfx_Value,
 														 Validate_Position_optionSymbol_Value,
 														 Validate_Position_optionsFields_Value,
-														 position_OptionDesc,
+														 Validate_Position_OptionDesc,
 														 Integer.parseInt(Validate_Position_maturityDay_Value),
 														 Validate_Position_maturityMonthYear_Value,
 														 Validate_Position_maturityMonthYearDesc_Value,
@@ -667,19 +715,28 @@ public class Option_Positions_Subscribe {
 	 }
 	 
 	 
-	 @Test (dataProvider="SubscribeSHORTOption_Position", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeSHORTOption_Position"}, dependsOnGroups={"Flat_Option_Position"})//UserLoginAuthentications  Flat_Option_Position
+	 @Test (dataProvider="SubscribeSHORTOption_Position", dataProviderClass=ExcelDataProvider.class , groups={"SubscribeSHORTOption_Position"}, dependsOnGroups={"UserLoginAuthentications"})//UserLoginAuthentications  Flat_Option_Position
 	 public void Verify_Subscribe_SHORTOption_Position(	String Option_Position_TestCases,
 														String Endpoint_Version,
 														String Subscribe_Option_Positions_BasePath,
 														String Content_Type,
 														String Subscribe_Option_Positions_StatusCode,
-														String Validate_BoothID,
-														String Validate_Symbol_Value,
-														String Validate_Account_Value,
-														String Validate_PutOrCall_Value,
-														String Validate_StrikePrice_Value,
-														String Validate_Mat_ExpDate,
-														String OptionOrder_Creation_BasePath,
+													    String Position_ID,
+													    String Validate_Position_FLAT,
+													    String Order_Creation_BasePath,
+													    String Order_OrdType,
+													    String Order_TimeInForce,
+													    String Order_Destination,
+													    String Order_Price,
+													    String Order_StopPx,
+													    String Order_PutOrCall,
+													    String Order_StrikePrice,
+													    String Order_CoveredOrUncovered,
+													    String Order_CustomerOrFirm,
+													    String Order_Cmta,
+													    String Order_OpenClose,
+													    String Order_ExpiryDate,
+													    String Order_Creation_StatusCode,
 														String OptionOrder_Creation_Body,
 														String OptionOrder_Creation_StatusCode,
 														String OptionOrder_Creation_Response,
@@ -730,6 +787,7 @@ public class Option_Positions_Subscribe {
 														String Validate_Position_symbolWithoutSfx_Value,
 														String Validate_Position_optionSymbol_Value,
 														String Validate_Position_optionsFields_Value,
+														String Validate_Position_OptionDesc,
 														String Validate_Position_maturityDay_Value,
 														String Validate_Position_maturityMonthYear_Value,
 														String Validate_Position_maturityMonthYearDesc_Value,
@@ -760,20 +818,33 @@ public class Option_Positions_Subscribe {
 
 			 DecimalFormat decimalFormat = new DecimalFormat("0.0000");
 			 decimalFormat.getRoundingMode();
-			 APIHelperClass apihelper=new APIHelperClass();
 			 RestAssured.baseURI=Global.BaseURL;
-			 String position_ID=Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value;
-			 String position_OptionDesc=Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value;
+			 //String position_ID=Validate_BoothID+"-"+Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value+"-"+Validate_Account_Value;
+			 //String position_OptionDesc=Validate_Symbol_Value+" "+Validate_Mat_ExpDate+" "+Validate_StrikePrice_Value+" "+Validate_PutOrCall_Value;
+			 APIHelperClass.Flat_Option_Positions(	Endpoint_Version,
+													Subscribe_Option_Positions_BasePath,
+													Content_Type,
+													Subscribe_Option_Positions_StatusCode,
+													Position_ID,
+													Validate_Position_FLAT,
+													Order_Creation_BasePath,
+													Order_OrdType,
+													Order_TimeInForce,
+													Order_Destination,
+													Order_Price,
+													Order_StopPx,
+													Order_PutOrCall,
+													Order_StrikePrice,
+													Order_CoveredOrUncovered,
+													Order_CustomerOrFirm,
+													Order_Cmta,
+													Order_OpenClose,
+													Order_ExpiryDate,
+													Order_Creation_StatusCode );
 
-			 APIHelperClass.GetOption_PositionsData( Endpoint_Version,
-													 Subscribe_Option_Positions_BasePath,
-													 Content_Type,
-													 Subscribe_Option_Positions_StatusCode,
-													 position_ID);
-
-			 // LoggingManager.logger.info("API-Get Option LONGrealizedPnL After Flat : ["+ Global.getOptionLONGrealizedPnL+"]");
-			 LoggingManager.logger.info("API-Get Option SHORTrealizedPnL After Flat : ["+ Global.getOptionSHORTrealizedPnL+"]");
-			 //=======================================================Order Creation================================================================
+			//LoggingManager.logger.info("API-Get Option realizedPnL After Flat : ["+ Global.getOptionLONGrealizedPnL+"]");
+			LoggingManager.logger.info("API-Get Option realizedPnL After Flat : ["+ Global.getOptionSHORTrealizedPnL+"]");
+			//=======================================================Order Creation================================================================
 
 			 Response response=
 
@@ -783,13 +854,13 @@ public class Option_Positions_Subscribe {
 							 .body(OptionOrder_Creation_Body)
 
 							 .when()
-							 .post(OptionOrder_Creation_BasePath)
+							 .post(Order_Creation_BasePath)
 
 							 .then()
 							 .extract()
 							 .response();
 
-			 LoggingManager.logger.info("API-OptionOrder_Filled_SELL_BasePath : ["+OptionOrder_Creation_BasePath+"]");
+			 LoggingManager.logger.info("API-OptionOrder_Filled_SELL_BasePath : ["+Order_Creation_BasePath+"]");
 			 LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			 LoggingManager.logger.info("API-OptionOrder_Filled_SELL_Body : ["+OptionOrder_Creation_Body+"]");
 			 LoggingManager.logger.info("API-OptionOrder_Filled_SELL_StatusCode : ["+response.getStatusCode()+"]");
@@ -818,7 +889,6 @@ public class Option_Positions_Subscribe {
 			 LoggingManager.logger.info("API- SELL qOrderID Before Execution : ["+Global.getOptionSellFilled_qOrderID+"]");
 			 if(Global.getOptionSellFilledOrderID == null || Global.getOptionSellFilledOrderID=="" )
 			 {Assert.fail("Logs : Sell Order Not Found with status :["+Subscribe_OptionOrder_ExpectedStatus+"]");}
-
 
 			 //----------------------------------------------------------Executions ---------------------------------------------------------------
 			 Response get_execution_response=
@@ -866,7 +936,7 @@ public class Option_Positions_Subscribe {
 
 			 //=======================================================Position Subcription================================================================
 
-			 LoggingManager.logger.info("API-Subscribe_position_ID : ["+position_ID+"]");
+			 LoggingManager.logger.info("API-Subscribe_position_ID : ["+Position_ID+"]");
 			 Response get_position_response=
 
 							  given()
@@ -879,7 +949,7 @@ public class Option_Positions_Subscribe {
 			 Assert.assertEquals(get_position_response.getStatusCode(), Integer.parseInt(Subscribe_Option_Positions_StatusCode),"Verify_Subscribe_Option_Positions_StatusCode");
 			 APIHelperClass.Validate_Option_Positions(get_position_response,
 														 Endpoint_Version,
-														 position_ID,
+														 Position_ID,
 														 Global.getOptionAvgPrice,
 														 Global.getOptionSHORTrealizedPnL,
 														 Validate_Position_comment_Value,
@@ -896,7 +966,7 @@ public class Option_Positions_Subscribe {
 														 Validate_Position_symbolWithoutSfx_Value,
 														 Validate_Position_optionSymbol_Value,
 														 Validate_Position_optionsFields_Value,
-														 position_OptionDesc,
+														 Validate_Position_OptionDesc,
 														 Integer.parseInt(Validate_Position_maturityDay_Value),
 														 Validate_Position_maturityMonthYear_Value,
 														 Validate_Position_maturityMonthYearDesc_Value,

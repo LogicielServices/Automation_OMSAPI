@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Flat Positions suite" guice-stage="DEVELOPMENT">
+
+          <test  name="Flat Equity Positions Test" >
+            <classes>
+                <class name="IdentityServer_API_User.Login"/>
+                <class name="Subscriptions.Flat_Positions">
+                  <methods>
+                    <include name="Verify_Flat_Equity_Positions"/>
+                  </methods>
+                </class>
+             </classes>
+          </test>
+
+          <test  name="Flat Option Positions Test" >
+            <classes>
+                <class name="IdentityServer_API_User.Login"/>
+                <class name="Subscriptions.Flat_Positions">
+                    <methods>
+                        <include name="Verify_Flat_Option_Positions"/>
+                    </methods>
+                </class>
+            </classes>
+          </test>
+</suite>
+            
