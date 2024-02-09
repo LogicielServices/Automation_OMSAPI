@@ -284,6 +284,13 @@ public class ExcelDataProvider {
 			Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"Destination");
 		    return DataObject;
 		}
+
+		@DataProvider(name="StaticData_Option_Equity_Destination")
+		public Object[][] StaticData_Option_Equity_Destination() throws IOException
+		{
+		Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"Option_Equity_Destination");
+		return DataObject;
+		}
 		
 		@DataProvider(name="StaticData_Option_Destination")
 		public Object[][] StaticData_Option_Destination() throws IOException 
