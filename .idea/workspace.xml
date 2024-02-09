@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Static_Data/StaticData_Latest_Destination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Flat_Positions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/APIlogs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/APIlogs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Filled_Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Filled_Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Flat_Symbol_Positions.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Flat_Symbol_Positions.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Option_Positions_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Option_Positions_Subscription.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Order_Positions_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Order_Positions_Subscription.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Flat_Positions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Flat_Positions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Order_Positions_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Combine.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Static_Data/Data/Static_Data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Static_Data/Data/Static_Data.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_MarketData.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Position.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Position.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Position.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Position.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,15 +33,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/test/java/Excel_Utilities/XLUtils.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/test/java/APIHelper/Global.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/APIHelper/Global.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/APIHelper/LoggingManager.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/test/resources/TestRunner/Flat_Positions.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/test/resources/TestRunner/Account_Balance.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/AuditTrail/Subscribe_OrderID.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/Excel_Utilities/XLUtils.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/resources/TestRunner/Account_Balance.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/resources/TestRunner/Flat_Positions.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2aiU82FC6oHEnPY8vJYcp3kT7QS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -55,15 +60,13 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/Automation_OMSAPI"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\IntelliJ\src\test\java" />
@@ -81,30 +84,20 @@
       <recent name="XLDataProvider" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/OptionOrders_Position.xml">
-    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Combine.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Combine.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Flat_Positions.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Flat_Positions.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml">
     <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/OptionOrders_Position.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="OMSAPI" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/OptionOrders_Position.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/StaticData.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -122,17 +115,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Filled_Orders.Verify_BUY_Equity_Order_Filled_Creation" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
+    <configuration name="StaticData_Account.Verify_StaticData_Account" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Orders.*" />
+          <option name="PATTERN" value="Static_Data.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Orders" />
-      <option name="MAIN_CLASS_NAME" value="Orders.Filled_Orders" />
-      <option name="METHOD_NAME" value="Verify_BUY_Equity_Order_Filled_Creation" />
+      <option name="PACKAGE_NAME" value="Static_Data" />
+      <option name="MAIN_CLASS_NAME" value="Static_Data.StaticData_Account" />
+      <option name="METHOD_NAME" value="Verify_StaticData_Account" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StaticData_Latest_Destination.Verify_StaticData_Option_Equity_Destination" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Static_Data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Static_Data" />
+      <option name="MAIN_CLASS_NAME" value="Static_Data.StaticData_Latest_Destination" />
+      <option name="METHOD_NAME" value="Verify_StaticData_Option_Equity_Destination" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -142,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/StaticData.xml" />
+        <item itemvalue="TestNG.StaticData_Account.Verify_StaticData_Account" />
+        <item itemvalue="TestNG.StaticData_Latest_Destination.Verify_StaticData_Option_Equity_Destination" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/OptionOrders_Position.xml" />
         <item itemvalue="TestNG.F:/IntelliJ/src/test/resources/TestRunner/Equity_Position.xml" />
-        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Flat_Positions.xml" />
-        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Combine.xml" />
-        <item itemvalue="TestNG.Filled_Orders.Verify_BUY_Equity_Order_Filled_Creation" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +172,7 @@
       <workItem from="1704800733041" duration="8291000" />
       <workItem from="1704809944132" duration="3408000" />
       <workItem from="1705650275821" duration="41470000" />
-      <workItem from="1706688931021" duration="80182000" />
+      <workItem from="1706688931021" duration="83501000" />
     </task>
     <servers />
   </component>
@@ -205,7 +216,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>

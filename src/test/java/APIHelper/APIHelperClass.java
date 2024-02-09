@@ -187,7 +187,7 @@ public static String ValidationNullValue(String value)
 {
 	try
 	{
-		if (value.equalsIgnoreCase("null"))
+		if (value.equalsIgnoreCase("null") || value.equalsIgnoreCase("true") ||value.equalsIgnoreCase("false"))
 		{
 			return "["+value+"]";
 		}
