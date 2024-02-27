@@ -1,9 +1,11 @@
 package LocatesAPI;
 
+import APIHelper.APIHelperClass;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
+import org.apache.batik.css.engine.value.StringValue;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -40,15 +42,36 @@ public class Subscribe_Locates {
 	 
 	@Test (dataProvider="Subscribe_Locates", dataProviderClass=ExcelDataProvider.class,groups={"Subscribe_Locates"}, dependsOnGroups={"Post_Locates"})
 	public void Verify_Subscribe_Locates(String Subscribe_Locates_TestCase,
-												String Subscribe_Locates_BasePath,
-												String Content_Type,
-												String Subscribe_Locates_StatusCode,
-												String Validate_OriginatingUserDesc,
-												String Validate_OrderQty,
-												String Validate_Symbol,
-												String Validate_Account,
-												String Validate_Booth,
-												String Validate_Flag)
+											String Subscribe_Locates_BasePath,
+											String Content_Type,
+											String Subscribe_Locates_StatusCode,
+											String Summary_Locate_Subscribe_BasePath,
+											String Summary_Locate_Subscribe_StatusCode,
+											String Validate_SummaryID,
+											String Validate_SummaryBooth,
+											String Validate_OrdType,
+											String Validate_OrdStatus,
+											String Validate_OrderQty,
+											String Validate_OfferPx,
+											String Validate_OfferSize,
+											String Validate_CumQty,
+											String Validate_AvgPx,
+											String Validate_StatusDesc,
+											String Validate_Status,
+											String Validate_OrdRejReason,
+											String Validate_TransactionStatusString,
+											String Validate_TransactionStatus,
+											String Validate_TimeInForce,
+											String Validate_Text,
+											String Validate_Id,
+											String Validate_Symbol,
+											String Validate_SymbolSfx,
+											String Validate_ClientID,
+											String Validate_LocateType,
+											String Validate_Booth,
+											String Validate_Account,
+											String Validate_OriginatingUserDesc,
+											String Validate_Flag)
 	{
 		try
 		{
@@ -58,7 +81,7 @@ public class Subscribe_Locates {
 
 			RestAssured.baseURI=Global.BaseURL;
 			Response response=
-							given()
+					given()
 							.header("Content-Type",Content_Type)
 							.header("Authorization", "Bearer " + Global.getAccToken)
 
@@ -69,48 +92,40 @@ public class Subscribe_Locates {
 							//.statusCode(Integer.parseInt(Subscribe_Locates_StatusCode))
 							//.statusLine("HTTP/1.1 200 OK")
 							.extract().response();
-
 			LoggingManager.logger.info("API-Subscribe_Locates_BasePath : ["+Subscribe_Locates_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 			LoggingManager.logger.info("API-Subscribe_Locates_StatusCode : ["+response.getStatusCode()+"]");
 			Assert.assertEquals(response.statusCode(),Integer.parseInt(Subscribe_Locates_StatusCode), "Verify_Subscribe_Locates_StatusCode");
+			APIHelperClass.Validate_Subscribe_Locates(  response,
+														Summary_Locate_Subscribe_BasePath,
+														Content_Type,
+														Summary_Locate_Subscribe_StatusCode,
+														Validate_SummaryID,
+														Validate_SummaryBooth,
+														Validate_OrdType,
+														Validate_OrdStatus,
+														Validate_OrderQty,
+														Validate_OfferPx,
+														Validate_OfferSize,
+														Validate_CumQty,
+														Validate_AvgPx,
+														Validate_StatusDesc,
+														Validate_Status,
+														Validate_OrdRejReason,
+														Validate_TransactionStatusString,
+														Validate_TransactionStatus,
+														Validate_TimeInForce,
+														Validate_Text,
+														Validate_Id,
+														Validate_Symbol,
+														Validate_SymbolSfx,
+														Validate_ClientID,
+														Validate_LocateType,
+														Validate_Booth,
+														Validate_Account,
+														Validate_OriginatingUserDesc,
+														Validate_Flag);
 
-			JsonPath jsonresponse = new JsonPath(response.getBody().asString());
-			int ResponseArraySize = jsonresponse.getInt("eventData.size()");
-			String getOriginatingUserDesc="",getOrderQty="",getSymbol="",getAccount="",getBoothID="";
-
-			for(int position = ResponseArraySize-1; position >=0; position--)
-			{
-				getOriginatingUserDesc = jsonresponse.getString("eventData["+position+"].originatingUserDesc");
-				getOrderQty = jsonresponse.getString("eventData["+position+"].orderQty");
-				getSymbol = jsonresponse.getString("eventData["+position+"].symbol");
-				getAccount = jsonresponse.getString("eventData["+position+"].account");
-				getBoothID = jsonresponse.getString("eventData["+position+"].boothID");
-
-
-				if(	getOriginatingUserDesc.equalsIgnoreCase(Validate_OriginatingUserDesc)
-						&& getOrderQty.equalsIgnoreCase(Validate_OrderQty)
-						&& getSymbol.equalsIgnoreCase(Validate_Symbol)
-						&& getAccount.equalsIgnoreCase(Validate_Account)
-						&& getBoothID.equalsIgnoreCase(Validate_Booth))
-				{
-					Global.getID = jsonresponse.getString("eventData["+position+"].quoteReqID");
-					Global.ValidationFlag=true;
-					break;
-				}
-				else
-				{	Global.ValidationFlag=false;
-					continue;
-				}
-
-			}
-
-			LoggingManager.logger.info("API-Validate_OriginatingUserDesc : ["+Validate_OriginatingUserDesc +"] - Response getOriginatingUserDesc : "+getOriginatingUserDesc);
-			LoggingManager.logger.info("API-Validate_OrderQty : ["+Validate_OrderQty +"] - Response getOrderQty : "+getOrderQty);
-			LoggingManager.logger.info("API-Validate_Symbol : ["+Validate_Symbol +"] - Response getSymbol : "+getSymbol);
-			LoggingManager.logger.info("API-Validate_Account : ["+Validate_Account +"] - Response getOrderQty : "+getOrderQty);
-			LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response getBoothID : "+getBoothID);
-			Assert.assertEquals(Global.ValidationFlag,Boolean.parseBoolean(Validate_Flag),"Validate_Flag");
 		}
 		catch (Exception e)
 		{

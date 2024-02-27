@@ -9,10 +9,7 @@ import org.testng.Assert;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static io.restassured.RestAssured.given;
 
@@ -2196,17 +2193,17 @@ public static void Validate_Executions(	Response getresponse,
 
 				loop: for(int position = ResponseArraySize-1; position >=0; position--)
 				{
-					String  response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
-					String  response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
-					String  response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
-					Double  response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
-					Double  response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
-					Double  response_lastShares = jsonresponse.getDouble(getResponseArray+"["+position+"].lastShares");
-					Double  response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
-					Double  response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
-					String  response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
-					String  response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
-					String  response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
+					String response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
+					String response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
+					String response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
+					Double response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
+					Double response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
+					Double response_lastShares = jsonresponse.getDouble(getResponseArray+"["+position+"].lastShares");
+					Double response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
+					Double response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
+					String response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
+					String response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
+					String response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
 					Integer response_qOrderID = jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
 					String response_OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
 					Double response_lastPx = jsonresponse.getDouble(getResponseArray+"["+position+"].lastPx");
@@ -2379,9 +2376,9 @@ public static void Validate_Executions(	Response getresponse,
 					String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
 					String response_transactTime = jsonresponse.getString(getResponseArray+"["+position+"].transactTime");
 					String response_execID = jsonresponse.getString(getResponseArray+"["+position+"].execID");
-					String  response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
-					Double  response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
-					Double  response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
+					String response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
+					Double response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
+					Double response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
 					String response_tradeDate = jsonresponse.getString(getResponseArray+"["+position+"].tradeDate");
 					String response_transactTimeUtc = jsonresponse.getString(getResponseArray+"["+position+"].transactTimeUtc");
 					String response_tradeDateUtc = jsonresponse.getString(getResponseArray+"["+position+"].tradeDateUtc");
@@ -2762,8 +2759,422 @@ public static void Validate_Executions(	Response getresponse,
 		LoggingManager.logger.error(e);
 	}
   }
+
+public static void Validate_Subscribe_Locates( Response response,
+											   String Summary_Locate_Subscribe_BasePath,
+											   String Content_Type,
+											   String Summary_Locate_Subscribe_StatusCode,
+											   String Validate_SummaryID,
+											   String Validate_SummaryBooth,
+											   String Validate_OrdType,
+											   String Validate_OrdStatus,
+											   String Validate_OrderQty,
+											   String Validate_OfferPx,
+											   String Validate_OfferSize,
+											   String Validate_CumQty,
+											   String Validate_AvgPx,
+											   String Validate_StatusDesc,
+											   String Validate_Status,
+											   String Validate_OrdRejReason,
+											   String Validate_TransactionStatusString,
+											   String Validate_TransactionStatus,
+											   String Validate_TimeInForce,
+											   String Validate_Text,
+											   String Validate_Id,
+											   String Validate_Symbol,
+											   String Validate_SymbolSfx,
+											   String Validate_ClientID,
+											   String Validate_LocateType,
+											   String Validate_Booth,
+											   String Validate_Account,
+											   String Validate_OriginatingUserDesc,
+											   String Validate_Flag)
+	{
+		try
+		{
+			ArrayList<String> LocateQuoteReqID = new ArrayList<String>();
+			String  getSummaryID="", getSummaryBooth="",getSummaryEtbQty="",expectedEtbQty="";
+			JsonPath jsonresponse = new JsonPath(response.getBody().asString());
+			int ResponseArraySize = jsonresponse.getInt("eventData.size()");
+			for(int position = ResponseArraySize-1; position >=0; position--)
+			{
+
+				Global.getLocateQuoteReqID = jsonresponse.getString("eventData["+position+"].quoteReqID");
+				Global.getLocateOriginatingUserDesc = jsonresponse.getString("eventData["+position+"].originatingUserDesc");
+				Global.getLocateStatus = jsonresponse.getString("eventData["+position+"].status");
+				Global.getLocateSymbol = jsonresponse.getString("eventData["+position+"].symbol");
+				Global.getLocateAccount = jsonresponse.getString("eventData["+position+"].account");
+				Global.getLocateBoothID = jsonresponse.getString("eventData["+position+"].boothID");
+				if(	Global.getLocateOriginatingUserDesc.equalsIgnoreCase(Validate_OriginatingUserDesc)
+						&& Global.getLocateStatus.equalsIgnoreCase(Validate_Status)
+						&& Global.getLocateSymbol.equalsIgnoreCase(Validate_Symbol)
+						&& Global.getLocateAccount.equalsIgnoreCase(Validate_Account)
+						&& Global.getLocateBoothID.equalsIgnoreCase(Validate_Booth))
+				{
+					LocateQuoteReqID.add(Global.getLocateQuoteReqID);
+				}
+				else
+				{ }
+			}
+			//Collections.sort(LocateQuoteReqID);
+			LocateQuoteReqID.sort(Comparator.<String, Character>comparing(s -> s.charAt(0)).thenComparingInt(s -> Integer.parseInt(s.substring(1))));
+			LoggingManager.logger.info("API-QuotesReID After Sort : ["+LocateQuoteReqID+"]");
+			if (LocateQuoteReqID.isEmpty()==false)
+			{
+				Global.getLocateQuoteReqID=LocateQuoteReqID.get(LocateQuoteReqID.size() - 1);
+				LoggingManager.logger.info("API- Picked latest QuotesReID : [" + Global.getLocateQuoteReqID+ "]");
+			}
+			else
+			{
+				LoggingManager.logger.info("API- QuotesReID Not Found : [" + LocateQuoteReqID+ "]");
+			}
+
+			for(int position = ResponseArraySize-1; position >=0; position--)
+			{
+				Global.getLocateId = jsonresponse.getString("eventData["+position+"].id");
+				if((Validate_Id+Global.getLocateQuoteReqID).equalsIgnoreCase(Global.getLocateId))
+				{
+					Global.ValidationFlag=true;
+					Global.getLocateOriginatingUserDesc = jsonresponse.getString("eventData["+position+"].originatingUserDesc");
+					Global.getLocateOrderQty = jsonresponse.getInt("eventData["+position+"].orderQty");
+					Global.getLocateOfferSize = jsonresponse.getInt("eventData["+position+"].offerSize");
+					Global.getLocateCumQty = jsonresponse.getInt("eventData["+position+"].cumQty");
+					Global.getLocateStatus = jsonresponse.getString("eventData["+position+"].status");
+					Global.getLocateStatusDesc = jsonresponse.getString("eventData["+position+"].statusDesc");
+					Global.getLocateSymbol = jsonresponse.getString("eventData["+position+"].symbol");
+					Global.getLocateSymbolSfx = jsonresponse.getString("eventData["+position+"].symbolSfx");
+					Global.getLocateClientID = jsonresponse.getString("eventData["+position+"].clientID");
+					Global.getLocateAccount = jsonresponse.getString("eventData["+position+"].account");
+					Global.getLocateBoothID = jsonresponse.getString("eventData["+position+"].boothID");
+					Global.getLocateOrdType = jsonresponse.getString("eventData["+position+"].ordType");
+					Global.getLocateOrdStatus = jsonresponse.getString("eventData["+position+"].ordStatus");
+					Global.getLocateOfferPx = jsonresponse.getDouble("eventData["+position+"].offerPx");
+					Global.getLocateAvgPx = jsonresponse.getDouble("eventData["+position+"].avgPx");
+					Global.getLocateOrdRejReason = jsonresponse.getString("eventData["+position+"].ordRejReason");
+					Global.getLocateTransactionStatusString = jsonresponse.getString("eventData["+position+"].transactionStatusString");
+					Global.getLocateTransactionStatus = jsonresponse.getString("eventData["+position+"].transactionStatus");
+					Global.getLocateTimeInForce = jsonresponse.getString("eventData["+position+"].timeInForce");
+					Global.getLocateText = jsonresponse.getString("eventData["+position+"].text");
+					Global.getLocateTransactTimeUtc = jsonresponse.getString("eventData["+position+"].transactTimeUtc");
+					Global.getLocateTransactTime = jsonresponse.getString("eventData["+position+"].transactTime");
+					Global.getLocateLocateType = jsonresponse.getString("eventData["+position+"].locateType");
+					Global.getLocateEtbQty = jsonresponse.getInt("eventData["+position+"].etbQty");
+					break;
+				}
+				else
+				{
+					Global.ValidationFlag=false;
+					continue;
+				}
+			}
+
+			Response Summary_response=
+						given()
+								.header("Content-Type",Content_Type)
+								.header("Authorization", "Bearer " + Global.getAccToken)
+
+								.when()
+								.get(Summary_Locate_Subscribe_BasePath)
+
+								.then()
+								.extract().response();
+
+			LoggingManager.logger.info("API-BasePath : ["+Summary_Locate_Subscribe_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Summary_Locates_Subscribe_StatusCode : ["+Summary_response.getStatusCode()+"]");
+			Assert.assertEquals(Summary_response.statusCode(),Integer.parseInt(Summary_Locate_Subscribe_StatusCode), "Verify_Summary_Locate_Subscribe_StatusCode");
+			getSummaryID=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].id").toString();
+			getSummaryBooth=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].boothID").toString();
+			getSummaryEtbQty=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].etbQty").toString();
+			LoggingManager.logger.info("API-Validate_SummaryID : [\""+Validate_SummaryID +"\"] - Response Validate_SummaryID : "+getSummaryID);
+			LoggingManager.logger.info("API-Validate_SummaryBooth : [\""+Validate_SummaryBooth +"\"] - Response Validate_SummaryBooth : "+getSummaryBooth);
+			Assert.assertEquals(getSummaryID,APIHelperClass.ValidationNullValue(Validate_SummaryID),"Validate_Summary_Locate_Subscribe_ID");
+			Assert.assertEquals(getSummaryBooth,APIHelperClass.ValidationNullValue(Validate_SummaryBooth), "Validate_Summary_Locate_Subscribe_Booth");
+			Global.getLocateEtbQty = Integer.parseInt(getSummaryEtbQty.substring(1, getSummaryEtbQty.length() - 1));
+			//expectedEtbQty= getSummaryEtbQty;
+			LoggingManager.logger.info("API-Validate_Summary EtbQty: ["+Global.getLocateEtbQty+"]");
+			//LoggingManager.logger.info("API-Validate_SummaryEtbQty: ["+Global.getLocateEtbQty +"] - Response Validate_SummaryEtbQty : "+getSummaryEtbQty);
+			//Assert.assertEquals(getSummaryEtbQty,"["+Global.getLocateEtbQty +"]","Validate_Summary_Locate_EtbQty");
+
+			LoggingManager.logger.info("API-Validate_LocateFlag : ["+Boolean.parseBoolean(Validate_Flag) +"] - Response Validate_LocateFlag : "+Global.ValidationFlag);
+			Assert.assertEquals(Global.ValidationFlag,Boolean.parseBoolean(Validate_Flag),"Validate_Flag");
+			LoggingManager.logger.info("API-Validate_LocateId : ["+(Validate_Id+Global.getLocateQuoteReqID)+"] - Response_Locate_Id : "+Global.getLocateId);
+			LoggingManager.logger.info("API-Validate_LocateOriginatingUserDesc : ["+Validate_OriginatingUserDesc +"] - Response_LocateOriginatingUserDesc : "+Global.getLocateOriginatingUserDesc);
+			LoggingManager.logger.info("API-Validate_LocateStatus : ["+Validate_Status +"] - Response Validate_LocateStatus : "+Global.getLocateStatus);
+			LoggingManager.logger.info("API-Validate_LocateStatusDesc : ["+Validate_StatusDesc +"] - Response Validate_LocateStatusDesc : "+Global.getLocateStatusDesc);
+			LoggingManager.logger.info("API-Validate_LocateOrderQty : ["+Validate_OrderQty +"] - Response Validate_LocateOrderQty : "+Global.getLocateOrderQty);
+			LoggingManager.logger.info("API-Validate_LocateCumQty : ["+Validate_CumQty +"] - Response Validate_CumQty : "+Global.getLocateCumQty);
+			LoggingManager.logger.info("API-Validate_LocateOfferSize : ["+Validate_OfferSize +"] - Response Validate_LocateOfferSize : "+Global.getLocateOfferSize);
+			LoggingManager.logger.info("API-Validate_LocateSymbol : ["+Validate_Symbol +"] - Response Validate_LocateSymbol : "+Global.getLocateSymbol);
+			LoggingManager.logger.info("API-Validate_LocateSymbolSfx : ["+Validate_SymbolSfx +"] - Response Validate_LocateSymbolSfx : "+Global.getLocateSymbolSfx);
+			LoggingManager.logger.info("API-Validate_LocateClientID : ["+Validate_ClientID +"] - Response Validate_LocateClientID : "+Global.getLocateClientID);
+			LoggingManager.logger.info("API-Validate_LocateAccount : ["+Validate_Account +"] - Response Validate_LocateAccount : "+Global.getLocateAccount);
+			LoggingManager.logger.info("API-Validate_LocateBooth : ["+Validate_Booth +"] - Response Validate_LocateBooth : "+Global.getLocateBoothID);
+			LoggingManager.logger.info("API-Validate_LocateOrdType : ["+Validate_OrdType +"] - Response Validate_LocateOrdType : "+Global.getLocateOrdType);
+			LoggingManager.logger.info("API-Validate_LocateOrdStatus : ["+Validate_OrdStatus +"] - Response Validate_LocateOrdStatus : "+Global.getLocateOrdStatus);
+			LoggingManager.logger.info("API-Validate_LocateOfferPx : ["+Double.parseDouble(Validate_OfferPx) +"] - Response Validate_LocateOfferPx : "+Global.getLocateOfferPx);
+			LoggingManager.logger.info("API-Validate_LocateAvgPx : ["+Double.parseDouble(Validate_AvgPx) +"] - Response Validate_LocateAvgPx : "+Global.getLocateAvgPx);
+			LoggingManager.logger.info("API-Validate_LocateOrdRejReason : ["+Validate_OrdRejReason +"] - Response Validate_LocateOrdRejReason : "+Global.getLocateOrdRejReason);
+			LoggingManager.logger.info("API-Validate_LocateTransactionStatusString : ["+Validate_TransactionStatusString +"] - Response Validate_LocateTransactionStatusString : "+Global.getLocateTransactionStatusString);
+			LoggingManager.logger.info("API-Validate_LocateTransactionStatus : ["+Validate_TransactionStatus +"] - Response Validate_LocateTransactionStatus : "+Global.getLocateTransactionStatus);
+			LoggingManager.logger.info("API-Validate_LocateTimeInForce : ["+Validate_TimeInForce +"] - Response Validate_LocateTimeInForce : "+Global.getLocateTimeInForce);
+			//LoggingManager.logger.info("API-Validate_LocateLocateEtbQty : ["+Integer.parseInt(expectedEtbQty)+"] - Response Validate_LocateEtbQty : "+Global.getLocateEtbQty);
+
+			Assert.assertEquals(Global.getLocateId,(Validate_Id+Global.getLocateQuoteReqID),"Validate_Id");
+			Assert.assertEquals(Global.getLocateOriginatingUserDesc,Validate_OriginatingUserDesc,"Validate_OriginatingUserDesc");
+			Assert.assertEquals(Global.getLocateStatus,Validate_Status,"Validate_Status");
+			Assert.assertEquals(Global.getLocateStatusDesc,Validate_StatusDesc,"Validate_StatusDesc");
+			Assert.assertEquals(Global.getLocateCumQty,Integer.parseInt(Validate_CumQty),"Validate_CumQty");
+			Assert.assertEquals(Global.getLocateOfferSize,Integer.parseInt(Validate_OfferSize),"Validate_OfferSize");
+			Assert.assertEquals(Global.getLocateOrderQty,Integer.parseInt(Validate_OrderQty),"Validate_OrderQty");
+			Assert.assertEquals(Global.getLocateSymbol,Validate_Symbol,"Validate_Symbol");
+			Assert.assertEquals(APIHelperClass.NVL(Global.getLocateSymbolSfx,"null"),Validate_SymbolSfx,"Validate_SymbolSfx");
+			Assert.assertEquals(Global.getLocateClientID,Validate_ClientID,"Validate_clientID");
+			Assert.assertEquals(Global.getLocateAccount,Validate_Account,"Validate_Account");
+			Assert.assertEquals(Global.getLocateBoothID,Validate_Booth,"Validate_Booth");
+			Assert.assertEquals(APIHelperClass.NVL(Global.getLocateOrdType,"null"),Validate_OrdType,"Validate_LocateOrdType");
+			Assert.assertEquals(APIHelperClass.NVL(Global.getLocateOrdStatus,"null"),Validate_OrdStatus,"Validate_LocateOrdStatus");
+			Assert.assertEquals(Global.getLocateOfferPx,Double.parseDouble(Validate_OfferPx),"Validate_LocateOfferPx");
+			Assert.assertEquals(Global.getLocateAvgPx,Double.parseDouble(Validate_AvgPx),"Validate_LocateAvgPx");
+			Assert.assertEquals(Global.getLocateOrdRejReason,Validate_OrdRejReason,"Validate_LocateOrdRejReason");
+			Assert.assertEquals(Global.getLocateTransactionStatusString,Validate_TransactionStatusString,"Validate_LocateTransactionStatusString");
+			Assert.assertEquals(Global.getLocateTransactionStatus,Validate_TransactionStatus,"Validate_LocateTransactionStatus");
+			Assert.assertEquals(APIHelperClass.NVL(Global.getLocateTimeInForce,"null"),Validate_TimeInForce,"Validate_LocateTimeInForce");
+			Assert.assertEquals(APIHelperClass.NVL(Global.getLocateText,"null"),Validate_Text,"Validate_Text");
+			Assert.assertEquals(APIHelperClass.NVL(Global.getLocateLocateType,"null"),Validate_LocateType,"Validate_LocateLocateType");
+		//	Assert.assertEquals(Global.getLocateEtbQty,Integer.parseInt(expectedEtbQty),"Validate_LocateETBQty");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
+
+
+	public static void Validate_Acquired_Subscribe_Locates(Response response,
+														   String Validate_Acquired_quoteReqID,
+														   String Validate_Acquired_OrdType,
+														   String Validate_Acquired_OrdStatus,
+														   String Validate_Acquired_OrderQty,
+														   String Validate_Acquired_OfferPx,
+														   String Validate_Acquired_OfferSize,
+														   String Validate_Acquired_CumQty,
+														   String Validate_Acquired_AvgPx,
+														   String Validate_Acquired_StatusDesc,
+														   String Validate_Acquired_Status,
+														   String Validate_Acquired_OrdRejReason,
+														   String Validate_Acquired_TransactionStatusString,
+														   String Validate_Acquired_TransactionStatus,
+														   String Validate_Acquired_TimeInForce,
+														   String Validate_Acquired_Text,
+														   String Validate_Acquired_Id,
+														   String Validate_Acquired_Symbol,
+														   String Validate_Acquired_SymbolSfx,
+														   String Validate_Acquired_ClientID,
+														   String Validate_Acquired_LocateType,
+														   String Validate_Acquired_Booth,
+														   String Validate_Acquired_Account,
+														   String Validate_Acquired_OriginatingUserDesc,
+														   Integer Validate_Acquired_EtbQty)
+	{
+		try
+		{
+			JsonPath jsonresponse = new JsonPath(response.getBody().asString());
+			int ResponseArraySize = jsonresponse.getInt("eventData.size()");
+			for(int position = ResponseArraySize-1; position >=0; position--)
+			{
+				Global.getLocateQuoteReqID = jsonresponse.getString("eventData["+position+"].quoteReqID");
+				Global.getLocateId = jsonresponse.getString("eventData["+position+"].id");
+				Global.getLocateOriginatingUserDesc = jsonresponse.getString("eventData["+position+"].originatingUserDesc");
+				Global.getLocateOrderQty = jsonresponse.getInt("eventData["+position+"].orderQty");
+				Global.getLocateOfferSize = jsonresponse.getInt("eventData["+position+"].offerSize");
+				Global.getLocateCumQty = jsonresponse.getInt("eventData["+position+"].cumQty");
+				Global.getLocateStatus = jsonresponse.getString("eventData["+position+"].status");
+				Global.getLocateStatusDesc = jsonresponse.getString("eventData["+position+"].statusDesc");
+				Global.getLocateSymbol = jsonresponse.getString("eventData["+position+"].symbol");
+				Global.getLocateSymbolSfx = jsonresponse.getString("eventData["+position+"].symbolSfx");
+				Global.getLocateClientID = jsonresponse.getString("eventData["+position+"].clientID");
+				Global.getLocateAccount = jsonresponse.getString("eventData["+position+"].account");
+				Global.getLocateBoothID = jsonresponse.getString("eventData["+position+"].boothID");
+				Global.getLocateOrdType = jsonresponse.getString("eventData["+position+"].ordType");
+				Global.getLocateOrdStatus = jsonresponse.getString("eventData["+position+"].ordStatus");
+				Global.getLocateOfferPx = jsonresponse.getDouble("eventData["+position+"].offerPx");
+				Global.getLocateAvgPx = jsonresponse.getDouble("eventData["+position+"].avgPx");
+				Global.getLocateOrdRejReason = jsonresponse.getString("eventData["+position+"].ordRejReason");
+				Global.getLocateTransactionStatusString = jsonresponse.getString("eventData["+position+"].transactionStatusString");
+				Global.getLocateTransactionStatus = jsonresponse.getString("eventData["+position+"].transactionStatus");
+				Global.getLocateTimeInForce = jsonresponse.getString("eventData["+position+"].timeInForce");
+				Global.getLocateText = jsonresponse.getString("eventData["+position+"].text");
+				Global.getLocateTransactTimeUtc = jsonresponse.getString("eventData["+position+"].transactTimeUtc");
+				Global.getLocateTransactTime = jsonresponse.getString("eventData["+position+"].transactTime");
+				Global.getLocateLocateType = jsonresponse.getString("eventData["+position+"].locateType");
+				Global.getLocateEtbQty = jsonresponse.getInt("eventData["+position+"].etbQty");
+
+				if(	Global.getLocateQuoteReqID.equalsIgnoreCase(Validate_Acquired_quoteReqID))
+				{
+					LoggingManager.logger.info("API-Validate_Acquired_LocateId : ["+(Validate_Acquired_Id+Validate_Acquired_quoteReqID)+"] - Response_Locate_Id : "+Global.getLocateId);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateOriginatingUserDesc : ["+Validate_Acquired_OriginatingUserDesc +"] - Response_LocateOriginatingUserDesc : "+Global.getLocateOriginatingUserDesc);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateStatus : ["+Validate_Acquired_Status +"] - Response Validate_Acquired_LocateStatus : "+Global.getLocateStatus);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateStatusDesc : ["+Validate_Acquired_StatusDesc +"] - Response Validate_Acquired_LocateStatusDesc : "+Global.getLocateStatusDesc);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateOrderQty : ["+Validate_Acquired_OrderQty +"] - Response Validate_Acquired_LocateOrderQty : "+Global.getLocateOrderQty);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateCumQty : ["+Validate_Acquired_CumQty +"] - Response Validate_Acquired_CumQty : "+Global.getLocateCumQty);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateOfferSize : ["+Validate_Acquired_OfferSize +"] - Response Validate_Acquired_LocateOfferSize : "+Global.getLocateOfferSize);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateSymbol : ["+Validate_Acquired_Symbol +"] - Response Validate_Acquired_LocateSymbol : "+Global.getLocateSymbol);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateSymbolSfx : ["+Validate_Acquired_SymbolSfx +"] - Response Validate_Acquired_LocateSymbolSfx : "+Global.getLocateSymbolSfx);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateClientID : ["+Validate_Acquired_ClientID +"] - Response Validate_Acquired_LocateClientID : "+Global.getLocateClientID);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateAccount : ["+Validate_Acquired_Account +"] - Response Validate_Acquired_LocateAccount : "+Global.getLocateAccount);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateBooth : ["+Validate_Acquired_Booth +"] - Response Validate_Acquired_LocateBooth : "+Global.getLocateBoothID);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateOrdType : ["+Validate_Acquired_OrdType +"] - Response Validate_Acquired_LocateOrdType : "+Global.getLocateOrdType);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateOrdStatus : ["+Validate_Acquired_OrdStatus +"] - Response Validate_Acquired_LocateOrdStatus : "+Global.getLocateOrdStatus);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateOfferPx : ["+Double.parseDouble(Validate_Acquired_OfferPx) +"] - Response Validate_Acquired_LocateOfferPx : "+Global.getLocateOfferPx);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateAvgPx : ["+Double.parseDouble(Validate_Acquired_AvgPx) +"] - Response Validate_Acquired_LocateAvgPx : "+Global.getLocateAvgPx);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateOrdRejReason : ["+Validate_Acquired_OrdRejReason +"] - Response Validate_Acquired_LocateOrdRejReason : "+Global.getLocateOrdRejReason);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateTransactionStatusString : ["+Validate_Acquired_TransactionStatusString +"] - Response Validate_Acquired_LocateTransactionStatusString : "+Global.getLocateTransactionStatusString);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateTransactionStatus : ["+Validate_Acquired_TransactionStatus +"] - Response Validate_Acquired_LocateTransactionStatus : "+Global.getLocateTransactionStatus);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateTimeInForce : ["+Validate_Acquired_TimeInForce +"] - Response Validate_Acquired_LocateTimeInForce : "+Global.getLocateTimeInForce);
+					LoggingManager.logger.info("API-Validate_Acquired_Text : ["+Validate_Acquired_Text +"] - Response Validate_Acquired_Text : "+Global.getLocateText);
+					LoggingManager.logger.info("API-Validate_Acquired_LocateLocateEtbQty : ["+Validate_Acquired_EtbQty+"] - Response Validate_Acquired_LocateEtbQty : "+Global.getLocateEtbQty);
+
+					Assert.assertEquals(Global.getLocateId,(Validate_Acquired_Id+Global.getLocateQuoteReqID),"Validate_Acquired_Id");
+					Assert.assertEquals(Global.getLocateOriginatingUserDesc,Validate_Acquired_OriginatingUserDesc,"Validate_Acquired_OriginatingUserDesc");
+					Assert.assertEquals(Global.getLocateStatus,Validate_Acquired_Status,"Validate_Acquired_Status");
+					Assert.assertEquals(Global.getLocateStatusDesc,Validate_Acquired_StatusDesc,"Validate_Acquired_StatusDesc");
+					Assert.assertEquals(Global.getLocateCumQty,Integer.parseInt(Validate_Acquired_CumQty),"Validate_Acquired_CumQty");
+					Assert.assertEquals(Global.getLocateOfferSize,Integer.parseInt(Validate_Acquired_OfferSize),"Validate_Acquired_OfferSize");
+					Assert.assertEquals(Global.getLocateOrderQty,Integer.parseInt(Validate_Acquired_OrderQty),"Validate_Acquired_OrderQty");
+					Assert.assertEquals(Global.getLocateSymbol,Validate_Acquired_Symbol,"Validate_Acquired_Symbol");
+					Assert.assertEquals(APIHelperClass.NVL(Global.getLocateSymbolSfx,"null"),Validate_Acquired_SymbolSfx,"Validate_Acquired_SymbolSfx");
+					Assert.assertEquals(Global.getLocateClientID,Validate_Acquired_ClientID,"Validate_Acquired_clientID");
+					Assert.assertEquals(Global.getLocateAccount,Validate_Acquired_Account,"Validate_Acquired_Account");
+					Assert.assertEquals(Global.getLocateBoothID,Validate_Acquired_Booth,"Validate_Acquired_Booth");
+					Assert.assertEquals(APIHelperClass.NVL(Global.getLocateOrdType,"null"),Validate_Acquired_OrdType,"Validate_Acquired_LocateOrdType");
+					Assert.assertEquals(APIHelperClass.NVL(Global.getLocateOrdStatus,"null"),Validate_Acquired_OrdStatus,"Validate_Acquired_LocateOrdStatus");
+					Assert.assertEquals(Global.getLocateOfferPx,Double.parseDouble(Validate_Acquired_OfferPx),"Validate_Acquired_LocateOfferPx");
+					Assert.assertEquals(Global.getLocateAvgPx,Double.parseDouble(Validate_Acquired_AvgPx),"Validate_Acquired_LocateAvgPx");
+					Assert.assertEquals(Global.getLocateOrdRejReason,Validate_Acquired_OrdRejReason,"Validate_Acquired_LocateOrdRejReason");
+					Assert.assertEquals(Global.getLocateTransactionStatusString,Validate_Acquired_TransactionStatusString,"Validate_Acquired_LocateTransactionStatusString");
+					Assert.assertEquals(Global.getLocateTransactionStatus,Validate_Acquired_TransactionStatus,"Validate_Acquired_LocateTransactionStatus");
+					Assert.assertEquals(APIHelperClass.NVL(Global.getLocateTimeInForce,"null"),Validate_Acquired_TimeInForce,"Validate_Acquired_LocateTimeInForce");
+					Assert.assertEquals(APIHelperClass.NVL(Global.getLocateText,"null"),Validate_Acquired_Text,"Validate_Acquired_Text");
+					Assert.assertEquals(APIHelperClass.NVL(Global.getLocateLocateType,"null"),Validate_Acquired_LocateType,"Validate_Acquired_LocateLocateType");
+					Assert.assertEquals(Global.getLocateEtbQty,Validate_Acquired_EtbQty,"Validate_Acquired_LocateETBQty");
+					break;
+				}
+				else
+				{
+					continue;
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
+
+
+public static void Validate_Summary_Subscribe_Locates(Response Summary_response,
+													 String Validate_SummaryID,
+													 String Validate_SummaryOriginatingUserDesc,
+													 String Validate_SummaryClientID,
+													 String Validate_SummaryLocateType,
+													 String Validate_SummarySymbol,
+													 String Validate_SummarySymbolSfx,
+													 String Validate_SummaryAccount,
+													 Integer Validate_SummaryAcqEtbQty,
+													 String Validate_SummaryBooth)
+{
+	try
+	{
+		String getSummaryID=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].id").toString();
+		String getSummarySymbol=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].symbol").toString();
+		String getSummaryAccount=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].account").toString();
+		String getSummarySymbolSfx=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].symbolSfx").toString();
+		String getSummaryClientID=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].clientID").toString();
+		String getSummaryLocateType=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].locateType").toString();
+		String getSummaryBooth=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].boothID").toString();
+		String getSummaryOriginatingUserDesc=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].originatingUserDesc").toString();
+		String getSummaryEtbQty=com.jayway.jsonpath.JsonPath.read(Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_SummaryID+"' )].etbQty").toString();
+
+		LoggingManager.logger.info("API-Validate_SummaryID : [\""+Validate_SummaryID +"\"] - Response Validate_SummaryID : "+getSummaryID);
+		LoggingManager.logger.info("API-Validate_SummarySymbol : [\""+Validate_SummarySymbol +"\"] - Response Validate_SummarySymbol : "+getSummarySymbol);
+		LoggingManager.logger.info("API-Validate_SummaryAccount : [\""+Validate_SummaryAccount +"\"] - Response Validate_SummaryAccount : "+getSummaryAccount);
+		LoggingManager.logger.info("API-Validate_SummarySymbolSfx : [\""+Validate_SummarySymbolSfx +"\"] - Response Validate_SummarySymbolSfx : "+getSummarySymbolSfx);
+		LoggingManager.logger.info("API-Validate_SummaryClientID : [\""+Validate_SummaryClientID +"\"] - Response Validate_SummaryClientID : "+getSummaryClientID);
+		LoggingManager.logger.info("API-Validate_SummaryLocateType : [\""+Validate_SummaryLocateType +"\"] - Response Validate_SummaryLocateType : "+getSummaryLocateType);
+		LoggingManager.logger.info("API-Validate_SummaryBooth : [\""+Validate_SummaryBooth +"\"] - Response Validate_SummaryBooth : "+getSummaryBooth);
+		LoggingManager.logger.info("API-Validate_Summary_OriginatingUserDesc : [\""+Validate_SummaryOriginatingUserDesc +"\"] - Response Validate_Summary_OriginatingUserDesc : "+getSummaryOriginatingUserDesc);
+		LoggingManager.logger.info("API-Validate_SummaryEtbQty : ["+Validate_SummaryAcqEtbQty+"] - Response Validate_SummaryEtbQty : "+getSummaryEtbQty);
+
+		Assert.assertEquals(getSummaryID,APIHelperClass.ValidationNullValue(Validate_SummaryID),"Validate_Summary_Locate_Subscribe_ID");
+		Assert.assertEquals(getSummarySymbol,APIHelperClass.ValidationNullValue(Validate_SummarySymbol),"Validate_Summary_Locate_Subscribe_Symbol");
+		Assert.assertEquals(getSummaryAccount,APIHelperClass.ValidationNullValue(Validate_SummaryAccount),"Validate_Summary_Locate_Subscribe_Account");
+		Assert.assertEquals(getSummarySymbolSfx,APIHelperClass.ValidationNullValue(Validate_SummarySymbolSfx),"Validate_Summary_Locate_Subscribe_SymbolSfx");
+		Assert.assertEquals(getSummaryClientID,APIHelperClass.ValidationNullValue(Validate_SummaryClientID),"Validate_Summary_Locate_Subscribe_ClientID");
+		Assert.assertEquals(getSummaryLocateType,APIHelperClass.ValidationNullValue(Validate_SummaryLocateType),"Validate_Summary_Locate_Subscribe_LocateType");
+		Assert.assertEquals(getSummaryOriginatingUserDesc,APIHelperClass.ValidationNullValue(Validate_SummaryOriginatingUserDesc),"Validate_Summary_Locate_Subscribe_OriginatingUserDesc");
+		Assert.assertEquals(Integer.parseInt(getSummaryEtbQty.substring(1, getSummaryEtbQty.length() - 1)),Validate_SummaryAcqEtbQty,"Validate_Summary_Locate_Subscribe_EtbQty");
+		Assert.assertEquals(getSummaryBooth,APIHelperClass.ValidationNullValue(Validate_SummaryBooth), "Validate_Summary_Locate_Subscribe_Booth");
+
+	}
+	catch (Exception e)
+	{
+		LoggingManager.logger.error(e);
+	}
 }
 
+public static void Validate_Available_Summary_Subscribe_Locates(Response Available_Summary_response,
+																	  String Validate_Available_SummaryID,
+																	  String Validate_Available_SummaryOriginatingUserDesc,
+																	  String Validate_Available_SummaryClientID,
+																	  String Validate_Available_SummaryLocateType,
+																	  String Validate_Available_SummarySymbol,
+																	  String Validate_Available_SummarySymbolSfx,
+																	  String Validate_Available_SummaryAccount,
+																	  Integer Validate_Available_SummaryAcqEtbQty,
+																	  String Validate_Available_SummaryBooth)
+{
+		try
+		{
+			String getSummaryID=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].id").toString();
+			String getSummarySymbol=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].symbol").toString();
+			String getSummaryAccount=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].account").toString();
+			String getSummarySymbolSfx=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].symbolSfx").toString();
+			String getSummaryClientID=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].clientID").toString();
+			String getSummaryLocateType=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].locateType").toString();
+			String getSummaryBooth=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].boothID").toString();
+			String getSummaryOriginatingUserDesc=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].originatingUserDesc").toString();
+			String getSummaryEtbQty=com.jayway.jsonpath.JsonPath.read(Available_Summary_response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_Available_SummaryID+"' )].etbQty").toString();
+
+			LoggingManager.logger.info("API-Validate_Available_SummaryID : [\""+Validate_Available_SummaryID +"\"] - Response Validate_Available_SummaryID : "+getSummaryID);
+			LoggingManager.logger.info("API-Validate_Available_SummarySymbol : [\""+Validate_Available_SummarySymbol +"\"] - Response Validate_Available_SummarySymbol : "+getSummarySymbol);
+			LoggingManager.logger.info("API-Validate_Available_SummaryAccount : [\""+Validate_Available_SummaryAccount +"\"] - Response Validate_Available_SummaryAccount : "+getSummaryAccount);
+			LoggingManager.logger.info("API-Validate_Available_SummarySymbolSfx : [\""+Validate_Available_SummarySymbolSfx +"\"] - Response Validate_Available_SummarySymbolSfx : "+getSummarySymbolSfx);
+			LoggingManager.logger.info("API-Validate_Available_SummaryClientID : [\""+Validate_Available_SummaryClientID +"\"] - Response Validate_Available_SummaryClientID : "+getSummaryClientID);
+			LoggingManager.logger.info("API-Validate_Available_SummaryLocateType : [\""+Validate_Available_SummaryLocateType +"\"] - Response Validate_Available_SummaryLocateType : "+getSummaryLocateType);
+			LoggingManager.logger.info("API-Validate_Available_SummaryBooth : [\""+Validate_Available_SummaryBooth +"\"] - Response Validate_Available_SummaryBooth : "+getSummaryBooth);
+			LoggingManager.logger.info("API-Validate_Available_Summary_OriginatingUserDesc : [\""+Validate_Available_SummaryOriginatingUserDesc +"\"] - Response Validate_Available_Summary_OriginatingUserDesc : "+getSummaryOriginatingUserDesc);
+			LoggingManager.logger.info("API-Validate_Available_SummaryEtbQty : ["+Validate_Available_SummaryAcqEtbQty+"] - Response Validate_Available_SummaryEtbQty : "+getSummaryEtbQty);
+
+			Assert.assertEquals(getSummaryID,APIHelperClass.ValidationNullValue(Validate_Available_SummaryID),"Validate_Available_Summary_Locate_Subscribe_ID");
+			Assert.assertEquals(getSummarySymbol,APIHelperClass.ValidationNullValue(Validate_Available_SummarySymbol),"Validate_Available_Summary_Locate_Subscribe_Symbol");
+			Assert.assertEquals(getSummaryAccount,APIHelperClass.ValidationNullValue(Validate_Available_SummaryAccount),"Validate_Available_Summary_Locate_Subscribe_Account");
+			Assert.assertEquals(getSummarySymbolSfx,APIHelperClass.ValidationNullValue(Validate_Available_SummarySymbolSfx),"Validate_Available_Summary_Locate_Subscribe_SymbolSfx");
+			Assert.assertEquals(getSummaryClientID,APIHelperClass.ValidationNullValue(Validate_Available_SummaryClientID),"Validate_Available_Summary_Locate_Subscribe_ClientID");
+			Assert.assertEquals(getSummaryLocateType,APIHelperClass.ValidationNullValue(Validate_Available_SummaryLocateType),"Validate_Available_Summary_Locate_Subscribe_LocateType");
+			Assert.assertEquals(getSummaryOriginatingUserDesc,APIHelperClass.ValidationNullValue(Validate_Available_SummaryOriginatingUserDesc),"Validate_Available_Summary_Locate_Subscribe_OriginatingUserDesc");
+			Assert.assertEquals(Integer.parseInt(getSummaryEtbQty.substring(1, getSummaryEtbQty.length() - 1)),Validate_Available_SummaryAcqEtbQty,"Validate_Available_Summary_Locate_Subscribe_EtbQty");
+			Assert.assertEquals(getSummaryBooth,APIHelperClass.ValidationNullValue(Validate_Available_SummaryBooth), "Validate_Available_Summary_Locate_Subscribe_Booth");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
+
+}
 
 /*
 public static void GetOrder_PositionsData(  String endpoint_version,

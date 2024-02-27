@@ -2,6 +2,8 @@ package APIHelper;
 
 import io.restassured.response.Response;
 
+import java.net.Inet4Address;
+
 public class Global {
 
 	//public static String tfaCode="123456";
@@ -25,6 +27,36 @@ public class Global {
 	public static String   getResponseArray;
 
 
+//===================================================Locate Subscribe Response Fields===============================================================
+
+	public static String  	getLocateOrdType;
+	public static String  	getLocateQuoteReqID;
+	public static String  	getLocateOrdStatus;
+	public static Integer 	getLocateOrderQty=0;
+	public static Double  	getLocateOfferPx=0.00;
+	public static Integer 	getLocateOfferSize=0;
+	public static Integer 	getLocateCumQty=0;
+	public static Double  	getLocateAvgPx=0.00;
+	public static String  	getLocateStatusDesc;
+	public static String  	getLocateStatus;
+	public static String  	getLocateOrdRejReason;
+	public static String  	getLocateTransactionStatusString;
+	public static String  	getLocateTransactionStatus;
+	public static String  	getLocateTimeInForce;
+	public static String  	getLocateText;
+	public static String  	getLocateId;
+	public static String  	getLocateSymbol;
+	public static String  	getLocateSymbolSfx;
+	public static String  	getLocateTransactTimeUtc;
+	public static String  	getLocateTransactTime;
+	public static String  	getLocateClientID;
+	public static String  	getLocateLocateType;
+	public static String  	getLocateBoothID;
+	public static String  	getLocateAccount;
+	public static String  	getLocateOriginatingUserDesc;
+	public static Integer 	getLocateEtbQty=0;
+
+
 //===================================================Orders Subscription Response Fields===============================================================
 	
 	public static String  getOrderValue="";
@@ -33,7 +65,6 @@ public class Global {
 	public static String  getBuyFilledOrderID;
 	public static String  getSellFilledOrderID;
 	public static String  getShortSellFilledOrderID;
-
 	public static Integer  getBuyFilled_qOrderID=0;
 	public static Integer  getSellFilled_qOrderID=0;
 	public static Integer  getShortSellFilled_qOrderID=0;
@@ -161,10 +192,10 @@ public class Global {
 	public static String   getExecution_execTransType;       
 	public static String   getExecution_execTransTypeDesc;   
 	public static Double   getExecution_lastPx=0.00;              
-	public static Integer  getExecution_orderQty=0;        
-	public static Integer  getExecution_leavesQty=0;        
-	public static Integer  getExecution_lastShares=0;       
-	public static Integer  getExecution_cumQty=0;        
+	public static Double  getExecution_orderQty=0.00;
+	public static Double  getExecution_leavesQty=0.00;
+	public static Double  getExecution_lastShares=0.00;
+	public static Double  getExecution_cumQty=0.00;
 	public static Double   getExecution_avgPx=0.00;          
 
 	

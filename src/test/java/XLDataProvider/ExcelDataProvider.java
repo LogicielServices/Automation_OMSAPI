@@ -834,7 +834,14 @@ public class ExcelDataProvider {
 			Object[][] DataObject = GetExcelData(Locates_FileDirectory,"Locates");
 		    return DataObject;
 		}
-		
+
+		@DataProvider(name="Locates_ETBHTP")
+		public Object[][] Locates_ETBHTP() throws IOException
+		{
+			Object[][] DataObject = GetExcelData(Locates_FileDirectory,"Locates_ETBHTP");
+			return DataObject;
+		}
+
 		@DataProvider(name="Locates_Acquire")
 		public Object[][] Locates_Acquire() throws IOException 
 		{

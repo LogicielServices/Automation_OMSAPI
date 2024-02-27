@@ -1,6 +1,9 @@
 package LocatesAPI;
 
 import APIHelper.APIHelperClass;
+import APIHelper.Global;
+import APIHelper.LoggingManager;
+import XLDataProvider.ExcelDataProvider;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -9,18 +12,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import APIHelper.Global;
-import APIHelper.LoggingManager;
-import XLDataProvider.ExcelDataProvider;
-import static io.restassured.RestAssured.*;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.HashMap;
 
+import static io.restassured.RestAssured.given;
 
-public class Summary_Available_Subscribe {
-	
+
+public class Locates_ETBHTP {
+
 	@BeforeMethod
 	public void beforeMethod() 
 	{
@@ -38,88 +38,94 @@ public class Summary_Available_Subscribe {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	 
-	@Test (dataProvider="Summary_Available_Subscribe", dataProviderClass=ExcelDataProvider.class,groups={"Summary_Available_Subscribe"}, dependsOnGroups={"Post_Locates"})//Post_LocatesUserLoginAuthentications
-	public void Verify_Available_Summary_Locate_Subscribe(  String Summary_Available_Subscribe_TestCase,
-															String Subscribe_Locates_BasePath,
-															String Content_Type,
-															String Subscribe_Locates_StatusCode,
-															String Validate_OrdType,
-															String Validate_OrdStatus,
-															String Validate_OrderQty,
-															String Validate_OfferPx,
-															String Validate_OfferSize,
-															String Validate_CumQty,
-															String Validate_AvgPx,
-															String Validate_StatusDesc,
-															String Validate_Status,
-															String Validate_OrdRejReason,
-															String Validate_TransactionStatusString,
-															String Validate_TransactionStatus,
-															String Validate_TimeInForce,
-															String Validate_Text,
-															String Validate_Id,
-															String Validate_Symbol,
-															String Validate_SymbolSfx,
-															String Validate_ClientID,
-															String Validate_LocateType,
-															String Validate_Booth,
-															String Validate_Account,
-															String Validate_OriginatingUserDesc,
-															String Validate_Flag,
-															String Locates_Acquire_BasePath,
-															String Locates_Acquire_Symbol,
-															String Locates_Acquire_TimeInForce,
-															String Locates_Acquire_OrderQty,
-															String Locates_Acquire_Synchronous,
-															String Locates_Acquire_Account,
-															String Locates_Acquire_StatusCode,
-															String Validate_Acquired_OrdType,
-															String Validate_Acquired_OrdStatus,
-															String Validate_Acquired_OrderQty,
-															String Validate_Acquired_OfferPx,
-															String Validate_Acquired_OfferSize,
-															String Validate_Acquired_CumQty,
-															String Validate_Acquired_AvgPx,
-															String Validate_Acquired_StatusDesc,
-															String Validate_Acquired_Status,
-															String Validate_Acquired_OrdRejReason,
-															String Validate_Acquired_TransactionStatusString,
-															String Validate_Acquired_TransactionStatus,
-															String Validate_Acquired_TimeInForce,
-															String Validate_Acquired_Text,
-															String Validate_Acquired_Id,
-															String Validate_Acquired_Symbol,
-															String Validate_Acquired_SymbolSfx,
-															String Validate_Acquired_ClientID,
-															String Validate_Acquired_LocateType,
-															String Validate_Acquired_Booth,
-															String Validate_Acquired_Account,
-															String Validate_Acquired_OriginatingUserDesc,
-															String Summary_Locate_Subscribe_BasePath,
-															String Summary_Locate_Subscribe_StatusCode,
-															String Validate_SummaryID,
-															String Validate_SummaryBooth,
-															String Summary_Available_Subscribe_BasePath,
-															String Summary_Available_Account,
-															String Summary_Available_Symbol,
-															String Summary_Available_Subscribe_StatusCode,
-															String Validate_Available_SummaryID,
-															String Validate_Available_SummaryOriginatingUserDesc,
-															String Validate_Available_SummaryClientID,
-															String Validate_Available_SummaryLocateType,
-															String Validate_Available_SummarySymbol,
-															String Validate_Available_SummarySymbolSfx,
-															String Validate_Available_SummaryAccount,
-															String Validate_Available_SummaryBooth)
+	
+	@Test (dataProvider="Locates_ETBHTP", dataProviderClass=ExcelDataProvider.class,groups={"Locates_ETBHTP"}, dependsOnGroups={"UserLoginAuthentications"}) //Post_Locates UserLoginAuthentications
+	public void Verify_Locates_ETBHTP(String Subscribe_Locates_TestCase,
+									   String Subscribe_Locates_BasePath,
+									   String Content_Type,
+									   String Subscribe_Locates_StatusCode,
+									   String Validate_OrdType,
+									   String Validate_OrdStatus,
+									   String Validate_OrderQty,
+									   String Validate_OfferPx,
+									   String Validate_OfferSize,
+									   String Validate_CumQty,
+									   String Validate_AvgPx,
+									   String Validate_StatusDesc,
+									   String Validate_Status,
+									   String Validate_OrdRejReason,
+									   String Validate_TransactionStatusString,
+									   String Validate_TransactionStatus,
+									   String Validate_TimeInForce,
+									   String Validate_Text,
+									   String Validate_Id,
+									   String Validate_Symbol,
+									   String Validate_SymbolSfx,
+									   String Validate_ClientID,
+									   String Validate_LocateType,
+									   String Validate_Booth,
+									   String Validate_Account,
+									   String Validate_OriginatingUserDesc,
+									   String Validate_Flag,
+									   String Locates_Acquire_BasePath,
+									   String Locates_Acquire_Symbol,
+									   String Locates_Acquire_TimeInForce,
+									   String Locates_Acquire_OrderQty,
+									   String Locates_Acquire_Synchronous,
+									   String Locates_Acquire_Account,
+									   String Locates_Acquire_StatusCode,
+									   String Validate_Acquired_OrdType,
+									   String Validate_Acquired_OrdStatus,
+									   String Validate_Acquired_OrderQty,
+									   String Validate_Acquired_OfferPx,
+									   String Validate_Acquired_OfferSize,
+									   String Validate_Acquired_CumQty,
+									   String Validate_Acquired_AvgPx,
+									   String Validate_Acquired_StatusDesc,
+									   String Validate_Acquired_Status,
+									   String Validate_Acquired_OrdRejReason,
+									   String Validate_Acquired_TransactionStatusString,
+									   String Validate_Acquired_TransactionStatus,
+									   String Validate_Acquired_TimeInForce,
+									   String Validate_Acquired_Text,
+									   String Validate_Acquired_Id,
+									   String Validate_Acquired_Symbol,
+									   String Validate_Acquired_SymbolSfx,
+									   String Validate_Acquired_ClientID,
+									   String Validate_Acquired_LocateType,
+									   String Validate_Acquired_Booth,
+									   String Validate_Acquired_Account,
+									   String Validate_Acquired_OriginatingUserDesc,
+									   String Summary_Locate_Subscribe_BasePath,
+									   String Summary_Locate_Subscribe_StatusCode,
+									   String Validate_SummaryID,
+									   String Validate_SummaryOriginatingUserDesc,
+									   String Validate_SummaryClientID,
+									   String Validate_SummaryLocateType,
+									   String Validate_SummarySymbol,
+									   String Validate_SummarySymbolSfx,
+									   String Validate_SummaryAccount,
+									   String Validate_SummaryBooth,
+									   String Summary_Available_Subscribe_BasePath,
+									   String Summary_Available_Account,
+									   String Summary_Available_Symbol,
+									   String Summary_Available_Subscribe_StatusCode,
+									   String Validate_Available_SummaryID,
+									   String Validate_Available_SummaryOriginatingUserDesc,
+									   String Validate_Available_SummaryClientID,
+									   String Validate_Available_SummaryLocateType,
+									   String Validate_Available_SummarySymbol,
+									   String Validate_Available_SummarySymbolSfx,
+									   String Validate_Available_SummaryAccount,
+									   String Validate_Available_SummaryBooth)
 	{
 		try
 		{
 			LoggingManager.logger.info("====================================================================");
-			LoggingManager.logger.info("TestCase : "+Summary_Available_Subscribe_TestCase);
+			LoggingManager.logger.info("TestCase : "+Subscribe_Locates_TestCase);
 			LoggingManager.logger.info("====================================================================");
 			RestAssured.baseURI=Global.BaseURL;
-			//-------------------------------------------Subscribe Request--------------------------------------------------------------
+		//-------------------------------------------Subscribe Request--------------------------------------------------------------
 			Response response=
 					given()
 							.header("Content-Type",Content_Type)
@@ -179,19 +185,18 @@ public class Summary_Available_Subscribe {
 			Locates_Acquire_Body.put("synchronous",Integer.parseInt(Locates_Acquire_Synchronous));
 			Locates_Acquire_Body.put("account",Locates_Acquire_Account);
 
-			Response acquire_Response=
-									 given()
-									.header("Content-Type",Content_Type)
-									.header("Authorization", "Bearer " + Global.getAccToken)
-									.body(Locates_Acquire_Body)
+			Response acquire_Response=	given()
+										.header("Content-Type",Content_Type)
+										.header("Authorization", "Bearer " + Global.getAccToken)
+										.body(Locates_Acquire_Body)
 
-									.when()
-									.post(Locates_Acquire_BasePath)
+										.when()
+										.post(Locates_Acquire_BasePath)
 
-									.then()
-									//.statusCode(Integer.parseInt(Locates_Acquire_StatusCode))
-									//.statusLine("HTTP/1.1 200 OK")
-									.extract().response();
+										.then()
+										//.statusCode(Integer.parseInt(Locates_Acquire_StatusCode))
+										//.statusLine("HTTP/1.1 200 OK")
+										.extract().response();
 
 			LoggingManager.logger.info("API-Locates_Acquire_BasePath : ["+Locates_Acquire_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
@@ -245,19 +250,49 @@ public class Summary_Available_Subscribe {
 																Validate_Acquired_OriginatingUserDesc,
 																acqEtbQty);
 
+
+
+			//-------------------------------------------Summary Locates--------------------------------------------------------------
+			Response Summary_response=
+										given()
+												.header("Content-Type",Content_Type)
+												.header("Authorization", "Bearer " + Global.getAccToken)
+
+												.when()
+												.get(Summary_Locate_Subscribe_BasePath)
+
+												.then()
+												.extract().response();
+
+			LoggingManager.logger.info("API-BasePath : ["+Summary_Locate_Subscribe_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Summary_Locates_Subscribe_StatusCode : ["+Summary_response.getStatusCode()+"]");
+			Assert.assertEquals(Summary_response.statusCode(),Integer.parseInt(Summary_Locate_Subscribe_StatusCode), "Verify_Summary_Locate_Subscribe_StatusCode");
+			APIHelperClass.Validate_Summary_Subscribe_Locates(Summary_response,
+																Validate_SummaryID,
+																Validate_SummaryOriginatingUserDesc,
+																Validate_SummaryClientID,
+																Validate_SummaryLocateType,
+																Validate_SummarySymbol,
+																Validate_SummarySymbolSfx,
+																Validate_SummaryAccount,
+																acqEtbQty,
+																Validate_SummaryBooth);
+
+
 			//-------------------------------------------Available Summary Locates--------------------------------------------------------------
 			Response Available_Summary_response=
-					given()
-							.header("Content-Type",Content_Type)
-							.header("Authorization", "Bearer " + Global.getAccToken)
-							.pathParam("account", Summary_Available_Account)
-							.pathParam("symbol", Summary_Available_Symbol)
+												given()
+														.header("Content-Type",Content_Type)
+														.header("Authorization", "Bearer " + Global.getAccToken)
+														.pathParam("account", Summary_Available_Account)
+														.pathParam("symbol", Summary_Available_Symbol)
 
-							.when()
-							.get(Summary_Available_Subscribe_BasePath.concat("{account}/{symbol}"))
+														.when()
+														.get(Summary_Available_Subscribe_BasePath.concat("{account}/{symbol}"))
 
-							.then()
-							.extract().response();
+														.then()
+														.extract().response();
 
 			LoggingManager.logger.info("API-BasePath : ["+Summary_Available_Subscribe_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
@@ -273,7 +308,8 @@ public class Summary_Available_Subscribe {
 																		Validate_Available_SummaryAccount,
 																		acqEtbQty,
 																		Validate_Available_SummaryBooth);
-	}
+
+		}
 		catch (Exception e)
 		{
 			LoggingManager.logger.error(e);
