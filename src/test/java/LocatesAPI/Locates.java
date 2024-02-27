@@ -47,8 +47,6 @@ public class Locates {
 			LoggingManager.logger.info("====================================================================");
 			LoggingManager.logger.info("TestCase : "+Locates_TestCase);
 			LoggingManager.logger.info("====================================================================");
-
-
 			RestAssured.baseURI=Global.BaseURL;
 
 			Response response=	given()

@@ -37,7 +37,7 @@ public class Summary_Locate_UnSubscribe {
 		}
 	}
 	
-	@Test (dataProvider="Summary_Locate_UnSubscribe", dataProviderClass=ExcelDataProvider.class,groups={"Summary_Locate_UnSubscribe"}, dependsOnGroups={"Summary_Locate_Subscribe"})
+	@Test (dataProvider="Summary_Locate_UnSubscribe", dataProviderClass=ExcelDataProvider.class,groups={"Summary_Locate_UnSubscribe"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_Summary_Locate_UnSubscribe(String Summary_Locate_UnSubscribe_TestCase,
 												  String Summary_Locate_UnSubscribe_BasePath,
 												  String Content_Type,

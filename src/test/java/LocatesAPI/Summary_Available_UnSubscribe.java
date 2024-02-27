@@ -38,7 +38,7 @@ public class Summary_Available_UnSubscribe {
 		}
 	}
 	 
-	@Test (dataProvider="Summary_Available_UnSubscribe", dataProviderClass=ExcelDataProvider.class,groups={"Summary_Available_UnSubscribe"}, dependsOnGroups={"Summary_Available_Subscribe"})
+	@Test (dataProvider="Summary_Available_UnSubscribe", dataProviderClass=ExcelDataProvider.class,groups={"Summary_Available_UnSubscribe"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_Summary_Available_UnSubscribe( String Summary_Available_UnSubscribe_TestCase,
 													  String Summary_Available_UnSubscribe_BasePath,
 													  String Content_Type,

@@ -1,5 +1,6 @@
 package LocatesAPI;
 
+import APIHelper.APIHelperClass;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -15,6 +16,7 @@ import static io.restassured.RestAssured.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.HashMap;
 
 
 public class Summary_Locate_Subscribe {
@@ -39,15 +41,71 @@ public class Summary_Locate_Subscribe {
 	 
 	@Test (dataProvider="Summary_Locate_Subscribe", dataProviderClass=ExcelDataProvider.class,groups={"Summary_Locate_Subscribe"}, dependsOnGroups={"Post_Locates"})
 	public void Verify_Summary_Locate_Subscribe(String Summary_Locate_Subscribe_TestCase,
-												String Summary_Locate_Subscribe_BasePath,
+												String Subscribe_Locates_BasePath,
 												String Content_Type,
-												String Summary_Locate_Subscribe_StatusCode,
-												String Validate_ID,
-												String Validate_OriginatingUserDesc,
-												String Validate_ClientID,
+												String Subscribe_Locates_StatusCode,
+												String Validate_OrdType,
+												String Validate_OrdStatus,
+												String Validate_OrderQty,
+												String Validate_OfferPx,
+												String Validate_OfferSize,
+												String Validate_CumQty,
+												String Validate_AvgPx,
+												String Validate_StatusDesc,
+												String Validate_Status,
+												String Validate_OrdRejReason,
+												String Validate_TransactionStatusString,
+												String Validate_TransactionStatus,
+												String Validate_TimeInForce,
+												String Validate_Text,
+												String Validate_Id,
 												String Validate_Symbol,
+												String Validate_SymbolSfx,
+												String Validate_ClientID,
+												String Validate_LocateType,
+												String Validate_Booth,
 												String Validate_Account,
-												String Validate_Booth)
+												String Validate_OriginatingUserDesc,
+												String Validate_Flag,
+												String Locates_Acquire_BasePath,
+												String Locates_Acquire_Symbol,
+												String Locates_Acquire_TimeInForce,
+												String Locates_Acquire_OrderQty,
+												String Locates_Acquire_Synchronous,
+												String Locates_Acquire_Account,
+												String Locates_Acquire_StatusCode,
+												String Validate_Acquired_OrdType,
+												String Validate_Acquired_OrdStatus,
+												String Validate_Acquired_OrderQty,
+												String Validate_Acquired_OfferPx,
+												String Validate_Acquired_OfferSize,
+												String Validate_Acquired_CumQty,
+												String Validate_Acquired_AvgPx,
+												String Validate_Acquired_StatusDesc,
+												String Validate_Acquired_Status,
+												String Validate_Acquired_OrdRejReason,
+												String Validate_Acquired_TransactionStatusString,
+												String Validate_Acquired_TransactionStatus,
+												String Validate_Acquired_TimeInForce,
+												String Validate_Acquired_Text,
+												String Validate_Acquired_Id,
+												String Validate_Acquired_Symbol,
+												String Validate_Acquired_SymbolSfx,
+												String Validate_Acquired_ClientID,
+												String Validate_Acquired_LocateType,
+												String Validate_Acquired_Booth,
+												String Validate_Acquired_Account,
+												String Validate_Acquired_OriginatingUserDesc,
+												String Summary_Locate_Subscribe_BasePath,
+												String Summary_Locate_Subscribe_StatusCode,
+												String Validate_SummaryID,
+												String Validate_SummaryOriginatingUserDesc,
+												String Validate_SummaryClientID,
+												String Validate_SummaryLocateType,
+												String Validate_SummarySymbol,
+												String Validate_SummarySymbolSfx,
+												String Validate_SummaryAccount,
+												String Validate_SummaryBooth)
 	{
 		try
 		{
@@ -55,8 +113,137 @@ public class Summary_Locate_Subscribe {
 			LoggingManager.logger.info("TestCase : "+Summary_Locate_Subscribe_TestCase);
 			LoggingManager.logger.info("====================================================================");
 			RestAssured.baseURI=Global.BaseURL;
+			//-------------------------------------------Subscribe Request--------------------------------------------------------------
 			Response response=
-							given()
+					given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+
+							.when()
+							.get(Subscribe_Locates_BasePath)
+
+							.then()
+							//.statusCode(Integer.parseInt(Subscribe_Locates_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+			LoggingManager.logger.info("API-Subscribe_Locates_BasePath : ["+Subscribe_Locates_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Subscribe_Locates_StatusCode : ["+response.getStatusCode()+"]");
+			Assert.assertEquals(response.statusCode(),Integer.parseInt(Subscribe_Locates_StatusCode), "Verify_Subscribe_Locates_StatusCode");
+			APIHelperClass.Validate_Subscribe_Locates(  response,
+														Summary_Locate_Subscribe_BasePath,
+														Content_Type,
+														Summary_Locate_Subscribe_StatusCode,
+														Validate_SummaryID,
+														Validate_SummaryBooth,
+														Validate_OrdType,
+														Validate_OrdStatus,
+														Validate_OrderQty,
+														Validate_OfferPx,
+														Validate_OfferSize,
+														Validate_CumQty,
+														Validate_AvgPx,
+														Validate_StatusDesc,
+														Validate_Status,
+														Validate_OrdRejReason,
+														Validate_TransactionStatusString,
+														Validate_TransactionStatus,
+														Validate_TimeInForce,
+														Validate_Text,
+														Validate_Id,
+														Validate_Symbol,
+														Validate_SymbolSfx,
+														Validate_ClientID,
+														Validate_LocateType,
+														Validate_Booth,
+														Validate_Account,
+														Validate_OriginatingUserDesc,
+														Validate_Flag);
+
+			Integer acqEtbQty=Global.getLocateEtbQty;
+			LoggingManager.logger.info("API-Before Acquire EtbQty : ["+acqEtbQty+"]");
+
+			//-------------------------------------------Acquire Locates--------------------------------------------------------------
+			HashMap<String, Object> Locates_Acquire_Body=new HashMap<String, Object>();
+			Locates_Acquire_Body.put("quoteReqID",Global.getLocateQuoteReqID);
+			Locates_Acquire_Body.put("symbol",Locates_Acquire_Symbol);
+			Locates_Acquire_Body.put("timeInForce",Locates_Acquire_TimeInForce);
+			Locates_Acquire_Body.put("orderQty",Integer.parseInt(Locates_Acquire_OrderQty));
+			Locates_Acquire_Body.put("synchronous",Integer.parseInt(Locates_Acquire_Synchronous));
+			Locates_Acquire_Body.put("account",Locates_Acquire_Account);
+
+			Response acquire_Response=
+										given()
+										.header("Content-Type",Content_Type)
+										.header("Authorization", "Bearer " + Global.getAccToken)
+										.body(Locates_Acquire_Body)
+
+										.when()
+										.post(Locates_Acquire_BasePath)
+
+										.then()
+										//.statusCode(Integer.parseInt(Locates_Acquire_StatusCode))
+										//.statusLine("HTTP/1.1 200 OK")
+										.extract().response();
+
+			LoggingManager.logger.info("API-Locates_Acquire_BasePath : ["+Locates_Acquire_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Request Body : ["+Locates_Acquire_Body.toString()+"]");
+			LoggingManager.logger.info("API-Subscribe_Locates_StatusCode : ["+acquire_Response.getStatusCode()+"]");
+			LoggingManager.logger.info("API-Subscribe_Locates_StatusLine : ["+acquire_Response.getStatusLine()+"]");
+			Assert.assertEquals(acquire_Response.statusCode(),Integer.parseInt(Locates_Acquire_StatusCode), "Verify_Locates_Acquire_StatusCode");
+			acqEtbQty+=Integer.parseInt(Locates_Acquire_OrderQty);
+
+			//-------------------------------------------Subscribe Request--------------------------------------------------------------
+			Response validate_Subscriberesponse=
+					given()
+							.header("Content-Type",Content_Type)
+							.header("Authorization", "Bearer " + Global.getAccToken)
+
+							.when()
+							.get(Subscribe_Locates_BasePath)
+
+							.then()
+							//.statusCode(Integer.parseInt(Subscribe_Locates_StatusCode))
+							//.statusLine("HTTP/1.1 200 OK")
+							.extract().response();
+
+			LoggingManager.logger.info("API-Subscribe_Locates_BasePath : ["+Subscribe_Locates_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Subscribe_Locates_StatusCode : ["+validate_Subscriberesponse.getStatusCode()+"]");
+			Assert.assertEquals(validate_Subscriberesponse.statusCode(),Integer.parseInt(Subscribe_Locates_StatusCode), "Verify_Subscribe_Locates_StatusCode");
+			APIHelperClass.Validate_Acquired_Subscribe_Locates( validate_Subscriberesponse,
+																Global.getLocateQuoteReqID,
+																Validate_Acquired_OrdType,
+																Validate_Acquired_OrdStatus,
+																Validate_Acquired_OrderQty,
+																Validate_Acquired_OfferPx,
+																Validate_Acquired_OfferSize,
+																Validate_Acquired_CumQty,
+																Validate_Acquired_AvgPx,
+																Validate_Acquired_StatusDesc,
+																Validate_Acquired_Status,
+																Validate_Acquired_OrdRejReason,
+																Validate_Acquired_TransactionStatusString,
+																Validate_Acquired_TransactionStatus,
+																Validate_Acquired_TimeInForce,
+																Validate_Acquired_Text,
+																Validate_Acquired_Id,
+																Validate_Acquired_Symbol,
+																Validate_Acquired_SymbolSfx,
+																Validate_Acquired_ClientID,
+																Validate_Acquired_LocateType,
+																Validate_Acquired_Booth,
+																Validate_Acquired_Account,
+																Validate_Acquired_OriginatingUserDesc,
+																acqEtbQty);
+
+
+
+			//-------------------------------------------Summary Locates--------------------------------------------------------------
+			Response Summary_response=
+					given()
 							.header("Content-Type",Content_Type)
 							.header("Authorization", "Bearer " + Global.getAccToken)
 
@@ -64,38 +251,22 @@ public class Summary_Locate_Subscribe {
 							.get(Summary_Locate_Subscribe_BasePath)
 
 							.then()
-							//.statusCode(Integer.parseInt(Summary_Locate_Subscribe_StatusCode))
-							//.statusLine("HTTP/1.1 200 OK")
 							.extract().response();
 
 			LoggingManager.logger.info("API-BasePath : ["+Summary_Locate_Subscribe_BasePath+"]");
 			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
-			LoggingManager.logger.info("API-Summary_Available_Subscribe_StatusCode : ["+response.getStatusCode()+"]");
-			Assert.assertEquals(response.statusCode(),Integer.parseInt(Summary_Locate_Subscribe_StatusCode), "Verify_Summary_Locate_Subscribe_StatusCode");
-
-
-			String getID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].id").toString();
-			String getOriginatingUserDesc=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].originatingUserDesc").toString();
-			String getClientID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].clientID").toString();
-			String getSymbol=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].symbol").toString();
-			String getAccount=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].account").toString();
-			String getBoothID=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.eventData[?(@.id =='"+Validate_ID+"' )].boothID").toString();
-			//System.out.println(AcountValue+AccountName+BoothID);
-
-			LoggingManager.logger.info("API-Validate_ID : ["+Validate_ID +"] - Response getID : "+getID);
-			LoggingManager.logger.info("API-Validate_OriginatingUserDesc : ["+Validate_OriginatingUserDesc +"] - Response getOriginatingUserDesc : "+getOriginatingUserDesc);
-			LoggingManager.logger.info("API-Validate_ClientID : ["+Validate_ClientID +"] - Response getClientID : "+getClientID);
-			LoggingManager.logger.info("API-Validate_Symbol : ["+Validate_Symbol +"] - Response getSymbol : "+getSymbol);
-			LoggingManager.logger.info("API-Validate_Account : ["+Validate_Account +"] - Response getAccount : "+getAccount);
-			LoggingManager.logger.info("API-Validate_Booth : ["+Validate_Booth +"] - Response getBoothID : "+getBoothID);
-
-
-			Assert.assertEquals(getID,"[\""+Validate_ID+"\"]", "Validate_Summary_Locate_Subscribe_ID");
-			Assert.assertEquals(getOriginatingUserDesc,"[\""+Validate_OriginatingUserDesc+"\"]", "Validate_Summary_Locate_Subscribe_OriginatingUserDesc");
-			Assert.assertEquals(getClientID,"[\""+Validate_ClientID+"\"]", "Validate_Summary_Locate_Subscribe_ClientID");
-			Assert.assertEquals(getSymbol,"[\""+Validate_Symbol+"\"]", "Validate_Summary_Locate_Subscribe_Symbol");
-			Assert.assertEquals(getAccount,"[\""+Validate_Account+"\"]", "Validate_Summary_Locate_Subscribe_Account");
-			Assert.assertEquals(getBoothID,"[\""+Validate_Booth+"\"]", "Validate_Summary_Locate_Subscribe_Booth");
+			LoggingManager.logger.info("API-Summary_Locates_Subscribe_StatusCode : ["+Summary_response.getStatusCode()+"]");
+			Assert.assertEquals(Summary_response.statusCode(),Integer.parseInt(Summary_Locate_Subscribe_StatusCode), "Verify_Summary_Locate_Subscribe_StatusCode");
+			APIHelperClass.Validate_Summary_Subscribe_Locates(Summary_response,
+																Validate_SummaryID,
+																Validate_SummaryOriginatingUserDesc,
+																Validate_SummaryClientID,
+																Validate_SummaryLocateType,
+																Validate_SummarySymbol,
+																Validate_SummarySymbolSfx,
+																Validate_SummaryAccount,
+																acqEtbQty,
+																Validate_SummaryBooth);
 		}
 		catch (Exception e)
 		{

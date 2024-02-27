@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LOCATES SUBSCRIBE API" guice-stage="DEVELOPMENT">
+
+    <test thread-count="1" name="Locates Subscribe API Test" verbose="2">
+        <classes>
+            <class name="IdentityServer_API_User.Login"/>
+            <class name="LocatesAPI.Locates"/>
+            <class name="LocatesAPI.Summary_Available_Subscribe"/>
+            <class name="LocatesAPI.Summary_Available_UnSubscribe"/>
+        </classes>
+    </test>
+
+</suite>
+
