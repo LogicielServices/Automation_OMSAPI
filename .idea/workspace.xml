@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
-      <change afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_ETBHTP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Acquired.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_ETBHTB.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Subcribe.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Request.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/APIlogs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/APIlogs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Data/Locates.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Data/Locates.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_Acquire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_Acquire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Subscribe_Locates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Subscribe_Locates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Available_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Available_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Available_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Available_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Locate_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Locate_Subscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Locate_UnSubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Summary_Locate_UnSubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/UnSubscribe_Locates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/UnSubscribe_Locates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Position.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Position.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_ETBHTB.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_ETBHTB.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +82,7 @@
       <recent name="XLDataProvider" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml">
+  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_ETBHTB.xml">
     <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Acquired.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Automation_OMSAPI" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Acquired.xml" />
@@ -112,6 +96,16 @@
     <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Automation_OMSAPI" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_ETBHTB.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_ETBHTB.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -139,23 +133,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Automation_OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_ETBHTB.xml" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Acquired.xml" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Subcribe.xml" />
-        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates.xml" />
       </list>
     </recent_temporary>
   </component>
