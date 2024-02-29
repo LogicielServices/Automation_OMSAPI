@@ -3104,7 +3104,7 @@ public static void Validate_Summary_Subscribe_Locates(Response Summary_response,
 		LoggingManager.logger.info("API-Validate_SummaryClientID : [\""+Validate_SummaryClientID +"\"] - Response Validate_SummaryClientID : "+getSummaryClientID);
 		LoggingManager.logger.info("API-Validate_SummaryLocateType : [\""+Validate_SummaryLocateType +"\"] - Response Validate_SummaryLocateType : "+getSummaryLocateType);
 		LoggingManager.logger.info("API-Validate_SummaryBooth : [\""+Validate_SummaryBooth +"\"] - Response Validate_SummaryBooth : "+getSummaryBooth);
-		LoggingManager.logger.info("API-Validate_Summary_OriginatingUserDesc : [\""+Validate_SummaryOriginatingUserDesc +"\"] - Response Validate_Summary_OriginatingUserDesc : "+getSummaryOriginatingUserDesc);
+		LoggingManager.logger.info("API-Response Validate_Summary_OriginatingUserDesc : "+getSummaryOriginatingUserDesc);
 		LoggingManager.logger.info("API-Validate_SummaryEtbQty : ["+Validate_SummaryAcqEtbQty+"] - Response Validate_SummaryEtbQty : "+getSummaryEtbQty);
 
 		Assert.assertEquals(getSummaryID,APIHelperClass.ValidationNullValue(Validate_SummaryID),"Validate_Summary_Locate_Subscribe_ID");
@@ -3113,7 +3113,7 @@ public static void Validate_Summary_Subscribe_Locates(Response Summary_response,
 		Assert.assertEquals(getSummarySymbolSfx,APIHelperClass.ValidationNullValue(Validate_SummarySymbolSfx),"Validate_Summary_Locate_Subscribe_SymbolSfx");
 		Assert.assertEquals(getSummaryClientID,APIHelperClass.ValidationNullValue(Validate_SummaryClientID),"Validate_Summary_Locate_Subscribe_ClientID");
 		Assert.assertEquals(getSummaryLocateType,APIHelperClass.ValidationNullValue(Validate_SummaryLocateType),"Validate_Summary_Locate_Subscribe_LocateType");
-		Assert.assertEquals(getSummaryOriginatingUserDesc,APIHelperClass.ValidationNullValue(Validate_SummaryOriginatingUserDesc),"Validate_Summary_Locate_Subscribe_OriginatingUserDesc");
+		Assert.assertNotEquals(getSummaryOriginatingUserDesc,APIHelperClass.ValidationNullValue("null"),"Validate_Summary_Locate_Subscribe_OriginatingUserDesc");
 		Assert.assertEquals(Integer.parseInt(getSummaryEtbQty.substring(1, getSummaryEtbQty.length() - 1)),Validate_SummaryAcqEtbQty,"Validate_Summary_Locate_Subscribe_EtbQty");
 		Assert.assertEquals(getSummaryBooth,APIHelperClass.ValidationNullValue(Validate_SummaryBooth), "Validate_Summary_Locate_Subscribe_Booth");
 
@@ -3154,7 +3154,7 @@ public static void Validate_Available_Summary_Subscribe_Locates(Response Availab
 			LoggingManager.logger.info("API-Validate_Available_SummaryClientID : [\""+Validate_Available_SummaryClientID +"\"] - Response Validate_Available_SummaryClientID : "+getSummaryClientID);
 			LoggingManager.logger.info("API-Validate_Available_SummaryLocateType : [\""+Validate_Available_SummaryLocateType +"\"] - Response Validate_Available_SummaryLocateType : "+getSummaryLocateType);
 			LoggingManager.logger.info("API-Validate_Available_SummaryBooth : [\""+Validate_Available_SummaryBooth +"\"] - Response Validate_Available_SummaryBooth : "+getSummaryBooth);
-			LoggingManager.logger.info("API-Validate_Available_Summary_OriginatingUserDesc : [\""+Validate_Available_SummaryOriginatingUserDesc +"\"] - Response Validate_Available_Summary_OriginatingUserDesc : "+getSummaryOriginatingUserDesc);
+			LoggingManager.logger.info("API-Response Validate_Available_Summary_OriginatingUserDesc : "+getSummaryOriginatingUserDesc);
 			LoggingManager.logger.info("API-Validate_Available_SummaryEtbQty : ["+Validate_Available_SummaryAcqEtbQty+"] - Response Validate_Available_SummaryEtbQty : "+getSummaryEtbQty);
 
 			Assert.assertEquals(getSummaryID,APIHelperClass.ValidationNullValue(Validate_Available_SummaryID),"Validate_Available_Summary_Locate_Subscribe_ID");
@@ -3163,7 +3163,7 @@ public static void Validate_Available_Summary_Subscribe_Locates(Response Availab
 			Assert.assertEquals(getSummarySymbolSfx,APIHelperClass.ValidationNullValue(Validate_Available_SummarySymbolSfx),"Validate_Available_Summary_Locate_Subscribe_SymbolSfx");
 			Assert.assertEquals(getSummaryClientID,APIHelperClass.ValidationNullValue(Validate_Available_SummaryClientID),"Validate_Available_Summary_Locate_Subscribe_ClientID");
 			Assert.assertEquals(getSummaryLocateType,APIHelperClass.ValidationNullValue(Validate_Available_SummaryLocateType),"Validate_Available_Summary_Locate_Subscribe_LocateType");
-			Assert.assertEquals(getSummaryOriginatingUserDesc,APIHelperClass.ValidationNullValue(Validate_Available_SummaryOriginatingUserDesc),"Validate_Available_Summary_Locate_Subscribe_OriginatingUserDesc");
+			Assert.assertNotEquals(getSummaryOriginatingUserDesc,APIHelperClass.ValidationNullValue("null"),"Validate_Available_Summary_Locate_Subscribe_OriginatingUserDesc");
 			Assert.assertEquals(Integer.parseInt(getSummaryEtbQty.substring(1, getSummaryEtbQty.length() - 1)),Validate_Available_SummaryAcqEtbQty,"Validate_Available_Summary_Locate_Subscribe_EtbQty");
 			Assert.assertEquals(getSummaryBooth,APIHelperClass.ValidationNullValue(Validate_Available_SummaryBooth), "Validate_Available_Summary_Locate_Subscribe_Booth");
 

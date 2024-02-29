@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Request.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/APIlogs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/APIlogs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_ETBHTB.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_ETBHTB.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Data/Locates.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Data/Locates.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_ETBHTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_ETBHTP.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
