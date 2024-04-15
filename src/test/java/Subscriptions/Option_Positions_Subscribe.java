@@ -4,7 +4,6 @@ import static io.restassured.RestAssured.given;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import org.testng.Assert;

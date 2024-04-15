@@ -306,8 +306,6 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 			         String response_orderId= jsonresponse.getString(getResponseArray+"["+position+"].orderId");
 			         Integer response_qOrderID =jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
 			         String response_ID = jsonresponse.getString(getResponseArray+"["+position+"].id");
-			         
-			         
 			         String response_time = jsonresponse.getString(getResponseArray+"["+position+"].time");
 			         String response_clOrdID = jsonresponse.getString(getResponseArray+"["+position+"].clOrdID");
 			         String response_origClOrdID = jsonresponse.getString(getResponseArray+"["+position+"].origClOrdID");
@@ -320,27 +318,20 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 			         String response_symbolWithoutSfx= jsonresponse.getString(getResponseArray+"["+position+"].symbolWithoutSfx");
 			         String response_tifDesc =jsonresponse.getString(getResponseArray+"["+position+"].tifDesc");
 			         String response_orderTypeDesc = jsonresponse.getString(getResponseArray+"["+position+"].orderTypeDesc");
-			         
-			         
 			         String response_statusDesc = jsonresponse.getString(getResponseArray+"["+position+"].statusDesc");
 			         Double response_avgPx = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPx");
 			         Double response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
 			         Double response_workableQty = jsonresponse.getDouble(getResponseArray+"["+position+"].workableQty");
 			         Double response_leavesQty= jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
-			         
-			         
-			         
 			         String response_locateID= jsonresponse.getString(getResponseArray+"["+position+"].locateID");
 			         String response_contactName = jsonresponse.getString(getResponseArray+"["+position+"].contactName");
 			         String response_locateRequired = jsonresponse.getString(getResponseArray+"["+position+"].locateRequired");
 			         Double response_locateRate = jsonresponse.getDouble(getResponseArray+"["+position+"].locateRate");
 			         String response_boothID= jsonresponse.getString(getResponseArray+"["+position+"].boothID");
 			         
-			        
-			       
-			         //check if condition meets
-			     	 /*
-			      	 System.out.println(response_UserID +" --- "+orderUserid);
+					 //check if condition meets
+
+		/*	      	 System.out.println(response_UserID +" --- "+orderUserid);
 			         System.out.println(response_status +" --- "+expected_orderStatus);
 			         System.out.println(response_account +" --- "+expected_order_account);
 			         System.out.println(response_symbol +" --- "+expected_order_symbol);
@@ -349,7 +340,7 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 			         System.out.println(response_side +" --- "+expected_order_side);
 			         System.out.println(response_orderQty.toString() +" --- "+expected_order_orderQty);
 			         System.out.println(response_ordType +" --- "+expected_order_ordType);
-			         */
+		*/
 			         if (response_UserID.equalsIgnoreCase(orderUserid)
 				        			&& response_status.equalsIgnoreCase(expected_orderStatus) 
 				        			&& response_account.equalsIgnoreCase(expected_order_account)
@@ -400,7 +391,9 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 				        	else
 				        	{
 				        		Global.getOrderID=null;
+								Global.qOrderID=null;
 				        		Global.getOptionOrderID=null;
+								Global.getSideDesc=null;
 				        		Global.getStatus=null;
 				        		Global.getOptionStatus=null;
 				        	}

@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
+      <change afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_Cancel_Order_ETBHTP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/APIlogs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/APIlogs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Data/Locates.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Data/Locates.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_ETBHTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_ETBHTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Data/OrderData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Data/OrderData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Equity_Order_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Equity_Order_Subscription.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Executions_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Executions_Subscription.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Executions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Executions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Filled_Orders.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Filled_Orders.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,14 +61,14 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Automation_OMSAPI/src/test/resources/TestRunner",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Automation_OMSAPI/src/test/resources/TestRunner&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Automation_OMSAPI\src\test\resources\TestRunner" />
@@ -81,10 +88,30 @@
       <recent name="XLDataProvider" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_ETBHTB.xml">
-    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Acquired.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Filled_Orders.xml">
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Executions.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Automation_OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Acquired.xml" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Executions.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Filled_Orders.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Filled_Orders.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Position.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Position.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -112,33 +139,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Subcribe.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Automation_OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Subcribe.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Automation_OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Filled_Orders.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Executions.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Position.xml" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_ETBHTB.xml" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" />
-        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Summary_Subscribe.xml" />
-        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Acquired.xml" />
-        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Subcribe.xml" />
       </list>
     </recent_temporary>
   </component>
