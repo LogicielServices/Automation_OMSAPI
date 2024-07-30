@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b63c175e-695d-4bc7-9c43-c3bb4b868fa9" name="Changes" comment="this is practics">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Account/Data/Account.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Account/accountTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Locates_Cancel_Order_ETBHTP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/APIlogs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/APIlogs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LocatesAPI/Data/Locates.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LocatesAPI/Data/Locates.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Orders/Data/OrderData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Orders/Data/OrderData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Equity_Order_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Equity_Order_Subscription.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Executions_Subscription.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Data/Executions_Subscription.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Subscriptions/Option_Positions_Subscribe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/XLDataProvider/ExcelDataProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Executions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Executions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Filled_Orders.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Filled_Orders.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,25 +27,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Tag Library Descriptor" />
-        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;muzammil123hussain&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/LogicielServices/Automation_OMSAPI.git&quot;,
-    &quot;accountId&quot;: &quot;f59a5266-6875-4abe-8e74-8746033e1ec7&quot;
-  }
-}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/test/java/APIHelper/APIHelperClass.java" root0="FORCE_HIGHLIGHTING" />
@@ -56,47 +47,28 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenRunner">
-    <option name="skipTests" value="true" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
   <component name="ProjectId" id="2aiU82FC6oHEnPY8vJYcp3kT7QS" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Maven.OMSAPI [clean,install].executor": "Run",
-    "Maven.OMSAPI [clean].executor": "Run",
-    "Maven.OMSAPI [install].executor": "Run",
-    "Maven.OMSAPI [test].executor": "Run",
-    "Maven.OMSAPI [verify].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.C:/Users/muzammil.hussain/Documents/GitHub/Automation_OMSAPI/src/test/resources/TestRunner/Open_Orders.xml.executor": "Run",
-    "TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Filled_Orders.xml.executor": "Run",
-    "TestNG.account.executor": "Run",
-    "TestNG.accountTests.executor": "Run",
-    "TestNG.accountTests.getAccount.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Automation_OMSAPI/src/test/resources/TestRunner",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Automation_OMSAPI/src/test/resources/TestRunner&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Automation_OMSAPI\src\test\resources\TestRunner" />
@@ -116,10 +88,10 @@
       <recent name="XLDataProvider" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.accountTests">
-    <configuration name="C:/Users/muzammil.hussain/Documents/GitHub/Automation_OMSAPI/src/test/resources/TestRunner/Open_Orders.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Open_Orders.xml" />
+  <component name="RunManager" selected="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Filled_Orders.xml">
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Executions.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Executions.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -137,52 +109,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="account" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Account.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Account" />
-      <option name="MAIN_CLASS_NAME" value="Account.account" />
-      <option name="TEST_OBJECT" value="CLASS" />
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Position.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Equity_Position.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="accountTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Account.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Account" />
-      <option name="MAIN_CLASS_NAME" value="Account.accountTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="accountTests.getAccount" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="OMSAPI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Account.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Account" />
-      <option name="MAIN_CLASS_NAME" value="Account.accountTests" />
-      <option name="METHOD_NAME" value="getAccount" />
-      <option name="TEST_OBJECT" value="METHOD" />
+    <configuration name="D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_ETBHTB.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Automation_OMSAPI" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRunner/Locates_ETBHTB.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
@@ -191,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.accountTests" />
-        <item itemvalue="TestNG.accountTests.getAccount" />
-        <item itemvalue="TestNG.account" />
-        <item itemvalue="TestNG.C:/Users/muzammil.hussain/Documents/GitHub/Automation_OMSAPI/src/test/resources/TestRunner/Open_Orders.xml" />
         <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Filled_Orders.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Executions.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Equity_Position.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_ETBHTB.xml" />
+        <item itemvalue="TestNG.D:/Automation_OMSAPI/src/test/resources/TestRunner/Locates_Available_Summary_Subscribe.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -218,21 +168,6 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/main" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -254,9 +189,23 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
