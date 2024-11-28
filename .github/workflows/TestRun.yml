@@ -1,0 +1,87 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: OMSAPI Automated Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment (e.g., dev, QA, UAT)'
+        type: string
+        required: true
+      building-block-name:
+        description: 'Tag with @ (e.g., @smoke, @regression )'
+        type: string
+        required: true
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Maven Tests with Tags
+        #run: mvn clean test -P${{ inputs.environment }} -D'cucumber.filter.tags=${{ inputs.building-block-name }}' allure:report
+        run: mvn clean test -Dtestsuitexml=${params.AutomationTestAPI}.xml
+
+      - name: Generate Single File HTML Report
+        if: always()
+        run: allure generate .\target\allure-results\ --single-file --clean
+
+      - name: Send Email Notification with Report
+        if: always()
+        env:
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          TO_EMAIL: ajmal.syed@logicielservice.com
+        #  CC_EMAIL : ali.ladhani@logicielservice.com,fahad.ullah@logicielservice.com,kashaf.ali@logicielservice.com,ajmal.syed@logicielservice.com
+          ATTACHMENT_PATH: allure-report/index.html
+        run: |
+          $subject = "Automated APIs Regression Tests Report"  
+          $body = @"  
+          Hi Team,  
+
+          I hope this message finds you well.  
+
+          Please find attached the Regression Tests report for the ( ${{ inputs.environment }} ) environment.  
+
+          Building Block Name: ${{ inputs.building-block-name }}  
+
+          The report includes the results of the executed tests and provides insights into the current state of our microservices. Please review it at your earliest convenience.  
+
+          If you have any questions or need further information, feel free to reach out.  
+
+          Best Regards,  
+          QA Team  
+          Logiciel.  
+          "@  
+
+          # Send the email using PowerShell  
+          $smtp = New-Object Net.Mail.SmtpClient($env:SMTP_SERVER, $env:SMTP_PORT)  
+          $smtp.EnableSsl = $true  
+          $smtp.Credentials = New-Object Net.NetworkCredential($env:SMTP_USER, $env:SMTP_PASSWORD)  
+
+          $mail = New-Object Net.Mail.MailMessage  
+          $mail.From = $env:SMTP_USER  
+          $mail.To.Add($env:TO_EMAIL)  
+          $mail.Cc.Add($env:CC_EMAIL)
+          $mail.Subject = $subject  
+          $mail.Body = $body  
+          $mail.Attachments.Add($env:ATTACHMENT_PATH)  
+
+          $smtp.Send($mail)
