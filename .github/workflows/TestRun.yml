@@ -19,9 +19,9 @@ on:
     #    description: 'Tag with @ (e.g., @smoke, @regression )'
     #    type: string
     #   required: true
-      building-block-name:
-       description: "Select Scenario"
-       type: "dropdown"
+      scenario:
+       description: 'Select Scenario'
+       type: choice
        required: true
        options:
           - "Account_Balance"
