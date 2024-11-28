@@ -65,7 +65,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Maven Tests with Tags
-        run: mvn clean test -Dtestsuitexml=${inputs.building-block-name}.xml
+        run: mvn clean test -Dtestsuitexml=${github.event.inputs.scenario}.xml
         #run: mvn clean test -P${{ inputs.environment }} -D'cucumber.filter.tags=${{ inputs.building-block-name }}' allure:report
         #run: mvn clean test -Dtestsuitexml=${params.AutomationTestAPI}.xml
         
