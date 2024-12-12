@@ -114,9 +114,11 @@ jobs:
        # Handling post actions
     
  # post:
-      - name: Always Run Step
+      - name: Generate Test Execution Report     #Always Run Step
+      # if: always()
         run: |
-            echo "This will run always"
+            echo "This will run to generate Report"
+            allure generate .\target\allure-results\ --single-file --clean
             # Add commands here, e.g., Allure commands
   
       - name: Handle Failure
