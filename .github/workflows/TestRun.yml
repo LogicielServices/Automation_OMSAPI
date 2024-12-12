@@ -114,12 +114,21 @@ jobs:
        # Handling post actions
     
  # post:
-      - name: Generate Test Execution Report     #Always Run Step
+  #    - name: Generate Test Execution Report     #Always Run Step
       # if: always()
-        run: |
-            echo "This will run to generate Report"
-            allure generate .\target\allure-results\ --single-file --clean
+      #  run: |
+      #      echo "This will run to generate Report"
+      #     allure generate .\target\allure-results\ --single-file --clean
             # Add commands here, e.g., Allure commands
+
+      - name: Generate Allure Report
+        run: mvn clean allure:report  # Clean before generating the report
+
+      - name: Publish Allure Report
+        uses: mikeal/publish-allure@v1  # action to publish Allure reports generated during your build and test processes
+        with:
+          allure_results: target\allure-results  # Adjust this path if necessary
+          allure_report: target\allure-report  # Adjust this path if necessary
   
       - name: Handle Failure
         if: failure()
