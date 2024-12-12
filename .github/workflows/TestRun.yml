@@ -124,8 +124,12 @@ jobs:
       - name: Generate Allure Report
         run: mvn clean allure:report  # Clean before generating the report
 
+      - name: Generate Single File HTML Report
+        if: always()  # Ensures this step runs regardless of previous outcomes
+        run: allure generate .\target\allure-results\ --single-file --clean
+
       - name: Publish Allure Report
-        uses: mikeal/publish-allure@v1  # action to publish Allure reports generated during your build and test processes
+        uses: actions/upload-artifact@v2 # action to publish Allure reports generated during your build and test processes
         with:
           allure_results: target\allure-results  # Adjust this path if necessary
           allure_report: target\allure-report  # Adjust this path if necessary
