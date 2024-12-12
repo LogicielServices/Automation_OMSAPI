@@ -73,15 +73,17 @@ jobs:
       - name: Clean Workspace
         run: |
           echo "Cleaning Workspace"
-          rm -rf git_checkout || true
+          if (Test-Path git_checkout) {
+            Remove-Item -Recurse -Force git_checkout
+          }
 
       - name: Remove Existing Git_Checkout Folder
         run: |
           echo "Removing Existing Git_Checkout Folder"
-          if [ -d "git_checkout" ]; then
-            rm -rf git_checkout
-          fi
-          mkdir git_checkout
+          if (Test-Path git_checkout) {
+            Remove-Item -Recurse -Force git_checkout
+          }
+          New-Item -ItemType Directory -Path git_checkout
 
       - name: Git Clone Repository
         run: |
