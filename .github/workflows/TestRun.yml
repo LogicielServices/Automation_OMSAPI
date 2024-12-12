@@ -70,6 +70,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      - name: Debug Run Maven Build
+        run: mvn clean install -e
+
       - name: Clean Workspace
         run: |
          echo "Cleaning Workspace"
