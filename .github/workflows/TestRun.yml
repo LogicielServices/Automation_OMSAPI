@@ -91,6 +91,11 @@ jobs:
           cd git_checkout
           git clone https://github.com/LogicielServices/Automation_OMSAPI.git
 
+      - name: Debug Input Scenario
+        shell: pwsh
+        run: |
+          echo "Selected Scenario: ${{ github.event.inputs.scenario }}"
+          
       - name: Run Test Cases
         run: |
           echo "Running Test Cases"
