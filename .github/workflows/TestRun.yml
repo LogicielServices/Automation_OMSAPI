@@ -70,26 +70,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Clean Workspace
-        run: |
-          echo "Cleaning Workspace"
-          if (Test-Path git_checkout) {
-            Remove-Item -Recurse -Force git_checkout
-          }
+    #  - name: Clean Workspace
+    #    run: |
+    #     echo "Cleaning Workspace"
+    #      if (Test-Path git_checkout) {
+    #        Remove-Item -Recurse -Force git_checkout
+    #      }
 
-      - name: Remove Existing Git_Checkout Folder
-        run: |
-          echo "Removing Existing Git_Checkout Folder"
-          if (Test-Path git_checkout) {
-            Remove-Item -Recurse -Force git_checkout
-          }
-          New-Item -ItemType Directory -Path git_checkout
+    #  - name: Remove Existing Git_Checkout Folder
+    #    run: |
+    #      echo "Removing Existing Git_Checkout Folder"
+    #      if (Test-Path git_checkout) {
+    #        Remove-Item -Recurse -Force git_checkout
+    #      }
+    #      New-Item -ItemType Directory -Path git_checkout
 
-      - name: Git Clone Repository
-        run: |
-          echo "Cloning Repository"
-          cd git_checkout
-          git clone https://github.com/LogicielServices/Automation_OMSAPI.git
+    #  - name: Git Clone Repository
+    #    run: |
+    #      echo "Cloning Repository"
+    #      cd git_checkout
+    #      git clone https://github.com/LogicielServices/Automation_OMSAPI.git
 
       - name: Debug Input Scenario
         shell: pwsh
@@ -100,7 +100,8 @@ jobs:
         run: |
           echo "Running Test Cases"
           cd git_checkout/Automation_OMSAPI
-          mvn clean test -Dtestsuitexml=${{github.event.inputs.scenario}}.xml
+          mvn clean test -Dtestsuitexml="${{github.event.inputs.scenario}}.xml"
+      # mvn clean test -Dtestsuitexml=${{github.event.inputs.scenario}}.xml
        # Handling post actions
     
  # post:
