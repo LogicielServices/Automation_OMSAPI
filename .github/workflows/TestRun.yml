@@ -76,8 +76,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'  # Specify the distribution here
 
-      - name: Debug Run Maven Build
-        run: mvn clean install -e
+     # - name: Debug Run Maven Build
+       # run: mvn clean install -e
 
       - name: Clean Workspace
         run: |
