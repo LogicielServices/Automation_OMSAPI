@@ -74,6 +74,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'temurin'  # Specify the distribution here
 
       - name: Debug Run Maven Build
         run: mvn clean install -e
