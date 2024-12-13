@@ -23,6 +23,7 @@ on:
        description: 'Select Scenario'
        type: choice
        required: true
+       default: "StaticData"
        options:
           - "Account_Balance"
           - "StaticData"
@@ -121,12 +122,23 @@ jobs:
       #     allure generate .\target\allure-results\ --single-file --clean
             # Add commands here, e.g., Allure commands
 
+      - name: Install Allure Command-Line Tool
+        run: |
+          choco install allure -y  # Install Allure using Chocolatey, -y flag for automatic confirmation
+          refreshenv  # Refresh environment variables to ensure allure is available  
+          
       - name: Generate Allure Report
         run: mvn clean allure:report  # Clean before generating the report
 
       - name: Generate Single File HTML Report
         if: always()  # Ensures this step runs regardless of previous outcomes
         run: allure generate .\target\allure-results\ --single-file --clean
+
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-report
+          path: target\allure-report  # Path to the Allure report directory
   
       - name: Handle Failure
         if: failure()
