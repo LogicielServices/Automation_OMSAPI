@@ -135,7 +135,7 @@ jobs:
         run: allure generate .\target\allure-results\ --single-file --clean
 
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: allure-report
           path: target\allure-report  # Path to the Allure report directory
