@@ -110,7 +110,7 @@ jobs:
         run: |
           echo "Running Test Cases"
           cd git_checkout/Automation_OMSAPI
-          SCENARIO=${{ github.event.inputs.scenario || Account_Balance }}  # Replace 'default_scenario' with your actual default
+          SCENARIO=${{ github.event.inputs.scenario || "Account_Balance" }}  # Replace 'default_scenario' with your actual default
           mvn clean test -Dtestsuitexml="$SCENARIO.xml"
       # mvn clean test -Dtestsuitexml="${{github.event.inputs.scenario}}.xml"
       # mvn clean test -Dtestsuitexml=${{github.event.inputs.scenario}}.xml
