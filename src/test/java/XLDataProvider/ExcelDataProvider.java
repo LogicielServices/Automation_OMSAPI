@@ -19,6 +19,7 @@ public class ExcelDataProvider {
 	String EquityOrders_FileDirectory="/src/test/java/Orders/Data/OrderData.xlsx";
 	String OpenOrders_FileDirectory="/src/test/java/OpenOrders/Data/OpenOrderData.xlsx";
 	String IdentityServer_API_Admin_FileDirectory="/src/test/java/IdentityServer_API_Admin/Data/IdentityServer_API_Admin.xlsx";
+	String Archive_API_FileDirectory="/src/test/java/ArchiveAPI/Data/ArchiveAPI_Data.xlsx";
 	String IdentityServer_API_User_FileDirectory="/src/test/java/IdentityServer_API_User/Data/IdentityServer_API_User.xlsx";
 	String MarketDataAPI_Option_FileDirectory="/src/test/java/MarketData_OPT_L1/Data/MarketData_OPT_L1.xlsx";
 	String MarketDataAPI_Equity_FileDirectory="/src/test/java/MarketData_L1/Data/MarketData_L1.xlsx";
@@ -109,8 +110,36 @@ public class ExcelDataProvider {
 	    Object[][] DataObject = GetExcelData(IdentityServer_API_User_FileDirectory,"UserProfile_Detail");
 	    return DataObject;
 	}
-	
-	
+
+	//===================================================Archive API==================================================
+
+	@DataProvider(name="ArchiveUserLogin")
+	public Object[][] ArchiveUserLogin() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Archive_API_FileDirectory,"ArchiveLogin");
+		return DataObject;
+	}
+
+	@DataProvider(name="GetArchiveOrder")
+	public Object[][] GetArchiveOrder() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Archive_API_FileDirectory,"ArchiveOrder");
+		return DataObject;
+	}
+
+	@DataProvider(name="GetArchiveExecution")
+	public Object[][] GetArchiveExecution() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Archive_API_FileDirectory,"ArchiveExecution");
+		return DataObject;
+	}
+
+	@DataProvider(name="GetArchiveAudittrail")
+	public Object[][] GetArchiveAudittrail() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Archive_API_FileDirectory,"ArchiveAudittrail");
+		return DataObject;
+	}
 	
 	
 	//===================================================Identity Admin User==================================================
