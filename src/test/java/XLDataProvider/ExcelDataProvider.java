@@ -120,6 +120,13 @@ public class ExcelDataProvider {
 		return DataObject;
 	}
 
+	@DataProvider(name="ArchiveUserLoginNegative")
+	public Object[][] ArchiveUserLoginNegative() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Archive_API_FileDirectory,"ArchiveLoginNegative");
+		return DataObject;
+	}
+
 	@DataProvider(name="GetArchiveOrder")
 	public Object[][] GetArchiveOrder() throws IOException
 	{
