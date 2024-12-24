@@ -8,11 +8,16 @@
           <include name="ArchiveAuthorization"/>
         </methods>
       </class>
+
       <class name="ArchiveAPI.OrdersArchiveAPI"/>
       <class name="ArchiveAPI.ExecutionsArchiveAPI"/>
       <class name="ArchiveAPI.AuditTrailsArchiveAPI"/>
 
-
+      <class name="ArchiveAPI.ArchiveLogin">
+        <methods>
+          <include name="ArchiveAuthorizationNegativeCase"/>
+        </methods>
+      </class>
     </classes>
   </test>
 </suite>

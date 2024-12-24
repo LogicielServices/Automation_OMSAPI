@@ -69,7 +69,9 @@ public static String ArchiveUserLoginAuthentications(String archive_Api_Path,
 													   String client_Secret,
 													   String username,
 													   String booth_Id,
-													   String status_code)
+													   String status_code,
+													   String Error_Message,
+													   String Validate_Response_Fields )
 	{
 		try
 		{
@@ -94,7 +96,7 @@ public static String ArchiveUserLoginAuthentications(String archive_Api_Path,
 							.then()
 							//.statusCode(Integer.parseInt(status_code))
 							.extract().response();
-
+			Map<String, Object> jsonResponse = response_ArchiveLogin.jsonPath().get();
 			LoggingManager.logger.info("API-ArchiveLogin_BasePath : ["+archive_Api_Path+"]");
 			LoggingManager.logger.info("API-ArchiveLogin_client_id : ["+client_Id+"]");
 			LoggingManager.logger.info("API-ArchiveLogin_client_secret : ["+client_Secret+"]");
@@ -102,7 +104,11 @@ public static String ArchiveUserLoginAuthentications(String archive_Api_Path,
 			LoggingManager.logger.info("API-ArchiveLogin_booth_Id : ["+booth_Id+"]");
 			LoggingManager.logger.info("API-ArchiveLogin_StatusCode : ["+response_ArchiveLogin.statusCode()+"]");
 			LoggingManager.logger.info("API-ArchiveLogin_Response_Body : ["+response_ArchiveLogin.getBody().asString()+"]");
-			Assert.assertEquals(response_ArchiveLogin.getStatusCode(),Integer.parseInt(status_code),"Archive Login Authentications");
+			LoggingManager.logger.info("API-Validate_Response_Fields : "+(jsonResponse.keySet()).toString());
+			LoggingManager.logger.info("API-Validate_Response_Error_Message : "+response_ArchiveLogin.jsonPath().getString("errorText"));
+			Assert.assertEquals(response_ArchiveLogin.getStatusCode(),Integer.parseInt(status_code),"Verify_Response_Status_Code");
+			Assert.assertEquals(response_ArchiveLogin.jsonPath().getString("errorText"),Error_Message,"Verify_Response_Error_Message");
+			Assert.assertEquals((jsonResponse.keySet()).toString(), Validate_Response_Fields,"Verify_Response_Fields");
 			Global.getArchive_AccToken=response_ArchiveLogin.jsonPath().get("accessToken");
 			return Global.getArchive_AccToken;
 
