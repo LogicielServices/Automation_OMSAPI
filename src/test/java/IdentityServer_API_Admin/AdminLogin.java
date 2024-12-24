@@ -9,6 +9,8 @@ import APIHelper.LoggingManager;
 import XLDataProvider.ExcelDataProvider;
 import io.restassured.RestAssured;
 
+import static APIHelper.APIHelperClass.AdminUserLoginAuthentications;
+
 public class AdminLogin {
 
 		
@@ -26,8 +28,8 @@ public class AdminLogin {
 		LoggingManager.logger.info("====================================================================");
 		
 		RestAssured.baseURI=Global.BaseURL;
-		APIHelperClass Adminuserlogin=new APIHelperClass();
-		Global.getAccToken=Adminuserlogin.AdminUserLoginAuthentications(Admin_API_Base_Path,
+		//APIHelperClass Adminuserlogin=new APIHelperClass();
+		Global.getAccToken=AdminUserLoginAuthentications(Admin_API_Base_Path,
 																		Content_Type,
 																	    Grant_type,
 																	    Client_id,

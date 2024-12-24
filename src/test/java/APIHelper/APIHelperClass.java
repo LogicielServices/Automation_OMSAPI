@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 
 public class APIHelperClass {
 
-public String AdminUserLoginAuthentications(String admin_api_path,
+public static String AdminUserLoginAuthentications(String admin_api_path,
 												String Content_Type,
 												String grant_type,
 												String client_id,
@@ -62,6 +62,57 @@ public String AdminUserLoginAuthentications(String admin_api_path,
 		return "";
 	}
 }
+
+public static String ArchiveUserLoginAuthentications(String archive_Api_Path,
+													   String content_Type,
+													   String client_Id,
+													   String client_Secret,
+													   String username,
+													   String booth_Id,
+													   String status_code)
+	{
+		try
+		{
+			RestAssured.baseURI=Global.BaseURL;
+			Response response_ArchiveLogin=
+					given()
+							.config(RestAssured.config()
+									.encoderConfig(EncoderConfig.encoderConfig()
+											.encodeContentTypeAs(content_Type, ContentType.URLENC)))
+							.contentType(ContentType.URLENC.withCharset("UTF-8"))
+							.formParam("client_id", client_Id)
+							.formParam("client_secret",client_Secret)
+							.formParam("username", username)
+							.formParam("booth_id", booth_Id)
+							//.header("Content-Type",content_type)
+							//.header("X-Internal-User","True")
+							//.body(mapLoginCredential)
+
+							.when()
+							.post(archive_Api_Path)
+
+							.then()
+							//.statusCode(Integer.parseInt(status_code))
+							.extract().response();
+
+			LoggingManager.logger.info("API-ArchiveLogin_BasePath : ["+archive_Api_Path+"]");
+			LoggingManager.logger.info("API-ArchiveLogin_client_id : ["+client_Id+"]");
+			LoggingManager.logger.info("API-ArchiveLogin_client_secret : ["+client_Secret+"]");
+			LoggingManager.logger.info("API-ArchiveLogin_username : ["+username+"]");
+			LoggingManager.logger.info("API-ArchiveLogin_booth_Id : ["+booth_Id+"]");
+			LoggingManager.logger.info("API-ArchiveLogin_StatusCode : ["+response_ArchiveLogin.statusCode()+"]");
+			LoggingManager.logger.info("API-ArchiveLogin_Response_Body : ["+response_ArchiveLogin.getBody().asString()+"]");
+			Assert.assertEquals(response_ArchiveLogin.getStatusCode(),Integer.parseInt(status_code),"Archive Login Authentications");
+			Global.getArchive_AccToken=response_ArchiveLogin.jsonPath().get("accessToken");
+			return Global.getArchive_AccToken;
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+			return "";
+		}
+	}
 	
 	
 public Boolean GetUserValidate( String Get_User_basePath,

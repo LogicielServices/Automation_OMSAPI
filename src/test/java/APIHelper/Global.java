@@ -13,6 +13,7 @@ public class Global {
 	public static String   getUserEmail;
 	public static String   getCodeID;
 	public static String   getAccToken;
+	public static String   getArchive_AccToken;
 	public static String   getPassword;
 	public static String   getorderType;
 	public static Double   getAvgPrice=0.00;
