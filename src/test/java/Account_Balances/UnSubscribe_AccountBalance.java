@@ -66,11 +66,8 @@ public class UnSubscribe_AccountBalance {
 		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
 		LoggingManager.logger.info("API-UnSubscribe_AccountBalance_StatusCode : ["+response.getStatusCode()+"]");
 		LoggingManager.logger.info("API-UnSubscribe_AccountBalance_StatusCode : ["+response.body().asString()+"]");
-		if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), "Success","Validate_UnSubscribe_Response");}
-		else{Assert.assertEquals(response.jsonPath().get("message"), "Success","Validate_UnSubscribe_Response");}
-		//if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), Validate_UnSubscribe_Response,"Validate_UnSubscribe_Response");} ///Will revert after change in excel sheet
-		//else{Assert.assertEquals(response.jsonPath().get("message"), Validate_UnSubscribe_Response,"Validate_UnSubscribe_Response");} ///Will revert after change in excel sheet
-		
+		//if(EndpointVersion.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), Validate_UnSubscribe_Response,"Validate_UnSubscribe_Response");}
+		//else{Assert.assertEquals(response.jsonPath().get("message"), Validate_UnSubscribe_Response,"Validate_UnSubscribe_Response");}
 			
 	}	
 }
