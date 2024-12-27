@@ -47,7 +47,6 @@ public class StaticData_Destination {
 											  String StaticData_Destination_StatusCode,
 											  String Validate_Destination_Name ,
 											  String Validate_Destination_Value,
-											  String Validate_Destination_Account_Value,
 											  String Validate_Booth )
 	{
 		try

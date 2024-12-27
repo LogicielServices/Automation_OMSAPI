@@ -321,10 +321,10 @@ public class ExcelDataProvider {
 		    return DataObject;
 		}
 
-		@DataProvider(name="StaticData_Option_Equity_Destination")
-		public Object[][] StaticData_Option_Equity_Destination() throws IOException
+		@DataProvider(name="StaticData_Account_Destination")
+		public Object[][] StaticData_Account_Destination() throws IOException
 		{
-		Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"Option_Equity_Destination");
+		Object[][] DataObject = GetExcelData(StaticData_FileDirectory,"Account_Destination");
 		return DataObject;
 		}
 		
