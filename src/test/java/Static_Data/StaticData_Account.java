@@ -44,6 +44,7 @@ public class StaticData_Account {
 										  String StaticData_Account_BasePath,
 										  String Content_Type,
 										  String StaticData_Account_StatusCode,
+										  String Validate_isBoxVsShort,
 										  String Validate_Account_Name ,
 										  String Validate_Account_Value,
 										  String Validate_Booth )
@@ -72,12 +73,21 @@ public class StaticData_Account {
 			LoggingManager.logger.info("API-Content_Type : [" + Content_Type + "]");
 			LoggingManager.logger.info("API-StaticData_Account_StatusCode : [" + response.getStatusCode() + "]");
 			Assert.assertEquals(response.getStatusCode(), Integer.parseInt(StaticData_Account_StatusCode), "Validate_StaticData_Account_StatusCode");
+			//String isBoxVsShort = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =="+ Validate_isBoxVsShort + ")].isBoxVsShort").toString();
+			//String isBoxVsShort = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(),"$.data.eventData[0].isBoxVsShort").toString();
+
+			String isBoxVsShort = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(),"$.data.eventData[?(@.isBoxVsShort == " + Validate_isBoxVsShort + ")].isBoxVsShort").toString();
+
+			//$.data.eventData[?(@.isBoxVsShort == " + Validate_isBoxVsShort + ")].isBoxVsShort[0]"
+
 			String AccountName = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='" + Validate_Account_Value + "' )].name").toString();
 			String AccountValue = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='" + Validate_Account_Value + "' )].value").toString();
 			String BoothID = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =='" + Validate_Account_Value + "' )].booth").toString();
+			LoggingManager.logger.info("API-Validate_isBoxVsShort : "+APIHelperClass.ValidationNullValue(Validate_isBoxVsShort)+" - Response isBoxVsShort Value : " + isBoxVsShort);
 			LoggingManager.logger.info("API-Validate_Account_Value : "+APIHelperClass.ValidationNullValue(Validate_Account_Value)+" - Response Account Value : " + AccountValue);
 			LoggingManager.logger.info("API-Validate_Account_Name : "+APIHelperClass.ValidationNullValue(Validate_Account_Name)+" - Response Account Name : " + AccountName);
 			LoggingManager.logger.info("API-Validate_Booth :"+APIHelperClass.ValidationNullValue(Validate_Booth)+" - Response Booth : " + BoothID);
+			Assert.assertEquals(isBoxVsShort,APIHelperClass.ValidationNullValue(Validate_isBoxVsShort), "Validate_isBoxVsShort");
 			Assert.assertEquals(AccountValue,APIHelperClass.ValidationNullValue(Validate_Account_Value), "Validate_Account_Value");
 			Assert.assertEquals(AccountName,APIHelperClass.ValidationNullValue(Validate_Account_Name), "Validate_Account_Name");
 			Assert.assertEquals(BoothID,APIHelperClass.ValidationNullValue(Validate_Booth), "Validate_Booth");
