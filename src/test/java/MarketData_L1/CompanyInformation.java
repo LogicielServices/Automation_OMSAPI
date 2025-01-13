@@ -8,9 +8,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
+
+import static APIHelper.APIHelperClass.getserializedJsonObj;
 import static io.restassured.RestAssured.given;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Optional;
+
 import XLDataProvider.ExcelDataProvider;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -47,7 +51,8 @@ public class CompanyInformation {
 													  String CountryCode_Validation_CompanyInformation,
 													  String Currency_Validation_CompanyInformation,
 													  String PrimaryTicker_Validation_CompanyInformation,
-													  String Validate_Response_Fields )
+													  String Validate_Response_Fields,
+													  String Error_Response)
 	{
 		 try
 		 {
@@ -77,12 +82,21 @@ public class CompanyInformation {
 			LoggingManager.logger.info("API-CompanyInformation_StatusCode : ["+response.statusCode()+"]");	
 			LoggingManager.logger.info("API-CompanyInformation_StatusCode : Expected ["+response.jsonPath().get("symbol")+"] - Found ["+Symbol_Validation_CompanyInformation+"]");
 			Assert.assertEquals(response.statusCode(),Integer.parseInt(CompanyInformation_StatusCode),"Verify_CompanyInformation_StatusCode");
-			Assert.assertEquals(response.jsonPath().get("symbol"),Symbol_Validation_CompanyInformation,"Symbol_Validation_CompanyInformation");	
-			Assert.assertEquals(response.jsonPath().get("countryCode"),CountryCode_Validation_CompanyInformation,"CountryCode_Validation_CompanyInformation");	
-			Assert.assertEquals(response.jsonPath().get("currency"),Currency_Validation_CompanyInformation,"Currency_Validation_CompanyInformation");	
-			Assert.assertEquals(response.jsonPath().get("primaryTicker"),PrimaryTicker_Validation_CompanyInformation,"PrimaryTicker_Validation_CompanyInformation");	
-			Assert.assertEquals((jsonObject.keySet()).toString(),Validate_Response_Fields,"Verify_CompanyInformation_MarketData_Response_Fields");
-			
+
+			 if ((CompanyInformation_Symbol.toString()).equalsIgnoreCase("null") || CompanyInformation_Symbol.isEmpty()|| CompanyInformation_Symbol.isBlank())
+			 {
+				 Assert.assertEquals(getserializedJsonObj(response, "errors"),Error_Response,"Validation_CompanyInformation_Error_Response");
+			 }
+			 else
+			 {
+				 Assert.assertEquals(response.jsonPath().get("symbol"),Symbol_Validation_CompanyInformation,"Symbol_Validation_CompanyInformation");
+				 Assert.assertEquals(getserializedJsonObj(response, "countryCode"),CountryCode_Validation_CompanyInformation,"CountryCode_Validation_CompanyInformation");
+				 Assert.assertEquals(getserializedJsonObj(response, "currency"),Currency_Validation_CompanyInformation,"Currency_Validation_CompanyInformation");
+				 Assert.assertEquals(getserializedJsonObj(response, "primaryTicker"),PrimaryTicker_Validation_CompanyInformation,"PrimaryTicker_Validation_CompanyInformation");
+				 Assert.assertEquals((jsonObject.keySet()).toString(),Validate_Response_Fields,"Verify_CompanyInformation_MarketData_Response_Fields");
+
+			 }
+
 		}	
 		catch (Exception e) 
 		{

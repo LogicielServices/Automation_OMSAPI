@@ -17,6 +17,7 @@ public class ExcelDataProvider {
 	
 	String OptionOrders_FileDirectory="/src/test/java/OptionOrders/Data/OptionOrderData.xlsx";
 	String EquityOrders_FileDirectory="/src/test/java/Orders/Data/OrderData.xlsx";
+	String Orders_FileDirectory="/src/test/java/Orders/Data/Orders.xlsx";
 	String OpenOrders_FileDirectory="/src/test/java/OpenOrders/Data/OpenOrderData.xlsx";
 	String IdentityServer_API_Admin_FileDirectory="/src/test/java/IdentityServer_API_Admin/Data/IdentityServer_API_Admin.xlsx";
 	String Archive_API_FileDirectory="/src/test/java/ArchiveAPI/Data/ArchiveAPI_Data.xlsx";
@@ -927,4 +928,63 @@ public class ExcelDataProvider {
 		    return DataObject;
 		}
 		
+
+
+//===============================================Orders=================================================================
+
+	@DataProvider(name="OrderSubscriptions")
+	public Object[][] Order_Subscriptions() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"OrderSubscriptions");
+		return DataObject;
+	}
+
+	@DataProvider(name="OrderExecutions")
+	public Object[][] Order_Executions() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"OrderExecutions");
+		return DataObject;
+	}
+
+	@DataProvider(name="OrderPositions")
+	public Object[][] Order_Positions() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"OrderPositions");
+		return DataObject;
+	}
+
+	@DataProvider(name="UpdateEquityOrder")
+	public Object[][] Update_EquityOrders() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"UpdateOrders");
+		return DataObject;
+	}
+
+	@DataProvider(name="CancelEquityOrder")
+	public Object[][] Cancel_EquityOrder() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"CancelOrders");
+		return DataObject;
+	}
+
+	@DataProvider(name="DeleteEquityOrder")
+	public Object[][] Delete_EquityOrder() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"DeleteOrders");
+		return DataObject;
+	}
+
+	@DataProvider(name="Order_Creation_NegativeCases")
+	public Object[][] Order_Creation_NegativeCases() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"OrderNegativeCases");
+		return DataObject;
+	}
+
+	@DataProvider(name="UpdateEquityOrderNegativeCases")
+	public Object[][] Update_EquityOrders_NegativeCases() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"UpdateOrdersNegative");
+		return DataObject;
+	}
 }
