@@ -72,6 +72,7 @@ public class Global {
 	public static String  getStatus;
 	public static String  getID;
 	public static Integer qOrderID=0;
+	public static Integer maxFloor=0;
 	public static String  gettime;
 	public static String  getaccount;
 	public static String  getclOrdID;
@@ -214,7 +215,8 @@ public class Global {
 	public static Double   getPosition_realizedPnL=0.00;     
 	public static String   getPosition_symbolSfx;          
 	public static String   getPosition_originatingUserDesc;       
-	public static String   getPosition_account; 
+	public static String   getPosition_account;
+	public static Boolean   getPosition_isOptionTrade=false;;
 	public static Double   totalTrade=0.00;
 	
 	public static Double   getcompleteDayBuyOrderQty=0.00;        

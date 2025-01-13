@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
+
+import static APIHelper.APIHelperClass.getserializedJsonObj;
 import static io.restassured.RestAssured.given;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -43,7 +45,7 @@ public class Historicaldata_Snapshot {
 														   String Historicaldata_Snapshot_StatusCode,
 														   String Symbol_Validation_Historicaldata_Snapshot,
 														   String Validate_Response_Fields,
-														   String Empty_Response)
+														   String Empty_Invalid_Response)
 	{
 		try
 		{
@@ -70,20 +72,23 @@ public class Historicaldata_Snapshot {
 				LoggingManager.logger.info("API-Historicaldata_Snapshot_StatusCode : ["+response.statusCode()+"]");	
 				Assert.assertEquals(response.statusCode(),Integer.parseInt(Historicaldata_Snapshot_StatusCode),"Verify_Historicaldata_Snapshot_StatusCode");
 				LoggingManager.logger.info("API-Response Data Size : ["+respSize+"]");
-				if (respSize>0)
-				{ 	
-					LoggingManager.logger.info("API-Symbol_Validation_Historicaldata_Snapshot index[0]: "+Symbol_Validation_Historicaldata_Snapshot+" - Found : "+com.jayway.jsonpath.JsonPath.read(response.getBody().asString(),"$.[0].symbol").toString());
-					LoggingManager.logger.info("API-Response Keys Validation_Historicaldata_Snapshot index[0]: "+Validate_Response_Fields+" - Found : "+(jsonPath.getMap("[0]").keySet()).toString());
-					for(int index = 0; index <=respSize-1; index++) 
-					{
-						String ValidateLocalCodes=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(),"$.["+index+"].symbol").toString();
-						Assert.assertEquals(ValidateLocalCodes,Symbol_Validation_Historicaldata_Snapshot,"Verify_Symbol_Historicaldata_Snapshot_MarketData");
-						Assert.assertEquals((jsonPath.getMap("["+index+"]").keySet()).toString(),Validate_Response_Fields,"ValidateResponseFields_Historicaldata_Snapshot_MarketData");
-					}
-				}
-				else
+				LoggingManager.logger.info("API-Response Data: ["+response.getBody().asString()+"]");
+				if(Integer.parseInt(Historicaldata_Snapshot_StatusCode)==400)
 				{
-					Assert.assertEquals(response.getBody().asString(),Empty_Response,"ValidateResponseFields_Historicaldata_Snapshot_MarketData");
+					Assert.assertEquals(getserializedJsonObj(response, "errors"),Empty_Invalid_Response,"Validation_CompanyInformation_Error_Response");
+				}
+				else {
+					if (respSize > 0) {
+						LoggingManager.logger.info("API-Symbol_Validation_Historicaldata_Snapshot index[0]: " + Symbol_Validation_Historicaldata_Snapshot + " - Found : " + com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.[0].symbol").toString());
+						LoggingManager.logger.info("API-Response Keys Validation_Historicaldata_Snapshot index[0]: " + Validate_Response_Fields + " - Found : " + (jsonPath.getMap("[0]").keySet()).toString());
+						for (int index = 0; index <= respSize - 1; index++) {
+							String ValidateLocalCodes = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$.[" + index + "].symbol").toString();
+							Assert.assertEquals(ValidateLocalCodes, Symbol_Validation_Historicaldata_Snapshot, "Verify_Symbol_Historicaldata_Snapshot_MarketData");
+							Assert.assertEquals((jsonPath.getMap("[" + index + "]").keySet()).toString(), Validate_Response_Fields, "ValidateResponseFields_Historicaldata_Snapshot_MarketData");
+						}
+					} else {
+						Assert.assertEquals(response.getBody().asString(), Empty_Invalid_Response, "Validate_ResponseFields_Historicaldata_Snapshot_MarketData");
+					}
 				}
 	 
 		}

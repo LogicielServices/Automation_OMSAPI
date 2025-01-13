@@ -1,5 +1,6 @@
 package APIHelper;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.ContentType;
@@ -237,6 +238,21 @@ public String UserLoginAuthentications(String UserEmail,
 	}
 }
 
+
+public static String getserializedJsonObj(Response apiResponse, String objkey)
+	{
+		try
+		{
+			String objResp = new ObjectMapper().writeValueAsString(apiResponse.jsonPath().get(objkey));
+			return objResp;
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+			return "";
+		}
+	}
 public static String ValidationNullValue(String value)
 {
 	try
@@ -305,22 +321,171 @@ public static String apiRespVersion(String endpoint_version)
 		return "";
 	}
 }
+
+	public static void GetOrderValues(	 String Get_orders_basePath,
+										   String AccToken,
+										   String contentType,
+										   int statuscode,
+										   String endpoint_version,
+										   String orderUserid,
+										   String expected_orderStatus,
+										   String expected_order_account,
+										   String expected_order_symbol,
+										   String expected_order_destination,
+										   String expected_order_price,
+										   String expected_order_side,
+										   String expected_order_orderQty,
+										   String expected_order_ordType,
+										   String orderNature)
+	{
+		try
+		{
+			String getResponseArray="";
+			RestAssured.baseURI=Global.BaseURL;
+			Response get_orders_response=
+
+					given()
+							.header("Content-Type",contentType)
+							.header("Authorization", "Bearer " + AccToken)
+							.when()
+							.get(Get_orders_basePath)
+
+							.then()
+							.extract().response();
+
+			LoggingManager.logger.info("API-Get_orders_basePath : ["+Get_orders_basePath+"]");
+			LoggingManager.logger.info("API-Get_orders_statusCode : ["+get_orders_response.statusCode()+"]");
+			LoggingManager.logger.info("API-Get_orders_API Version : ["+endpoint_version+"]");
+			Assert.assertEquals(get_orders_response.getStatusCode(),statuscode,"Fetch Orders Record Failed");
+			JsonPath jsonresponse = new JsonPath(get_orders_response.getBody().asString());
+			if (orderNature.equalsIgnoreCase("option")) {getResponseArray="eventData";}
+			else {getResponseArray=apiRespVersion(endpoint_version);}
+			//getResponseArray=apiRespVersion(endpoint_version);
+			int ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
+			for(int position = ResponseArraySize-1; position >=0; position--)
+			{
+
+				String response_UserID = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
+				String response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
+				String response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
+				String response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
+				String response_status = jsonresponse.getString(getResponseArray+"["+position+"].status");
+				Double response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
+				String response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
+				String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
+				Double response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
+				Integer response_maxFloor = jsonresponse.getInt(getResponseArray+"["+position+"].maxFloor");
+				String response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
+				String response_orderId= jsonresponse.getString(getResponseArray+"["+position+"].orderId");
+				Integer response_qOrderID =jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
+				String response_ID = jsonresponse.getString(getResponseArray+"["+position+"].id");
+				String response_time = jsonresponse.getString(getResponseArray+"["+position+"].time");
+				String response_clOrdID = jsonresponse.getString(getResponseArray+"["+position+"].clOrdID");
+				String response_origClOrdID = jsonresponse.getString(getResponseArray+"["+position+"].origClOrdID");
+				String response_text = jsonresponse.getString(getResponseArray+"["+position+"].text");
+				String response_complianceID = jsonresponse.getString(getResponseArray+"["+position+"].complianceID");
+				Double response_stopPx= jsonresponse.getDouble(getResponseArray+"["+position+"].stopPx");
+				String response_timeInForce = jsonresponse.getString(getResponseArray+"["+position+"].timeInForce");
+				String response_transactTime = jsonresponse.getString(getResponseArray+"["+position+"].transactTime");
+				String response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
+				String response_symbolWithoutSfx= jsonresponse.getString(getResponseArray+"["+position+"].symbolWithoutSfx");
+				String response_tifDesc =jsonresponse.getString(getResponseArray+"["+position+"].tifDesc");
+				String response_orderTypeDesc = jsonresponse.getString(getResponseArray+"["+position+"].orderTypeDesc");
+				String response_statusDesc = jsonresponse.getString(getResponseArray+"["+position+"].statusDesc");
+				Double response_avgPx = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPx");
+				Double response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
+				Double response_workableQty = jsonresponse.getDouble(getResponseArray+"["+position+"].workableQty");
+				Double response_leavesQty= jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
+				String response_locateID= jsonresponse.getString(getResponseArray+"["+position+"].locateID");
+				String response_contactName = jsonresponse.getString(getResponseArray+"["+position+"].contactName");
+				String response_locateRequired = jsonresponse.getString(getResponseArray+"["+position+"].locateRequired");
+				Double response_locateRate = jsonresponse.getDouble(getResponseArray+"["+position+"].locateRate");
+				String response_boothID= jsonresponse.getString(getResponseArray+"["+position+"].boothID");
+
+				//check if condition meets
+
+		/*	      	 System.out.println(response_UserID +" --- "+orderUserid);
+			         System.out.println(response_status +" --- "+expected_orderStatus);
+			         System.out.println(response_account +" --- "+expected_order_account);
+			         System.out.println(response_symbol +" --- "+expected_order_symbol);
+			         System.out.println(response_destination +" --- "+expected_order_destination);
+			         System.out.println(response_price.toString() +" --- "+expected_order_price);
+			         System.out.println(response_side +" --- "+expected_order_side);
+			         System.out.println(response_orderQty.toString() +" --- "+expected_order_orderQty);
+			         System.out.println(response_ordType +" --- "+expected_order_ordType);
+		*/
+				if (response_UserID.equalsIgnoreCase(orderUserid)
+						&& response_status.equalsIgnoreCase(expected_orderStatus)
+						&& response_account.equalsIgnoreCase(expected_order_account)
+						&& response_symbol.equalsIgnoreCase(expected_order_symbol)
+						&& response_destination.equalsIgnoreCase(expected_order_destination)
+						&& (response_price.toString()).equalsIgnoreCase(expected_order_price)
+						&& response_side.equalsIgnoreCase(expected_order_side)
+						&& (response_orderQty.toString()).equalsIgnoreCase(expected_order_orderQty)
+						&& response_ordType.equalsIgnoreCase(expected_order_ordType))
+
+
+				{
+
+					switch (orderNature) {
+						case "equity":
+
+							Get_OrderResponse_values(response_orderId,response_sideDesc,response_status,response_ID,response_qOrderID,response_time,response_account,response_clOrdID,response_origClOrdID,response_price,response_symbol,response_text,response_side,response_complianceID,response_UserID,response_maxFloor,response_ordType,response_stopPx,response_timeInForce,response_transactTime,response_symbolSfx,response_symbolWithoutSfx,response_tifDesc,response_orderTypeDesc,response_statusDesc,response_avgPx,response_cumQty,response_workableQty,response_leavesQty,response_orderQty,response_locateID,response_contactName,response_locateRequired,response_locateRate,response_destination,response_boothID);
+							break;
+
+						case "option":
+
+							String response_optionSymbol = jsonresponse.getString(getResponseArray+"["+position+"].optionSymbol");
+							Double response_strikePrice = jsonresponse.getDouble(getResponseArray+"["+position+"].strikePrice");
+							String response_maturityDay = jsonresponse.getString(getResponseArray+"["+position+"].maturityDay");
+							String response_maturityMonthYear = jsonresponse.getString(getResponseArray+"["+position+"].maturityMonthYear");
+							String response_maturityMonthYearDesc= jsonresponse.getString(getResponseArray+"["+position+"].maturityMonthYearDesc");
+							String response_maturityDate = jsonresponse.getString(getResponseArray+"["+position+"].maturityDate");
+							String response_optionDesc = jsonresponse.getString(getResponseArray+"["+position+"].optionDesc");
+							String response_cmta = jsonresponse.getString(getResponseArray+"["+position+"].cmta");
+							String response_execBroker = jsonresponse.getString(getResponseArray+"["+position+"].execBroker");
+							Integer response_putOrCallInt= jsonresponse.getInt(getResponseArray+"["+position+"].putOrCallInt");
+							String response_putOrCall = jsonresponse.getString(getResponseArray+"["+position+"].putOrCall");
+							Integer response_coveredOrUncoveredInt = jsonresponse.getInt(getResponseArray+"["+position+"].coveredOrUncoveredInt");
+							String response_coveredOrUncovered = jsonresponse.getString(getResponseArray+"["+position+"].coveredOrUncovered");
+							Integer response_customerOrFirmInt = jsonresponse.getInt(getResponseArray+"["+position+"].customerOrFirmInt");
+							String response_customerOrFirm= jsonresponse.getString(getResponseArray+"["+position+"].customerOrFirm");
+							Integer response_openCloseBoxed= jsonresponse.getInt(getResponseArray+"["+position+"].openCloseBoxed");
+							String response_openClose= jsonresponse.getString(getResponseArray+"["+position+"].openClose");
+							Get_OptionOrderResponse_values(response_orderId,response_sideDesc,response_status,response_ID,response_qOrderID,response_time,response_account,response_clOrdID,response_origClOrdID,response_price,response_symbol,response_text,response_side,response_complianceID,response_UserID,response_ordType,response_stopPx,response_timeInForce,response_transactTime,response_symbolSfx,response_symbolWithoutSfx,response_tifDesc,response_orderTypeDesc,response_statusDesc,response_avgPx,response_cumQty,response_workableQty,response_leavesQty,response_orderQty,response_locateID,response_contactName,response_locateRequired,response_locateRate,response_destination,response_boothID,response_optionSymbol,response_strikePrice,response_maturityDay,response_maturityMonthYear,response_maturityMonthYearDesc,response_maturityDate,response_optionDesc,response_cmta,response_execBroker,response_putOrCallInt,response_putOrCall,response_coveredOrUncoveredInt,response_coveredOrUncovered,response_customerOrFirmInt,response_customerOrFirm,response_openCloseBoxed,response_openClose);
+							break;
+
+						default:
+							break;
+					}
+					break;
+
+				}
+				else
+				{
+					Global.getOrderID=null;
+					Global.qOrderID=null;
+					Global.getOptionOrderID=null;
+					Global.getSideDesc=null;
+					Global.getStatus=null;
+					Global.getOptionStatus=null;
+				}
+			}
+
+		}
+		catch(NullPointerException e)
+		{
+			LoggingManager.logger.error(" API- Null Pointer Exception Caught : "+e);
+		}
+	}
 	
-	
-public static void GetOrderValues(	 String Get_orders_basePath,
+public static void GetOrder(	 String Get_orders_basePath,
 									 String AccToken,
 									 String contentType,
 									 int statuscode,
 									 String endpoint_version,
 									 String orderUserid,
-									 String expected_orderStatus,
-									 String expected_order_account,
-									 String expected_order_symbol,
-									 String expected_order_destination,
-									 String expected_order_price,
-									 String expected_order_side,
-									 String expected_order_orderQty,
-									 String expected_order_ordType,
+									 String expected_text,
 									 String orderNature)
 {
 	try
@@ -359,6 +524,7 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 			         String response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
 			         String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
 			         Double response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
+					 Integer response_maxFloor=jsonresponse.getInt(getResponseArray+"["+position+"].maxFloor");
 			         String response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
 			         String response_orderId= jsonresponse.getString(getResponseArray+"["+position+"].orderId");
 			         Integer response_qOrderID =jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
@@ -399,22 +565,14 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 			         System.out.println(response_ordType +" --- "+expected_order_ordType);
 		*/
 			         if (response_UserID.equalsIgnoreCase(orderUserid)
-				        			&& response_status.equalsIgnoreCase(expected_orderStatus) 
-				        			&& response_account.equalsIgnoreCase(expected_order_account)
-				        			&& response_symbol.equalsIgnoreCase(expected_order_symbol)
-				        			&& response_destination.equalsIgnoreCase(expected_order_destination)
-				        			&& (response_price.toString()).equalsIgnoreCase(expected_order_price)
-				        			&& response_side.equalsIgnoreCase(expected_order_side)
-				        			&& (response_orderQty.toString()).equalsIgnoreCase(expected_order_orderQty)
-				        			&& response_ordType.equalsIgnoreCase(expected_order_ordType))
-			        		 
+				        			&& response_text.equalsIgnoreCase(expected_text))
 				        			 
 				        	{
 			        	 	
 			        	 		switch (orderNature) {
 									case "equity":
 										
-										Get_OrderResponse_values(response_orderId,response_sideDesc,response_status,response_ID,response_qOrderID,response_time,response_account,response_clOrdID,response_origClOrdID,response_price,response_symbol,response_text,response_side,response_complianceID,response_UserID,response_ordType,response_stopPx,response_timeInForce,response_transactTime,response_symbolSfx,response_symbolWithoutSfx,response_tifDesc,response_orderTypeDesc,response_statusDesc,response_avgPx,response_cumQty,response_workableQty,response_leavesQty,response_orderQty,response_locateID,response_contactName,response_locateRequired,response_locateRate,response_destination,response_boothID);
+										Get_OrderResponse_values(response_orderId,response_sideDesc,response_status,response_ID,response_qOrderID,response_time,response_account,response_clOrdID,response_origClOrdID,response_price,response_symbol,response_text,response_side,response_complianceID,response_UserID,response_maxFloor,response_ordType,response_stopPx,response_timeInForce,response_transactTime,response_symbolSfx,response_symbolWithoutSfx,response_tifDesc,response_orderTypeDesc,response_statusDesc,response_avgPx,response_cumQty,response_workableQty,response_leavesQty,response_orderQty,response_locateID,response_contactName,response_locateRequired,response_locateRate,response_destination,response_boothID);
 					        	 		break;
 										
 									case "option":
@@ -464,7 +622,7 @@ public static void GetOrderValues(	 String Get_orders_basePath,
 	}
 		
 	
-public static void Get_OrderResponse_values(String getOrderID,String getSideDesc,String getStatus,String getID,Integer qOrderID,String gettime,String getaccount,String getclOrdID,String getOrigClOrdID,Double getprice,String getsymbol,String gettext,String getside,String getcomplianceID,String getoriginatingUserDesc,String getordType,Double getstopPx,String gettimeInForce,String gettransactTime,String getsymbolSfx,String getsymbolWithoutSfx,String gettifDesc,String getorderTypeDesc,String getstatusDesc,Double getavgPx,Double getcumQty,Double getworkableQty,Double getleavesQty,Double getorderQty,String getlocateID,String getcontactName,String getlocateRequired,Double getlocateRate,String getdestination,String getboothID)
+public static void Get_OrderResponse_values(String getOrderID,String getSideDesc,String getStatus,String getID,Integer qOrderID,String gettime,String getaccount,String getclOrdID,String getOrigClOrdID,Double getprice,String getsymbol,String gettext,String getside,String getcomplianceID,String getoriginatingUserDesc,Integer getmaxFloor,String getordType,Double getstopPx,String gettimeInForce,String gettransactTime,String getsymbolSfx,String getsymbolWithoutSfx,String gettifDesc,String getorderTypeDesc,String getstatusDesc,Double getavgPx,Double getcumQty,Double getworkableQty,Double getleavesQty,Double getorderQty,String getlocateID,String getcontactName,String getlocateRequired,Double getlocateRate,String getdestination,String getboothID)
 {
 	try
 	{
@@ -474,6 +632,7 @@ public static void Get_OrderResponse_values(String getOrderID,String getSideDesc
 		Global.getStatus=getStatus;
 		Global.getID=getID;
 		Global.qOrderID=qOrderID;
+		Global.maxFloor=getmaxFloor;
 		Global.gettime=gettime;
 		Global.getaccount=getaccount;
 		Global.getclOrdID=getclOrdID;
@@ -578,8 +737,91 @@ public  static void Get_OptionOrderResponse_values(String getOrderID,String getS
 	}
 }
 
-	
-public static void OrdersSubscriptionValidation(String Order_Status,
+	public static void ValidateOrdersSubscription(	String Subscribe_Order_UserID,
+													String Subscribe_Order_OrderType,
+													String Subscribe_Order_Side,
+													String Subscribe_Order_SideDesc,
+													String Subscribe_Order_Symbol,
+													String Subscribe_Order_Account,
+													String Subscribe_Order_Destination,
+													String Subscribe_Order_Price,
+													String Subscribe_Order_OrderQty,
+													String Subscribe_Order_MaxFloor,
+													String Subscribe_Order_Text,
+													String Subscribe_Order_complianceID,
+													String Subscribe_Order_stopPx,
+													String Subscribe_Order_timeInForce,
+													String Subscribe_Order_tifDesc,
+													String Subscribe_Order_symbolSfx,
+													String Subscribe_Order_symbolWithoutSfx,
+													String Subscribe_Order_orderTypeDesc,
+													String Subscribe_Order_avgPx,
+													String Subscribe_Order_cumQty,
+													String Subscribe_Order_workableQty,
+													String Subscribe_Order_leavesQty,
+													String Subscribe_Order_locateID,
+													String Subscribe_Order_contactName,
+													String Subscribe_Order_locateRequired,
+													String Subscribe_Order_locateRate,
+													String Subscribe_Order_boothID,
+													String Subscribe_Order_ExpectedStatus)
+	{
+		try
+		{
+			LocalDateTime localDateTime = LocalDateTime.now();
+			DateTimeFormatter time_formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+			DateTimeFormatter transactTime_formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			DecimalFormat decimalFormat = new DecimalFormat("0.000");
+			decimalFormat.getRoundingMode();
+
+			Assert.assertNotEquals(Global.getID,null,"Validate_ID");
+			Assert.assertNotEquals(Global.getOrderID,null,"Validate_OrderID");
+			Assert.assertNotEquals(Global.qOrderID,null,"Validate_qOrderID");
+			Assert.assertNotEquals(Global.getclOrdID,null,"Validate_clOrdID");
+			Assert.assertEquals(Global.getOrigClOrdID,null,"Validate_OrigClOrdID");
+			Assert.assertNotEquals(Global.gettime,null,"Validate_time");
+			Assert.assertEquals(NVL(Global.getoriginatingUserDesc,"null"),Subscribe_Order_UserID,"Validate_Subscribe_Order_UserID ");
+			Assert.assertEquals(NVL(Global.getSideDesc,"null"),Subscribe_Order_SideDesc,"Validate_Subscribe_Order_SideDesc ");
+			Assert.assertEquals(NVL(Global.getStatus,"null"),Subscribe_Order_ExpectedStatus,"Validate_Subscribe_Order_ExpectedStatus ");
+			Assert.assertEquals(NVL(Global.getaccount,"null"),Subscribe_Order_Account,"Validate_Subscribe_Order_Account ");
+			Assert.assertEquals(Global.getprice,Double.parseDouble(Subscribe_Order_Price),"Validate_Subscribe_Order_Price");
+			Assert.assertEquals(NVL(Global.getsymbol,"null"),Subscribe_Order_Symbol,"Validate_Subscribe_Order_Symbol");
+			Assert.assertEquals(NVL(Global.gettext,"null"),Subscribe_Order_Text,"Validate_Subscribe_Order_Text");
+			Assert.assertEquals(NVL(Global.getside,"null"),Subscribe_Order_Side,"Validate_Subscribe_Order_Side");
+			Assert.assertEquals(NVL(Global.getcomplianceID,"null"),Subscribe_Order_complianceID,"Validate_Subscribe_Order_complianceID");
+			Assert.assertEquals(NVL(Global.getordType,"null"),Subscribe_Order_OrderType,"Validate_Subscribe_Order_OrderType");
+			Assert.assertEquals(Global.getstopPx,Double.parseDouble(Subscribe_Order_stopPx),"Validate_Subscribe_Order_stopPx");
+			Assert.assertEquals(NVL(Global.gettimeInForce,"null"),Subscribe_Order_timeInForce,"Validate_Subscribe_Order_timeInForce");
+			Assert.assertEquals(NVL(Global.getsymbolSfx,"null") ,Subscribe_Order_symbolSfx,"Validate_Subscribe_Order_symbolSfx");
+			Assert.assertEquals(NVL(Global.getsymbolWithoutSfx,"null") ,Subscribe_Order_symbolWithoutSfx,"Validate_Subscribe_Order_symbolWithoutSfx");
+			Assert.assertEquals(NVL(Global.gettifDesc,"null"),Subscribe_Order_tifDesc,"Validate_Subscribe_Order_tifDesc");
+			Assert.assertEquals(NVL(Global.getorderTypeDesc,"null"),Subscribe_Order_orderTypeDesc,"Validate_Subscribe_Order_orderTypeDesc");
+			Assert.assertEquals(NVL(Global.getstatusDesc,"null"),Subscribe_Order_ExpectedStatus,"Validate_Subscribe_Order_ExpectedStatus");
+			if(Subscribe_Order_ExpectedStatus.equalsIgnoreCase("Filled") || Subscribe_Order_ExpectedStatus.equalsIgnoreCase("Part Fill"))
+			{Assert.assertNotEquals(Global.getavgPx,null,"Validate_Subscribe_Order_avgPx");}
+			else {Assert.assertEquals(Global.getavgPx,Double.parseDouble(Subscribe_Order_avgPx),"Validate_Subscribe_Order_avgPx");}
+			Assert.assertEquals(Global.getcumQty,Double.parseDouble(Subscribe_Order_cumQty),"Validate_Subscribe_Order_cumQty");
+			Assert.assertEquals(Global.getworkableQty,Double.parseDouble(Subscribe_Order_workableQty),"Validate_Subscribe_Order_workableQty");
+			Assert.assertEquals(Global.getleavesQty,Double.parseDouble(Subscribe_Order_leavesQty),"Validate_Subscribe_Order_leavesQty");
+			Assert.assertEquals(Global.getorderQty,Double.parseDouble(Subscribe_Order_OrderQty),"Validate_Subscribe_Order_OrderQty");
+			Assert.assertEquals(NVL(Global.getlocateID,"null"),Subscribe_Order_locateID,"Validate_Subscribe_Order_locateID");
+			Assert.assertEquals(NVL(Global.getcontactName,"null"),Subscribe_Order_contactName,"Validate_Subscribe_Order_contactName");
+			Assert.assertEquals(NVL(Global.getlocateRequired,"null"),Subscribe_Order_locateRequired,"Validate_Subscribe_Order_locateRequired");
+			Assert.assertEquals(Global.getlocateRate,Double.parseDouble(Subscribe_Order_locateRate),"Validate_Subscribe_Order_locateRate");
+			Assert.assertEquals(NVL(Global.getdestination,"null"),Subscribe_Order_Destination,"Validate_Subscribe_Order_Destination");
+			Assert.assertEquals(NVL(Global.getboothID,"null"),Subscribe_Order_boothID,"Validate_Subscribe_Order_boothID");
+			Assert.assertEquals(Global.gettransactTime.substring(0,10),localDateTime.format(transactTime_formatter),"Validate_transactTime");
+			//Assert.assertEquals(Global.gettime.substring(0,10),localDateTime.format(time_formatter),"Validate_time");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
+
+
+	public static void OrdersSubscriptionValidation(String Order_Status,
 												 String Subscribe_Order_UserID,
 												 String Subscribe_Order_OrderType,
 												 String Subscribe_Order_Side,
@@ -1210,9 +1452,69 @@ public static Boolean GetOrderValidate(String Get_orders_basePath,
 		return false;
 	}
 }
-	
-	
+
 public static Boolean UpdateOrderValidate( String Get_orders_basePath,
+											   String AccToken,
+											   String contentType,
+											   int statuscode,
+											   String endpoint_version,
+											   String orderid,
+											   String Order_Update_OrdType,
+											   String Order_Update_OrderQty,
+											   String Order_Update_Price
+	)
+	{
+		try
+		{
+			String getResponseArray="";
+			RestAssured.baseURI=Global.BaseURL;
+			Response get_orders_response=	given()
+					.header("Content-Type",contentType)
+					.header("Authorization", "Bearer " + AccToken)
+					.when()
+					.get(Get_orders_basePath)
+					.then()
+					.extract().response();
+
+			Assert.assertEquals(get_orders_response.getStatusCode(),statuscode,"Update Orders Record Failed");
+			JsonPath jsonresponse = new JsonPath(get_orders_response.getBody().asString());
+			getResponseArray=apiRespVersion(endpoint_version);
+			int ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
+			String OrderID ="",response_ordType="",response_orderQty="",response_price="";
+			for(int position = ResponseArraySize-1; position >=0; position--)
+			{
+				OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
+				response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
+				response_orderQty = jsonresponse.getString(getResponseArray+"["+position+"].orderQty");
+				response_price = jsonresponse.getString("eventData["+position+"].price");
+				// String response_complianceID = jsonresponse.getString("eventData["+position+"].complianceID");
+		   /*    LoggingManager.logger.info("API- Checking Update OrderID : ["+orderid+"] and Found OrderID : ["+OrderID+"]");
+		         LoggingManager.logger.info("API- Checking Update response_ordType : ["+Order_Update_OrdType+"] and Found response_ordType : ["+response_ordType+"]");
+		         LoggingManager.logger.info("API- Checking Update response_orderQty : ["+Order_Update_OrderQty+"] and Found response_orderQty : ["+response_orderQty+"]");
+		         LoggingManager.logger.info("API- Checking Update response_price : ["+Order_Update_Price+"] and Found response_price : ["+response_price+"]");
+		         LoggingManager.logger.info("-----------------------------------------------------------------------------------------------------------------------");
+			*/
+				if(OrderID.equalsIgnoreCase(orderid)
+						&& response_ordType.equalsIgnoreCase(Order_Update_OrdType)
+						&& response_orderQty.equalsIgnoreCase(Order_Update_OrderQty)
+						&& response_price.equalsIgnoreCase(Order_Update_Price))
+				{
+					Global.ValidationFlag=true;
+					break;
+				}
+				else
+				{ continue; }
+			}
+			return Global.ValidationFlag;
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+			return false;
+		}
+	}
+
+public static void GetUpdatedOrder( String Get_orders_basePath,
 										String AccToken,
 										String contentType,
 										int statuscode,
@@ -1220,8 +1522,9 @@ public static Boolean UpdateOrderValidate( String Get_orders_basePath,
 										String orderid,
 										String Order_Update_OrdType,
 									    String Order_Update_OrderQty,
-									    String Order_Update_Price
-									    ) 
+									    String Order_Update_MaxFloor,
+									    String Order_Update_Price,
+									    String Order_Update_StopPrice)
 {
 	try
 	{
@@ -1239,40 +1542,94 @@ public static Boolean UpdateOrderValidate( String Get_orders_basePath,
 		JsonPath jsonresponse = new JsonPath(get_orders_response.getBody().asString());
 		getResponseArray=apiRespVersion(endpoint_version);
 		int ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
-		String OrderID ="",response_ordType="",response_orderQty="",response_price="";
+		String OrderID ="",response_ordType="";
+		Double response_orderQty,response_price,response_stopPrice=0.0;
+		Integer response_maxFloor=0;
 		for(int position = ResponseArraySize-1; position >=0; position--)
 		{
 			OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
 			response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
-			response_orderQty = jsonresponse.getString(getResponseArray+"["+position+"].orderQty");
-			response_price = jsonresponse.getString("eventData["+position+"].price");
-			// String response_complianceID = jsonresponse.getString("eventData["+position+"].complianceID");
-		   /*    LoggingManager.logger.info("API- Checking Update OrderID : ["+orderid+"] and Found OrderID : ["+OrderID+"]");
-		         LoggingManager.logger.info("API- Checking Update response_ordType : ["+Order_Update_OrdType+"] and Found response_ordType : ["+response_ordType+"]");
-		         LoggingManager.logger.info("API- Checking Update response_orderQty : ["+Order_Update_OrderQty+"] and Found response_orderQty : ["+response_orderQty+"]");
-		         LoggingManager.logger.info("API- Checking Update response_price : ["+Order_Update_Price+"] and Found response_price : ["+response_price+"]");
-		         LoggingManager.logger.info("-----------------------------------------------------------------------------------------------------------------------");
-			*/
-				if(OrderID.equalsIgnoreCase(orderid)
-				&& response_ordType.equalsIgnoreCase(Order_Update_OrdType)
-				&& response_orderQty.equalsIgnoreCase(Order_Update_OrderQty)
-				&& response_price.equalsIgnoreCase(Order_Update_Price))
+			response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
+			response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
+			response_stopPrice = jsonresponse.getDouble(getResponseArray+"["+position+"].stopPx");
+			response_maxFloor = jsonresponse.getInt(getResponseArray+"["+position+"].maxFloor");
+
+				if(OrderID.equalsIgnoreCase(orderid))
 				{
-					Global.ValidationFlag=true;
+					LoggingManager.logger.info("API-Expected OrdType : ["+Order_Update_OrdType +"] - Actual OrdType : "+response_ordType);
+					LoggingManager.logger.info("API-Expected OrderQty : ["+Order_Update_OrderQty +"] - Actual OrderQty : "+response_orderQty);
+					LoggingManager.logger.info("API-Expected Price : ["+Order_Update_Price +"] - Actual Price : "+response_price);
+					LoggingManager.logger.info("API-Expected StopPrice : ["+Order_Update_StopPrice +"] - Actual StopPrice : "+response_stopPrice);
+					LoggingManager.logger.info("API-Expected MaxFloor : ["+Order_Update_MaxFloor +"] - Actual MaxFloor : "+response_maxFloor);
+					Assert.assertEquals(response_ordType,Order_Update_OrdType,"Verify_Order_Update_OrdType");
+					Assert.assertEquals(response_orderQty,Double.parseDouble(Order_Update_OrderQty),"Verify_Order_Update_OrderQty");
+					Assert.assertEquals(response_price,Double.parseDouble(Order_Update_Price),"Verify_Order_Update_Price");
+					Assert.assertEquals(response_stopPrice,Double.parseDouble(Order_Update_StopPrice),"Verify_Order_Update_StopPrice");
+					Assert.assertEquals(response_maxFloor,Integer.parseInt(Order_Update_MaxFloor),"Verify_Order_Update_MaxFloor");
 					break;
 				}
 				else
 				{ continue; }
 		}
-		return Global.ValidationFlag;
 	}
 	catch (Exception e)
 	{
 		LoggingManager.logger.error(e);
-		return false;
 	}
 }
-	
+
+
+public static void GetCancelledOrder( String Get_orders_basePath,
+										String AccToken,
+										String contentType,
+										int statuscode,
+										String endpoint_version,
+										String orderid,
+										String Order_Cancel_Status,
+										String Order_Cancel_StatusDesc)
+	{
+		try
+		{
+			String getResponseArray="";
+			RestAssured.baseURI=Global.BaseURL;
+			Response get_orders_response=	given()
+					.header("Content-Type",contentType)
+					.header("Authorization", "Bearer " + AccToken)
+					.when()
+					.get(Get_orders_basePath)
+					.then()
+					.extract().response();
+
+			Assert.assertEquals(get_orders_response.getStatusCode(),statuscode,"Cancel Orders Record Failed");
+			JsonPath jsonresponse = new JsonPath(get_orders_response.getBody().asString());
+			getResponseArray=apiRespVersion(endpoint_version);
+			int ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
+			String OrderID="",response_Status ="",response_StatusDesc="";
+			for(int position = ResponseArraySize-1; position >=0; position--)
+			{
+				OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
+				response_Status = jsonresponse.getString(getResponseArray+"["+position+"].status");
+				response_StatusDesc = jsonresponse.getString(getResponseArray+"["+position+"].statusDesc");
+
+
+				if(OrderID.equalsIgnoreCase(orderid))
+				{
+					LoggingManager.logger.info("API-Expected Status : ["+Order_Cancel_Status +"] - Actual Status : "+response_Status);
+					LoggingManager.logger.info("API-Expected StatusDesc : ["+Order_Cancel_StatusDesc +"] - Actual StatusDesc : "+response_StatusDesc);
+					Assert.assertEquals(response_Status,Order_Cancel_Status,"Verify_Order_Cancel_Status");
+					Assert.assertEquals(response_StatusDesc,Order_Cancel_StatusDesc,"Verify_Order_Cancel_StatusDesc");
+					break;
+				}
+				else
+				{ continue; }
+			}
+			Global.getStatus=response_Status;
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
 public static Boolean GetOptionOrderValidate(String Get_orders_basePath,
 											String AccToken,
 											String contentType,
@@ -1822,7 +2179,97 @@ public static void Flat_Option_Positions(String endpoint_version,
 			LoggingManager.logger.error(e);
 		}
 	}
-				
+
+	public static void Validate_Get_Positions(Response getresponse,
+											  String endpoint_version,
+											  String PositionID,
+											  String Validate_Position_CompleteDayBuyOrderQty,
+											  String Validate_Position_CompleteDaySellLongOrderQty,
+											  String Validate_Position_CompleteDaySellShortOrderQty,
+											  String Validate_Position_ExecQty,
+											  String Validate_Position_Symbol_Value,
+											  String Validate_Position_symbolSfx_Value,
+											  String Validate_Position_originatingUserDesc_Value,
+											  String Validate_Position_positionString_Value,
+											  String Validate_Position_Account_Value,
+											  String Validate_Position_isOptionTrade)
+	{
+		try
+		{
+			String getResponseArray="" ;
+			DecimalFormat decimalFormat = new DecimalFormat("0.0000");
+			decimalFormat.getRoundingMode();
+			JsonPath jsonresponse = new JsonPath(getresponse.getBody().asString());
+			getResponseArray=apiRespVersion(endpoint_version);
+			int ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
+			for(int position = ResponseArraySize-1; position >=0; position--)
+			{
+				Global.getPosition_id = jsonresponse.getString(getResponseArray+"["+position+"].id");
+				Global.getPosition_completeDayBuyOrderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].completeDayBuyOrderQty");
+				Global.getPosition_completeDaySellLongOrderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].completeDaySellLongOrderQty");
+				Global.getPosition_completeDaySellShortOrderQty= jsonresponse.getDouble(getResponseArray+"["+position+"].completeDaySellShortOrderQty");
+				Global.getPosition_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
+				Global.getPosition_positionString = jsonresponse.getString(getResponseArray+"["+position+"].positionString");
+				Global.getPosition_avgPrice = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPrice");
+				Global.getPosition_totDollarOfTrade = jsonresponse.getDouble(getResponseArray+"["+position+"].totDollarOfTrade");
+				Global.getPosition_execQty = jsonresponse.getDouble(getResponseArray+"["+position+"].execQty");
+				Global.getPosition_realizedPnL = jsonresponse.getDouble(getResponseArray+"["+position+"].realizedPnL");
+				Global.getPosition_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
+				Global.getPosition_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
+				Global.getPosition_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
+
+				if (Global.getPosition_id.equalsIgnoreCase(PositionID)
+						&& Global.getPosition_symbol.equalsIgnoreCase(Validate_Position_Symbol_Value)
+						&& Global.getPosition_account.equalsIgnoreCase(Validate_Position_Account_Value))
+
+				{
+					//LoggingManager.logger.info("API-Position getPosition_avgPrice : ["+decimalFormat.format(AvgPrx)+"]");
+					//LoggingManager.logger.info("API-Position getPosition_realizedPnL : ["+decimalFormat.format(RealizePNL)+"]");
+					//LoggingManager.logger.info("API-Position Validate_execQty : ["+(Global.getPosition_completeDayBuyOrderQty-Global.getPosition_completeDaySellLongOrderQty)+"]");
+					//LoggingManager.logger.info("API-Position : Found TotDollarOfTrade ["+String.format("%.4f",Global.getPosition_totDollarOfTrade)+"] - Expected TotDollarOfTrade  ["+String.format("%.4f",Global.totalTrade)+"]");
+					LoggingManager.logger.info("API-Position : Found Average Prx ["+decimalFormat.format(Global.getPosition_avgPrice)+"]");
+					LoggingManager.logger.info("API-Position : Found RealizePNL ["+decimalFormat.format(Global.getPosition_realizedPnL)+"]");
+					LoggingManager.logger.info("API-Position : Found TotDollarOfTrade ["+Global.getPosition_totDollarOfTrade+"]");
+					LoggingManager.logger.info("API-Position : Found Position_ID ["+Global.getPosition_id+"] - Expected Position_ID  ["+PositionID+"]");
+					LoggingManager.logger.info("API-Position : Found Position_completeDayBuyOrderQty ["+Global.getPosition_completeDayBuyOrderQty+"] - Expected Position_completeDayBuyOrderQty  ["+Validate_Position_CompleteDayBuyOrderQty+"]");
+					LoggingManager.logger.info("API-Position : Found Position_completeDaySellLongOrderQty ["+Global.getPosition_completeDaySellLongOrderQty+"] - Expected Position_completeDaySellLongOrderQty  ["+Validate_Position_CompleteDaySellLongOrderQty+"]");
+					LoggingManager.logger.info("API-Position : Found Position_completeDaySellShortOrderQty ["+Global.getPosition_completeDaySellShortOrderQty+"] - Expected Position_completeDaySellShortOrderQty  ["+Validate_Position_CompleteDaySellShortOrderQty+"]");
+					LoggingManager.logger.info("API-Position : Found Position_ExecQty ["+Global.getPosition_execQty+"] - Expected Position_ExecQty  ["+Validate_Position_ExecQty+"]");
+					LoggingManager.logger.info("API-Position : Found Position_Symbol ["+Global.getPosition_symbol+"] - Expected Position_Symbol  ["+Validate_Position_Symbol_Value+"]");
+					LoggingManager.logger.info("API-Position : Found Position_SymbolSfx ["+Global.getPosition_symbolSfx+"] - Expected Position_SymbolSfx  ["+Validate_Position_symbolSfx_Value+"]");
+					LoggingManager.logger.info("API-Position : Found Position_OriginatingUserDesc ["+Global.getPosition_originatingUserDesc+"] - Expected Position_OriginatingUserDesc  ["+Validate_Position_originatingUserDesc_Value+"]");
+					LoggingManager.logger.info("API-Position : Found PositionString ["+Global.getPosition_positionString+"] - Expected PositionString ["+Validate_Position_positionString_Value+"]");
+					LoggingManager.logger.info("API-Position : Found Position_Account ["+Global.getPosition_account+"] - Expected Position_Account  ["+Validate_Position_Account_Value+"]");
+					LoggingManager.logger.info("API-Position : Found Position_isOptionTrade ["+Global.getPosition_isOptionTrade+"] - Expected Position_isOptionTrade  ["+Boolean.parseBoolean(Validate_Position_isOptionTrade)+"]");
+
+					Assert.assertNotEquals(Global.getPosition_avgPrice,0.0,"Validate_AvgPrice_Field");
+					//Assert.assertNotEquals(Global.getPosition_realizedPnL,0.0,"Validate_realizedPnL_Field");
+					Assert.assertNotEquals(Global.getPosition_totDollarOfTrade,0.0,"Validate_totDollarOfTrade_Field");
+					Assert.assertEquals(Global.getPosition_id,PositionID,"Validate_PositionID");
+					Assert.assertEquals(Global.getPosition_completeDayBuyOrderQty,Double.parseDouble(Validate_Position_CompleteDayBuyOrderQty),"Validate_Position_CompleteDayBuyOrderQty");
+					Assert.assertEquals(Global.getPosition_completeDaySellLongOrderQty,Double.parseDouble(Validate_Position_CompleteDaySellLongOrderQty),"Validate_Position_CompleteDaySellLongOrderQty");
+					Assert.assertEquals(Global.getPosition_completeDaySellShortOrderQty,Double.parseDouble(Validate_Position_CompleteDaySellShortOrderQty),"Validate_Position_CompleteDaySellShortOrderQty");
+					Assert.assertEquals(Global.getPosition_execQty,Double.parseDouble(Validate_Position_ExecQty),"Validate_Position_ExecQty");
+					Assert.assertEquals(Global.getPosition_symbol,Validate_Position_Symbol_Value,"Validate_Position_Symbol_Value");
+					Assert.assertEquals(NVL(Global.getPosition_symbolSfx,"null"),Validate_Position_symbolSfx_Value,"Validate_Position_symbolSfx_Value");
+					Assert.assertEquals(NVL(Global.getPosition_originatingUserDesc,"null"),Validate_Position_originatingUserDesc_Value,"Validate_Position_originatingUserDesc_Value");
+					Assert.assertEquals(Global.getPosition_account,Validate_Position_Account_Value,"Validate_Position_Account_Value");
+					Assert.assertEquals(Global.getPosition_positionString,Validate_Position_positionString_Value,"Validate_Position_positionString_Value");
+					Assert.assertEquals(Global.getPosition_isOptionTrade,Boolean.parseBoolean(Validate_Position_isOptionTrade),"Validate_Position_isOptionTrade");
+					break;
+				}
+				else
+				{
+					continue;
+				}
+			}
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
 	
 public static void Validate_Positions(Response getresponse,String endpoint_version, String Account_Type_BoxvsShort,Double AvgPrx,Double RealizePNL,String Validate_Position_Symbol_Value,String Validate_Position_symbolSfx_Value,String Validate_Position_originatingUserDesc_Value ,String Validate_Position_positionString_Value,String Validate_Position_Account_Value,String Validate_Position_BoothID)
 {
@@ -2140,12 +2587,678 @@ public static void Validate_Option_Positions(Response getresponse,
 		LoggingManager.logger.error(e);
 	}
 }
-		
 
-public static void Validate_Executions(	Response getresponse,
+	public static void Validate_Executions(	Response getresponse,
+											   String Endpointversion,
+											   String BoothID,
+											   String Executions_Case,
+											   String Executions_SideDesc,
+											   String Executions_Side,
+											   String OrderId,
+											   Integer qOrderId,
+											   String Fetch_Executions_Symbol,
+											   String Fetch_Executions_Account,
+											   String Fetch_Executions_OrderQty,
+											   String Fetch_Executions_Price,
+											   String Fetch_Executions_OrderType,
+											   String Fetch_Executions_Destination,
+											   String Fetch_Executions_SymbolSfx,
+											   String Fetch_Executions_Status,
+											   String Fetch_Executions_Text,
+											   String Fetch_Executions_OrdStatus,
+											   String Fetch_Last_Executions_OrdStatus,
+											   String Fetch_Executions_OriginatingUserDesc,
+											   String Fetch_Executions_ExecBroker,
+											   String Fetch_Executions_TimeInForce,
+											   String Fetch_ExecutionS_ExecRefID,
+											   String Fetch_Executions_ExecTransType,
+											   String Fetch_Executions_ExecTransTypeDesc,
+											   String Executions_Sell_SideDesc,
+											   String Executions_Sell_Side,
+											   String Sell_OrderId,
+											   Integer Sell_qOrderId,
+											   String Fetch_Executions_Sell_Symbol,
+											   String Fetch_Executions_Sell_Account,
+											   String Fetch_Executions_Sell_OrderQty,
+											   String Fetch_Executions_Sell_Price,
+											   String Fetch_Executions_Sell_OrderType,
+											   String Fetch_Executions_Sell_Destination,
+											   String Fetch_Executions_Sell_SymbolSfx,
+											   String Fetch_Executions_Sell_Status,
+											   String Fetch_Executions_Sell_Text,
+											   String Fetch_Executions_Sell_OrdStatus,
+											   String Fetch_Last_Executions_Sell_OrdStatus,
+											   String Fetch_Executions_Sell_OriginatingUserDesc,
+											   String Fetch_Executions_Sell_ExecBroker,
+											   String Fetch_Executions_Sell_TimeInForce,
+											   String Fetch_Executions_Sell_ExecRefID,
+											   String Fetch_Executions_Sell_ExecTransType,
+											   String Fetch_Executions_Sell_ExecTransTypeDesc,
+											   String CaseType)
+	{
+		try
+		{
+			JsonPath jsonresponse = new JsonPath(getresponse.getBody().asString());
+			String getResponseArray=apiRespVersion(Endpointversion);
+			int ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
+			LocalDateTime localDateTime = LocalDateTime.now();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			DecimalFormat decimalFormat = new DecimalFormat("0.0000");
+			decimalFormat.getRoundingMode();
+			Global.getAvgPrice=0.0;
+			ArrayList<Integer> BuyExecID = new ArrayList<Integer>();
+			ArrayList<Integer> SellExecID = new ArrayList<Integer>();
+			ArrayList<Double> getBuyExecPrx = new ArrayList<Double>();
+			ArrayList<Double> getSellExecPrx = new ArrayList<Double>();
+			Map<Object,Integer> getBuyExecutionsTime = new HashMap<Object,Integer>();
+			Map<Integer,Double> getBuyExecutionsAvgPrice = new HashMap<Integer,Double>();
+			Map<Integer,Double> getBuyExecutionsLastPrice = new HashMap<Integer,Double>();
+			Map<Integer,Double> getBuyExecutionsLastshares = new HashMap<Integer,Double>();
+			Map<Object,Integer> getSellExecutionsTime = new HashMap<Object,Integer>();
+			Map<Integer,Double> getSellExecutionsAvgPrice = new HashMap<Integer,Double>();
+			Map<Integer,Double> getSellExecutionsLastPrice = new HashMap<Integer,Double>();
+			Map<Integer,Double> getSellExecutionsLastshares = new HashMap<Integer,Double>();
+			switch (Executions_Case)
+			{
+
+				//-------------------------------------------------BUY Case-------------------------------------------------------------------------------
+				case "BUY":
+
+					LoggingManager.logger.info("API-Executions_Case : ["+Executions_Case+"]");
+					LoggingManager.logger.info("----------------------[BUY Execution DATA]---------------------");
+					LoggingManager.logger.info("API-BUY Executions_OrderId : ["+OrderId+"]");
+					LoggingManager.logger.info("API-BUY Executions_SideDesc : ["+Executions_SideDesc+"]");
+					LoggingManager.logger.info("API-BUY Executions_Side : ["+Executions_Side+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Symbol : ["+Fetch_Executions_Symbol+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Account : ["+Fetch_Executions_Account+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_OrderQty : ["+Fetch_Executions_OrderQty+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Price : ["+Fetch_Executions_Price+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_OrderType : ["+Fetch_Executions_OrderType+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Destination : ["+Fetch_Executions_Destination+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_SymbolSfx : ["+Fetch_Executions_SymbolSfx+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Status : ["+Fetch_Executions_Status+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_OrdStatus : ["+Fetch_Executions_OrdStatus+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Text : ["+Fetch_Executions_Text+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_OrdStatus+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_OriginatingUserDesc+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_ExecBroker : ["+Fetch_Executions_ExecBroker+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_TimeInForce : ["+Fetch_Executions_TimeInForce+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_ExecRefID : ["+Fetch_ExecutionS_ExecRefID+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_ExecTransType : ["+Fetch_Executions_ExecTransType+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_ExecTransTypeDesc+"]");
+
+					loop: for(int position = ResponseArraySize-1; position >=0; position--)
+					{
+						String response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
+						String response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
+						String response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
+						Double response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
+						Double response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
+						Double response_lastShares = jsonresponse.getDouble(getResponseArray+"["+position+"].lastShares");
+						Double response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
+						Double response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
+						String response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
+						String response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
+						String response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
+						Integer response_qOrderID = jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
+						String response_OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
+						Double response_lastPx = jsonresponse.getDouble(getResponseArray+"["+position+"].lastPx");
+						String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
+						Double response_avgPx = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPx");
+						String response_transactTime = jsonresponse.getString(getResponseArray+"["+position+"].transactTime");
+						String response_tradeDate = jsonresponse.getString(getResponseArray+"["+position+"].tradeDate");
+						String response_transactTimeUtc = jsonresponse.getString(getResponseArray+"["+position+"].transactTimeUtc");
+						String response_tradeDateUtc = jsonresponse.getString(getResponseArray+"["+position+"].tradeDateUtc");
+						String response_status = jsonresponse.getString(getResponseArray+"["+position+"].status");
+						String response_text = jsonresponse.getString(getResponseArray+"["+position+"].text");
+						String response_ordStatus = jsonresponse.getString(getResponseArray+"["+position+"].ordStatus");
+						String response_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
+						String response_clOrdID = jsonresponse.getString(getResponseArray+"["+position+"].clOrdID");
+						String response_origClOrdID = jsonresponse.getString(getResponseArray+"["+position+"].origClOrdID");
+						String response_execRefID = jsonresponse.getString(getResponseArray+"["+position+"].execRefID");
+						String response_execID = jsonresponse.getString(getResponseArray+"["+position+"].execID");
+						String response_execType = jsonresponse.getString(getResponseArray+"["+position+"].execType");
+						String response_execTransType = jsonresponse.getString(getResponseArray+"["+position+"].execTransType");
+						String response_execTransTypeDesc = jsonresponse.getString(getResponseArray+"["+position+"].execTransTypeDesc");
+						String response_timeInForce = jsonresponse.getString(getResponseArray+"["+position+"].timeInForce");
+						String response_execBroker = jsonresponse.getString(getResponseArray+"["+position+"].execBroker");
+
+						if (response_OrderID.equalsIgnoreCase(OrderId)
+								&& (response_transactTime.substring(0,10)).equalsIgnoreCase(localDateTime.format(formatter)))
+						{
+							getBuyExecPrx.add(response_lastPx);
+							getBuyExecutionsAvgPrice.put(Integer.parseInt(response_execID), response_avgPx);
+							getBuyExecutionsLastPrice.put(Integer.parseInt(response_execID),response_lastPx);
+							Assert.assertNotEquals(response_avgPx,null,"Validate_response_avgPx");
+							Assert.assertNotEquals(response_lastPx,null,"Validate_response_lastPx");
+							Assert.assertNotEquals(response_execID,null,"Validate_Executions_Buy_execID");
+							Assert.assertNotEquals(response_execType,null,"Validate_Executions_Buy_execType");
+							Assert.assertNotEquals(response_lastShares,null,"Validate_Executions_Buy_lastShares");
+							//Assert.assertNotEquals(response_origClOrdID,null,"Validate_Executions_Buy_origClOrdID");
+							Assert.assertEquals(response_origClOrdID,null,"Validate_Executions_Buy_origClOrdID");
+							Assert.assertEquals(response_OrderID,OrderId,"Validate_Buy_OrderId");
+							Assert.assertEquals(response_qOrderID,qOrderId,"Validate_Buy_qOrderId");
+							Assert.assertEquals((response_transactTime.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTime");
+							Assert.assertEquals((response_tradeDate.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDate");
+							Assert.assertEquals((response_transactTimeUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTimeUTC");
+							Assert.assertEquals((response_tradeDateUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDateUTC");
+							Assert.assertEquals(response_symbol,Fetch_Executions_Symbol,"Validate_Executions_Buy_Symbol");
+							Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_SymbolSfx,"Validate_Executions_Buy_SymbolSfx");
+							Assert.assertEquals(response_account,Fetch_Executions_Account,"Validate_Executions_Buy_Account");
+							Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_OrderQty),"Validate_Executions_Buy_OrderQty");
+							Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_Buy_leavesQty");
+							Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_Buy_cumQty");
+							Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Price),"Validate_Executions_Buy_Price");
+							Assert.assertEquals(response_ordType,Fetch_Executions_OrderType,"Validate_Executions_Buy_OrderType");
+							Assert.assertEquals(response_side,Executions_Side,"Validate_Executions_Buy_Side");
+							Assert.assertEquals(response_destination,Fetch_Executions_Destination,"Validate_Executions_Buy_Destination");
+							Assert.assertEquals(response_sideDesc,Executions_SideDesc,"Validate_Executions_Buy_sideDesc");
+							Assert.assertEquals(NVL(response_status,"null"),Fetch_Executions_Status,"Validate_Executions_Buy_Status");
+							Assert.assertEquals(NVL(response_text,"null"),Fetch_Executions_Text,"Validate_Executions_Buy_Text");
+
+							if ((response_leavesQty.toString()).equalsIgnoreCase("0.0") && (response_orderQty.toString()).equalsIgnoreCase(response_cumQty.toString()))
+							{Assert.assertEquals(response_ordStatus,Fetch_Last_Executions_OrdStatus,"Validate_Last_Executions_Buy_OrdStatus");}
+							else {Assert.assertEquals(response_ordStatus,Fetch_Executions_OrdStatus,"Validate_Executions_Buy_OrdStatus");}
+							Assert.assertEquals(response_originatingUserDesc,Fetch_Executions_OriginatingUserDesc,"Validate_Executions_Buy_OriginatingUserDesc");
+							Assert.assertEquals(response_clOrdID,BoothID+"-"+(qOrderId-1)+"-"+1,"Validate_Executions_Buy_clOrdID");
+							Assert.assertEquals(response_execRefID,Fetch_ExecutionS_ExecRefID,"Validate_Executions_Buy_ExecRefID");
+							Assert.assertEquals(response_execTransType,Fetch_Executions_ExecTransType,"Validate_Executions_Buy_ExecTransType");
+							Assert.assertEquals(response_execTransTypeDesc,Fetch_Executions_ExecTransTypeDesc,"Validate_Executions_Buy_ExecTransTypeDesc");
+							Assert.assertEquals(response_timeInForce,Fetch_Executions_TimeInForce,"Validate_Executions_Buy_TimeInForce");
+							Assert.assertEquals(NVL(response_execBroker,"null"),Fetch_Executions_ExecBroker,"Validate_Executions_Buy_ExecBroker");
+						}
+						else
+						{
+							continue loop;
+						}
+					}
+
+					if (CaseType.equalsIgnoreCase("position"))
+					{
+						if(getBuyExecPrx.isEmpty()==false)
+						{
+							LoggingManager.logger.info("Price List for LastPrx Calculations:"+getBuyExecPrx);
+							for (int lastPrice=0;lastPrice<=getBuyExecPrx.size()-1; lastPrice++)
+							{
+								LoggingManager.logger.info("Add Execution Prx = "+Global.getAvgPrice +" + "+getBuyExecPrx.get(lastPrice));
+								Global.getAvgPrice+= getBuyExecPrx.get(lastPrice);
+								LoggingManager.logger.info("= "+Global.getAvgPrice);
+
+							}
+							LoggingManager.logger.info("Total Prx counts :"+getBuyExecPrx.size());
+							LoggingManager.logger.info("Total Executions Prx Added :"+Global.getAvgPrice);
+							Global.totalTrade=Global.getAvgPrice;
+							Global.getAvgPrice/=getBuyExecPrx.size();
+							if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
+							Global.getOptionAvgPrice=Global.getAvgPrice;
+							if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
+						}
+						else
+						{
+							LoggingManager.logger.info("API-No Executions Found Against OrderID : ["+OrderId+"]");
+							if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
+							Global.getOptionAvgPrice=Global.getAvgPrice;
+							if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
+						}
+					}
+					else
+					{
+						LoggingManager.logger.info("API-Executions Buy  ExecutionsLastPrice   : ["+getBuyExecutionsLastPrice+"]");
+						LoggingManager.logger.info("API-Executions Buy  ExecutionsAvgPrice    : ["+getBuyExecutionsAvgPrice+"]");
+					}
+					break;
+				//-------------------------------------------------SELL Case-------------------------------------------------------------------------------
+
+				case "SELL":
+
+					LoggingManager.logger.info("API-Executions_Case : ["+Executions_Case+"]");
+					LoggingManager.logger.info("----------------------[BUY Execution DATA]---------------------");
+					LoggingManager.logger.info("API-BUY Executions_OrderId : ["+OrderId+"]");
+					LoggingManager.logger.info("API-BUY Executions_SideDesc : ["+Executions_SideDesc+"]");
+					LoggingManager.logger.info("API-BUY Executions_Side : ["+Executions_Side+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Symbol : ["+Fetch_Executions_Symbol+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Account : ["+Fetch_Executions_Account+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_OrderQty : ["+Fetch_Executions_OrderQty+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Price : ["+Fetch_Executions_Price+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_OrderType : ["+Fetch_Executions_OrderType+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Destination : ["+Fetch_Executions_Destination+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_SymbolSfx : ["+Fetch_Executions_SymbolSfx+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Status : ["+Fetch_Executions_Status+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_OrdStatus : ["+Fetch_Executions_OrdStatus+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_Text : ["+Fetch_Executions_Text+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_OrdStatus+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_OriginatingUserDesc+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_ExecBroker : ["+Fetch_Executions_ExecBroker+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_TimeInForce : ["+Fetch_Executions_TimeInForce+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_ExecRefID : ["+Fetch_ExecutionS_ExecRefID+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_ExecTransType : ["+Fetch_Executions_ExecTransType+"]");
+					LoggingManager.logger.info("API-BUY Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_ExecTransTypeDesc+"]");
+					LoggingManager.logger.info("----------------------[SELL Execution DATA]---------------------");
+					LoggingManager.logger.info("API-SELL Executions_OrderId : ["+Sell_OrderId+"]");
+					LoggingManager.logger.info("API-SELL Executions_SideDesc : ["+Executions_Sell_SideDesc+"]");
+					LoggingManager.logger.info("API-SELL Executions_Side : ["+Executions_Sell_Side+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_Symbol : ["+Fetch_Executions_Sell_Symbol+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_Account : ["+Fetch_Executions_Sell_Account+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_OrderQty : ["+Fetch_Executions_Sell_OrderQty+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_Price : ["+Fetch_Executions_Sell_Price+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_OrderType : ["+Fetch_Executions_Sell_OrderType+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_Destination : ["+Fetch_Executions_Sell_Destination+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_SymbolSfx : ["+Fetch_Executions_Sell_SymbolSfx+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_Status : ["+Fetch_Executions_Sell_Status+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_OrdStatus : ["+Fetch_Executions_Sell_OrdStatus+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_Text : ["+Fetch_Executions_Sell_Text+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_Sell_OrdStatus+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_Sell_OriginatingUserDesc+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_ExecBroker : ["+Fetch_Executions_Sell_ExecBroker+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_TimeInForce : ["+Fetch_Executions_Sell_TimeInForce+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_ExecRefID : ["+Fetch_Executions_Sell_ExecRefID+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_ExecTransType : ["+Fetch_Executions_Sell_ExecTransType+"]");
+					LoggingManager.logger.info("API-SELL Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_Sell_ExecTransTypeDesc+"]");
+
+					for(int position = ResponseArraySize-1; position >=0; position--)
+					{
+						String response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
+						String response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
+						Double response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
+						Double response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
+						String response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
+						String response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
+						String response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
+						Integer response_qOrderID = jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
+						String response_OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
+						Double response_lastPx = jsonresponse.getDouble(getResponseArray+"["+position+"].lastPx");
+						Double response_lastShares = jsonresponse.getDouble(getResponseArray+"["+position+"].lastShares");
+						Double response_avgPx = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPx");
+						String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
+						String response_transactTime = jsonresponse.getString(getResponseArray+"["+position+"].transactTime");
+						String response_execID = jsonresponse.getString(getResponseArray+"["+position+"].execID");
+						String response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
+						Double response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
+						Double response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
+						String response_tradeDate = jsonresponse.getString(getResponseArray+"["+position+"].tradeDate");
+						String response_transactTimeUtc = jsonresponse.getString(getResponseArray+"["+position+"].transactTimeUtc");
+						String response_tradeDateUtc = jsonresponse.getString(getResponseArray+"["+position+"].tradeDateUtc");
+						String response_status = jsonresponse.getString(getResponseArray+"["+position+"].status");
+						String response_text = jsonresponse.getString(getResponseArray+"["+position+"].text");
+						String response_ordStatus = jsonresponse.getString(getResponseArray+"["+position+"].ordStatus");
+						String response_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
+						String response_clOrdID = jsonresponse.getString(getResponseArray+"["+position+"].clOrdID");
+						String response_origClOrdID = jsonresponse.getString(getResponseArray+"["+position+"].origClOrdID");
+						String response_execRefID = jsonresponse.getString(getResponseArray+"["+position+"].execRefID");
+						String response_execType = jsonresponse.getString(getResponseArray+"["+position+"].execType");
+						String response_execTransType = jsonresponse.getString(getResponseArray+"["+position+"].execTransType");
+						String response_execTransTypeDesc = jsonresponse.getString(getResponseArray+"["+position+"].execTransTypeDesc");
+						String response_timeInForce = jsonresponse.getString(getResponseArray+"["+position+"].timeInForce");
+						String response_execBroker = jsonresponse.getString(getResponseArray+"["+position+"].execBroker");
+
+						if (response_OrderID.equalsIgnoreCase(OrderId)
+								&& (response_transactTime.substring(0,10)).equalsIgnoreCase(localDateTime.format(formatter)))
+						{
+							//getBuyOrderid.add(response_OrderID);
+							BuyExecID.add(Integer.parseInt(response_execID));
+							getBuyExecutionsTime.put(response_transactTime,response_qOrderID);
+							getBuyExecutionsAvgPrice.put(Integer.parseInt(response_execID), response_avgPx);
+							getBuyExecutionsLastPrice.put(Integer.parseInt(response_execID),response_lastPx);
+							getBuyExecutionsLastshares.put(Integer.parseInt(response_execID), response_lastShares);
+
+							Assert.assertNotEquals(response_avgPx,null,"Validate_response_avgPx");
+							Assert.assertNotEquals(response_lastPx,null,"Validate_response_lastPx");
+							Assert.assertNotEquals(response_execID,null,"Validate_Executions_Buy_execID");
+							Assert.assertNotEquals(response_execType,null,"Validate_Executions_Buy_execType");
+							Assert.assertNotEquals(response_lastShares,null,"Validate_Executions_Buy_lastShares");
+							Assert.assertEquals(response_origClOrdID,null,"Validate_Executions_Buy_origClOrdID");
+							Assert.assertEquals(response_OrderID,OrderId,"Validate_Buy_OrderId");
+							Assert.assertEquals(response_qOrderID,qOrderId,"Validate_Buy_qOrderId");
+							Assert.assertEquals((response_transactTime.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTime");
+							Assert.assertEquals((response_tradeDate.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDate");
+							Assert.assertEquals((response_transactTimeUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTimeUTC");
+							Assert.assertEquals((response_tradeDateUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDateUTC");
+							Assert.assertEquals(response_symbol,Fetch_Executions_Symbol,"Validate_Executions_Buy_Symbol");
+							Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_SymbolSfx,"Validate_Executions_Buy_SymbolSfx");
+							Assert.assertEquals(response_account,Fetch_Executions_Account,"Validate_Executions_Buy_Account");
+							Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_OrderQty),"Validate_Executions_Buy_OrderQty");
+							Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_Buy_leavesQty");
+							Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_Buy_OrderQty");
+							Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Price),"Validate_Executions_Buy_Price");
+							Assert.assertEquals(response_ordType,Fetch_Executions_OrderType,"Validate_Executions_Buy_OrderType");
+							Assert.assertEquals(response_side,Executions_Side,"Validate_Executions_Buy_Side");
+							Assert.assertEquals(response_destination,Fetch_Executions_Destination,"Validate_Executions_Buy_Destination");
+							Assert.assertEquals(response_sideDesc,Executions_SideDesc,"Validate_Executions_Buy_sideDesc");
+							Assert.assertEquals(NVL(response_status,"null"),Fetch_Executions_Status,"Validate_Executions_Buy_Status");
+							Assert.assertEquals(NVL(response_text,"null"),Fetch_Executions_Text,"Validate_Executions_Buy_Text");
+							if ((response_leavesQty.toString()).equalsIgnoreCase("0.0") && (response_orderQty.toString()).equalsIgnoreCase(response_cumQty.toString()))
+							{Assert.assertEquals(response_ordStatus,Fetch_Last_Executions_OrdStatus,"Validate_Last_Executions_Buy_OrdStatus");}
+							else {Assert.assertEquals(response_ordStatus,Fetch_Executions_OrdStatus,"Validate_Executions_Buy_OrdStatus");}
+							Assert.assertEquals(response_originatingUserDesc,Fetch_Executions_OriginatingUserDesc,"Validate_Executions_Buy_OriginatingUserDesc");
+							Assert.assertEquals(response_clOrdID,BoothID+"-"+(qOrderId-1)+"-"+1,"Validate_Executions_Buy_clOrdID");
+							Assert.assertEquals(response_execRefID,Fetch_ExecutionS_ExecRefID,"Validate_Executions_Buy_ExecRefID");
+							Assert.assertEquals(response_execTransType,Fetch_Executions_ExecTransType,"Validate_Executions_Buy_ExecTransType");
+							Assert.assertEquals(response_execTransTypeDesc,Fetch_Executions_ExecTransTypeDesc,"Validate_Executions_Buy_ExecTransTypeDesc");
+							Assert.assertEquals(response_timeInForce,Fetch_Executions_TimeInForce,"Validate_Executions_Buy_TimeInForce");
+							Assert.assertEquals(NVL(response_execBroker,"null"),Fetch_Executions_ExecBroker,"Validate_Executions_Buy_ExecBroker");
+						}
+
+						else if (response_OrderID.equalsIgnoreCase(Sell_OrderId)
+								&& (response_transactTime.substring(0,10)).equalsIgnoreCase(localDateTime.format(formatter)))
+						{
+							//getSellOrderid.add(response_OrderID);
+							SellExecID.add(Integer.parseInt(response_execID));
+							getSellExecutionsTime.put(response_transactTime,response_qOrderID);
+							getSellExecutionsAvgPrice.put(Integer.parseInt(response_execID), response_avgPx);
+							getSellExecutionsLastPrice.put(Integer.parseInt(response_execID),response_lastPx);
+							getSellExecutionsLastshares.put(Integer.parseInt(response_execID),response_lastShares);
+
+							Assert.assertNotEquals(response_avgPx,null,"Validate_response_avgPx");
+							Assert.assertNotEquals(response_lastPx,null,"Validate_response_lastPx");
+							Assert.assertNotEquals(response_execID,null,"Validate_Executions_Sell_execID");
+							Assert.assertNotEquals(response_execType,null,"Validate_Executions_Sell_execType");
+							Assert.assertNotEquals(response_lastShares,null,"Validate_Executions_Sell_lastShares");
+							Assert.assertEquals(response_origClOrdID,null,"Validate_Executions_Sell_origClOrdID");
+							Assert.assertEquals(response_OrderID,Sell_OrderId,"Validate_Sell_OrderId");
+							Assert.assertEquals(response_qOrderID,Sell_qOrderId,"Validate_Sell_qOrderId");
+							Assert.assertEquals((response_transactTime.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTime");
+							Assert.assertEquals((response_tradeDate.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDate");
+							Assert.assertEquals((response_transactTimeUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTimeUTC");
+							Assert.assertEquals((response_tradeDateUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDateUTC");
+							Assert.assertEquals(response_symbol,Fetch_Executions_Sell_Symbol,"Validate_Executions_Sell_Symbol");
+							Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_Sell_SymbolSfx,"Validate_Executions_Sell_SymbolSfx");
+							Assert.assertEquals(response_account,Fetch_Executions_Sell_Account,"Validate_Executions_Sell_Account");
+							Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_Sell_OrderQty),"Validate_Executions_Sell_OrderQty");
+							Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_Sell_leavesQty");
+							Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_Sell_OrderQty");
+							Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Sell_Price),"Validate_Executions_Sell_Price");
+							Assert.assertEquals(response_ordType,Fetch_Executions_Sell_OrderType,"Validate_Executions_Sell_OrderType");
+							Assert.assertEquals(response_side,Executions_Sell_Side,"Validate_Executions_Sell_Side");
+							Assert.assertEquals(response_destination,Fetch_Executions_Sell_Destination,"Validate_Executions_Sell_Destination");
+							Assert.assertEquals(response_sideDesc,Executions_Sell_SideDesc,"Validate_Executions_Sell_sideDesc");
+							Assert.assertEquals(NVL(response_status,"null"),Fetch_Executions_Sell_Status,"Validate_Executions_Sell_Status");
+							Assert.assertEquals(NVL(response_text,"null"),Fetch_Executions_Sell_Text,"Validate_Executions_Sell_Text");
+							if ((response_leavesQty.toString()).equalsIgnoreCase("0.0") && (response_orderQty.toString()).equalsIgnoreCase(response_cumQty.toString()))
+							{Assert.assertEquals(response_ordStatus,Fetch_Last_Executions_Sell_OrdStatus,"Validate_Last_Executions_Sell_OrdStatus");}
+							else {Assert.assertEquals(response_ordStatus,Fetch_Executions_Sell_OrdStatus,"Validate_Executions_Sell_OrdStatus");}
+							Assert.assertEquals(response_originatingUserDesc,Fetch_Executions_Sell_OriginatingUserDesc,"Validate_Executions_Sell_OriginatingUserDesc");
+							Assert.assertEquals(response_clOrdID,BoothID+"-"+(Sell_qOrderId-1)+"-"+1,"Validate_Executions_Sell_clOrdID");
+							Assert.assertEquals(response_execRefID,Fetch_Executions_Sell_ExecRefID,"Validate_Executions_Sell_ExecRefID");
+							Assert.assertEquals(response_execTransType,Fetch_Executions_Sell_ExecTransType,"Validate_Executions_Sell_ExecTransType");
+							Assert.assertEquals(response_execTransTypeDesc,Fetch_Executions_Sell_ExecTransTypeDesc,"Validate_Executions_Sell_ExecTransTypeDesc");
+							Assert.assertEquals(response_timeInForce,Fetch_Executions_Sell_TimeInForce,"Validate_Executions_Sell_TimeInForce");
+							Assert.assertEquals(NVL(response_execBroker,"null"),Fetch_Executions_Sell_ExecBroker,"Validate_Executions_Sell_ExecBroker");
+						}
+					}
+					if (CaseType.equalsIgnoreCase("position"))
+					{
+						LoggingManager.logger.info("API-Executions BuyExecutionsLastPrice   : ["+getBuyExecutionsLastPrice+"]");
+						LoggingManager.logger.info("API-Executions SellExecutionsLastPrice  : ["+getSellExecutionsLastPrice+"]");
+						//LoggingManager.logger.info("API-Executions BuyExecutionsLastshares  : ["+getBuyExecutionsLastshares+"]");
+						//LoggingManager.logger.info("API-Executions SellExecutionsLastshares : ["+getSellExecutionsLastshares+"]");
+						Collections.sort(BuyExecID);
+						Collections.sort(SellExecID);
+						LoggingManager.logger.info("API-Executions Buy ExecIDs  : ["+BuyExecID+"]");
+						LoggingManager.logger.info("API-Executions Sell ExecIDs   : ["+SellExecID+"]");
+						Double getBuyValue=0.0;
+						Double getSellValue=0.0;
+						int checkquantity=0;
+						Boolean flag=true;
+
+						if (getBuyExecutionsLastPrice.isEmpty()==false && getSellExecutionsLastPrice.isEmpty()==false)
+						{
+							int listsize=SellExecID.size();
+							for(int position=0;position<listsize;position++)
+							{
+								//System.out.println(getBuyExecutionsLastshares.get(BuyExecID.get(0))+" > "+ getSellExecutionsLastshares.get(SellExecID.get(0)) );
+								if(getBuyExecutionsLastshares.get(BuyExecID.get(0)) > getSellExecutionsLastshares.get(SellExecID.get(0))  )
+								{
+									// System.out.println("SellExecID = "+SellExecID.get(0));
+									getSellValue+=Double.parseDouble(decimalFormat.format((getSellExecutionsLastshares.get(SellExecID.get(0)) * getSellExecutionsLastPrice.get(SellExecID.get(0)))));
+									checkquantity+=getSellExecutionsLastshares.get(SellExecID.get(0));
+									SellExecID.remove(0);
+									LoggingManager.logger.info("API-SELL Execution Data : [("+getSellExecutionsLastshares.get(SellExecID.get(0))+" * "+getSellExecutionsLastPrice.get(SellExecID.get(0))+")] = "+getSellValue);
+									LoggingManager.logger.info("API-SELL Order Quantity :"+checkquantity);
+									LoggingManager.logger.info("API-Remaining SellExecIDs :"+SellExecID);
+
+									if(getBuyExecutionsLastshares.get(BuyExecID.get(0)) == checkquantity)
+									{
+										//System.out.println("BuyExecID = "+BuyExecID.get(0));
+										getBuyValue+=Double.parseDouble(decimalFormat.format((getBuyExecutionsLastshares.get(BuyExecID.get(0)) * getBuyExecutionsLastPrice.get(BuyExecID.get(0)))));
+										BuyExecID.remove(0);
+										LoggingManager.logger.info("API-BUY Execution Data : [("+getBuyExecutionsLastshares.get(BuyExecID.get(0)) +" * "+getBuyExecutionsLastPrice.get(BuyExecID.get(0))+")] = "+getBuyValue);
+										LoggingManager.logger.info("API-BUY Order Quantity :"+getBuyExecutionsLastshares.get(BuyExecID.get(0)));
+										LoggingManager.logger.info("API-Remaining BuyExecID :"+BuyExecID);
+
+									}
+								}
+								else
+								{
+									// System.out.println("SellExecID = "+SellExecID.get(0));
+									getSellValue+=Double.parseDouble(decimalFormat.format((getSellExecutionsLastshares.get(SellExecID.get(0)) * getSellExecutionsLastPrice.get(SellExecID.get(0)))));
+									// System.out.println("BuyExecID = "+BuyExecID.get(0));
+									getBuyValue+=Double.parseDouble(decimalFormat.format((getBuyExecutionsLastshares.get(BuyExecID.get(0)) * getBuyExecutionsLastPrice.get(BuyExecID.get(0)))));
+									LoggingManager.logger.info("API-SELL Execution Data : [("+getSellExecutionsLastshares.get(SellExecID.get(0))+" * "+getSellExecutionsLastPrice.get(SellExecID.get(0))+")] = "+getSellValue);
+									LoggingManager.logger.info("API-BUY Execution Data : [("+getBuyExecutionsLastshares.get(BuyExecID.get(0)) +" * "+getBuyExecutionsLastPrice.get(BuyExecID.get(0))+")] = "+getBuyValue);
+									SellExecID.remove(0);
+									BuyExecID.remove(0);
+								}
+							}
+							LoggingManager.logger.info("API-Remaining SellExecIDs :"+SellExecID);
+							LoggingManager.logger.info("API-Remaining BuyExecID :"+BuyExecID);
+							LoggingManager.logger.info("API-Total Buy Prx Value : "+getBuyValue);
+							LoggingManager.logger.info("API-Total Sell Prx Value :"+getSellValue);
+
+							if(Global.getorderType=="Equity")
+							{
+								LoggingManager.logger.info("API-Calculating Realize PNL : [Previous PnL: ("+Global.getLONGrealizedPnL+")] + Current PnL:("+getSellValue+"-"+getBuyValue+")]");
+								Global.getLONGrealizedPnL=Global.getLONGrealizedPnL+(getSellValue-getBuyValue);
+								LoggingManager.logger.info("API-Total Equity Realize PNL  = "+Global.getLONGrealizedPnL);
+								// Global.getSHORTrealizedPnL=Global.getSHORTrealizedPnL+(getBuyValue-getSellValue);
+							}
+
+							if(Global.getorderType=="Option")
+							{
+								LoggingManager.logger.info("API-Calculating Option Realize PNL : [Previous PnL: ("+Global.getOptionLONGrealizedPnL+")] + Current PnL:("+getSellValue+"-"+getBuyValue+")]");
+								Global.getOptionLONGrealizedPnL=Global.getOptionLONGrealizedPnL+(getSellValue-getBuyValue);
+								LoggingManager.logger.info("API-Total Option Realize PNL  = "+Global.getOptionLONGrealizedPnL);
+							}
+
+							if(BuyExecID.isEmpty()==false)
+							{
+								for (int lastPrice=0;lastPrice<=BuyExecID.size()-1; lastPrice++)
+								{
+									LoggingManager.logger.info("Add Execution Prx = "+Global.getAvgPrice +" + "+getBuyExecutionsLastPrice.get(BuyExecID.get(lastPrice)));
+									Global.getAvgPrice+= getBuyExecutionsLastPrice.get(BuyExecID.get(lastPrice));
+									//LoggingManager.logger.info("= "+Global.getAvgPrice);
+								}
+
+								LoggingManager.logger.info("Total Prx counts :"+BuyExecID.size());
+								LoggingManager.logger.info("Total Executions Prx Added :"+Global.getAvgPrice);
+								Global.totalTrade=Global.getAvgPrice;
+								Global.getAvgPrice/=BuyExecID.size();
+								if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
+								Global.getOptionAvgPrice=Global.getAvgPrice;
+								if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
+							}
+							else
+							{
+								LoggingManager.logger.info("API-No Executions Found Against OrderID : ["+OrderId+"]");
+								if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
+								Global.getOptionAvgPrice=Global.getAvgPrice;
+								if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
+							}
+						}
+					}
+
+					else
+					{
+						LoggingManager.logger.info("API-Executions Buy  ExecutionsLastPrice   : ["+getBuyExecutionsLastPrice+"]");
+						LoggingManager.logger.info("API-Executions Sell ExecutionsLastPrice   : ["+getSellExecutionsLastPrice+"]");
+						LoggingManager.logger.info("API-Executions Buy  ExecutionsAvgPrice    : ["+getBuyExecutionsAvgPrice+"]");
+						LoggingManager.logger.info("API-Executions Sell ExecutionsAvgPrice    : ["+getSellExecutionsAvgPrice+"]");
+						LoggingManager.logger.info("API-Executions Buy  ExecutionsLastshares  : ["+getBuyExecutionsLastshares+"]");
+						LoggingManager.logger.info("API-Executions Sell ExecutionsLastshares  : ["+getSellExecutionsLastshares+"]");
+					}
+					break;
+
+				case "SHORTSELL":
+
+					LoggingManager.logger.info("API-Executions_Case : ["+Executions_Case+"]");
+					LoggingManager.logger.info("---------------------[SHORTSELL Execution DATA]--------------------");
+					LoggingManager.logger.info("API-SHORTSELL Executions_OrderId : ["+OrderId+"]");
+					LoggingManager.logger.info("API-SHORTSELL Executions_SideDesc : ["+Executions_SideDesc+"]");
+					LoggingManager.logger.info("API-SHORTSELL Executions_Side : ["+Executions_Side+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Symbol : ["+Fetch_Executions_Symbol+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Account : ["+Fetch_Executions_Account+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_OrderQty : ["+Fetch_Executions_OrderQty+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Price : ["+Fetch_Executions_Price+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_OrderType : ["+Fetch_Executions_OrderType+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Destination : ["+Fetch_Executions_Destination+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_SymbolSfx : ["+Fetch_Executions_SymbolSfx+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Status : ["+Fetch_Executions_Status+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_OrdStatus : ["+Fetch_Executions_OrdStatus+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Text : ["+Fetch_Executions_Text+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_OrdStatus+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_OriginatingUserDesc+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_ExecBroker : ["+Fetch_Executions_ExecBroker+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_TimeInForce : ["+Fetch_Executions_TimeInForce+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_ExecRefID : ["+Fetch_ExecutionS_ExecRefID+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_ExecTransType : ["+Fetch_Executions_ExecTransType+"]");
+					LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_ExecTransTypeDesc+"]");
+
+
+					loop: for(int position = ResponseArraySize-1; position >=0; position--)
+					{
+						String  response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
+						String  response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
+						String  response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
+						Double  response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
+						Double  response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
+						Double response_lastShares = jsonresponse.getDouble(getResponseArray+"["+position+"].lastShares");
+						Double  response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
+						Double  response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
+						String  response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
+						String  response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
+						String  response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
+						Integer response_qOrderID = jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
+						String response_OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
+						Double response_lastPx = jsonresponse.getDouble(getResponseArray+"["+position+"].lastPx");
+						String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
+						Double response_avgPx = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPx");
+						String response_transactTime = jsonresponse.getString(getResponseArray+"["+position+"].transactTime");
+						String response_tradeDate = jsonresponse.getString(getResponseArray+"["+position+"].tradeDate");
+						String response_transactTimeUtc = jsonresponse.getString(getResponseArray+"["+position+"].transactTimeUtc");
+						String response_tradeDateUtc = jsonresponse.getString(getResponseArray+"["+position+"].tradeDateUtc");
+						String response_status = jsonresponse.getString(getResponseArray+"["+position+"].status");
+						String response_text = jsonresponse.getString(getResponseArray+"["+position+"].text");
+						String response_ordStatus = jsonresponse.getString(getResponseArray+"["+position+"].ordStatus");
+						String response_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
+						String response_clOrdID = jsonresponse.getString(getResponseArray+"["+position+"].clOrdID");
+						String response_origClOrdID = jsonresponse.getString(getResponseArray+"["+position+"].origClOrdID");
+						String response_execRefID = jsonresponse.getString(getResponseArray+"["+position+"].execRefID");
+						String response_execID = jsonresponse.getString(getResponseArray+"["+position+"].execID");
+						String response_execType = jsonresponse.getString(getResponseArray+"["+position+"].execType");
+						String response_execTransType = jsonresponse.getString(getResponseArray+"["+position+"].execTransType");
+						String response_execTransTypeDesc = jsonresponse.getString(getResponseArray+"["+position+"].execTransTypeDesc");
+						String response_timeInForce = jsonresponse.getString(getResponseArray+"["+position+"].timeInForce");
+						String response_execBroker = jsonresponse.getString(getResponseArray+"["+position+"].execBroker");
+						if (response_OrderID.equalsIgnoreCase(OrderId)
+								&& (response_transactTime.substring(0,10)).equalsIgnoreCase(localDateTime.format(formatter)))
+						{
+							getSellExecPrx.add(response_lastPx);
+							getSellExecutionsAvgPrice.put(Integer.parseInt(response_execID), response_avgPx);
+							getSellExecutionsLastPrice.put(Integer.parseInt(response_execID), response_lastPx);
+
+							Assert.assertNotEquals(response_avgPx,null,"Validate_response_avgPx");
+							Assert.assertNotEquals(response_lastPx,null,"Validate_response_lastPx");
+							Assert.assertNotEquals(response_execID,null,"Validate_Executions_ShortSell_execID");
+							Assert.assertNotEquals(response_execType,null,"Validate_Executions_ShortSell_execType");
+							Assert.assertNotEquals(response_lastShares,null,"Validate_Executions_ShortSell_lastShares");
+							//Assert.assertNotEquals(response_origClOrdID,null,"Validate_Executions_ShortSell_origClOrdID");
+							Assert.assertEquals(response_origClOrdID,null,"Validate_Executions_ShortSell_origClOrdID");
+							Assert.assertEquals(response_OrderID,OrderId,"Validate_ShortSell_OrderId");
+							Assert.assertEquals(response_qOrderID,qOrderId,"Validate_ShortSell_qOrderId");
+							Assert.assertEquals((response_transactTime.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTime");
+							Assert.assertEquals((response_tradeDate.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDate");
+							Assert.assertEquals((response_transactTimeUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTimeUTC");
+							Assert.assertEquals((response_tradeDateUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDateUTC");
+							Assert.assertEquals(response_symbol,Fetch_Executions_Symbol,"Validate_Executions_ShortSell_Symbol");
+							Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_SymbolSfx,"Validate_Executions_ShortSell_SymbolSfx");
+							Assert.assertEquals(response_account,Fetch_Executions_Account,"Validate_Executions_ShortSell_Account");
+							Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_OrderQty),"Validate_Executions_ShortSell_OrderQty");
+							Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_ShortSell_leavesQty");
+							Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_ShortSell_cumQty");
+							Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Price),"Validate_Executions_ShortSell_Price");
+							Assert.assertEquals(response_ordType,Fetch_Executions_OrderType,"Validate_Executions_ShortSell_OrderType");
+							Assert.assertEquals(response_side,Executions_Side,"Validate_Executions_ShortSell_Side");
+							Assert.assertEquals(response_destination,Fetch_Executions_Destination,"Validate_Executions_ShortSell_Destination");
+							Assert.assertEquals(response_sideDesc,Executions_SideDesc,"Validate_Executions_ShortSell_sideDesc");
+							Assert.assertEquals(NVL(response_status,"null"),Fetch_Executions_Status,"Validate_Executions_ShortSell_Status");
+							Assert.assertEquals(NVL(response_text,"null"),Fetch_Executions_Text,"Validate_Executions_ShortSell_Text");
+
+							if ((response_leavesQty.toString()).equalsIgnoreCase("0.0") && (response_orderQty.toString()).equalsIgnoreCase(response_cumQty.toString()))
+							{Assert.assertEquals(response_ordStatus,Fetch_Last_Executions_OrdStatus,"Validate_Last_Executions_ShortSell_OrdStatus");}
+							else {Assert.assertEquals(response_ordStatus,Fetch_Executions_OrdStatus,"Validate_Executions_ShortSell_OrdStatus");}
+							Assert.assertEquals(response_originatingUserDesc,Fetch_Executions_OriginatingUserDesc,"Validate_Executions_ShortSell_OriginatingUserDesc");
+							Assert.assertEquals(response_clOrdID,BoothID+"-"+(qOrderId-1)+"-"+1,"Validate_Executions_ShortSell_clOrdID");
+							Assert.assertEquals(response_execRefID,Fetch_ExecutionS_ExecRefID,"Validate_Executions_ShortSell_ExecRefID");
+							Assert.assertEquals(response_execTransType,Fetch_Executions_ExecTransType,"Validate_Executions_ShortSell_ExecTransType");
+							Assert.assertEquals(response_execTransTypeDesc,Fetch_Executions_ExecTransTypeDesc,"Validate_Executions_ShortSell_ExecTransTypeDesc");
+							Assert.assertEquals(response_timeInForce,Fetch_Executions_TimeInForce,"Validate_Executions_ShortSell_TimeInForce");
+							Assert.assertEquals(NVL(response_execBroker,"null"),Fetch_Executions_ExecBroker,"Validate_Executions_ShortSell_ExecBroker");
+						}
+						else
+						{
+							continue loop;
+						}
+					}
+
+					if (CaseType.equalsIgnoreCase("position"))
+					{
+						LoggingManager.logger.info("API-Total SHORT Realize PNL : ["+Global.getSHORTrealizedPnL+"]");
+
+						if(getSellExecPrx.isEmpty()==false)
+						{
+							LoggingManager.logger.info("Price List for LastPrx Calculations:"+getSellExecPrx);
+							for (int lastPrice=0;lastPrice<=getSellExecPrx.size()-1; lastPrice++)
+							{
+								LoggingManager.logger.info("Add Execution Prx = "+Global.getAvgPrice +" + "+getSellExecPrx.get(lastPrice));
+								Global.getAvgPrice+= getSellExecPrx.get(lastPrice);
+								LoggingManager.logger.info("= "+Global.getAvgPrice);
+
+							}
+							LoggingManager.logger.info("Total Prx counts :"+getSellExecPrx.size());
+							LoggingManager.logger.info("Total Executions Prx Added :"+Global.getAvgPrice);
+							Global.totalTrade=Global.getAvgPrice;
+							Global.getAvgPrice/=getSellExecPrx.size();
+							if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
+							Global.getOptionAvgPrice=Global.getAvgPrice;
+							if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
+						}
+						else
+						{
+							LoggingManager.logger.info("API-No Executions Found Against OrderID : ["+OrderId+"]");
+							if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
+							Global.getOptionAvgPrice=Global.getAvgPrice;
+							if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
+						}
+					}
+					else
+					{
+						LoggingManager.logger.info("API-Executions Sell ExecutionsLastPrice   : ["+getSellExecutionsLastPrice+"]");
+						LoggingManager.logger.info("API-Executions Sell ExecutionsAvgPrice    : ["+getSellExecutionsAvgPrice+"]");
+					}
+					break;
+
+				default:
+					break;
+			}
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
+
+public static void Validate_Get_Executions(	Response getresponse,
 										String Endpointversion,
 										String BoothID,
-										String Executions_Case,
 										String Executions_SideDesc,
 										String Executions_Side,
 										String OrderId,
@@ -2166,29 +3279,7 @@ public static void Validate_Executions(	Response getresponse,
 										String Fetch_Executions_TimeInForce,
 										String Fetch_ExecutionS_ExecRefID,
 										String Fetch_Executions_ExecTransType,
-										String Fetch_Executions_ExecTransTypeDesc,
-										String Executions_Sell_SideDesc,
-										String Executions_Sell_Side,
-										String Sell_OrderId,
-										Integer Sell_qOrderId,
-										String Fetch_Executions_Sell_Symbol,
-										String Fetch_Executions_Sell_Account,
-										String Fetch_Executions_Sell_OrderQty,
-										String Fetch_Executions_Sell_Price,
-										String Fetch_Executions_Sell_OrderType,
-										String Fetch_Executions_Sell_Destination,
-										String Fetch_Executions_Sell_SymbolSfx,
-										String Fetch_Executions_Sell_Status,
-										String Fetch_Executions_Sell_Text,
-										String Fetch_Executions_Sell_OrdStatus,
-										String Fetch_Last_Executions_Sell_OrdStatus,
-										String Fetch_Executions_Sell_OriginatingUserDesc,
-										String Fetch_Executions_Sell_ExecBroker,
-										String Fetch_Executions_Sell_TimeInForce,
-										String Fetch_Executions_Sell_ExecRefID,
-										String Fetch_Executions_Sell_ExecTransType,
-										String Fetch_Executions_Sell_ExecTransTypeDesc,
-										String CaseType)	
+										String Fetch_Executions_ExecTransTypeDesc)
 {
 	try
 	{
@@ -2200,46 +3291,28 @@ public static void Validate_Executions(	Response getresponse,
 		DecimalFormat decimalFormat = new DecimalFormat("0.0000");
 		decimalFormat.getRoundingMode();
 		Global.getAvgPrice=0.0;
-		ArrayList<Integer> BuyExecID = new ArrayList<Integer>();
-		ArrayList<Integer> SellExecID = new ArrayList<Integer>();
-		ArrayList<Double> getBuyExecPrx = new ArrayList<Double>();
-		ArrayList<Double> getSellExecPrx = new ArrayList<Double>();
-		Map<Object,Integer> getBuyExecutionsTime = new HashMap<Object,Integer>();
-		Map<Integer,Double> getBuyExecutionsAvgPrice = new HashMap<Integer,Double>();
-		Map<Integer,Double> getBuyExecutionsLastPrice = new HashMap<Integer,Double>();
-		Map<Integer,Double> getBuyExecutionsLastshares = new HashMap<Integer,Double>();
-		Map<Object,Integer> getSellExecutionsTime = new HashMap<Object,Integer>();
-		Map<Integer,Double> getSellExecutionsAvgPrice = new HashMap<Integer,Double>();
-		Map<Integer,Double> getSellExecutionsLastPrice = new HashMap<Integer,Double>();
-		Map<Integer,Double> getSellExecutionsLastshares = new HashMap<Integer,Double>();
-		switch (Executions_Case)
-		{
 
-			//-------------------------------------------------BUY Case-------------------------------------------------------------------------------
-			case "BUY":
-
-				LoggingManager.logger.info("API-Executions_Case : ["+Executions_Case+"]");
-				LoggingManager.logger.info("----------------------[BUY Execution DATA]---------------------");
-				LoggingManager.logger.info("API-BUY Executions_OrderId : ["+OrderId+"]");
-				LoggingManager.logger.info("API-BUY Executions_SideDesc : ["+Executions_SideDesc+"]");
-				LoggingManager.logger.info("API-BUY Executions_Side : ["+Executions_Side+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Symbol : ["+Fetch_Executions_Symbol+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Account : ["+Fetch_Executions_Account+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_OrderQty : ["+Fetch_Executions_OrderQty+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Price : ["+Fetch_Executions_Price+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_OrderType : ["+Fetch_Executions_OrderType+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Destination : ["+Fetch_Executions_Destination+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_SymbolSfx : ["+Fetch_Executions_SymbolSfx+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Status : ["+Fetch_Executions_Status+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_OrdStatus : ["+Fetch_Executions_OrdStatus+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Text : ["+Fetch_Executions_Text+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_OrdStatus+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_OriginatingUserDesc+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_ExecBroker : ["+Fetch_Executions_ExecBroker+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_TimeInForce : ["+Fetch_Executions_TimeInForce+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_ExecRefID : ["+Fetch_ExecutionS_ExecRefID+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_ExecTransType : ["+Fetch_Executions_ExecTransType+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_ExecTransTypeDesc+"]");
+				LoggingManager.logger.info("----------------------[Execution DATA]---------------------");
+				LoggingManager.logger.info("API-Executions_OrderId : ["+OrderId+"]");
+				LoggingManager.logger.info("API-Executions_SideDesc : ["+Executions_SideDesc+"]");
+				LoggingManager.logger.info("API-Executions_Side : ["+Executions_Side+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_Symbol : ["+Fetch_Executions_Symbol+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_Account : ["+Fetch_Executions_Account+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_OrderQty : ["+Fetch_Executions_OrderQty+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_Price : ["+Fetch_Executions_Price+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_OrderType : ["+Fetch_Executions_OrderType+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_Destination : ["+Fetch_Executions_Destination+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_SymbolSfx : ["+Fetch_Executions_SymbolSfx+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_Status : ["+Fetch_Executions_Status+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_OrdStatus : ["+Fetch_Executions_OrdStatus+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_Text : ["+Fetch_Executions_Text+"]");
+				LoggingManager.logger.info("API-Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_OrdStatus+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_OriginatingUserDesc+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_ExecBroker : ["+Fetch_Executions_ExecBroker+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_TimeInForce : ["+Fetch_Executions_TimeInForce+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_ExecRefID : ["+Fetch_ExecutionS_ExecRefID+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_ExecTransType : ["+Fetch_Executions_ExecTransType+"]");
+				LoggingManager.logger.info("API-Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_ExecTransTypeDesc+"]");
 
 				loop: for(int position = ResponseArraySize-1; position >=0; position--)
 				{
@@ -2280,9 +3353,6 @@ public static void Validate_Executions(	Response getresponse,
 					if (response_OrderID.equalsIgnoreCase(OrderId)
 							&& (response_transactTime.substring(0,10)).equalsIgnoreCase(localDateTime.format(formatter)))
 					{
-						getBuyExecPrx.add(response_lastPx);
-						getBuyExecutionsAvgPrice.put(Integer.parseInt(response_execID), response_avgPx);
-						getBuyExecutionsLastPrice.put(Integer.parseInt(response_execID),response_lastPx);
 						Assert.assertNotEquals(response_avgPx,null,"Validate_response_avgPx");
 						Assert.assertNotEquals(response_lastPx,null,"Validate_response_lastPx");
 						Assert.assertNotEquals(response_execID,null,"Validate_Executions_Buy_execID");
@@ -2296,16 +3366,16 @@ public static void Validate_Executions(	Response getresponse,
 						Assert.assertEquals((response_tradeDate.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDate");
 						Assert.assertEquals((response_transactTimeUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTimeUTC");
 						Assert.assertEquals((response_tradeDateUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDateUTC");
-						Assert.assertEquals(response_symbol,Fetch_Executions_Symbol,"Validate_Executions_Buy_Symbol");
-						Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_SymbolSfx,"Validate_Executions_Buy_SymbolSfx");
-						Assert.assertEquals(response_account,Fetch_Executions_Account,"Validate_Executions_Buy_Account");
-						Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_OrderQty),"Validate_Executions_Buy_OrderQty");
-						Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_Buy_leavesQty");
-						Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_Buy_cumQty");
-						Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Price),"Validate_Executions_Buy_Price");
-						Assert.assertEquals(response_ordType,Fetch_Executions_OrderType,"Validate_Executions_Buy_OrderType");
-						Assert.assertEquals(response_side,Executions_Side,"Validate_Executions_Buy_Side");
-						Assert.assertEquals(response_destination,Fetch_Executions_Destination,"Validate_Executions_Buy_Destination");
+						Assert.assertEquals(response_symbol,Fetch_Executions_Symbol,"Validate_Executions_Symbol");
+						Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_SymbolSfx,"Validate_Executions_SymbolSfx");
+						Assert.assertEquals(response_account,Fetch_Executions_Account,"Validate_Executions_Account");
+						Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_OrderQty),"Validate_Executions_OrderQty");
+						Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_leavesQty");
+						Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_cumQty");
+						Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Price),"Validate_Executions_Price");
+						Assert.assertEquals(response_ordType,Fetch_Executions_OrderType,"Validate_Executions_OrderType");
+						Assert.assertEquals(response_side,Executions_Side,"Validate_Executions_Side");
+						Assert.assertEquals(response_destination,Fetch_Executions_Destination,"Validate_Executions_Destination");
 						Assert.assertEquals(response_sideDesc,Executions_SideDesc,"Validate_Executions_Buy_sideDesc");
 						Assert.assertEquals(NVL(response_status,"null"),Fetch_Executions_Status,"Validate_Executions_Buy_Status");
 						Assert.assertEquals(NVL(response_text,"null"),Fetch_Executions_Text,"Validate_Executions_Buy_Text");
@@ -2327,482 +3397,6 @@ public static void Validate_Executions(	Response getresponse,
 					}
 				}
 
-				if (CaseType.equalsIgnoreCase("position"))
-				{
-					if(getBuyExecPrx.isEmpty()==false)
-					{
-						LoggingManager.logger.info("Price List for LastPrx Calculations:"+getBuyExecPrx);
-						for (int lastPrice=0;lastPrice<=getBuyExecPrx.size()-1; lastPrice++)
-						{
-							LoggingManager.logger.info("Add Execution Prx = "+Global.getAvgPrice +" + "+getBuyExecPrx.get(lastPrice));
-							Global.getAvgPrice+= getBuyExecPrx.get(lastPrice);
-							LoggingManager.logger.info("= "+Global.getAvgPrice);
-
-						}
-						LoggingManager.logger.info("Total Prx counts :"+getBuyExecPrx.size());
-						LoggingManager.logger.info("Total Executions Prx Added :"+Global.getAvgPrice);
-						Global.totalTrade=Global.getAvgPrice;
-						Global.getAvgPrice/=getBuyExecPrx.size();
-						if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
-						Global.getOptionAvgPrice=Global.getAvgPrice;
-						if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
-					}
-					else
-					{
-						LoggingManager.logger.info("API-No Executions Found Against OrderID : ["+OrderId+"]");
-						if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
-						Global.getOptionAvgPrice=Global.getAvgPrice;
-						if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
-					}
-				}
-				else
-				{
-					LoggingManager.logger.info("API-Executions Buy  ExecutionsLastPrice   : ["+getBuyExecutionsLastPrice+"]");
-					LoggingManager.logger.info("API-Executions Buy  ExecutionsAvgPrice    : ["+getBuyExecutionsAvgPrice+"]");
-				}
-				break;
-			//-------------------------------------------------SELL Case-------------------------------------------------------------------------------
-
-			case "SELL":
-
-				LoggingManager.logger.info("API-Executions_Case : ["+Executions_Case+"]");
-				LoggingManager.logger.info("----------------------[BUY Execution DATA]---------------------");
-				LoggingManager.logger.info("API-BUY Executions_OrderId : ["+OrderId+"]");
-				LoggingManager.logger.info("API-BUY Executions_SideDesc : ["+Executions_SideDesc+"]");
-				LoggingManager.logger.info("API-BUY Executions_Side : ["+Executions_Side+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Symbol : ["+Fetch_Executions_Symbol+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Account : ["+Fetch_Executions_Account+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_OrderQty : ["+Fetch_Executions_OrderQty+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Price : ["+Fetch_Executions_Price+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_OrderType : ["+Fetch_Executions_OrderType+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Destination : ["+Fetch_Executions_Destination+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_SymbolSfx : ["+Fetch_Executions_SymbolSfx+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Status : ["+Fetch_Executions_Status+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_OrdStatus : ["+Fetch_Executions_OrdStatus+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_Text : ["+Fetch_Executions_Text+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_OrdStatus+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_OriginatingUserDesc+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_ExecBroker : ["+Fetch_Executions_ExecBroker+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_TimeInForce : ["+Fetch_Executions_TimeInForce+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_ExecRefID : ["+Fetch_ExecutionS_ExecRefID+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_ExecTransType : ["+Fetch_Executions_ExecTransType+"]");
-				LoggingManager.logger.info("API-BUY Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_ExecTransTypeDesc+"]");
-				LoggingManager.logger.info("----------------------[SELL Execution DATA]---------------------");
-				LoggingManager.logger.info("API-SELL Executions_OrderId : ["+Sell_OrderId+"]");
-				LoggingManager.logger.info("API-SELL Executions_SideDesc : ["+Executions_Sell_SideDesc+"]");
-				LoggingManager.logger.info("API-SELL Executions_Side : ["+Executions_Sell_Side+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_Symbol : ["+Fetch_Executions_Sell_Symbol+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_Account : ["+Fetch_Executions_Sell_Account+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_OrderQty : ["+Fetch_Executions_Sell_OrderQty+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_Price : ["+Fetch_Executions_Sell_Price+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_OrderType : ["+Fetch_Executions_Sell_OrderType+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_Destination : ["+Fetch_Executions_Sell_Destination+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_SymbolSfx : ["+Fetch_Executions_Sell_SymbolSfx+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_Status : ["+Fetch_Executions_Sell_Status+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_OrdStatus : ["+Fetch_Executions_Sell_OrdStatus+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_Text : ["+Fetch_Executions_Sell_Text+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_Sell_OrdStatus+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_Sell_OriginatingUserDesc+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_ExecBroker : ["+Fetch_Executions_Sell_ExecBroker+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_TimeInForce : ["+Fetch_Executions_Sell_TimeInForce+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_ExecRefID : ["+Fetch_Executions_Sell_ExecRefID+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_ExecTransType : ["+Fetch_Executions_Sell_ExecTransType+"]");
-				LoggingManager.logger.info("API-SELL Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_Sell_ExecTransTypeDesc+"]");
-
-				for(int position = ResponseArraySize-1; position >=0; position--)
-				{
-					String response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
-					String response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
-					Double response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
-					Double response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
-					String response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
-					String response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
-					String response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
-					Integer response_qOrderID = jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
-					String response_OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
-					Double response_lastPx = jsonresponse.getDouble(getResponseArray+"["+position+"].lastPx");
-					Double response_lastShares = jsonresponse.getDouble(getResponseArray+"["+position+"].lastShares");
-					Double response_avgPx = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPx");
-					String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
-					String response_transactTime = jsonresponse.getString(getResponseArray+"["+position+"].transactTime");
-					String response_execID = jsonresponse.getString(getResponseArray+"["+position+"].execID");
-					String response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
-					Double response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
-					Double response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
-					String response_tradeDate = jsonresponse.getString(getResponseArray+"["+position+"].tradeDate");
-					String response_transactTimeUtc = jsonresponse.getString(getResponseArray+"["+position+"].transactTimeUtc");
-					String response_tradeDateUtc = jsonresponse.getString(getResponseArray+"["+position+"].tradeDateUtc");
-					String response_status = jsonresponse.getString(getResponseArray+"["+position+"].status");
-					String response_text = jsonresponse.getString(getResponseArray+"["+position+"].text");
-					String response_ordStatus = jsonresponse.getString(getResponseArray+"["+position+"].ordStatus");
-					String response_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
-					String response_clOrdID = jsonresponse.getString(getResponseArray+"["+position+"].clOrdID");
-					String response_origClOrdID = jsonresponse.getString(getResponseArray+"["+position+"].origClOrdID");
-					String response_execRefID = jsonresponse.getString(getResponseArray+"["+position+"].execRefID");
-					String response_execType = jsonresponse.getString(getResponseArray+"["+position+"].execType");
-					String response_execTransType = jsonresponse.getString(getResponseArray+"["+position+"].execTransType");
-					String response_execTransTypeDesc = jsonresponse.getString(getResponseArray+"["+position+"].execTransTypeDesc");
-					String response_timeInForce = jsonresponse.getString(getResponseArray+"["+position+"].timeInForce");
-					String response_execBroker = jsonresponse.getString(getResponseArray+"["+position+"].execBroker");
-
-					if (response_OrderID.equalsIgnoreCase(OrderId)
-							&& (response_transactTime.substring(0,10)).equalsIgnoreCase(localDateTime.format(formatter)))
-					{
-						//getBuyOrderid.add(response_OrderID);
-						BuyExecID.add(Integer.parseInt(response_execID));
-						getBuyExecutionsTime.put(response_transactTime,response_qOrderID);
-						getBuyExecutionsAvgPrice.put(Integer.parseInt(response_execID), response_avgPx);
-						getBuyExecutionsLastPrice.put(Integer.parseInt(response_execID),response_lastPx);
-						getBuyExecutionsLastshares.put(Integer.parseInt(response_execID), response_lastShares);
-
-						Assert.assertNotEquals(response_avgPx,null,"Validate_response_avgPx");
-						Assert.assertNotEquals(response_lastPx,null,"Validate_response_lastPx");
-						Assert.assertNotEquals(response_execID,null,"Validate_Executions_Buy_execID");
-						Assert.assertNotEquals(response_execType,null,"Validate_Executions_Buy_execType");
-						Assert.assertNotEquals(response_lastShares,null,"Validate_Executions_Buy_lastShares");
-						Assert.assertEquals(response_origClOrdID,null,"Validate_Executions_Buy_origClOrdID");
-						Assert.assertEquals(response_OrderID,OrderId,"Validate_Buy_OrderId");
-						Assert.assertEquals(response_qOrderID,qOrderId,"Validate_Buy_qOrderId");
-						Assert.assertEquals((response_transactTime.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTime");
-						Assert.assertEquals((response_tradeDate.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDate");
-						Assert.assertEquals((response_transactTimeUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTimeUTC");
-						Assert.assertEquals((response_tradeDateUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDateUTC");
-						Assert.assertEquals(response_symbol,Fetch_Executions_Symbol,"Validate_Executions_Buy_Symbol");
-						Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_SymbolSfx,"Validate_Executions_Buy_SymbolSfx");
-						Assert.assertEquals(response_account,Fetch_Executions_Account,"Validate_Executions_Buy_Account");
-						Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_OrderQty),"Validate_Executions_Buy_OrderQty");
-						Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_Buy_leavesQty");
-						Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_Buy_OrderQty");
-						Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Price),"Validate_Executions_Buy_Price");
-						Assert.assertEquals(response_ordType,Fetch_Executions_OrderType,"Validate_Executions_Buy_OrderType");
-						Assert.assertEquals(response_side,Executions_Side,"Validate_Executions_Buy_Side");
-						Assert.assertEquals(response_destination,Fetch_Executions_Destination,"Validate_Executions_Buy_Destination");
-						Assert.assertEquals(response_sideDesc,Executions_SideDesc,"Validate_Executions_Buy_sideDesc");
-						Assert.assertEquals(NVL(response_status,"null"),Fetch_Executions_Status,"Validate_Executions_Buy_Status");
-						Assert.assertEquals(NVL(response_text,"null"),Fetch_Executions_Text,"Validate_Executions_Buy_Text");
-						if ((response_leavesQty.toString()).equalsIgnoreCase("0.0") && (response_orderQty.toString()).equalsIgnoreCase(response_cumQty.toString()))
-						{Assert.assertEquals(response_ordStatus,Fetch_Last_Executions_OrdStatus,"Validate_Last_Executions_Buy_OrdStatus");}
-						else {Assert.assertEquals(response_ordStatus,Fetch_Executions_OrdStatus,"Validate_Executions_Buy_OrdStatus");}
-						Assert.assertEquals(response_originatingUserDesc,Fetch_Executions_OriginatingUserDesc,"Validate_Executions_Buy_OriginatingUserDesc");
-						Assert.assertEquals(response_clOrdID,BoothID+"-"+(qOrderId-1)+"-"+1,"Validate_Executions_Buy_clOrdID");
-						Assert.assertEquals(response_execRefID,Fetch_ExecutionS_ExecRefID,"Validate_Executions_Buy_ExecRefID");
-						Assert.assertEquals(response_execTransType,Fetch_Executions_ExecTransType,"Validate_Executions_Buy_ExecTransType");
-						Assert.assertEquals(response_execTransTypeDesc,Fetch_Executions_ExecTransTypeDesc,"Validate_Executions_Buy_ExecTransTypeDesc");
-						Assert.assertEquals(response_timeInForce,Fetch_Executions_TimeInForce,"Validate_Executions_Buy_TimeInForce");
-						Assert.assertEquals(NVL(response_execBroker,"null"),Fetch_Executions_ExecBroker,"Validate_Executions_Buy_ExecBroker");
-					}
-
-					else if (response_OrderID.equalsIgnoreCase(Sell_OrderId)
-							&& (response_transactTime.substring(0,10)).equalsIgnoreCase(localDateTime.format(formatter)))
-					{
-						//getSellOrderid.add(response_OrderID);
-						SellExecID.add(Integer.parseInt(response_execID));
-						getSellExecutionsTime.put(response_transactTime,response_qOrderID);
-						getSellExecutionsAvgPrice.put(Integer.parseInt(response_execID), response_avgPx);
-						getSellExecutionsLastPrice.put(Integer.parseInt(response_execID),response_lastPx);
-						getSellExecutionsLastshares.put(Integer.parseInt(response_execID),response_lastShares);
-
-						Assert.assertNotEquals(response_avgPx,null,"Validate_response_avgPx");
-						Assert.assertNotEquals(response_lastPx,null,"Validate_response_lastPx");
-						Assert.assertNotEquals(response_execID,null,"Validate_Executions_Sell_execID");
-						Assert.assertNotEquals(response_execType,null,"Validate_Executions_Sell_execType");
-						Assert.assertNotEquals(response_lastShares,null,"Validate_Executions_Sell_lastShares");
-						Assert.assertEquals(response_origClOrdID,null,"Validate_Executions_Sell_origClOrdID");
-						Assert.assertEquals(response_OrderID,Sell_OrderId,"Validate_Sell_OrderId");
-						Assert.assertEquals(response_qOrderID,Sell_qOrderId,"Validate_Sell_qOrderId");
-						Assert.assertEquals((response_transactTime.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTime");
-						Assert.assertEquals((response_tradeDate.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDate");
-						Assert.assertEquals((response_transactTimeUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTimeUTC");
-						Assert.assertEquals((response_tradeDateUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDateUTC");
-						Assert.assertEquals(response_symbol,Fetch_Executions_Sell_Symbol,"Validate_Executions_Sell_Symbol");
-						Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_Sell_SymbolSfx,"Validate_Executions_Sell_SymbolSfx");
-						Assert.assertEquals(response_account,Fetch_Executions_Sell_Account,"Validate_Executions_Sell_Account");
-						Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_Sell_OrderQty),"Validate_Executions_Sell_OrderQty");
-						Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_Sell_leavesQty");
-						Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_Sell_OrderQty");
-						Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Sell_Price),"Validate_Executions_Sell_Price");
-						Assert.assertEquals(response_ordType,Fetch_Executions_Sell_OrderType,"Validate_Executions_Sell_OrderType");
-						Assert.assertEquals(response_side,Executions_Sell_Side,"Validate_Executions_Sell_Side");
-						Assert.assertEquals(response_destination,Fetch_Executions_Sell_Destination,"Validate_Executions_Sell_Destination");
-						Assert.assertEquals(response_sideDesc,Executions_Sell_SideDesc,"Validate_Executions_Sell_sideDesc");
-						Assert.assertEquals(NVL(response_status,"null"),Fetch_Executions_Sell_Status,"Validate_Executions_Sell_Status");
-						Assert.assertEquals(NVL(response_text,"null"),Fetch_Executions_Sell_Text,"Validate_Executions_Sell_Text");
-						if ((response_leavesQty.toString()).equalsIgnoreCase("0.0") && (response_orderQty.toString()).equalsIgnoreCase(response_cumQty.toString()))
-						{Assert.assertEquals(response_ordStatus,Fetch_Last_Executions_Sell_OrdStatus,"Validate_Last_Executions_Sell_OrdStatus");}
-						else {Assert.assertEquals(response_ordStatus,Fetch_Executions_Sell_OrdStatus,"Validate_Executions_Sell_OrdStatus");}
-						Assert.assertEquals(response_originatingUserDesc,Fetch_Executions_Sell_OriginatingUserDesc,"Validate_Executions_Sell_OriginatingUserDesc");
-						Assert.assertEquals(response_clOrdID,BoothID+"-"+(Sell_qOrderId-1)+"-"+1,"Validate_Executions_Sell_clOrdID");
-						Assert.assertEquals(response_execRefID,Fetch_Executions_Sell_ExecRefID,"Validate_Executions_Sell_ExecRefID");
-						Assert.assertEquals(response_execTransType,Fetch_Executions_Sell_ExecTransType,"Validate_Executions_Sell_ExecTransType");
-						Assert.assertEquals(response_execTransTypeDesc,Fetch_Executions_Sell_ExecTransTypeDesc,"Validate_Executions_Sell_ExecTransTypeDesc");
-						Assert.assertEquals(response_timeInForce,Fetch_Executions_Sell_TimeInForce,"Validate_Executions_Sell_TimeInForce");
-						Assert.assertEquals(NVL(response_execBroker,"null"),Fetch_Executions_Sell_ExecBroker,"Validate_Executions_Sell_ExecBroker");
-					}
-				}
-				if (CaseType.equalsIgnoreCase("position"))
-				{
-					LoggingManager.logger.info("API-Executions BuyExecutionsLastPrice   : ["+getBuyExecutionsLastPrice+"]");
-					LoggingManager.logger.info("API-Executions SellExecutionsLastPrice  : ["+getSellExecutionsLastPrice+"]");
-					//LoggingManager.logger.info("API-Executions BuyExecutionsLastshares  : ["+getBuyExecutionsLastshares+"]");
-					//LoggingManager.logger.info("API-Executions SellExecutionsLastshares : ["+getSellExecutionsLastshares+"]");
-					Collections.sort(BuyExecID);
-					Collections.sort(SellExecID);
-					LoggingManager.logger.info("API-Executions Buy ExecIDs  : ["+BuyExecID+"]");
-					LoggingManager.logger.info("API-Executions Sell ExecIDs   : ["+SellExecID+"]");
-					Double getBuyValue=0.0;
-					Double getSellValue=0.0;
-					int checkquantity=0;
-					Boolean flag=true;
-
-					if (getBuyExecutionsLastPrice.isEmpty()==false && getSellExecutionsLastPrice.isEmpty()==false)
-					{
-						int listsize=SellExecID.size();
-						for(int position=0;position<listsize;position++)
-						{
-							//System.out.println(getBuyExecutionsLastshares.get(BuyExecID.get(0))+" > "+ getSellExecutionsLastshares.get(SellExecID.get(0)) );
-							if(getBuyExecutionsLastshares.get(BuyExecID.get(0)) > getSellExecutionsLastshares.get(SellExecID.get(0))  )
-							{
-								// System.out.println("SellExecID = "+SellExecID.get(0));
-								getSellValue+=Double.parseDouble(decimalFormat.format((getSellExecutionsLastshares.get(SellExecID.get(0)) * getSellExecutionsLastPrice.get(SellExecID.get(0)))));
-								checkquantity+=getSellExecutionsLastshares.get(SellExecID.get(0));
-								SellExecID.remove(0);
-								LoggingManager.logger.info("API-SELL Execution Data : [("+getSellExecutionsLastshares.get(SellExecID.get(0))+" * "+getSellExecutionsLastPrice.get(SellExecID.get(0))+")] = "+getSellValue);
-								LoggingManager.logger.info("API-SELL Order Quantity :"+checkquantity);
-								LoggingManager.logger.info("API-Remaining SellExecIDs :"+SellExecID);
-
-								if(getBuyExecutionsLastshares.get(BuyExecID.get(0)) == checkquantity)
-								{
-									//System.out.println("BuyExecID = "+BuyExecID.get(0));
-									getBuyValue+=Double.parseDouble(decimalFormat.format((getBuyExecutionsLastshares.get(BuyExecID.get(0)) * getBuyExecutionsLastPrice.get(BuyExecID.get(0)))));
-									BuyExecID.remove(0);
-									LoggingManager.logger.info("API-BUY Execution Data : [("+getBuyExecutionsLastshares.get(BuyExecID.get(0)) +" * "+getBuyExecutionsLastPrice.get(BuyExecID.get(0))+")] = "+getBuyValue);
-									LoggingManager.logger.info("API-BUY Order Quantity :"+getBuyExecutionsLastshares.get(BuyExecID.get(0)));
-									LoggingManager.logger.info("API-Remaining BuyExecID :"+BuyExecID);
-
-								}
-							}
-							else
-							{
-								// System.out.println("SellExecID = "+SellExecID.get(0));
-								getSellValue+=Double.parseDouble(decimalFormat.format((getSellExecutionsLastshares.get(SellExecID.get(0)) * getSellExecutionsLastPrice.get(SellExecID.get(0)))));
-								// System.out.println("BuyExecID = "+BuyExecID.get(0));
-								getBuyValue+=Double.parseDouble(decimalFormat.format((getBuyExecutionsLastshares.get(BuyExecID.get(0)) * getBuyExecutionsLastPrice.get(BuyExecID.get(0)))));
-								LoggingManager.logger.info("API-SELL Execution Data : [("+getSellExecutionsLastshares.get(SellExecID.get(0))+" * "+getSellExecutionsLastPrice.get(SellExecID.get(0))+")] = "+getSellValue);
-								LoggingManager.logger.info("API-BUY Execution Data : [("+getBuyExecutionsLastshares.get(BuyExecID.get(0)) +" * "+getBuyExecutionsLastPrice.get(BuyExecID.get(0))+")] = "+getBuyValue);
-								SellExecID.remove(0);
-								BuyExecID.remove(0);
-							}
-						}
-						LoggingManager.logger.info("API-Remaining SellExecIDs :"+SellExecID);
-						LoggingManager.logger.info("API-Remaining BuyExecID :"+BuyExecID);
-						LoggingManager.logger.info("API-Total Buy Prx Value : "+getBuyValue);
-						LoggingManager.logger.info("API-Total Sell Prx Value :"+getSellValue);
-
-						if(Global.getorderType=="Equity")
-						{
-							LoggingManager.logger.info("API-Calculating Realize PNL : [Previous PnL: ("+Global.getLONGrealizedPnL+")] + Current PnL:("+getSellValue+"-"+getBuyValue+")]");
-							Global.getLONGrealizedPnL=Global.getLONGrealizedPnL+(getSellValue-getBuyValue);
-							LoggingManager.logger.info("API-Total Equity Realize PNL  = "+Global.getLONGrealizedPnL);
-							// Global.getSHORTrealizedPnL=Global.getSHORTrealizedPnL+(getBuyValue-getSellValue);
-						}
-
-						if(Global.getorderType=="Option")
-						{
-							LoggingManager.logger.info("API-Calculating Option Realize PNL : [Previous PnL: ("+Global.getOptionLONGrealizedPnL+")] + Current PnL:("+getSellValue+"-"+getBuyValue+")]");
-							Global.getOptionLONGrealizedPnL=Global.getOptionLONGrealizedPnL+(getSellValue-getBuyValue);
-							LoggingManager.logger.info("API-Total Option Realize PNL  = "+Global.getOptionLONGrealizedPnL);
-						}
-
-						if(BuyExecID.isEmpty()==false)
-						{
-							for (int lastPrice=0;lastPrice<=BuyExecID.size()-1; lastPrice++)
-							{
-								LoggingManager.logger.info("Add Execution Prx = "+Global.getAvgPrice +" + "+getBuyExecutionsLastPrice.get(BuyExecID.get(lastPrice)));
-								Global.getAvgPrice+= getBuyExecutionsLastPrice.get(BuyExecID.get(lastPrice));
-								//LoggingManager.logger.info("= "+Global.getAvgPrice);
-							}
-
-							LoggingManager.logger.info("Total Prx counts :"+BuyExecID.size());
-							LoggingManager.logger.info("Total Executions Prx Added :"+Global.getAvgPrice);
-							Global.totalTrade=Global.getAvgPrice;
-							Global.getAvgPrice/=BuyExecID.size();
-							if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
-							Global.getOptionAvgPrice=Global.getAvgPrice;
-							if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
-						}
-						else
-						{
-							LoggingManager.logger.info("API-No Executions Found Against OrderID : ["+OrderId+"]");
-							if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
-							Global.getOptionAvgPrice=Global.getAvgPrice;
-							if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
-						}
-					}
-				}
-
-				else
-				{
-					LoggingManager.logger.info("API-Executions Buy  ExecutionsLastPrice   : ["+getBuyExecutionsLastPrice+"]");
-					LoggingManager.logger.info("API-Executions Sell ExecutionsLastPrice   : ["+getSellExecutionsLastPrice+"]");
-					LoggingManager.logger.info("API-Executions Buy  ExecutionsAvgPrice    : ["+getBuyExecutionsAvgPrice+"]");
-					LoggingManager.logger.info("API-Executions Sell ExecutionsAvgPrice    : ["+getSellExecutionsAvgPrice+"]");
-					LoggingManager.logger.info("API-Executions Buy  ExecutionsLastshares  : ["+getBuyExecutionsLastshares+"]");
-					LoggingManager.logger.info("API-Executions Sell ExecutionsLastshares  : ["+getSellExecutionsLastshares+"]");
-				}
-				break;
-
-			case "SHORTSELL":
-
-				LoggingManager.logger.info("API-Executions_Case : ["+Executions_Case+"]");
-				LoggingManager.logger.info("---------------------[SHORTSELL Execution DATA]--------------------");
-				LoggingManager.logger.info("API-SHORTSELL Executions_OrderId : ["+OrderId+"]");
-				LoggingManager.logger.info("API-SHORTSELL Executions_SideDesc : ["+Executions_SideDesc+"]");
-				LoggingManager.logger.info("API-SHORTSELL Executions_Side : ["+Executions_Side+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Symbol : ["+Fetch_Executions_Symbol+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Account : ["+Fetch_Executions_Account+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_OrderQty : ["+Fetch_Executions_OrderQty+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Price : ["+Fetch_Executions_Price+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_OrderType : ["+Fetch_Executions_OrderType+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Destination : ["+Fetch_Executions_Destination+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_SymbolSfx : ["+Fetch_Executions_SymbolSfx+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Status : ["+Fetch_Executions_Status+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_OrdStatus : ["+Fetch_Executions_OrdStatus+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_Text : ["+Fetch_Executions_Text+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Last_Executions_OrdStatus : ["+Fetch_Last_Executions_OrdStatus+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_OriginatingUserDesc : ["+Fetch_Executions_OriginatingUserDesc+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_ExecBroker : ["+Fetch_Executions_ExecBroker+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_TimeInForce : ["+Fetch_Executions_TimeInForce+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_ExecRefID : ["+Fetch_ExecutionS_ExecRefID+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_ExecTransType : ["+Fetch_Executions_ExecTransType+"]");
-				LoggingManager.logger.info("API-SHORTSELL Fetch_Executions_ExecTransTypeDesc : ["+Fetch_Executions_ExecTransTypeDesc+"]");
-
-
-				loop: for(int position = ResponseArraySize-1; position >=0; position--)
-				{
-					String  response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
-					String  response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
-					String  response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
-					Double  response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
-					Double  response_leavesQty = jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
-					Double response_lastShares = jsonresponse.getDouble(getResponseArray+"["+position+"].lastShares");
-					Double  response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
-					Double  response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
-					String  response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
-					String  response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
-					String  response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
-					Integer response_qOrderID = jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
-					String response_OrderID = jsonresponse.getString(getResponseArray+"["+position+"].orderId");
-					Double response_lastPx = jsonresponse.getDouble(getResponseArray+"["+position+"].lastPx");
-					String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
-					Double response_avgPx = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPx");
-					String response_transactTime = jsonresponse.getString(getResponseArray+"["+position+"].transactTime");
-					String response_tradeDate = jsonresponse.getString(getResponseArray+"["+position+"].tradeDate");
-					String response_transactTimeUtc = jsonresponse.getString(getResponseArray+"["+position+"].transactTimeUtc");
-					String response_tradeDateUtc = jsonresponse.getString(getResponseArray+"["+position+"].tradeDateUtc");
-					String response_status = jsonresponse.getString(getResponseArray+"["+position+"].status");
-					String response_text = jsonresponse.getString(getResponseArray+"["+position+"].text");
-					String response_ordStatus = jsonresponse.getString(getResponseArray+"["+position+"].ordStatus");
-					String response_originatingUserDesc = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
-					String response_clOrdID = jsonresponse.getString(getResponseArray+"["+position+"].clOrdID");
-					String response_origClOrdID = jsonresponse.getString(getResponseArray+"["+position+"].origClOrdID");
-					String response_execRefID = jsonresponse.getString(getResponseArray+"["+position+"].execRefID");
-					String response_execID = jsonresponse.getString(getResponseArray+"["+position+"].execID");
-					String response_execType = jsonresponse.getString(getResponseArray+"["+position+"].execType");
-					String response_execTransType = jsonresponse.getString(getResponseArray+"["+position+"].execTransType");
-					String response_execTransTypeDesc = jsonresponse.getString(getResponseArray+"["+position+"].execTransTypeDesc");
-					String response_timeInForce = jsonresponse.getString(getResponseArray+"["+position+"].timeInForce");
-					String response_execBroker = jsonresponse.getString(getResponseArray+"["+position+"].execBroker");
-					if (response_OrderID.equalsIgnoreCase(OrderId)
-							&& (response_transactTime.substring(0,10)).equalsIgnoreCase(localDateTime.format(formatter)))
-					{
-						getSellExecPrx.add(response_lastPx);
-						getSellExecutionsAvgPrice.put(Integer.parseInt(response_execID), response_avgPx);
-						getSellExecutionsLastPrice.put(Integer.parseInt(response_execID), response_lastPx);
-
-						Assert.assertNotEquals(response_avgPx,null,"Validate_response_avgPx");
-						Assert.assertNotEquals(response_lastPx,null,"Validate_response_lastPx");
-						Assert.assertNotEquals(response_execID,null,"Validate_Executions_ShortSell_execID");
-						Assert.assertNotEquals(response_execType,null,"Validate_Executions_ShortSell_execType");
-						Assert.assertNotEquals(response_lastShares,null,"Validate_Executions_ShortSell_lastShares");
-						//Assert.assertNotEquals(response_origClOrdID,null,"Validate_Executions_ShortSell_origClOrdID");
-						Assert.assertEquals(response_origClOrdID,null,"Validate_Executions_ShortSell_origClOrdID");
-						Assert.assertEquals(response_OrderID,OrderId,"Validate_ShortSell_OrderId");
-						Assert.assertEquals(response_qOrderID,qOrderId,"Validate_ShortSell_qOrderId");
-						Assert.assertEquals((response_transactTime.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTime");
-						Assert.assertEquals((response_tradeDate.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDate");
-						Assert.assertEquals((response_transactTimeUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_transactTimeUTC");
-						Assert.assertEquals((response_tradeDateUtc.substring(0,10)),localDateTime.format(formatter),"Validate_response_tradeDateUTC");
-						Assert.assertEquals(response_symbol,Fetch_Executions_Symbol,"Validate_Executions_ShortSell_Symbol");
-						Assert.assertEquals(NVL(response_symbolSfx,"null"),Fetch_Executions_SymbolSfx,"Validate_Executions_ShortSell_SymbolSfx");
-						Assert.assertEquals(response_account,Fetch_Executions_Account,"Validate_Executions_ShortSell_Account");
-						Assert.assertEquals(response_orderQty,Double.parseDouble(Fetch_Executions_OrderQty),"Validate_Executions_ShortSell_OrderQty");
-						Assert.assertEquals(response_leavesQty,(response_orderQty-response_cumQty),"Validate_Executions_ShortSell_leavesQty");
-						Assert.assertEquals(response_cumQty,(response_orderQty-response_leavesQty),"Validate_Executions_ShortSell_cumQty");
-						Assert.assertEquals(response_price,Double.parseDouble(Fetch_Executions_Price),"Validate_Executions_ShortSell_Price");
-						Assert.assertEquals(response_ordType,Fetch_Executions_OrderType,"Validate_Executions_ShortSell_OrderType");
-						Assert.assertEquals(response_side,Executions_Side,"Validate_Executions_ShortSell_Side");
-						Assert.assertEquals(response_destination,Fetch_Executions_Destination,"Validate_Executions_ShortSell_Destination");
-						Assert.assertEquals(response_sideDesc,Executions_SideDesc,"Validate_Executions_ShortSell_sideDesc");
-						Assert.assertEquals(NVL(response_status,"null"),Fetch_Executions_Status,"Validate_Executions_ShortSell_Status");
-						Assert.assertEquals(NVL(response_text,"null"),Fetch_Executions_Text,"Validate_Executions_ShortSell_Text");
-
-						if ((response_leavesQty.toString()).equalsIgnoreCase("0.0") && (response_orderQty.toString()).equalsIgnoreCase(response_cumQty.toString()))
-						{Assert.assertEquals(response_ordStatus,Fetch_Last_Executions_OrdStatus,"Validate_Last_Executions_ShortSell_OrdStatus");}
-						else {Assert.assertEquals(response_ordStatus,Fetch_Executions_OrdStatus,"Validate_Executions_ShortSell_OrdStatus");}
-						Assert.assertEquals(response_originatingUserDesc,Fetch_Executions_OriginatingUserDesc,"Validate_Executions_ShortSell_OriginatingUserDesc");
-						Assert.assertEquals(response_clOrdID,BoothID+"-"+(qOrderId-1)+"-"+1,"Validate_Executions_ShortSell_clOrdID");
-						Assert.assertEquals(response_execRefID,Fetch_ExecutionS_ExecRefID,"Validate_Executions_ShortSell_ExecRefID");
-						Assert.assertEquals(response_execTransType,Fetch_Executions_ExecTransType,"Validate_Executions_ShortSell_ExecTransType");
-						Assert.assertEquals(response_execTransTypeDesc,Fetch_Executions_ExecTransTypeDesc,"Validate_Executions_ShortSell_ExecTransTypeDesc");
-						Assert.assertEquals(response_timeInForce,Fetch_Executions_TimeInForce,"Validate_Executions_ShortSell_TimeInForce");
-						Assert.assertEquals(NVL(response_execBroker,"null"),Fetch_Executions_ExecBroker,"Validate_Executions_ShortSell_ExecBroker");
-					}
-					else
-					{
-						continue loop;
-					}
-				}
-
-				if (CaseType.equalsIgnoreCase("position"))
-				{
-					LoggingManager.logger.info("API-Total SHORT Realize PNL : ["+Global.getSHORTrealizedPnL+"]");
-
-					if(getSellExecPrx.isEmpty()==false)
-					{
-						LoggingManager.logger.info("Price List for LastPrx Calculations:"+getSellExecPrx);
-						for (int lastPrice=0;lastPrice<=getSellExecPrx.size()-1; lastPrice++)
-						{
-							LoggingManager.logger.info("Add Execution Prx = "+Global.getAvgPrice +" + "+getSellExecPrx.get(lastPrice));
-							Global.getAvgPrice+= getSellExecPrx.get(lastPrice);
-							LoggingManager.logger.info("= "+Global.getAvgPrice);
-
-						}
-						LoggingManager.logger.info("Total Prx counts :"+getSellExecPrx.size());
-						LoggingManager.logger.info("Total Executions Prx Added :"+Global.getAvgPrice);
-						Global.totalTrade=Global.getAvgPrice;
-						Global.getAvgPrice/=getSellExecPrx.size();
-						if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
-						Global.getOptionAvgPrice=Global.getAvgPrice;
-						if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
-					}
-					else
-					{
-						LoggingManager.logger.info("API-No Executions Found Against OrderID : ["+OrderId+"]");
-						if(Global.getorderType=="Equity") {LoggingManager.logger.info("Total Order Avg. Price :"+decimalFormat.format(Global.getAvgPrice));}
-						Global.getOptionAvgPrice=Global.getAvgPrice;
-						if(Global.getorderType=="Option") {LoggingManager.logger.info("Total OptionOrder Avg. Price :"+decimalFormat.format(Global.getOptionAvgPrice));}
-					}
-				}
-				else
-				{
-					LoggingManager.logger.info("API-Executions Sell ExecutionsLastPrice   : ["+getSellExecutionsLastPrice+"]");
-					LoggingManager.logger.info("API-Executions Sell ExecutionsAvgPrice    : ["+getSellExecutionsAvgPrice+"]");
-				}
-				break;
-
-			default:
-				break;
-		}
 	}
 	catch (Exception e)
 	{

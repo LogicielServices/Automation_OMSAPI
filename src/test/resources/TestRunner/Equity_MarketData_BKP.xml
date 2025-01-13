@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="EQUITY MARKET DATA API" guice-stage="DEVELOPMENT">
-
-	<test thread-count="1" name="Equity MarketData Individual Subscriptions">
+  
+	 <test thread-count="1" name="Equity MarketData Individual Subscriptions">
 		<classes>
 			  <class name="IdentityServer_API_User.Login"/>
 			  <class name="MarketData_L1.Subscribe_MarketData">
@@ -16,8 +16,8 @@
 				   </methods>
 			  </class>
 		  </classes>
-	  </test>
-
+	  </test> 
+	  	  
 	  <test thread-count="1" name="Equity MarketData Bulk Subscriptions">
 		<classes>
 		  <class name="IdentityServer_API_User.Login"/>
@@ -55,7 +55,6 @@
 			   </methods>
 		  </class>
 		</classes>
-	  </test>
-
-
+	  </test> 
+  
 </suite>
