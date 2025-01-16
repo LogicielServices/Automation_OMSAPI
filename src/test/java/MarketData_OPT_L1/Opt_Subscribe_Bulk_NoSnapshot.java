@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
 
+import static APIHelper.APIHelperClass.getserializedJsonObj;
 import static io.restassured.RestAssured.given;
 
 import java.io.PrintWriter;
@@ -50,6 +51,7 @@ public class Opt_Subscribe_Bulk_NoSnapshot {
 													String Topic_Response_ToIndex,
 													String Subscribe_StatusCode,
 													String Validate_Response_Fields,
+													String Error_Response,
 													String UnSubscribe_Bulk_NoSnapshot_Base_Path,
 													String UnSubscribe_StatusCode,
 													String UnSubscribe_Message)
@@ -83,9 +85,10 @@ public class Opt_Subscribe_Bulk_NoSnapshot {
 			     LoggingManager.logger.info("API - Get "+Topic_Response_ToIndex+" Topic Data From Response :"+getTopics);
 		     }
 	         else
+
 	         {
 	        	 getTopics=com.jayway.jsonpath.JsonPath.read(topicResponse.getBody().asString(),"$."+Topic_Response_ObjectName+"[*]").toString();
-	        	 LoggingManager.logger.info("API - Get ALL Topic Data From Response :"+getTopics);
+	        	 //LoggingManager.logger.info("API - Get ALL Topic Data From Response :"+getTopics);
 	         }
 	        
 	         String subscribeBody="{\n\"OptionSymbols\": "+getTopics+"\n}";
@@ -104,34 +107,45 @@ public class Opt_Subscribe_Bulk_NoSnapshot {
 		
 			 JsonPath subscribeJsonResponse = new JsonPath(subscribeResponse.getBody().asString());
 			 JsonPath jsonPath = new JsonPath(subscribeResponse.getBody().asString());
-			 LoggingManager.logger.info("API-Subscribe_Bulk_MarketData_Base_Path : ["+Subscribe_Base_Path+"]");
-			 LoggingManager.logger.info("API-Subscribe_Bulk_MarketData_Body : ["+subscribeBody.toString()+"]");
-			 LoggingManager.logger.info("API-Subscribe_Bulk_MarketData_StatusCode : ["+subscribeResponse.statusCode()+"]"); 
+			 LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_Base_Path : ["+Subscribe_Base_Path+"]");
+			//LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_Body : ["+subscribeBody.toString()+"]");
+			 LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_StatusCode : ["+subscribeResponse.statusCode()+"]");
 			 String ValidateLocalCodes=com.jayway.jsonpath.JsonPath.read(subscribeResponse.getBody().asString(),"$.[*].Data.LocalCode").toString();
-			 LoggingManager.logger.info("API-Subscribe_Bulk_MarketData_Value Expected : ["+getTopics+"] and Found : ["+ValidateLocalCodes+"]"); 
-			 Assert.assertEquals(ValidateLocalCodes,getTopics,"Verify_Subscribe_Bulk_LocalCode");
-			 Assert.assertEquals(ValidateLocalCodes,getTopics,"Verify_Subscribe_Bulk_LocalCode");
-			 for (int index = 0; index < subscribeJsonResponse.getInt("size()"); index++) 
-	         {Assert.assertEquals((jsonPath.getMap("["+index+"].Data").keySet()).toString(),Validate_Response_Fields,"Verify_Subscribe_Bulk_Fields");}
-			 String UnSubscribeBody="{\n\"OptionSymbols\": "+getTopics+"\n}";
-			 Response response=  				 
-								 given()	
-										.header("Content-Type",Content_Type) 
-										.header("Authorization", "Bearer " + Global.getAccToken)
-										.body(UnSubscribeBody)
-								 .when()
-										.post(UnSubscribe_Bulk_NoSnapshot_Base_Path)
-								 .then()
-								 		//.statusCode(Integer.parseInt(UnSubscribe_StatusCode))
-								 		.extract()
-										.response();
-			
-			 LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_Base_Path : ["+UnSubscribe_Bulk_NoSnapshot_Base_Path+"]");
-			 LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_Body : ["+UnSubscribeBody.toString()+"]");
-			 LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_StatusCode : ["+response.statusCode()+"]"); 
-			 LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_ResponseBody : ["+response.getBody().asString()+"]");
-			 Assert.assertEquals(response.statusCode(),Integer.parseInt(UnSubscribe_StatusCode),"Verify_UnSubscribe_Bulk_StatusCode");
-			 Assert.assertEquals(response.getBody().asString(),UnSubscribe_Message,"Verify_UnSubscribe_Bulk_NoSnapshot");
+			 LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_Value Expected : ["+getTopics+"] and Found : ["+ValidateLocalCodes+"]");
+			 Assert.assertEquals(ValidateLocalCodes,getTopics,"Verify_Subscribe_Bulk_NoSnapshot_LocalCode");
+			 Assert.assertEquals(ValidateLocalCodes,getTopics,"Verify_Subscribe_Bulk_NoSnapshot_LocalCode");
+
+			if (Validate_Response_Fields.equalsIgnoreCase("[]"))
+			{
+				LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_Error_Response Expected : ["+Error_Response+"] and Found : ["+getserializedJsonObj(subscribeResponse, "errors")+"]");
+				Assert.assertEquals(getserializedJsonObj(subscribeResponse, "errors"), Error_Response, "Verify_Subscribe_Bulk_NoSnapshot_Error_Response");
+
+			}
+			else
+			{
+				for (int index = 0; index < subscribeJsonResponse.getInt("size()"); index++) {
+					Assert.assertEquals((jsonPath.getMap("[" + index + "].Data").keySet()).toString(), Validate_Response_Fields, "Verify_Subscribe_Bulk_NoSnapshot_Fields");
+				}
+				String UnSubscribeBody = "{\n\"OptionSymbols\": " + getTopics + "\n}";
+				Response response =
+						given()
+								.header("Content-Type", Content_Type)
+								.header("Authorization", "Bearer " + Global.getAccToken)
+								.body(UnSubscribeBody)
+								.when()
+								.post(UnSubscribe_Bulk_NoSnapshot_Base_Path)
+								.then()
+								//.statusCode(Integer.parseInt(UnSubscribe_StatusCode))
+								.extract()
+								.response();
+
+				LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_Base_Path : [" + UnSubscribe_Bulk_NoSnapshot_Base_Path + "]");
+				LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_Body : [" + UnSubscribeBody.toString() + "]");
+				LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_StatusCode : [" + response.statusCode() + "]");
+				LoggingManager.logger.info("API-UnSubscribe_Bulk_NoSnapshot_MarketData_ResponseBody : [" + response.getBody().asString() + "]");
+				Assert.assertEquals(response.statusCode(), Integer.parseInt(UnSubscribe_StatusCode), "Verify_UnSubscribe_Bulk_StatusCode");
+				Assert.assertEquals(response.getBody().asString(), UnSubscribe_Message, "Verify_UnSubscribe_Bulk_NoSnapshot");
+			}
 		}	
 		catch (Exception e) 
 		{

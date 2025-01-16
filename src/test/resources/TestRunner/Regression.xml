@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Regression Test" guice-stage="DEVELOPMENT">
+
+
+    <test thread-count="1" name="Static_Data test">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="Static_Data.StaticData_Account"/>
+            <class name="Static_Data.StaticData_BlotterPackage_Permissions"/>
+            <class name="Static_Data.StaticData_Blotter_Permissions"/>
+            <class name="Static_Data.StaticData_Destination"/>
+            <class name="Static_Data.StaticData_LocateTIF"/>
+            <class name="Static_Data.StaticData_ETBHTB"/>
+            <class name="Static_Data.StaticData_Latest_Destination"/>
+            <class name="Static_Data.StaticData_TIF"/>
+            <class name="Static_Data.StaticData_OrdType"/>
+            <class name="Static_Data.StaticData_Option_Destination"/>
+            <class name="Static_Data.StaticData_Side"/>
+            <class name="Static_Data.StaticData_CommType"/>
+            <class name="Static_Data.StaticData_PutCall"/>
+            <class name="Static_Data.StaticData_CoveredUncovered"/>
+            <class name="Static_Data.StaticData_CustomerFirm"/>
+            <class name="Static_Data.StaticData_OptionTIF"/>
+            <class name="Static_Data.StaticData_OptionOrderType"/>
+            <class name="Static_Data.StaticData_MktTopPerfCateg"/>
+            <class name="Static_Data.StaticData_Destination_TraderOnly"/>
+            <class name="Static_Data.StaticData_MktTopPerfExchange"/>
+        </classes>
+    </test> <!-- Static_Data test -->
+
+    <test thread-count="1" name="Option MarketData Topics">
+       <classes>
+         <class name="IdentityServer_API_User.Login"/>
+         <class name="MarketData_OPT_L1.Opt_Topic">
+             <methods>
+                <include name="Verify_Get_Topic"/>
+              </methods>
+         </class>
+         </classes>
+     </test>
+
+    <test thread-count="1" name="Option MarketData Subscribe Individual">
+       <classes>
+         <class name="IdentityServer_API_User.Login"/>
+         <class name="MarketData_OPT_L1.Opt_Subscribe">
+             <methods>
+                <include name="Verify_Subscribe_Individual"/>
+              </methods>
+         </class>
+         </classes>
+     </test>
+
+     <test thread-count="1" name="Option MarketData UnSubscribe Individual">
+       <classes>
+         <class name="IdentityServer_API_User.Login"/>
+         <class name="MarketData_OPT_L1.Opt_UnSubscribe">
+             <methods>
+                <include name="Verify_UnSubscribe_Individual"/>
+              </methods>
+         </class>
+         </classes>
+     </test>
+
+    <test thread-count="1" name="Option MarketData Subscribe Bulk">
+       <classes>
+         <class name="IdentityServer_API_User.Login"/>
+         <class name="MarketData_OPT_L1.Opt_Subscribe_Bulk">
+             <methods>
+                <include name="Verify_Subscribe_Bulk"/>
+              </methods>
+         </class>
+         </classes>
+     </test>
+
+     <test thread-count="1" name="Option MarketData UnSubscribe Bulk">
+       <classes>
+         <class name="IdentityServer_API_User.Login"/>
+         <class name="MarketData_OPT_L1.Opt_UnSubscribe_Bulk">
+             <methods>
+                <include name="Verify_UnSubscribe_Bulk"/>
+              </methods>
+         </class>
+         </classes>
+     </test>
+
+     <test thread-count="1" name="Option MarketData UnSubscribe Bulk Through CompanySymbol">
+       <classes>
+         <class name="IdentityServer_API_User.Login"/>
+         <class name="MarketData_OPT_L1.Opt_Subscribe_Bulk"/>
+         <class name="MarketData_OPT_L1.Opt_UnSubscribe_Bulk_Symbols">
+             <methods>
+                <include name="Verify_UnSubscribe_Bulk_CompanySymbol"/>
+              </methods>
+         </class>
+         </classes>
+     </test>
+
+     <test thread-count="1" name="Option MarketData Subscribe Bulk With NoSnapshot">
+       <classes>
+         <class name="IdentityServer_API_User.Login"/>
+         <class name="MarketData_OPT_L1.Opt_Subscribe_Bulk_NoSnapshot">
+             <methods>
+                <include name="Verify_Subscribe_Bulk_NoSnapshot"/>
+              </methods>
+         </class>
+         </classes>
+     </test>
+
+    <test thread-count="1" name="Subscribe AccountBalance">
+        <classes>
+            <class name="IdentityServer_API_User.Login"/>
+            <class name="Account_Balances.Subscribe_AccountBalance">
+                <methods>
+                    <include name="Verify_Subscribe_AccountBalance"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="1" name="UnSubscribe AccountBalance">
+        <classes>
+            <class name="IdentityServer_API_User.Login"/>
+            <class name="Account_Balances.UnSubscribe_AccountBalance">
+                <methods>
+                    <include name="Verify_UnSubscribe_AccountBalance"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test thread-count="1" name="EquityOrder Order Subscriptions">
+        <classes>
+            <class name="IdentityServer_API_User.Login"/>
+
+            <class name="Orders.Order_Subscriptions">
+                <methods>
+                    <include name="Verify_Order_Subscriptions"/>
+                </methods>
+            </class>
+
+            <class name="Orders.Order_Executions">
+                <methods>
+                    <include name="Verify_Order_Executions"/>
+                </methods>
+            </class>
+
+            <class name="Orders.Order_Positions">
+                <methods>
+                    <include name="Verify_Order_Positions"/>
+                </methods>
+            </class>
+
+            <class name="Orders.Order_NegativeCases">
+                <methods>
+                    <include name="Verify_Order_Creation_NegativeCases"/>
+                </methods>
+            </class>
+
+            <class name="Orders.Update_Orders">
+                <methods>
+                    <include name="Verify_Update_Equity_Order"/>
+                </methods>
+            </class>
+
+            <class name="Orders.Update_Orders_NegativeCases">
+                <methods>
+                    <include name="Verify_Update_Equity_Order_NegativeCases"/>
+                </methods>
+            </class>
+
+            <class name="Orders.Cancel_Orders">
+                <methods>
+                    <include name="Verify_Cancel_Equity_Order"/>
+                </methods>
+            </class>
+
+            <class name="Orders.Delete_Orders">
+                <methods>
+                    <include name="Verify_Delete_Equity_Order"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+
+    <test thread-count="1" name="ArchiveAPI test">
+        <classes>
+            <class name="ArchiveAPI.ArchiveLogin">
+                <methods>
+                    <include name="ArchiveAuthorization"/>
+                </methods>
+            </class>
+
+            <class name="ArchiveAPI.OrdersArchiveAPI"/>
+            <class name="ArchiveAPI.ExecutionsArchiveAPI"/>
+            <class name="ArchiveAPI.AuditTrailsArchiveAPI"/>
+
+            <class name="ArchiveAPI.ArchiveLogin">
+                <methods>
+                    <include name="ArchiveAuthorizationNegativeCase"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

@@ -110,7 +110,7 @@ public static String ArchiveUserLoginAuthentications(String archive_Api_Path,
 			Assert.assertEquals(response_ArchiveLogin.getStatusCode(),Integer.parseInt(status_code),"Verify_Response_Status_Code");
 			Assert.assertEquals(response_ArchiveLogin.jsonPath().getString("errorText"),Error_Message,"Verify_Response_Error_Message");
 			Assert.assertEquals((jsonResponse.keySet()).toString(), Validate_Response_Fields,"Verify_Response_Fields");
-			Global.getArchive_AccToken=response_ArchiveLogin.jsonPath().get("accessToken");
+			Global.getArchive_AccToken=response_ArchiveLogin.jsonPath().get("access_token");
 			return Global.getArchive_AccToken;
 
 		}
