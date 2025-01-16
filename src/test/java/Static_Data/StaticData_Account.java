@@ -76,7 +76,7 @@ public class StaticData_Account {
 			//String isBoxVsShort = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(), "$."+Global.getResponseArray+"[?(@.value =="+ Validate_isBoxVsShort + ")].isBoxVsShort").toString();
 			//String isBoxVsShort = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(),"$.data.eventData[0].isBoxVsShort").toString();
 
-			String isBoxVsShort = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(),"$.data.eventData[?(@.isBoxVsShort == " + Validate_isBoxVsShort + ")].isBoxVsShort").toString();
+			String isBoxVsShort = com.jayway.jsonpath.JsonPath.read(response.getBody().asString(),"$.data.eventData[?(@.value =='" + Validate_Account_Value +"' )].isBoxVsShort").toString();
 
 			//$.data.eventData[?(@.isBoxVsShort == " + Validate_isBoxVsShort + ")].isBoxVsShort[0]"
 

@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
 
+import static APIHelper.APIHelperClass.getserializedJsonObj;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertThat;
 
@@ -54,7 +55,8 @@ public class Opt_Subscribe_Bulk {
 									   String Topic_Response_ObjectName,
 									   String Topic_Response_ToIndex,
 									   String Subscribe_StatusCode,
-									   String Validate_Response_Fields)
+									   String Validate_Response_Fields,
+									   String Error_Response)
 	{
 		try
 		{
@@ -87,11 +89,12 @@ public class Opt_Subscribe_Bulk {
 		    }
 	        else
 	        {
-	        	 getTopics=com.jayway.jsonpath.JsonPath.read(topicResponse.getBody().asString(),"$."+Topic_Response_ObjectName+"["+Topic_Response_ToIndex+"]").toString();
-	        	 LoggingManager.logger.info("API - Get ALL Topic Data From Response :"+getTopics);
+	        	 getTopics=com.jayway.jsonpath.JsonPath.read(topicResponse.getBody().asString(),"$."+Topic_Response_ObjectName+"[0:"+Topic_Response_ToIndex+"]").toString();
+	        	 //LoggingManager.logger.info("API - Get ALL Topic Data From Response :"+getTopics);
 	        }
 	        Global.getTopicValue=getTopics;
 	        String subscribeBody="{\n\"OptionSymbols\": "+getTopics+"\n}";
+			LoggingManager.logger.info("API - SubscribeBody :"+subscribeBody);
 			Response response=  				 
 								 given()	
 										.header("Content-Type",Content_Type) 
@@ -112,8 +115,17 @@ public class Opt_Subscribe_Bulk {
 			String ValidateLocalCodes=com.jayway.jsonpath.JsonPath.read(response.getBody().asString(),"$.[*].Data.LocalCode").toString();
 			LoggingManager.logger.info("API-Subscribe_Bulk_MarketData_Value Expected : ["+getTopics+"] and Found : ["+ValidateLocalCodes+"]"); 
 			Assert.assertEquals(ValidateLocalCodes,getTopics,"Verify_Subscribe_Bulk_LocalCode");
-			for (int index = 0; index < jsonPath.getInt("size()"); index++) 
-	        {Assert.assertEquals((jsonPath.getMap("["+index+"].Data").keySet()).toString(),Validate_Response_Fields,"Verify_Subscribe_Bulk_Fields");}
+
+			if (Validate_Response_Fields.equalsIgnoreCase("[]")) {
+				LoggingManager.logger.info("API-Subscribe_Bulk_Error_Response Expected : ["+Error_Response+"] and Found : ["+getserializedJsonObj(response, "errors")+"]");
+				Assert.assertEquals(getserializedJsonObj(response, "errors"), Error_Response, "Verify_Subscribe_Bulk_Error_Response");
+
+			}
+			else {
+				for (int index = 0; index < jsonPath.getInt("size()"); index++) {
+					Assert.assertEquals((jsonPath.getMap("[" + index + "].Data").keySet()).toString(), Validate_Response_Fields, "Verify_Subscribe_Bulk_Fields");
+				}
+			}
 
 		}	
 		catch (Exception e) 

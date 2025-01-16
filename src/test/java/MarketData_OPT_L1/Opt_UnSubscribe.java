@@ -42,15 +42,9 @@ public class Opt_UnSubscribe {
 	@Test (dataProvider="UnSubscribe_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"UnSubscribe_Individual"} ,dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_UnSubscribe_Individual (String UnSubscribe_TestCases,
 											   String EndpointVersion,
-											   String Topic_Base_Path,
-											   String Content_Type,
-											   String Topic_Symbol,
-											   String Get_Topic_StatusCode,
-											   String Subscribe_Base_Path,
-											   String Topic_Response_Index,
-											   String Subscribe_StatusCode,
-											   String Validate_Response_Fields,
 											   String UnSubscribe_Base_Path,
+											   String Content_Type,
+											   String Unsubscribe_Body,
 											   String UnSubscribe_StatusCode,
 											   String UnSubscribe_Message)
 	{
@@ -61,45 +55,8 @@ public class Opt_UnSubscribe {
 			LoggingManager.logger.info("====================================================================");	
 			RestAssured.baseURI=Global.BaseURL;
 			HashMap<Object, Object>  UnsubscribeBody=new HashMap<Object, Object>();
-			HashMap<Object, Object>  subscribeBody=new HashMap<Object, Object>();
-			Response topicResponse= 
-					 given()	
-							.header("Content-Type",Content_Type) 
-							.header("Authorization", "Bearer " + Global.getAccToken)
-						
-					 .when()
-							.get(Topic_Base_Path+Topic_Symbol)
-					 .then()
-							 .extract()
-							 .response();
-			Global.getTopicResponse=topicResponse;	
-			LoggingManager.logger.info("API-Topic_MarketData_Base_Path : ["+Topic_Base_Path+Topic_Symbol+"]");	
-			LoggingManager.logger.info("API-Topic_MarketData_StatusCode : ["+topicResponse.statusCode()+"]");
-			Assert.assertEquals(topicResponse.statusCode(),Integer.parseInt(Get_Topic_StatusCode),"Get Topic Response");
-			Global.getTopicValue=topicResponse.jsonPath().get("OptionSymbol["+Topic_Response_Index+"]").toString();
-			subscribeBody.put("optionSymbol",Global.getTopicValue);
-			Response subscribe_response=
-								 given()	
-										.header("Content-Type",Content_Type) 
-										.header("Authorization", "Bearer " + Global.getAccToken)
-										.body(subscribeBody)
-								 .when()
-										.post(Subscribe_Base_Path)
-								 .then()
-								 		.extract()
-										.response();
-			
-			
-			JSONObject jsonObject=(JSONObject) JSONValue.parse(subscribe_response.getBody().asString());//convert Object into JSONObject
-			LoggingManager.logger.info("API-Subscribe_MarketData_Base_Path : ["+Subscribe_Base_Path+"]");
-			LoggingManager.logger.info("API-Subscribe_MarketData_Body : ["+subscribeBody.toString()+"]");
-			LoggingManager.logger.info("API-Subscribe_MarketData_StatusCode : ["+subscribe_response.statusCode()+"]");
-			LoggingManager.logger.info("API-Subscribe_MarketData_TopicValue Expected : ["+Global.getTopicValue+"] and Found : ["+subscribe_response.jsonPath().get("LocalCode")+"]");
-			Assert.assertEquals(subscribe_response.jsonPath().get("LocalCode"),Global.getTopicValue,"Verify_Subscribe_Individual_LocalCode");
-			Assert.assertEquals((jsonObject.keySet()).toString(),Validate_Response_Fields,"Verify_Subscribe_Individual_Fields");
-			
-			//Global.getTopicValue=Global.getTopicResponse.jsonPath().get("OptionSymbol["+Topic_Response_Index+"]").toString();
-			UnsubscribeBody.put("optionSymbol",Global.getTopicValue);
+
+			UnsubscribeBody.put("optionSymbol",Unsubscribe_Body);
 			Response unsubscirbe_response=
 								 given()	
 										.header("Content-Type",Content_Type) 
