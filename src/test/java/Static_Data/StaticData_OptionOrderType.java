@@ -4,6 +4,9 @@ import APIHelper.APIHelperClass;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
 import XLDataProvider.ExcelDataProvider;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -38,7 +41,9 @@ public class StaticData_OptionOrderType {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	 
+	@Owner("api.automation@mailinator.com")
+	@Description("This is StaticData_OptionOrderType TestCase")
+	@Tag("StaticData")
 	@Test (dataProvider="StaticData_OptionOrderType", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_OptionOrderType"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_OptionOrderType(String StaticData_OptionOrderType_TestCases,
 												  String EndpointVersion,

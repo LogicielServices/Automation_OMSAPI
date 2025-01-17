@@ -1,5 +1,8 @@
 package MarketData_OPT_L1;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -38,7 +41,9 @@ public class Opt_Subscribe_Bulk_NoSnapshot {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is Subscribe_Bulk_NoSnapshot MarketData TestCase")
+	@Tag("Option MarketData")
 	@Test (dataProvider="Subscribe_Bulk_NoSnapshot_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"Subscribe_Bulk_NoSnapshot"} ,dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_Subscribe_Bulk_NoSnapshot (String Subscribe_Bulk_NoSnapshot_TestCases,
 													String EndpointVersion,

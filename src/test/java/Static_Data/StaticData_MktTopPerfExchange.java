@@ -1,6 +1,9 @@
 package Static_Data;
 
 import APIHelper.APIHelperClass;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -37,7 +40,9 @@ public class StaticData_MktTopPerfExchange {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is StaticData_MktTopPerfExchange TestCase")
+	@Tag("StaticData")
 	@Test (dataProvider="StaticData_MktTopPerfExchange", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_MktTopPerfExchange"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_MktTopPerfExchange(String StaticData_MktTopPerfExchange_TestCases,
 													 String EndpointVersion,

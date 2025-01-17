@@ -1,5 +1,8 @@
 package MarketData_OPT_L1;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -36,7 +39,9 @@ public class Opt_UnSubscribe_Bulk_Symbols {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is UnSubscribe_Bulk_CompanySymbol MarketData TestCase")
+	@Tag("Option MarketData")
 	@Test (dataProvider="UnSubscribe_Bulk_CompanySymbol_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"UnSubscribe_Bulk_Symbol"} ,dependsOnGroups={"Subscribe_Bulk"})
 	public void Verify_UnSubscribe_Bulk_CompanySymbol (String UnSubscribe_Bulk_Symbol_TestCases,String EndpointVersion,String UnSubscribe_Bulk_Symbol_Base_Path,String Content_Type, String Symbol,String UnSubscribe_StatusCode ,String UnSubscribe_Message)
 	{

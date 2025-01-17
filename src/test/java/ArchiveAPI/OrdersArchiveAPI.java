@@ -6,6 +6,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Map;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -39,9 +42,11 @@ public class OrdersArchiveAPI {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	 }
-	
 
-	 @Test (dataProvider="GetArchiveOrder", dataProviderClass=ExcelDataProvider.class , groups={"ArchiveOrder"}, dependsOnGroups={"ArchiveLogin"})
+	@Owner("api.automation@mailinator.com")
+	@Description("This is  Archive Order TestCase")
+	@Tag("Archive Endpoints")
+	@Test (dataProvider="GetArchiveOrder", dataProviderClass=ExcelDataProvider.class , groups={"ArchiveOrder"}, dependsOnGroups={"ArchiveLogin"})
 	 public void Verify_Get_ArchiveOrder(   String ArchiveOrder_TestCase,
 														String EndpointVersion,
 														String ArchiveOrder_Path,

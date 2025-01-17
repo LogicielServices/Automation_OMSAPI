@@ -1,5 +1,8 @@
 package Account_Balances;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -36,7 +39,10 @@ public class UnSubscribe_AccountBalance {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	 }
-	
+
+	@Owner("api.automation@mailinator.com")
+	@Description("This is UnSubscribe_AccountBalance TestCase")
+	@Tag("AccountBalance")
 	@Test (dataProvider="UnSubscribe_AccountBalance", dataProviderClass=ExcelDataProvider.class,groups={"UnSubscribe_AccountBalance"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_UnSubscribe_AccountBalance(String TestCase,
 												  String EndpointVersion,

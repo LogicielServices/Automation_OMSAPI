@@ -1,4 +1,7 @@
 package MarketData_L1;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -35,7 +38,9 @@ public class Historicaldata_Snapshot {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is Historicaldata Snapshot MarketData TestCase")
+	@Tag("Equity MarketData")
 	@Test (dataProvider="Historicaldata_Snapshot_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"UnSubscribe_Equity"} ,dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_Historicaldata_Snapshot_MarketData (String Historicaldata_Snapshot_TestCases,
 														   String EndpointVersion,

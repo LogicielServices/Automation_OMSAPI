@@ -1,5 +1,8 @@
 package MarketData_OPT_L1;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.testng.Assert;
@@ -38,7 +41,9 @@ public class Opt_UnSubscribe {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is UnSubscribe MarketData TestCase")
+	@Tag("Option MarketData")
 	@Test (dataProvider="UnSubscribe_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"UnSubscribe_Individual"} ,dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_UnSubscribe_Individual (String UnSubscribe_TestCases,
 											   String EndpointVersion,

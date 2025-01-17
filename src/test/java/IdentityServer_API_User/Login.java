@@ -49,7 +49,7 @@ public class Login {
 	//@Story("Login User Story")
 	//@TmsLink("https://nyf.qatouch.com/v2#/case/list/p/3b2X/nLa47")
 	@Severity(SeverityLevel.CRITICAL)
-	@Owner("QATest27")
+	@Owner("api.automation@mailinator.com")
 	@Description("This is User Login TestCase")
 	@Tag("UserLogin")
 	@Test (dataProvider="UserLogin", dataProviderClass=ExcelDataProvider.class, groups={"UserLoginAuthentications"})
