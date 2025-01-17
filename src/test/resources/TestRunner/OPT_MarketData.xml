@@ -3,19 +3,7 @@
 <suite name="OPTION MARKET DATA API" guice-stage="DEVELOPMENT">
 
 
-    <test thread-count="1" name="Option MarketData Subscribe Bulk With NoSnapshot">
-        <classes>
-            <class name="IdentityServer_API_User.Login"/>
-            <class name="MarketData_OPT_L1.Opt_Subscribe_Bulk_NoSnapshot">
-                <methods>
-                    <include name="Verify_Subscribe_Bulk_NoSnapshot"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
 
-
-	<!--
             <test thread-count="1" name="Option MarketData Topics">
                <classes>
                  <class name="IdentityServer_API_User.Login"/>
@@ -93,5 +81,4 @@
                  </class>
                  </classes>
              </test>
-     -->
 </suite>
