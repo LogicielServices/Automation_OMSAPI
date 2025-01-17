@@ -103,7 +103,7 @@ public class Opt_Subscribe_Bulk_NoSnapshot {
 								.response();
 
 				LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_Base_Path : [" + Subscribe_Bulk_NoSnapshot_Base_Path + "]");
-				LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_Body : [" + SubscribeNoSnapshotBody.toString() + "]");
+				//LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_Body : [" + SubscribeNoSnapshotBody.toString() + "]");
 				LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_StatusCode : [" + response.statusCode() + "]");
 				LoggingManager.logger.info("API-Subscribe_Bulk_NoSnapshot_MarketData_ResponseBody : [" + response.getBody().asString() + "]");
 				Assert.assertEquals(response.statusCode(), Integer.parseInt(Subscribe_StatusCode), "Verify_Subscribe_Bulk_StatusCode");
