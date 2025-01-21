@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 
-public class Forgot_Password_Confirm {
+public class Forgot_Password_Confirm_BKP {
 	
 	@BeforeMethod
 	public void beforeMethod() 
@@ -105,7 +105,9 @@ public class Forgot_Password_Confirm {
 																TFACode,
 																Content_Type,
 																Status_Code_Step1,
-																Status_Code_Step2);
+																"",
+																Status_Code_Step2,
+																 "");
 
 	LoggingManager.logger.info("API-Validate_UserLogin Email : ["+Email+"]");
 	LoggingManager.logger.info("API-Validate loginPassword : ["+Global.getPassword+"]");

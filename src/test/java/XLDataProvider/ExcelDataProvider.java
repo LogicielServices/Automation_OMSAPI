@@ -62,6 +62,34 @@ public class ExcelDataProvider {
 	    Object[][] DataObject = GetExcelData(IdentityServer_API_User_FileDirectory,"UserLogin");
 	    return DataObject;
 	}
+
+	@DataProvider(name="LoginWithBiometric")
+	public Object[][] LoginWithBiometric() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(IdentityServer_API_User_FileDirectory,"Biometric");
+		return DataObject;
+	}
+
+	@DataProvider(name="UserNegationLogin")
+	public Object[][] UserNegationLogin() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(IdentityServer_API_User_FileDirectory,"UserLoginNegativeCases");
+		return DataObject;
+	}
+
+	@DataProvider(name="ConnectTokenEndpoint")
+	public Object[][] ConnectTokenEndpoint() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(IdentityServer_API_User_FileDirectory,"UserConnectToken");
+		return DataObject;
+	}
+
+	@DataProvider(name="ConnectTokenEndpointNegative")
+	public Object[][] ConnectTokenEndpointNegative() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(IdentityServer_API_User_FileDirectory,"UserConnectTokenNegative");
+		return DataObject;
+	}
 	
 	@DataProvider(name="Forgot_Password")
 	public Object[][] Forgot_Password() throws IOException 

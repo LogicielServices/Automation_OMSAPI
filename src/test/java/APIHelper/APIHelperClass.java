@@ -175,7 +175,9 @@ public String UserLoginAuthentications(String UserEmail,
 										   String TFACode,
 										   String contentType,
 										   String Status_Code_Step1,
-										   String Status_Code_Step2)
+										   String Step1_Response_message,
+										   String Status_Code_Step2,
+										   String Step2_Response_message)
 {
 	try
 	{
@@ -203,17 +205,17 @@ public String UserLoginAuthentications(String UserEmail,
 		LoggingManager.logger.info("API-Login_Step1_Body : ["+mapLoginCredential+"]");
 		LoggingManager.logger.info("API-Status_Code_Step1_StatusCode : ["+response_Login_Step1.statusCode()+"]");
 		LoggingManager.logger.info("API-response_Login_Step1_Response_Body : ["+response_Login_Step1.getBody().asString()+"]");
-
 		Assert.assertEquals(response_Login_Step1.getStatusCode(),Integer.parseInt(Status_Code_Step1),"User Login Authentications Step 1");
+		Assert.assertEquals(NVL(response_Login_Step1.jsonPath().get("message"),"null"),Step1_Response_message,"Validate_Step1_Response_message");
+
 		Global.getCodeID=response_Login_Step1.jsonPath().get("codeId");
 		LoggingManager.logger.info("API-getCodeID : ["+Global.getCodeID+"]");
 		LoggingManager.logger.info("API-TFACode : ["+TFACode+"]");
 
 		String login_Step2_basePath=basePathStep2+Global.getCodeID+"/"+TFACode;
 		Response response_Login_Step2=
-
 						given()
-
+						.header("x-biometric-token", true)
 						.when()
 						.post(login_Step2_basePath)
 
@@ -226,9 +228,18 @@ public String UserLoginAuthentications(String UserEmail,
 		LoggingManager.logger.info("API-response_Login_Step2_StatusCode : ["+response_Login_Step2.getStatusCode()+"]");
 		LoggingManager.logger.info("API-response_Login_Step2_Response_Body : ["+response_Login_Step2.getBody().asString()+"]");
 		Assert.assertEquals(response_Login_Step2.getStatusCode(),Integer.parseInt(Status_Code_Step2),"User Login Authentications Step 2");
-		Global.getAccToken=response_Login_Step2.jsonPath().get("access_token");
-		//RefToken=response_Login_Step2.jsonPath().get("refresh_token");
-		return Global.getAccToken;
+
+		 if(response_Login_Step2.getStatusCode()==200) {
+			 Global.getResponse=response_Login_Step2;
+			 Assert.assertEquals(NVL(response_Login_Step2.jsonPath().get("message"),"null"),Step2_Response_message,"Validate_Step2_Response_message");
+			 Global.getAccToken = response_Login_Step2.jsonPath().get("access_token");
+			 //RefToken=response_Login_Step2.jsonPath().get("refresh_token");
+			 return Global.getAccToken;
+		 }
+		 else {
+			 Global.getResponse=response_Login_Step2;
+			 return Global.getAccToken="";
+		 }
 
 	}
 	catch (Exception e)

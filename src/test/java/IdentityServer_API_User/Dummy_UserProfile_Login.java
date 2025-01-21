@@ -41,9 +41,11 @@ public class Dummy_UserProfile_Login {
 										 String Email,
 										 String Content_Type,
 										 String Status_Code_Step1,
+										 String Step1_Response_message,
 										 String Base_Path_Login_Step2,
 										 String TFACode,
-										 String Status_Code_Step2)
+										 String Status_Code_Step2,
+										 String Step2_Response_message)
 		{
 		
 		LoggingManager.logger.info("====================================================================");
@@ -60,7 +62,9 @@ public class Dummy_UserProfile_Login {
 																TFACode,
 																Content_Type,
 																Status_Code_Step1,
-																Status_Code_Step2);
+																Step1_Response_message,
+																Status_Code_Step2,
+																Step2_Response_message);
 	
 		LoggingManager.logger.info("API-UserProfile_UserLogin Email : ["+Email+"]");
 		LoggingManager.logger.info("API-UserProfile_UserLogin loginPassword : ["+Global.getPassword+"]");

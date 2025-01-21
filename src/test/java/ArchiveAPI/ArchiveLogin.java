@@ -76,14 +76,14 @@ public class ArchiveLogin {
 
 		RestAssured.baseURI=Global.BaseURL;
 		Global.getArchive_AccToken=ArchiveUserLoginAuthentications(ArchiveLogin_API_BasePath,
-				Content_Type,
-				Client_id,
-				Client_secret,
-				Username,
-				Booth_id,
-				Status_Code,
-				Error_Message,
-				Validate_Response_Fields);
+											Content_Type,
+											Client_id,
+											Client_secret,
+											Username,
+											Booth_id,
+											Status_Code,
+											Error_Message,
+											Validate_Response_Fields);
 
 	}
 		

@@ -18,7 +18,7 @@ import java.io.StringWriter;
 import java.util.HashMap;
 
 
-public class Forgot_Password_Verify {
+public class Forgot_Password_Verify_BKP {
 	
 	@BeforeMethod
 	public void beforeMethod() 

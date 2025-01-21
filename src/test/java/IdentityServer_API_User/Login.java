@@ -2,7 +2,9 @@ package IdentityServer_API_User;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Map;
 
+import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.Reporter;
@@ -22,6 +24,10 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.TmsLink;
 import io.qameta.allure.testng.Tag;
 import io.restassured.RestAssured;
+
+import javax.swing.*;
+
+import static io.restassured.RestAssured.given;
 
 public class Login {
 	
@@ -54,19 +60,24 @@ public class Login {
 	@Tag("UserLogin")
 	@Test (dataProvider="UserLogin", dataProviderClass=ExcelDataProvider.class, groups={"UserLoginAuthentications"})
 	public void UserLogin(String Login_TestCase,
+									 String Endpoint_Version,
 									 String Base_Path_Login_Step1,
 									 String Email,
 									 String Password,
 									 String Content_Type,
 									 String Status_Code_Step1,
+									 String Step1_Response_message,
 									 String Base_Path_Login_Step2,
 									 String TFACode,
-									 String Status_Code_Step2)
+									 String Status_Code_Step2,
+						  			 String Step2_Response_message,
+						  			 String expectedResponse)
 	{
 		LoggingManager.logger.info("====================================================================");
 		LoggingManager.logger.info("TestCase : "+Login_TestCase);
 		LoggingManager.logger.info("====================================================================");
-	    //Reporter.log("This is Login verbose logging :",2);
+		String accessToken,tokenType,refreshToken,scope="";
+		int expiresIn=0;
 		RestAssured.baseURI=Global.BaseURL;
 		APIHelperClass userlogin=new APIHelperClass();
 		Global.getAccToken=userlogin.UserLoginAuthentications(  Email,
@@ -76,16 +87,85 @@ public class Login {
 																TFACode,
 																Content_Type,
 																Status_Code_Step1,
-																Status_Code_Step2);
-		
-		
-		LoggingManager.logger.info("API-Response_Login_AccToken : ["+Global.getAccToken+"]");
-		
-		
-		if(Global.getAccToken == null || Global.getAccToken=="" ) 
+																Step1_Response_message,
+																Status_Code_Step2,
+																Step2_Response_message);
+
+		Map<String, Object> jsonResponse = Global.getResponse.jsonPath().get();
+		LoggingManager.logger.info("API-Validate_Response_Fields : " + jsonResponse.keySet().toString());
+
+		if (Endpoint_Version.equalsIgnoreCase("v1"))
+		{
+			 accessToken = Global.getResponse.jsonPath().getString("access_token");
+			 expiresIn = Global.getResponse.jsonPath().getInt("expires_in");
+			 tokenType = Global.getResponse.jsonPath().getString("token_type");
+			 refreshToken = Global.getResponse.jsonPath().getString("refresh_token");
+			 scope = Global.getResponse.jsonPath().getString("scope");
+		}
+		else
+		{
+			 accessToken = Global.getResponse.jsonPath().getString("data.access_token");
+			 expiresIn = Global.getResponse.jsonPath().getInt("data.expires_in");
+			 tokenType = Global.getResponse.jsonPath().getString("data.token_type");
+			 refreshToken = Global.getResponse.jsonPath().getString("data.refresh_token");
+			 scope = Global.getResponse.jsonPath().getString("data.scope");
+		}
+
+		Assert.assertNotNull(accessToken, "access_token value is null");
+		Assert.assertTrue(expiresIn > 0, "expires_in value is not greater than 0");
+		Assert.assertEquals(tokenType, "Bearer", "token_type value is not 'Bearer'");
+		Assert.assertNotNull(refreshToken, "refresh_token value is null");
+		Assert.assertNotNull(scope, "scope value is null");
+		Assert.assertEquals(Global.getResponse.getStatusCode(), Integer.parseInt(Status_Code_Step2), "Status code mismatch");
+		Assert.assertEquals(jsonResponse.keySet().toString(), expectedResponse, "Verify_Response_Fields");
+
+		if(Global.getAccToken == null || Global.getAccToken=="" )
 		{Assert.fail("Logs : AccToken is not created Against User : ["+Email+"]"); }
 		
 	}
-	
-			
+
+
+	@Severity(SeverityLevel.CRITICAL)
+	@Owner("api.automation@mailinator.com")
+	@Description("This is Login Negation TestCase")
+	@Tag("UserLogin")
+	@Test (dataProvider="UserNegationLogin", dataProviderClass=ExcelDataProvider.class, groups={"UserLoginAuthenticationsNegation"})
+	public void UserLoginNegative(String Login_Negation_TestCase,
+						  String Base_Path_Login,
+						  String Body,
+						  String Content_Type,
+						  String Status_Code,
+						  String Error_Response)
+	{
+		LoggingManager.logger.info("====================================================================");
+		LoggingManager.logger.info("TestCase : "+Login_Negation_TestCase);
+		LoggingManager.logger.info("====================================================================");
+		RestAssured.baseURI=Global.BaseURL;
+
+		Response response_Negative_Login=
+
+				given()
+						.header("Content-Type",Content_Type)
+						.header("X-Internal-User","True")
+						.body(Body)
+
+						.when()
+						.post(Base_Path_Login)
+
+						.then()
+						.extract().response();
+
+		LoggingManager.logger.info("API-Login_BasePath_Negative_Login : ["+Base_Path_Login+"]");
+		LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+		LoggingManager.logger.info("API-Login_Body_NegativeCase : ["+Body+"]");
+		LoggingManager.logger.info("API-Status_Code_Steps_StatusCode : ["+response_Negative_Login.statusCode()+"]");
+		LoggingManager.logger.info("API-response_Login_Steps_Response_Body : ["+response_Negative_Login.getBody().asString()+"]");
+
+		Assert.assertEquals(response_Negative_Login.getStatusCode(),Integer.parseInt(Status_Code),"User Negative Login response StatusCode");
+		Assert.assertEquals(response_Negative_Login.getBody().asString(),Error_Response,"User Negative Login response Body");
+
+	}
+
+
+
 }

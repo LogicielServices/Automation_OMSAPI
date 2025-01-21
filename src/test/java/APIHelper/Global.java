@@ -15,6 +15,7 @@ public class Global {
 	public static String   getAccToken;
 	public static String   getArchive_AccToken;
 	public static String   getPassword;
+	public static Response getResponse;
 	public static String   getorderType;
 	public static Double   getAvgPrice=0.00;
 	public static Double   getOptionAvgPrice=0.00;
