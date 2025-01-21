@@ -1,5 +1,8 @@
 package MarketData_L1;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -36,7 +39,9 @@ public class UnSubscribe_Bulk {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is UnSubscribe Bulk MarketData TestCase")
+	@Tag("Equity MarketData")
 	@Test (dataProvider="UnSubscribe_Bulk_Equity_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"UnSubscribe_Bulk_Equity"} ,dependsOnGroups={"Subscribe_Bulk_Equity"})
 	public void Verify_UnSubscribe_Bulk_Equity_MarketData (String UnSubscribe_Bulk_TestCases,
 														   String EndpointVersion,

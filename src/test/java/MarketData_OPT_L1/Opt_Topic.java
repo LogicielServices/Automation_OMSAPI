@@ -1,5 +1,8 @@
 package MarketData_OPT_L1;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -37,7 +40,10 @@ public class Opt_Topic {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+
+	@Owner("api.automation@mailinator.com")
+	@Description("This is Topic MarketData TestCase")
+	@Tag("Option MarketData")
 	@Test (dataProvider="Topic_MarketData", dataProviderClass=ExcelDataProvider.class, groups={"Get_Topic"},dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_Get_Topic (String Topic_TestCases,String EndpointVersion,String Topic_Base_Path,String Content_Type ,String Topic_Symbol,String Get_Topic_StatusCode)
 	{

@@ -1,4 +1,7 @@
 package MarketData_L1;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.testng.Assert;
@@ -39,7 +42,9 @@ public class CompanyInformation {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is CompanyInformation MarketData TestCase")
+	@Tag("Equity MarketData")
 	@Test (dataProvider="CompanyInformation_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"UnSubscribe_Equity"} ,dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_CompanyInformation_MarketData (String CompanyInformation_TestCases,
 													  String EndpointVersion,

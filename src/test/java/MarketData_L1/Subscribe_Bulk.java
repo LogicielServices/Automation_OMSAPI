@@ -1,5 +1,8 @@
 package MarketData_L1;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.testng.Assert;
@@ -39,7 +42,9 @@ public class Subscribe_Bulk {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is Subscribe Bulk MarketData TestCase")
+	@Tag("Equity MarketData")
 	@Test (dataProvider="Subscribe_Bulk_Equity_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"Subscribe_Bulk_Equity"} ,dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_Subscribe_Bulk_Equity_MarketData (String Subscribe_Bulk_TestCases,
 														 String EndpointVersion,

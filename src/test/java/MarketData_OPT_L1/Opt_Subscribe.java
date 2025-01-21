@@ -1,5 +1,8 @@
 package MarketData_OPT_L1;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
@@ -45,7 +48,9 @@ public class Opt_Subscribe {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is Subscribe MarketData TestCase")
+	@Tag("Option MarketData")
 	@Test (dataProvider="Subscribe_MarketData", dataProviderClass=ExcelDataProvider.class,groups={"Subscribe_Individual"} ,dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_Subscribe_Individual (String Subscribe_TestCases,
 											 String EndpointVersion,

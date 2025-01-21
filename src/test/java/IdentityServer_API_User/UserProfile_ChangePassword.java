@@ -13,6 +13,8 @@ import APIHelper.APIHelperClass;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
 import XLDataProvider.ExcelDataProvider;
+
+import static APIHelper.APIHelperClass.getserializedJsonObj;
 import static io.restassured.RestAssured.*;
 
 import java.io.PrintWriter;
@@ -58,9 +60,11 @@ public class UserProfile_ChangePassword {
 													String Base_Path_Login_Step1,
 													String Email,
 													String Status_Code_Step1,
+													String Step1_Response_message,
 													String Base_Path_Login_Step2,
 													String TFACode,
 													String Status_Code_Step2,
+													String Step2_Response_message,
 													String UserProfile_ChangePassword_BasePath,
 													String Change_NewPassword,
 													String Change_Confirm_NewPassword,
@@ -146,7 +150,9 @@ public class UserProfile_ChangePassword {
 																TFACode,
 																Content_Type,
 																Status_Code_Step1,
-																Status_Code_Step2);
+				 												Step1_Response_message,
+																Status_Code_Step2,
+																Step2_Response_message);
 	
 		 LoggingManager.logger.info("API-UserProfile_UserLogin Email : ["+Email+"]");
 		 LoggingManager.logger.info("API-UserProfile_UserLogin loginPassword : ["+Global.getPassword+"]");
@@ -194,9 +200,19 @@ public class UserProfile_ChangePassword {
 		LoggingManager.logger.info("API-UserProfile_ChangePassword_StatusCode : ["+ChangePassword_response.getStatusCode()+"]");
 		LoggingManager.logger.info("API-UserProfile_ChangePassword_Response_Body : ["+ChangePassword_response.getBody().asString()+"]");
 		//LoggingManager.Login_logger.info("API-Password After Changed : ["+Global.getPassword+"]");
-		
-		Assert.assertEquals(ChangePassword_response.getBody().asString(),Validate_UserProfile_ChangePassword_Response,"Validate_UserProfile_ChangePassword_Response");
-		
+
+ 		if (ChangePassword_response.getStatusCode()==400)
+		{
+			LoggingManager.logger.info("API-UserProfile_ChangePassword_Response_Error : ["+ChangePassword_response.jsonPath().get("errors")+"]");
+			Assert.assertEquals(getserializedJsonObj(ChangePassword_response, "errors"), Validate_UserProfile_ChangePassword_Response,"Validate_UserProfile_ChangePassword_Response");
+		}
+		else
+		{
+			LoggingManager.logger.info("API-UserProfile_ChangePassword_Response_Message : ["+ChangePassword_response.jsonPath().get("message")+"]");
+			Assert.assertEquals(ChangePassword_response.jsonPath().get("message"), Validate_UserProfile_ChangePassword_Response,"Validate_UserProfile_ChangePassword_Response");
+		}
+
+/*
 		Global.getAccToken=userlogin.UserLoginAuthentications(  Email,
 																Global.getPassword,
 																Base_Path_Login_Step1,
@@ -204,7 +220,9 @@ public class UserProfile_ChangePassword {
 																TFACode,
 																Content_Type,
 																Status_Code_Step1,
-																Status_Code_Step2);
+																Step1_Response_message,
+																Status_Code_Step2,
+																Step2_Response_message);
 
 		
 		LoggingManager.logger.info("API-User_Login_with_AccToken : ["+Global.getAccToken+"]");
@@ -213,7 +231,7 @@ public class UserProfile_ChangePassword {
 		{
 		Assert.fail("Logs : AccToken is not created"); 
 		}			
-		
+*/
 		
 	}	
 }

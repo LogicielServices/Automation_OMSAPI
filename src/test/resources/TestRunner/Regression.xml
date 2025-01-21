@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="API Regression Test" guice-stage="DEVELOPMENT">
+<suite name="OMSAPI Regression Test" guice-stage="DEVELOPMENT">
+
+    <!-- Identity Server Users Start-->
+
+    <test thread-count="1" name="User Login" >
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test thread-count="1" name="User Login Connect Token Cases" >
+        <classes>
+            <class name="IdentityServer_API_User.LoginConnectToken">
+                <methods>
+                    <include name="ConnectTokenEndpoint_Cases"/>
+                    <include name="ConnectTokenEndpoint_NegativeCases"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test thread-count="1" name="Forgot Password APIs">
+        <classes>
+            <class name="IdentityServer_API_User.Forgot_Password">
+                <methods>
+                    <include name="Verify_Forgot_Password"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="1" name="Forgot Password Resend API">
+        <classes>
+            <class name="IdentityServer_API_User.Forgot_Password_Resend">
+                <methods>
+                    <include name="Verify_Forgot_Password_Resend"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="1" name="User Login With Biometric" >
+        <classes>
+            <class name="IdentityServer_API_User.Biometric">
+                <methods>
+                    <include name="UserLoginWithBiometric"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="1" name="User Profile Detail API">
+        <classes>
+            <class name="IdentityServer_API_User.UserProfile_Detail">
+                <methods>
+                    <include name="Verify_UserProfile_Detail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+    <!-- Identity Server Users End-->
+
+
 
     <test thread-count="1" name="EquityOrder Order Subscriptions">
         <classes>

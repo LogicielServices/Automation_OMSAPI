@@ -1,6 +1,9 @@
 package Static_Data;
 
 import APIHelper.APIHelperClass;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -37,7 +40,9 @@ public class StaticData_BlotterPackage_Permissions {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	}
-	
+	@Owner("api.automation@mailinator.com")
+	@Description("This is StaticData_BlotterPackage_Permissions TestCase")
+	@Tag("StaticData")
 	@Test (dataProvider="StaticData_BlotterPackage_Permissions", dataProviderClass=ExcelDataProvider.class,groups={"StaticData_BlotterPackage_Permissions"}, dependsOnGroups={"UserLoginAuthentications"})
 	public void Verify_StaticData_BlotterPackage_Permissions( String StaticData_BlotterPackage_Permissions_TestCases,
 															  String EndpointVersion,

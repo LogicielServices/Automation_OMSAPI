@@ -3,6 +3,9 @@ package ArchiveAPI;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
 import XLDataProvider.ExcelDataProvider;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.testng.Tag;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -37,8 +40,10 @@ public class ExecutionsArchiveAPI {
 			LoggingManager.logger.error(errorWriter.toString());
 		}
 	 }
-	
 
+	 @Owner("api.automation@mailinator.com")
+	 @Description("This is  Archive Execution TestCase")
+	 @Tag("Archive Endpoints")
 	 @Test (dataProvider="GetArchiveExecution", dataProviderClass=ExcelDataProvider.class , groups={"ArchiveExecution"}, dependsOnGroups={"ArchiveLogin"})
 	 public void Verify_Get_ArchiveExecution(   String ArchiveExecution_TestCase,
 														String EndpointVersion,
