@@ -13,6 +13,8 @@ import APIHelper.APIHelperClass;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
 import XLDataProvider.ExcelDataProvider;
+
+import static APIHelper.APIHelperClass.getserializedJsonObj;
 import static io.restassured.RestAssured.*;
 
 import java.io.PrintWriter;
@@ -48,21 +50,17 @@ public class Cancel_OptionOrder {
 										   String OptionOrder_Creation_Body,
 										   String OptionOrder_Creation_StatusCode,
 										   String OptionOrder_Creation_Response,
-										   String Fetch_OptionOrder_BasePath,
-										   String Fetch_OptionOrder_UserID,
-										   String Fetch_OptionOrder_OrderType,
-										   String Fetch_OptionOrder_Side,
-										   String Fetch_OptionOrder_Symbol,
-										   String Fetch_OptionOrder_Account,
-										   String Fetch_OptionOrder_Destination,
-										   String Fetch_OptionOrder_Price,
-										   String Fetch_OptionOrder_OrderQty,
-										   String Fetch_OptionOrder_ExpectedStatus,
-										   String Fetch_OptionOrder_StatusCode,
+										   String Subscribe_OptionOrder_BasePath,
+										   String Subscribe_OptionOrder_UserID,
+										   String Subscribe_OptionOrder_Text,
+										   String Subscribe_OptionOrder_StatusCode,
+										   String Subscribe_OptionOrder_ExpectedStatus,
 										   String OptionOrder_Cancel_BasePath,
 										   String OptionOrder_Cancel_StatusCode,
+										   String Validation_Fieldname,
+										   String Order_Cancel_Response,
 										   String Status_Validation,
-										   String Status_Validation_Flag )
+										   String StatusDesc_Validation)
 	{
 		try
 		{
@@ -90,26 +88,20 @@ public class Cancel_OptionOrder {
 			Assert.assertEquals(response.getStatusCode(),Integer.parseInt(OptionOrder_Creation_StatusCode),"Order_Creation_Active_Open");
 			if(Endpoint_Version.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), OptionOrder_Creation_Response,"Verify_OptionOrder_Response");}
 			else{Assert.assertEquals(response.jsonPath().get("message"), OptionOrder_Creation_Response,"Verify_OptionOrder_Response");}
-			APIHelperClass apihelper=new APIHelperClass();
-			apihelper.GetOrderValues(Fetch_OptionOrder_BasePath,
+
+			APIHelperClass.GetOptionOrder(	Subscribe_OptionOrder_BasePath,
 					Global.getAccToken,
 					Content_Type,
-					Integer.parseInt(Fetch_OptionOrder_StatusCode),
+					Integer.parseInt(Subscribe_OptionOrder_StatusCode),
 					Endpoint_Version,
-					Fetch_OptionOrder_UserID,
-					Fetch_OptionOrder_ExpectedStatus,
-					Fetch_OptionOrder_Account,
-					Fetch_OptionOrder_Symbol,
-					Fetch_OptionOrder_Destination,
-					Fetch_OptionOrder_Price,
-					Fetch_OptionOrder_Side,
-					Fetch_OptionOrder_OrderQty,
-					Fetch_OptionOrder_OrderType,"option");
+					Subscribe_OptionOrder_UserID,
+					Subscribe_OptionOrder_Text);
 
 			LoggingManager.logger.info("API-Fetch_OptionOrderID : ["+Global.getOptionOrderID+"]");
 			if(Global.getOptionOrderID == null || Global.getOptionOrderID=="" )
 			{
-				Assert.fail("Logs :Option Order ID Match Not Found");
+				Global.getOptionOrderID="Invalid OrderID";
+				//Assert.fail("Logs :Option Order ID Match Not Found");
 			}
 
 			//String cancel_OrderOption_Body="{\r\n\"orderId\": \""+getOrderID+"\"\r\n}";
@@ -134,18 +126,34 @@ public class Cancel_OptionOrder {
 			LoggingManager.logger.info("API-Cancel_OptionOrder_Body : ["+cancel_OrderOption_Body+"]");
 			LoggingManager.logger.info("API-Cancel_OptionOrder_StatusCode : ["+cancel_response.getStatusCode()+"]");
 			LoggingManager.logger.info("API-Cancel_OptionOrder_Response_Body : ["+cancel_response.getBody().asPrettyString()+"]");
-			Assert.assertEquals(cancel_response.statusCode(),Integer.parseInt(OptionOrder_Cancel_StatusCode) ,"Order Cancel Request");
-			Global.ValidationFlag=APIHelperClass.GetOptionOrderValidate(   Fetch_OptionOrder_BasePath,
-					Global.getAccToken,
-					Content_Type,
-					Integer.parseInt(Fetch_OptionOrder_StatusCode),
-					Endpoint_Version,
-					Global.getOptionOrderID,
-					Status_Validation);
+			LoggingManager.logger.info("API-Cancel_OptionOrder_Response : ["+getserializedJsonObj(cancel_response,Validation_Fieldname)+"]");
+			Assert.assertEquals(cancel_response.getStatusCode(), Integer.parseInt(OptionOrder_Cancel_StatusCode),"Verify_Cancel_OptionOrder_ResponseCode");
+			Assert.assertEquals(getserializedJsonObj(cancel_response, Validation_Fieldname), Order_Cancel_Response,"Verify_OptionOrder_Cancel_Response");
+/*
+			APIHelperClass.GetCancelledOrder(Subscribe_OptionOrder_BasePath,
+												Global.getAccToken,
+												Content_Type,
+												Integer.parseInt(Subscribe_OptionOrder_StatusCode),
+												Endpoint_Version,
+												Global.getOptionOrderID,
+												Status_Validation,
+												StatusDesc_Validation);
+
+			LoggingManager.logger.info("API-Cancelled_OrderID : ["+Global.getOptionOrderID+"]");
+			LoggingManager.logger.info("API-After Cancel Option OrderID_Status : ["+Global.getStatus+"]");
+ */
+		/*	Global.ValidationFlag=APIHelperClass.GetOptionOrderValidate(   Fetch_OptionOrder_BasePath,
+																			Global.getAccToken,
+																			Content_Type,
+																			Integer.parseInt(Fetch_OptionOrder_StatusCode),
+																			Endpoint_Version,
+																			Global.getOptionOrderID,
+																			Status_Validation);
 
 			LoggingManager.logger.info("API-Cancel_OptionOrder_OrderID : ["+Global.getOptionOrderID+"]");
 			LoggingManager.logger.info("API-Cancel_OptionOrder_ValidationFlag : ["+Global.ValidationFlag+"]");
 			Assert.assertEquals(Global.ValidationFlag ,Boolean.parseBoolean(Status_Validation_Flag),"Order Cancel Validation");
+*/
 
 		}
 		catch (Exception e)

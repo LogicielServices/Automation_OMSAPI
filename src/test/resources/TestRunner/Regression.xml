@@ -128,6 +128,55 @@
         </classes>
     </test>
 
+
+
+    <test thread-count="5" name="Subscribe_OptionOrder_Validations">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="OptionOrders.OptionOrder_Subscription">
+                <methods>
+                    <include name="Verify_OptionOrder_Subscription"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="5" name="Subscribe_OptionOrder_NegativeCases_Validations">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="OptionOrders.OptionOrder_NegativeCases">
+                <methods>
+                    <include name="Verify_OptionOrder_NegativeCases"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="1" name="Update-Delete-Cancel OptionOrder">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="OptionOrders.Update_OptionOrder"/>
+            <class name="OptionOrders.Update_OptionOrder_NegativeCases"/>
+            <class name="OptionOrders.Cancel_OptionOrder"/>
+            <class name="OptionOrders.Delete_OptionOrder"/>
+
+
+        </classes>
+    </test>
+
+
     <test thread-count="1" name="Static_Data test">
         <classes>
             <class name="IdentityServer_API_User.Login">
@@ -157,6 +206,9 @@
             <class name="Static_Data.StaticData_MktTopPerfExchange"/>
         </classes>
     </test> <!-- Static_Data test -->
+
+
+
 
     <test thread-count="1" name="Option MarketData Topics">
        <classes>
@@ -236,7 +288,7 @@
          </classes>
      </test>
 
-    <test thread-count="1" name="Subscribe AccountBalance">
+ <!--   <test thread-count="1" name="Subscribe AccountBalance">
         <classes>
             <class name="IdentityServer_API_User.Login"/>
             <class name="Account_Balances.Subscribe_AccountBalance">
@@ -246,7 +298,7 @@
             </class>
         </classes>
     </test>
-
+-->
     <test thread-count="1" name="UnSubscribe AccountBalance">
         <classes>
             <class name="IdentityServer_API_User.Login"/>

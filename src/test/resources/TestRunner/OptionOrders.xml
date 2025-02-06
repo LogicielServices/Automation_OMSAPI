@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OPTION ORDERS">
+
+
+        <test thread-count="5" name="Subscribe_OptionOrder_Validations">
+            <classes>
+                <class name="IdentityServer_API_User.Login">
+                    <methods>
+                        <include name="UserLogin"/>
+                    </methods>
+                </class>
+                <class name="OptionOrders.OptionOrder_Subscription">
+                    <methods>
+                        <include name="Verify_OptionOrder_Subscription"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+
+        <test thread-count="5" name="Subscribe_OptionOrder_NegativeCases_Validations">
+            <classes>
+                <class name="IdentityServer_API_User.Login">
+                    <methods>
+                        <include name="UserLogin"/>
+                    </methods>
+                </class>
+                <class name="OptionOrders.OptionOrder_NegativeCases">
+                    <methods>
+                        <include name="Verify_OptionOrder_NegativeCases"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+
+        <test thread-count="1" name="Update-Delete-Cancel OptionOrder">
+		<classes>
+			<class name="IdentityServer_API_User.Login">
+				<methods>
+					<include name="UserLogin"/>
+				</methods>
+			</class>
+			<class name="OptionOrders.Update_OptionOrder"/>
+			<class name="OptionOrders.Update_OptionOrder_NegativeCases"/>
+			<class name="OptionOrders.Cancel_OptionOrder"/>
+			<class name="OptionOrders.Delete_OptionOrder"/>
+
+
+		</classes>
+		</test>
+
+</suite>

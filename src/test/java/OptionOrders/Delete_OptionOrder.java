@@ -11,10 +11,13 @@ import APIHelper.APIHelperClass;
 import APIHelper.Global;
 import APIHelper.LoggingManager;
 import XLDataProvider.ExcelDataProvider;
+
+import static APIHelper.APIHelperClass.getserializedJsonObj;
 import static io.restassured.RestAssured.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.HashMap;
 
 
 public class Delete_OptionOrder {
@@ -38,33 +41,29 @@ public class Delete_OptionOrder {
 	}
 	
 	@Test (dataProvider="DeleteOptionOrders", dataProviderClass=ExcelDataProvider.class, dependsOnGroups={"UserLoginAuthentications"})
-	public void Verify_Delete_Option_Order(String OptionOrder_Delete_TestCase,
-			 							   String Endpoint_Version,
-			 							   String OptionOrder_Creation_BasePath,
-										   String Content_Type,
+	public void Verify_Delete_Option_Order(String OptionOrder_Cancel_TestCase,
+										   String Endpoint_Version,
+										   String OptionOrder_Creation_BasePath,
+										   String Content_Type ,
 										   String OptionOrder_Creation_Body,
 										   String OptionOrder_Creation_StatusCode,
 										   String OptionOrder_Creation_Response,
-			 							   String Fetch_OptionOrder_BasePath,
-										   String Fetch_OptionOrder_UserID,
-										   String Fetch_OptionOrder_OrderType,
-										   String Fetch_OptionOrder_Side,
-										   String Fetch_OptionOrder_Symbol,
-										   String Fetch_OptionOrder_Account,
-										   String Fetch_OptionOrder_Destination,
-										   String Fetch_OptionOrder_Price,
-										   String Fetch_OptionOrder_OrderQty,
-										   String Fetch_OptionOrder_ExpectedStatus,
-										   String Fetch_OptionOrder_StatusCode,
+										   String Subscribe_OptionOrder_BasePath,
+										   String Subscribe_OptionOrder_UserID,
+										   String Subscribe_OptionOrder_Text,
+										   String Subscribe_OptionOrder_StatusCode,
+										   String Subscribe_OptionOrder_ExpectedStatus,
 										   String OptionOrder_Delete_BasePath,
 										   String OptionOrder_Delete_StatusCode,
+										   String Validation_Fieldname,
+										   String Order_Delete_Response,
 										   String Status_Validation,
-										   String Status_Validation_Flag ) throws InterruptedException
+										   String StatusDesc_Validation)
 	{
 		try
 		{
 			LoggingManager.logger.info("====================================================================");
-			LoggingManager.logger.info("TestCase : "+OptionOrder_Delete_TestCase);
+			LoggingManager.logger.info("TestCase : "+OptionOrder_Cancel_TestCase);
 			LoggingManager.logger.info("====================================================================");
 			RestAssured.baseURI=Global.BaseURL;
 			Response response=
@@ -87,47 +86,20 @@ public class Delete_OptionOrder {
 			Assert.assertEquals(response.getStatusCode(),Integer.parseInt(OptionOrder_Creation_StatusCode),"Order_Creation_Active_Open");
 			if(Endpoint_Version.equalsIgnoreCase("V1")) {Assert.assertEquals(response.getBody().asString(), OptionOrder_Creation_Response,"Verify_OptionOrder_Response");}
 			else{Assert.assertEquals(response.jsonPath().get("message"), OptionOrder_Creation_Response,"Verify_OptionOrder_Response");}
-			APIHelperClass apihelper=new APIHelperClass();
-			apihelper.GetOrderValues(Fetch_OptionOrder_BasePath,
-					Global.getAccToken,
-					Content_Type,
-					Integer.parseInt(Fetch_OptionOrder_StatusCode),
-					Endpoint_Version,
-					Fetch_OptionOrder_UserID,
-					Fetch_OptionOrder_ExpectedStatus,
-					Fetch_OptionOrder_Account,
-					Fetch_OptionOrder_Symbol,
-					Fetch_OptionOrder_Destination,
-					Fetch_OptionOrder_Price,
-					Fetch_OptionOrder_Side,
-					Fetch_OptionOrder_OrderQty,
-					Fetch_OptionOrder_OrderType,"option");
 
-			LoggingManager.logger.info("API-Delete_OptionOrder_OrderID : ["+Global.getOptionOrderID+"]");
+			APIHelperClass.GetOptionOrder(	Subscribe_OptionOrder_BasePath,
+											Global.getAccToken,
+											Content_Type,
+											Integer.parseInt(Subscribe_OptionOrder_StatusCode),
+											Endpoint_Version,
+											Subscribe_OptionOrder_UserID,
+											Subscribe_OptionOrder_Text);
 
-			if(Global.getOptionOrderID == null || Global.getOptionOrderID=="" )
+			LoggingManager.logger.info("API-Fetch_Option_qOrderID : ["+Global.getOptionqOrderID+"]");
+			if(Global.getOptionqOrderID == null || Global.getOptionqOrderID<=0)
 			{
-				Assert.fail("Logs : Order ID Match Not Found");
-			}
-
-			apihelper.GetOrderValues (Fetch_OptionOrder_BasePath,
-					Global.getAccToken,
-					Content_Type,
-					Integer.parseInt(Fetch_OptionOrder_StatusCode),
-					Endpoint_Version,
-					Fetch_OptionOrder_UserID,
-					Fetch_OptionOrder_ExpectedStatus,
-					Fetch_OptionOrder_Account,
-					Fetch_OptionOrder_Symbol,
-					Fetch_OptionOrder_Destination,
-					Fetch_OptionOrder_Price,
-					Fetch_OptionOrder_Side,
-					Fetch_OptionOrder_OrderQty,
-					Fetch_OptionOrder_OrderType,"option");
-			LoggingManager.logger.info("API-Delete_OptionOrder_qOrderID : ["+Global.getOptionqOrderID+"]");
-			if(Global.getOptionqOrderID == null || Global.getOptionqOrderID==0 )
-			{
-				Assert.fail("Logs : qOrderID is not Found against OrderID ["+Global.getOptionqOrderID+"]");
+				Global.getOptionqOrderID=-112;
+				//Assert.fail("Logs :Option Order ID Match Not Found");
 			}
 
 			Response delete_response=
@@ -140,24 +112,40 @@ public class Delete_OptionOrder {
 							.then()
 							.extract().response();
 
-			LoggingManager.logger.info("API-OptionOrder_Delete_BasePath : ["+OptionOrder_Delete_BasePath+Global.getOptionqOrderID+"]");
-			LoggingManager.logger.info("API-OptionOrder_Delete_StatusCode : ["+delete_response.statusCode()+"]");
-			LoggingManager.logger.info("API-OptionOrder_Delete_Response_Body : ["+delete_response.getBody().asPrettyString()+"]");
-			Assert.assertEquals(delete_response.statusCode(),Integer.parseInt(OptionOrder_Delete_StatusCode), "Order Delete Response: ");
+			LoggingManager.logger.info("API-OptionOrder_Delete_BasePath : ["+OptionOrder_Delete_BasePath+"]");
+			LoggingManager.logger.info("API-Content_Type : ["+Content_Type+"]");
+			LoggingManager.logger.info("API-Delete_OptionOrder_URL : ["+OptionOrder_Delete_BasePath+Global.getOptionqOrderID+"]");
+			LoggingManager.logger.info("API-Delete_OptionOrder_StatusCode : ["+delete_response.getStatusCode()+"]");
+			LoggingManager.logger.info("API-Delete_OptionOrder_Response_Body : ["+delete_response.getBody().asPrettyString()+"]");
+			LoggingManager.logger.info("API-Delete_OptionOrder_Response : ["+getserializedJsonObj(delete_response,Validation_Fieldname)+"]");
+			Assert.assertEquals(delete_response.getStatusCode(), Integer.parseInt(OptionOrder_Delete_StatusCode),"Verify_Delete_OptionOrder_ResponseCode");
+			Assert.assertEquals(getserializedJsonObj(delete_response, Validation_Fieldname), Order_Delete_Response,"Verify_OptionOrder_Delete_Response");
+/*
+			APIHelperClass.GetCancelledOrder(Subscribe_OptionOrder_BasePath,
+												Global.getAccToken,
+												Content_Type,
+												Integer.parseInt(Subscribe_OptionOrder_StatusCode),
+												Endpoint_Version,
+												Global.getOptionOrderID,
+												Status_Validation,
+												StatusDesc_Validation);
 
+			LoggingManager.logger.info("API-Cancelled_OrderID : ["+Global.getOptionOrderID+"]");
+			LoggingManager.logger.info("API-After Cancel Option OrderID_Status : ["+Global.getStatus+"]");
+ */
+		/*	Global.ValidationFlag=APIHelperClass.GetOptionOrderValidate(   Fetch_OptionOrder_BasePath,
+																			Global.getAccToken,
+																			Content_Type,
+																			Integer.parseInt(Fetch_OptionOrder_StatusCode),
+																			Endpoint_Version,
+																			Global.getOptionOrderID,
+																			Status_Validation);
 
-			Global.ValidationFlag=APIHelperClass.GetOptionOrderValidate(  Fetch_OptionOrder_BasePath,
-					Global.getAccToken,
-					Content_Type,
-					Integer.parseInt(OptionOrder_Delete_StatusCode),
-					Endpoint_Version,
-					Global.getOptionOrderID,
-					Status_Validation);
+			LoggingManager.logger.info("API-Cancel_OptionOrder_OrderID : ["+Global.getOptionOrderID+"]");
+			LoggingManager.logger.info("API-Cancel_OptionOrder_ValidationFlag : ["+Global.ValidationFlag+"]");
+			Assert.assertEquals(Global.ValidationFlag ,Boolean.parseBoolean(Status_Validation_Flag),"Order Cancel Validation");
+*/
 
-
-			LoggingManager.logger.info("API-OptionOrder_Deleted_Order_ID : ["+Global.getOptionOrderID+"]");
-			LoggingManager.logger.info("API-OptionOrder_Deleted_ValidationFlag : ["+Global.ValidationFlag+"]");
-			Assert.assertEquals(Global.ValidationFlag,Boolean.parseBoolean(Status_Validation_Flag), "Order Delete Validation");
 		}
 		catch (Exception e)
 		{

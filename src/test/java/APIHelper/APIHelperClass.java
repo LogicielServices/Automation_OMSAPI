@@ -631,6 +631,118 @@ public static void GetOrder(	 String Get_orders_basePath,
 			LoggingManager.logger.error(" API- Null Pointer Exception Caught : "+e);
         }
 	}
+public static void GetOptionOrder(	 String Get_Optionorders_basePath,
+                                     String AccToken,
+                                     String contentType,
+                                     int statuscode,
+                                     String endpoint_version,
+                                     String orderUserid,
+                                     String expected_text)
+    {
+        try
+        {
+            String getResponseArray="";
+            RestAssured.baseURI=Global.BaseURL;
+            Response get_orders_response=
+
+                    given()
+                            .header("Content-Type",contentType)
+                            .header("Authorization", "Bearer " + AccToken)
+                            .when()
+                            .get(Get_Optionorders_basePath)
+
+                            .then()
+                            .extract().response();
+
+            LoggingManager.logger.info("API-Get_orders_basePath : ["+Get_Optionorders_basePath+"]");
+            LoggingManager.logger.info("API-Get_orders_statusCode : ["+get_orders_response.statusCode()+"]");
+            LoggingManager.logger.info("API-Get_orders_API Version : ["+endpoint_version+"]");
+            Assert.assertEquals(get_orders_response.getStatusCode(),statuscode,"Fetch Orders Record Failed");
+            JsonPath jsonresponse = new JsonPath(get_orders_response.getBody().asString());
+            getResponseArray="eventData";
+            //getResponseArray=apiRespVersion(endpoint_version);
+            int ResponseArraySize = jsonresponse.getInt(getResponseArray+".size()");
+            for(int position = ResponseArraySize-1; position >=0; position--)
+            {
+
+                String response_UserID = jsonresponse.getString(getResponseArray+"["+position+"].originatingUserDesc");
+                String response_destination = jsonresponse.getString(getResponseArray+"["+position+"].destination");
+                String response_account = jsonresponse.getString(getResponseArray+"["+position+"].account");
+                String response_symbol = jsonresponse.getString(getResponseArray+"["+position+"].symbol");
+                String response_status = jsonresponse.getString(getResponseArray+"["+position+"].status");
+                Double response_price = jsonresponse.getDouble(getResponseArray+"["+position+"].price");
+                String response_side = jsonresponse.getString(getResponseArray+"["+position+"].side");
+                String response_sideDesc = jsonresponse.getString(getResponseArray+"["+position+"].sideDesc");
+                Double response_orderQty = jsonresponse.getDouble(getResponseArray+"["+position+"].orderQty");
+                String response_ordType = jsonresponse.getString(getResponseArray+"["+position+"].ordType");
+                String response_orderId= jsonresponse.getString(getResponseArray+"["+position+"].orderId");
+                Integer response_qOrderID =jsonresponse.getInt(getResponseArray+"["+position+"].qOrderID");
+                String response_ID = jsonresponse.getString(getResponseArray+"["+position+"].id");
+                String response_time = jsonresponse.getString(getResponseArray+"["+position+"].time");
+                String response_clOrdID = jsonresponse.getString(getResponseArray+"["+position+"].clOrdID");
+                String response_origClOrdID = jsonresponse.getString(getResponseArray+"["+position+"].origClOrdID");
+                String response_text = jsonresponse.getString(getResponseArray+"["+position+"].text");
+                String response_complianceID = jsonresponse.getString(getResponseArray+"["+position+"].complianceID");
+                Double response_stopPx= jsonresponse.getDouble(getResponseArray+"["+position+"].stopPx");
+                String response_timeInForce = jsonresponse.getString(getResponseArray+"["+position+"].timeInForce");
+                String response_transactTime = jsonresponse.getString(getResponseArray+"["+position+"].transactTime");
+                String response_symbolSfx = jsonresponse.getString(getResponseArray+"["+position+"].symbolSfx");
+                String response_symbolWithoutSfx= jsonresponse.getString(getResponseArray+"["+position+"].symbolWithoutSfx");
+                String response_tifDesc =jsonresponse.getString(getResponseArray+"["+position+"].tifDesc");
+                String response_orderTypeDesc = jsonresponse.getString(getResponseArray+"["+position+"].orderTypeDesc");
+                String response_statusDesc = jsonresponse.getString(getResponseArray+"["+position+"].statusDesc");
+                Double response_avgPx = jsonresponse.getDouble(getResponseArray+"["+position+"].avgPx");
+                Double response_cumQty = jsonresponse.getDouble(getResponseArray+"["+position+"].cumQty");
+                Double response_workableQty = jsonresponse.getDouble(getResponseArray+"["+position+"].workableQty");
+                Double response_leavesQty= jsonresponse.getDouble(getResponseArray+"["+position+"].leavesQty");
+                String response_locateID= jsonresponse.getString(getResponseArray+"["+position+"].locateID");
+                String response_contactName = jsonresponse.getString(getResponseArray+"["+position+"].contactName");
+                String response_locateRequired = jsonresponse.getString(getResponseArray+"["+position+"].locateRequired");
+                Double response_locateRate = jsonresponse.getDouble(getResponseArray+"["+position+"].locateRate");
+                String response_boothID= jsonresponse.getString(getResponseArray+"["+position+"].boothID");
+                String response_optionSymbol = jsonresponse.getString(getResponseArray+"["+position+"].optionSymbol");
+                Double response_strikePrice = jsonresponse.getDouble(getResponseArray+"["+position+"].strikePrice");
+                String response_maturityDay = jsonresponse.getString(getResponseArray+"["+position+"].maturityDay");
+                String response_maturityMonthYear = jsonresponse.getString(getResponseArray+"["+position+"].maturityMonthYear");
+                String response_maturityMonthYearDesc= jsonresponse.getString(getResponseArray+"["+position+"].maturityMonthYearDesc");
+                String response_maturityDate = jsonresponse.getString(getResponseArray+"["+position+"].maturityDate");
+                String response_optionDesc = jsonresponse.getString(getResponseArray+"["+position+"].optionDesc");
+                String response_cmta = jsonresponse.getString(getResponseArray+"["+position+"].cmta");
+                String response_execBroker = jsonresponse.getString(getResponseArray+"["+position+"].execBroker");
+                Integer response_putOrCallInt= jsonresponse.getInt(getResponseArray+"["+position+"].putOrCallInt");
+                String response_putOrCall = jsonresponse.getString(getResponseArray+"["+position+"].putOrCall");
+                Integer response_coveredOrUncoveredInt = jsonresponse.getInt(getResponseArray+"["+position+"].coveredOrUncoveredInt");
+                String response_coveredOrUncovered = jsonresponse.getString(getResponseArray+"["+position+"].coveredOrUncovered");
+                Integer response_customerOrFirmInt = jsonresponse.getInt(getResponseArray+"["+position+"].customerOrFirmInt");
+                String response_customerOrFirm= jsonresponse.getString(getResponseArray+"["+position+"].customerOrFirm");
+                Integer response_openCloseBoxed= jsonresponse.getInt(getResponseArray+"["+position+"].openCloseBoxed");
+                String response_openClose= jsonresponse.getString(getResponseArray+"["+position+"].openClose");
+
+
+                if (response_UserID.equalsIgnoreCase(orderUserid)
+                        && response_text.equalsIgnoreCase(expected_text))
+
+                {
+                    Get_OptionOrderResponse_values(response_orderId,response_sideDesc,response_status,response_ID,response_qOrderID,response_time,response_account,response_clOrdID,response_origClOrdID,response_price,response_symbol,response_text,response_side,response_complianceID,response_UserID,response_ordType,response_stopPx,response_timeInForce,response_transactTime,response_symbolSfx,response_symbolWithoutSfx,response_tifDesc,response_orderTypeDesc,response_statusDesc,response_avgPx,response_cumQty,response_workableQty,response_leavesQty,response_orderQty,response_locateID,response_contactName,response_locateRequired,response_locateRate,response_destination,response_boothID,response_optionSymbol,response_strikePrice,response_maturityDay,response_maturityMonthYear,response_maturityMonthYearDesc,response_maturityDate,response_optionDesc,response_cmta,response_execBroker,response_putOrCallInt,response_putOrCall,response_coveredOrUncoveredInt,response_coveredOrUncovered,response_customerOrFirmInt,response_customerOrFirm,response_openCloseBoxed,response_openClose);
+                    break;
+                }
+                else
+                {
+                    Global.qOrderID=null;
+					Global.getOptionqOrderID=null;
+                    Global.getOptionOrderID=null;
+                    Global.getSideDesc=null;
+                    Global.getStatus=null;
+                    Global.getOptionStatus=null;
+                }
+            }
+
+        }
+        catch(NullPointerException e)
+        {
+            LoggingManager.logger.error(" API- Null Pointer Exception Caught : "+e);
+        }
+    }
 		
 	
 public static void Get_OrderResponse_values(String getOrderID,String getSideDesc,String getStatus,String getID,Integer qOrderID,String gettime,String getaccount,String getclOrdID,String getOrigClOrdID,Double getprice,String getsymbol,String gettext,String getside,String getcomplianceID,String getoriginatingUserDesc,Integer getmaxFloor,String getordType,Double getstopPx,String gettimeInForce,String gettransactTime,String getsymbolSfx,String getsymbolWithoutSfx,String gettifDesc,String getorderTypeDesc,String getstatusDesc,Double getavgPx,Double getcumQty,Double getworkableQty,Double getleavesQty,Double getorderQty,String getlocateID,String getcontactName,String getlocateRequired,Double getlocateRate,String getdestination,String getboothID)
@@ -802,6 +914,7 @@ public  static void Get_OptionOrderResponse_values(String getOrderID,String getS
 			Assert.assertEquals(NVL(Global.getcomplianceID,"null"),Subscribe_Order_complianceID,"Validate_Subscribe_Order_complianceID");
 			Assert.assertEquals(NVL(Global.getordType,"null"),Subscribe_Order_OrderType,"Validate_Subscribe_Order_OrderType");
 			Assert.assertEquals(Global.getstopPx,Double.parseDouble(Subscribe_Order_stopPx),"Validate_Subscribe_Order_stopPx");
+			Assert.assertEquals(Global.maxFloor,Integer.parseInt(Subscribe_Order_MaxFloor),"Validate_Subscribe_Order_MaxFloor");
 			Assert.assertEquals(NVL(Global.gettimeInForce,"null"),Subscribe_Order_timeInForce,"Validate_Subscribe_Order_timeInForce");
 			Assert.assertEquals(NVL(Global.getsymbolSfx,"null") ,Subscribe_Order_symbolSfx,"Validate_Subscribe_Order_symbolSfx");
 			Assert.assertEquals(NVL(Global.getsymbolWithoutSfx,"null") ,Subscribe_Order_symbolWithoutSfx,"Validate_Subscribe_Order_symbolWithoutSfx");
@@ -1053,7 +1166,122 @@ public  static void Get_OptionOrderResponse_values(String getOrderID,String getS
 	}
 }
 
+public static void Validate_OptionOrdersSubscription( String Subscribe_Order_UserID,
+													   String Subscribe_Order_OrderType,
+													   String Subscribe_Order_Side,
+													   String Subscribe_Order_SideDesc,
+													   String Subscribe_Order_Symbol,
+													   String Subscribe_Order_Account,
+													   String Subscribe_Order_Destination,
+													   String Subscribe_Order_Price,
+													   String Subscribe_Order_OrderQty,
+													   String Subscribe_Order_optionSymbol,
+													   String Subscribe_Order_strikePrice,
+													   String Subscribe_Order_maturityDay,
+													   String Subscribe_Order_maturityMonthYear,
+													   String Subscribe_Order_maturityMonthYearDesc,
+													   String Subscribe_Order_maturityDate,
+													   String Subscribe_Order_optionDateDesc,
+													   String Subscribe_Order_cmta,
+													   String Subscribe_Order_execBroker,
+													   String Subscribe_Order_putOrCallInt,
+													   String Subscribe_Order_putOrCall,
+													   String Subscribe_Order_coveredOrUncoveredInt,
+													   String Subscribe_Order_coveredOrUncovered,
+													   String Subscribe_Order_customerOrFirmInt,
+													   String Subscribe_Order_customerOrFirm,
+													   String Subscribe_Order_openCloseBoxed,
+													   String Subscribe_Order_openClose,
+													   String Subscribe_Order_Text,
+													   String Subscribe_Order_complianceID,
+													   String Subscribe_Order_stopPx,
+													   String Subscribe_Order_timeInForce,
+													   String Subscribe_Order_tifDesc,
+													   String Subscribe_Order_symbolSfx,
+													   String Subscribe_Order_symbolWithoutSfx,
+													   String Subscribe_Order_orderTypeDesc,
+													   String Subscribe_Order_avgPx,
+													   String Subscribe_Order_cumQty,
+													   String Subscribe_Order_workableQty,
+													   String Subscribe_Order_leavesQty,
+													   String Subscribe_Order_locateID,
+													   String Subscribe_Order_contactName,
+													   String Subscribe_Order_locateRequired,
+													   String Subscribe_Order_locateRate,
+													   String Subscribe_Order_boothID,
+													   String Subscribe_Order_ExpectedStatus)
+	{
+		try
+		{
+			LocalDateTime localDateTime = LocalDateTime.now();
+			DateTimeFormatter time_formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+			DateTimeFormatter transactTime_formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			DecimalFormat decimalFormat = new DecimalFormat("0.000");
+			decimalFormat.getRoundingMode();
 
+					Assert.assertNotEquals(Global.getOptionID,null,"Validate_ID");
+					Assert.assertNotEquals(Global.getOptionOrderID,null,"Validate_OrderID");
+					Assert.assertNotEquals(Global.getOptionqOrderID,null,"Validate_qOrderID");
+					Assert.assertNotEquals(Global.getOptionclOrdID,null,"Validate_clOrdID");
+					Assert.assertEquals	(Global.getOptionOrigClOrdID,null,"Validate_OrigClOrdID");
+					Assert.assertNotEquals(Global.getOptionTime,null,"Validate_time");
+					Assert.assertEquals(NVL(Global.getOptionOriginatingUserDesc,"null"),Subscribe_Order_UserID,"Validate_Subscribe_Order_UserID ");
+					Assert.assertEquals(NVL(Global.getOptionSideDesc,"null"),Subscribe_Order_SideDesc,"Validate_Subscribe_Order_SideDesc ");
+					Assert.assertEquals(NVL(Global.getOptionStatus,"null"),Subscribe_Order_ExpectedStatus,"Validate_Subscribe_Order_ExpectedStatus ");
+					Assert.assertEquals(NVL(Global.getOptionAccount,"null"),Subscribe_Order_Account,"Validate_Subscribe_Order_Account ");
+					Assert.assertEquals(Global.getOptionPrice,Double.parseDouble(Subscribe_Order_Price),"Validate_Subscribe_Order_Price");
+					Assert.assertEquals(NVL(Global.getOptionSymbol,"null"),Subscribe_Order_Symbol,"Validate_Subscribe_Order_Symbol");
+					Assert.assertEquals(NVL(Global.getOptionText,"null"),Subscribe_Order_Text,"Validate_Subscribe_Order_Text");
+					Assert.assertEquals(NVL(Global.getOptionSide,"null"),Subscribe_Order_Side,"Validate_Subscribe_Order_Side");
+					Assert.assertEquals(NVL(Global.getOptionComplianceID,"null"),Subscribe_Order_complianceID,"Validate_Subscribe_Order_complianceID");
+					Assert.assertEquals(NVL(Global.getOptionOrdType,"null"),Subscribe_Order_OrderType,"Validate_Subscribe_Order_OrderType");
+					Assert.assertEquals(Global.getOptionStopPx,Double.parseDouble(Subscribe_Order_stopPx),"Validate_Subscribe_Order_stopPx");
+					Assert.assertEquals(NVL(Global.getOptionTimeInForce,"null"),Subscribe_Order_timeInForce,"Validate_Subscribe_Order_timeInForce");
+					Assert.assertEquals(NVL(Global.getOptionSymbolSfx,"null") ,Subscribe_Order_symbolSfx,"Validate_Subscribe_Order_symbolSfx");
+					Assert.assertEquals(NVL(Global.getOptionSymbolWithoutSfx,"null") ,Subscribe_Order_symbolWithoutSfx,"Validate_Subscribe_Order_symbolWithoutSfx");
+					Assert.assertEquals(NVL(Global.getOptionTifDesc,"null"),Subscribe_Order_tifDesc,"Validate_Subscribe_Order_tifDesc");
+					Assert.assertEquals(NVL(Global.getOptionOrderTypeDesc,"null"),Subscribe_Order_orderTypeDesc,"Validate_Subscribe_Order_orderTypeDesc");
+					Assert.assertEquals(NVL(Global.getOptionStatusDesc,"null"),Subscribe_Order_ExpectedStatus,"Validate_Subscribe_Order_StatusDesc");
+					//Assert.assertEquals(Global.getOptionAvgPx,Double.parseDouble(Subscribe_Order_avgPx),"Validate_Subscribe_Order_avgPx");
+					if(Subscribe_Order_ExpectedStatus.equalsIgnoreCase("Filled") || Subscribe_Order_ExpectedStatus.equalsIgnoreCase("Part Fill"))
+					{Assert.assertNotEquals(Global.getOptionAvgPx,null,"Validate_Subscribe_OptionOrder_avgPx");}
+					else {Assert.assertEquals(Global.getOptionAvgPx,Double.parseDouble(Subscribe_Order_avgPx),"Validate_Subscribe_OptionOrder_avgPx");}
+					Assert.assertEquals(Global.getOptionCumQty,Double.parseDouble(Subscribe_Order_cumQty),"Validate_Subscribe_Order_cumQty");
+					Assert.assertEquals(Global.getOptionWorkableQty,Double.parseDouble(Subscribe_Order_workableQty),"Validate_Subscribe_Order_workableQty");
+					Assert.assertEquals(Global.getOptionLeavesQty,Double.parseDouble(Subscribe_Order_leavesQty),"Validate_Subscribe_Order_leavesQty");
+					Assert.assertEquals(Global.getOptionOrderQty,Double.parseDouble(Subscribe_Order_OrderQty),"Validate_Subscribe_Order_OrderQty");
+					Assert.assertEquals(NVL(Global.getOptionLocateID,"null"),Subscribe_Order_locateID,"Validate_Subscribe_Order_locateID");
+					Assert.assertEquals(NVL(Global.getOptionContactName,"null"),Subscribe_Order_contactName,"Validate_Subscribe_Order_contactName");
+					Assert.assertEquals(NVL(Global.getOptionLocateRequired,"null"),Subscribe_Order_locateRequired,"Validate_Subscribe_Order_locateRequired");
+					Assert.assertEquals(Global.getOptionLocateRate,Double.parseDouble(Subscribe_Order_locateRate),"Validate_Subscribe_Order_locateRate");
+					Assert.assertEquals(NVL(Global.getOptionDestination,"null"),Subscribe_Order_Destination,"Validate_Subscribe_Order_Destination");
+					Assert.assertEquals(NVL(Global.getOptionBoothID,"null"),Subscribe_Order_boothID,"Validate_Subscribe_Order_boothID");
+					//Assert.assertEquals(Global.getOptionTime.substring(0,10),localDateTime.format(time_formatter),"Validate_time");
+					Assert.assertEquals(Global.getOptionTransactTime.substring(0,10),localDateTime.format(transactTime_formatter),"Validate_transactTime");
+					Assert.assertEquals(Global.getOptionMaturityDay,Subscribe_Order_maturityDay,"Validate_Subscribe_Order_maturityDay");
+					Assert.assertEquals(Global.getOptionMaturityMonthYear,Subscribe_Order_maturityMonthYear,"Validate_Subscribe_Order_maturityMonthYear");
+					Assert.assertEquals(Global.getOptionMaturityMonthYearDesc,Subscribe_Order_maturityMonthYearDesc,"Validate_Subscribe_Order_maturityMonthYearDesc");
+					Assert.assertEquals(Global.getOptionMaturityDate,Subscribe_Order_maturityDate,"Validate_Subscribe_Order_maturityDate");
+					Assert.assertEquals(Global.getOptionStrikePrice,Double.parseDouble(Subscribe_Order_strikePrice),"Validate_Subscribe_Order_strikePrice ");
+					Assert.assertEquals(NVL(Global.getOptionSymbol,"null"),Subscribe_Order_optionSymbol,"Validate_Subscribe_Order_optionSymbol ");
+					Assert.assertEquals(NVL(Global.getOptionDesc,"null"),(Subscribe_Order_Symbol+" "+Subscribe_Order_optionDateDesc+" "+Subscribe_Order_strikePrice+0+" "+Subscribe_Order_putOrCall),"Validate_Subscribe_Order_OptionDesc ");
+					Assert.assertEquals(NVL(Global.getOptionCmta,"null"),Subscribe_Order_cmta,"Validate_Subscribe_Order_cmta ");
+					Assert.assertEquals(NVL(Global.getOptionExecBroker,"null"),Subscribe_Order_execBroker,"Validate_Subscribe_Order_execBroker ");
+					Assert.assertEquals(Global.getOptionPutOrCallInt,Integer.parseInt(Subscribe_Order_putOrCallInt),"Validate_Subscribe_Order_putOrCallInt ");
+					Assert.assertEquals(NVL(Global.getOptionPutOrCall,"null"),Subscribe_Order_putOrCall,"Validate_Subscribe_Order_putOrCall ");
+					Assert.assertEquals(Global.getOptionCoveredOrUncoveredInt,Integer.parseInt(Subscribe_Order_coveredOrUncoveredInt),"Validate_Subscribe_Order_coveredOrUncoveredInt ");
+					Assert.assertEquals(NVL(Global.getOptionCoveredOrUncovered,"null"),Subscribe_Order_coveredOrUncovered,"Validate_Subscribe_Order_coveredOrUncovered ");
+					Assert.assertEquals(Global.getOptionCustomerOrFirmInt,Integer.parseInt(Subscribe_Order_customerOrFirmInt),"Validate_Subscribe_Order_customerOrFirmInt");
+					Assert.assertEquals(NVL(Global.getOptionCustomerOrFirm,"null"),Subscribe_Order_customerOrFirm,"Validate_Subscribe_Order_customerOrFirm");
+					Assert.assertEquals(Global.getOptionOpenCloseBoxed,Integer.parseInt(Subscribe_Order_openCloseBoxed),"Validate_Subscribe_Order_openCloseBoxed");
+					Assert.assertEquals(NVL(Global.getOptionOpenClose,"null"),Subscribe_Order_openClose,"Validate_Subscribe_Order_openClose");
+
+		}
+		catch (Exception e)
+		{
+			LoggingManager.logger.error(e);
+		}
+	}
 public static void Option_OrdersSubscriptionValidation(String Order_Status,
 														 String Subscribe_Order_UserID,
 														 String Subscribe_Order_OrderType,

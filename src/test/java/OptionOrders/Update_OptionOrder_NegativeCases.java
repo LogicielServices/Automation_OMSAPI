@@ -1,5 +1,9 @@
 package OptionOrders;
 
+import APIHelper.APIHelperClass;
+import APIHelper.Global;
+import APIHelper.LoggingManager;
+import XLDataProvider.ExcelDataProvider;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -7,17 +11,15 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import APIHelper.APIHelperClass;
-import APIHelper.Global;
-import APIHelper.LoggingManager;
-import XLDataProvider.ExcelDataProvider;
-import static io.restassured.RestAssured.*;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.HashMap;
+
+import static APIHelper.APIHelperClass.getserializedJsonObj;
+import static io.restassured.RestAssured.given;
 
 
-public class Update_OptionOrder {
+public class Update_OptionOrder_NegativeCases {
 
 	@BeforeMethod
 	public void beforeMethod() 
@@ -37,25 +39,26 @@ public class Update_OptionOrder {
 		}
 	}
 	
-	@Test (dataProvider="OptionOrderUpdation", dataProviderClass=ExcelDataProvider.class, dependsOnGroups={"UserLoginAuthentications"})
-	public void Verify_Update_Option_Order(	String OptionOrder_Update_TestCase,
-			 								String Endpoint_Version,
-			 								String OptionOrder_Creation_BasePath,
-										    String Content_Type ,
-										    String OptionOrder_Creation_Body,
-										    String OptionOrder_Creation_StatusCode,
-										    String OptionOrder_Creation_Response,
-			 								String Subscribe_OptionOrder_BasePath,
-										    String Subscribe_OptionOrder_UserID,
-										    String Subscribe_OptionOrder_Text,
-										    String Subscribe_OptionOrder_StatusCode,
-											String Subscribe_OptionOrder_ExpectedStatus,
-											String Option_qOrderid_flag,
-										    String OptionOrder_Update_BasePath,
-										    String OptionOrder_Update_Body,
-										    String OptionOrder_Update_StatusCode,
-										    String OptionOrder_Update_Response)
-	{
+	@Test (dataProvider="OptionOrderUpdationNegative", dataProviderClass=ExcelDataProvider.class, dependsOnGroups={"UserLoginAuthentications"})
+	public void Verify_Update_Option_Order_Negative(	String OptionOrder_Update_TestCase,
+														String Endpoint_Version,
+														String OptionOrder_Creation_BasePath,
+														String Content_Type ,
+														String OptionOrder_Creation_Body,
+														String OptionOrder_Creation_StatusCode,
+														String OptionOrder_Creation_Response,
+														String Subscribe_OptionOrder_BasePath,
+														String Subscribe_OptionOrder_UserID,
+														String Subscribe_OptionOrder_Text,
+														String Subscribe_OptionOrder_StatusCode,
+														String Subscribe_OptionOrder_ExpectedStatus,
+														String Option_qOrderid_flag,
+														String OptionOrder_Update_BasePath,
+														String OptionOrder_Update_Body,
+														String OptionOrder_Update_StatusCode,
+														String Validation_fieldname,
+														String OptionOrder_Update_ErrorResponse)
+		{
 		try
 		{
 			LoggingManager.logger.info("====================================================================");
@@ -127,25 +130,12 @@ public class Update_OptionOrder {
 			LoggingManager.logger.info("API-Update_OptionOrder_Creation_StatusCode : ["+update_response.getStatusCode()+"]");
 			LoggingManager.logger.info("API-Update_OptionOrder_Response_Body : ["+update_response.getBody().asPrettyString()+"]");
 			Assert.assertEquals(update_response.getStatusCode(), Integer.parseInt(OptionOrder_Update_StatusCode),"Verify_Update_Option_Order");
-			if(Endpoint_Version.equalsIgnoreCase("V1")) {Assert.assertEquals(update_response.getBody().asString(), OptionOrder_Update_Response,"Verify_OptionOrder_Update_Response");}
-			else{Assert.assertEquals(update_response.jsonPath().get("message"), OptionOrder_Update_Response,"Verify_OptionOrder_Update_Response");}
-		/*
-			Global.ValidationFlag=APIHelperClass.UpdateOptionOrderValidate( Fetch_OptionOrder_BasePath,
 
-																			Global.getAccToken,
-																			Content_Type,
-																			Integer.parseInt(Fetch_OptionOrder_StatusCode),
-																			Endpoint_Version,
-																			Global.getOptionOrderID,
-																			OptionOrder_Update_OrdType,
-																			OptionOrder_Update_OrderQty,
-																			OptionOrder_Update_Price);
+			LoggingManager.logger.info("API-Update_OptionOrder_Error_Response : ["+getserializedJsonObj(update_response, Validation_fieldname)+"]");
+			Assert.assertEquals(update_response.getStatusCode(), Integer.parseInt(OptionOrder_Update_StatusCode),"Verify_Update_OptionOrder_ResponseCode");
+			Assert.assertEquals(getserializedJsonObj(update_response, Validation_fieldname), OptionOrder_Update_ErrorResponse,"Verify_OptionOrder_Update_ErrorResponse");
 
-			LoggingManager.logger.info("API-Updated_OptionOrder_Order_ID : ["+Global.getOptionOrderID+"]");
-			LoggingManager.logger.info("API-Updated_OptionOrder_ValidationFlag : ["+Global.ValidationFlag+"]");
-			Assert.assertEquals(Global.ValidationFlag,Boolean.parseBoolean(UpdateFlag), "Order Update Validation");
 
-		 */
 		}
 		catch (Exception e)
 		{
