@@ -523,8 +523,22 @@ public class ExcelDataProvider {
 		}
 		
 	//==================================================Option Orders==================================================
-	
-		@DataProvider(name="OptionOrderCreation_ActiveOpen")
+
+
+	@DataProvider(name="OptionOrder_Subscription")
+	public Object[][] OptionOrder_Subscription() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"OptionOrderSubscription");
+		return DataObject;
+	}
+
+	@DataProvider(name="OptionOrder_NegativeCases")
+	public Object[][] OptionOrder_NegativeCases() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"OptionOrderNegativeSubscription");
+		return DataObject;
+	}
+	@DataProvider(name="OptionOrderCreation_ActiveOpen")
 		public Object[][] Option_ActiveOpen_Order_Create_Data() throws IOException 
 		{
 			Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"CreateActiveOpenOrder");
@@ -568,11 +582,18 @@ public class ExcelDataProvider {
 		}
 		
 		@DataProvider(name="OptionOrderUpdation")
-		public Object[][] Order_Update_Data() throws IOException 
+		public Object[][] OptionOrder_Update_Data() throws IOException
 		{
 			Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"UpdateOrders");
 		    return DataObject;
 		}
+
+	@DataProvider(name="OptionOrderUpdationNegative")
+	public Object[][] OptionOrder_Update_Data_Negative() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"UpdateNegativeOrders");
+		return DataObject;
+	}
 	
 	
 	
