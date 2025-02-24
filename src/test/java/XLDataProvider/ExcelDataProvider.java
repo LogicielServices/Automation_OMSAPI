@@ -594,8 +594,34 @@ public class ExcelDataProvider {
 		Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"UpdateNegativeOrders");
 		return DataObject;
 	}
-	
-	
+
+	@DataProvider(name="Subscribe_OptionExecutions")
+	public Object[][] Subscribe_OptionExecutions() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"OptionOrderExecution");
+		return DataObject;
+	}
+
+	@DataProvider(name="SubscribeOption_Positions")
+	public Object[][] SubscribeOption_Positions() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"OptionOrderPosition");
+		return DataObject;
+	}
+
+	@DataProvider(name="UnSubscribeOptionOrder")
+	public Object[][] UnSubscribe_Option_Order() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"UnSubscribeOptionOrder");
+		return DataObject;
+	}
+
+	@DataProvider(name="UnSubscribe_Option_Positions")
+	public Object[][] UnSubscribe_Option_Positions() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(OptionOrders_FileDirectory,"UnSubscribe_Option_Positions");
+		return DataObject;
+	}
 	
 	//==================================================Equity Orders==================================================
 	
@@ -720,12 +746,7 @@ public class ExcelDataProvider {
 		    return DataObject;
 		}
 		
-		@DataProvider(name="UnSubscribeEquityOrder")
-		public Object[][] UnSubscribe_Equity_Order() throws IOException 
-		{
-			Object[][] DataObject = GetExcelData(Subscriptions_EquityOrders_FileDirectory,"UnSubscribeEquityOrder");
-		    return DataObject;
-		}
+
 		
 		@DataProvider(name="UnSubscribeOpenOrder")
 		public Object[][] UnSubscribe_Open_Order() throws IOException 
@@ -769,12 +790,7 @@ public class ExcelDataProvider {
 		    return DataObject;
 		}
 		
-		@DataProvider(name="UnSubscribeOptionOrder")
-		public Object[][] UnSubscribe_Option_Order() throws IOException 
-		{
-			Object[][] DataObject = GetExcelData(Subscriptions_OptionOrders_FileDirectory,"UnSubscribeOptionOrder");
-		    return DataObject;
-		}
+
 		
 		
 		@DataProvider(name="SubscribeBUYExecutions")
@@ -827,12 +843,7 @@ public class ExcelDataProvider {
 		    return DataObject;
 		}
 		
-		@DataProvider(name="UnSubscribeExecutions")
-		public Object[][] UnSubscribe_Executions() throws IOException 
-		{
-			Object[][] DataObject = GetExcelData(Subscriptions_Executions_FileDirectory,"UnSubscribeExecutions");
-		    return DataObject;
-		}
+
 		
 		@DataProvider(name="Flat_Equity_Position")
 		public Object[][] Flat_Equity_Position() throws IOException 
@@ -876,12 +887,7 @@ public class ExcelDataProvider {
 		    return DataObject;
 		}
 		
-		@DataProvider(name="UnSubscribeOrder_Positions")
-		public Object[][] UnSubscribeOrder_Positions() throws IOException 
-		{
-			Object[][] DataObject = GetExcelData(Subscriptions_Order_Positions_FileDirectory,"UnSubscribeOrder_Positions");
-		    return DataObject;
-		}
+
 		
 		@DataProvider(name="SubscribeBUYOption_Positions")
 		public Object[][] Subscribe_BUY_Option_Positions() throws IOException 
@@ -903,12 +909,7 @@ public class ExcelDataProvider {
 		    return DataObject;
 		}
 		
-		@DataProvider(name="UnSubscribe_Option_Positions")
-		public Object[][] UnSubscribe_Option_Positions() throws IOException 
-		{
-			Object[][] DataObject = GetExcelData(Subscriptions_Option_Positions_FileDirectory,"UnSubscribe_Option_Positions");
-		    return DataObject;
-		}
+
 		
 		
 
@@ -999,6 +1000,27 @@ public class ExcelDataProvider {
 	public Object[][] Order_Positions() throws IOException
 	{
 		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"OrderPositions");
+		return DataObject;
+	}
+
+	@DataProvider(name="UnSubscribeEquityOrder")
+	public Object[][] UnSubscribe_Equity_Order() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"UnSubscribeEquityOrder");
+		return DataObject;
+	}
+
+	@DataProvider(name="UnSubscribeExecutions")
+	public Object[][] UnSubscribe_Executions() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"UnSubscribeExecutions");
+		return DataObject;
+	}
+
+	@DataProvider(name="UnSubscribeOrder_Positions")
+	public Object[][] UnSubscribeOrder_Positions() throws IOException
+	{
+		Object[][] DataObject = GetExcelData(Orders_FileDirectory,"UnSubscribeOrder_Positions");
 		return DataObject;
 	}
 

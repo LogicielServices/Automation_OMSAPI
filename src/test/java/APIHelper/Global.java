@@ -264,7 +264,7 @@ public class Global {
 	public static String   getOptionPosition_coveredOrUncovered;          
 	public static Integer  getOptionPosition_customerOrFirmInt=0;           
 	public static String   getOptionPosition_customerOrFirm;              
-	public static String   getOptionPosition_openCloseBoxed;              
+	public static Integer   getOptionPosition_openCloseBoxed;
 	public static String   getOptionPosition_openClose;                   
 	public static String   getOptionPosition_cmta;                        
 	public static String   getOptionPosition_expiryDate;                  
