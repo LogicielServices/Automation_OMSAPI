@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="ORDERS">
-		  
+
+
 		<test thread-count="1" name="EquityOrder Order Subscriptions">
 		    <classes>
                      <class name="IdentityServer_API_User.Login"/>
@@ -56,5 +57,50 @@
 
             </classes>
         </test>
+
+    <test thread-count="5" name="UnSubscribe EquityOrder">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="Orders.Equity_Order_UnSubscribe">
+                <methods>
+                    <include name="Verify_UnSubscribe_EquityOrder"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="5" name="UnSubscribe Executions EquityOrder">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="Orders.Order_Executions_UnSubscribe">
+                <methods>
+                    <include name="Verify_UnSubscribe_Executions"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="5" name="UnSubscribe Positions EquityOrder">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="Orders.Order_Positions_UnSubscribe">
+                <methods>
+                    <include name="Verify_UnSubscribe_Order_Positions"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 </suite> <!-- Suite -->

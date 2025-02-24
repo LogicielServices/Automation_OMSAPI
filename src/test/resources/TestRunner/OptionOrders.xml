@@ -49,4 +49,65 @@
 		</classes>
 		</test>
 
+		<test thread-count="5" name="OptionOrder_Executions_Validations">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="OptionOrders.OptionOrder_Executions">
+                <methods>
+                    <include name="Verify_Subscribe_OptionExecutions"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test thread-count="5" name="OptionOrder_Positions_Validations">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="OptionOrders.OptionOrder_Positions">
+                <methods>
+                    <include name="Verify_Subscribe_Option_Positions"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+     <test thread-count="5" name="UnSubscribe OptionOrder">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="OptionOrders.Option_Order_UnSubscribe">
+                <methods>
+                    <include name="Verify_UnSubscribe_OptionOrder"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test thread-count="5" name="UnSubscribe Positions OptionOrder">
+        <classes>
+            <class name="IdentityServer_API_User.Login">
+                <methods>
+                    <include name="UserLogin"/>
+                </methods>
+            </class>
+            <class name="OptionOrders.Option_Positions_UnSubscribe">
+                <methods>
+                    <include name="Verify_UnSubscribe_Option_Positions"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite>
